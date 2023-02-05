@@ -1,0 +1,64 @@
+<%-include('./top.ejs')%>
+
+<style>
+#contentsCon table{width:100%;border-left:1px solid #ddd;border-top:1px solid #ddd;}
+#contentsCon table td{border-right:1px solid #ddd;border-bottom:1px solid #ddd;padding:2px 5px;white-space:nowrap;}
+#contentsCon table th{border-right:1px solid #ddd;border-bottom:1px solid #ddd;padding:5px;white-space:nowrap;background:#eee;}
+#contentsCon table th.method{background:#ddd;}
+</style>
+
+<div id="contentsCon" class="table-responsive col-md-10">
+<table class="table">
+<tbody>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
+
+<script src="custom.js" ></script>
+<script>
+/////////////////////
+const ejsParse=(ejsData)=>{
+  return JSON.parse(
+    ejsData.replaceAll('&#34;','\"')
+  );
+}
+const schemas=ejsParse('<%=JSON.stringify(schemas)%>');
+
+let trs='';
+if(typeof schemas==='object') for(let method in schemas){
+  let schema=schemas[method];
+
+  trs+='<tr><th colspan="7" class="method">'+schema.MethodComName.note+' ('+method+')</th></tr>';
+  trs+='<tr><th>depth</th><th>key</th><th>note</th><th>type</th><th>max</th><th>min</th><th>source</th></tr>'
+
+  if(typeof schema==='object') for(let col in schema){
+
+    let row=schema[col];
+    trs+='<tr>';
+    if(row.type=='div'){if(row.depth>0){
+
+      trs+='<th style="padding-left:'+(10+(20*row.depth))+'px;">'+row.depth+'</th>';
+      trs+='<th>'+row.key+'</th>';
+      trs+='<th>'+row.note+'</th>';
+      trs+='<th colspan="4">'+row.type+'</th>';
+      //trs+='<th></th><th></th><th></th>';
+    
+    }}
+    else{
+
+      trs+='<td style="padding-left:'+(10+(20*row.depth))+'px;">'+row.depth+'</td>';
+      trs+='<td>'+row.key+'</td>';
+      trs+='<td>'+row.note+'</td>';
+      trs+='<td>'+row.type+'</td>';
+      trs+='<td>'+row.max+'</td>';
+      trs+='<td>'+row.min+'</td>';
+      trs+='<td>'+row.source+'</td>';
+    }
+    trs+='</tr>';
+  }
+}
+$('#contentsCon table tbody').html(trs);
+</script>

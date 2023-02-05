@@ -1,0 +1,141 @@
+{
+  "flag": false,
+  "msg": {
+    "code": "9900",
+    "message": "no result from host",
+    "treatCdHost": "        ",
+    "method": "KAA04K0C41",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202133900529",
+    "cConTm": 1675312740529,
+    "OutData": {
+      "mbmrchName": "                                                    ",
+      "kbcdYn": "Y",
+      "cardApDsticName": "                                        ",
+      "ownCardUtznAmt": 0,
+      "lastAthorYmd": "        ",
+      "ownCardMgtbrn": "            ",
+      "ownCardOutptLineCnt": 2,
+      "kbcdChkCardYn": " ",
+      "kbcdPlatYn": "Y",
+      "cardSystemErrInfo": "                                                                                                                                                      ",
+      "mbmrchNo": "               ",
+      "bcYn": " ",
+      "bcChkCardYn": " ",
+      "ownCardOvrduYn": " ",
+      "lastAmus": 0,
+      "bcPlatYn": " ",
+      "cardAmov": 0,
+      "ownCardDataBook": [
+        {
+          "ownCardCardNo": "5549595820461707",
+          "ownCardPyaccDdSbsr": "05",
+          "ownCardExpirDdSbsr": "20280430",
+          "cardBrndDsticName": "KB 카드 ",
+          "ownCardIssuncDte": "20221116",
+          "ownCardCardName": "아시아나 KB국민플래티늄카드         ",
+          "ownCardLastAthorYmd": "        ",
+          "ownCardOwnrName": "추린종                                ",
+          "ownCardOwnrDstic": " 개인본인 ",
+          "papnYn": "N"
+        },
+        {
+          "ownCardCardNo": "5549596308555314",
+          "ownCardPyaccDdSbsr": "05",
+          "ownCardExpirDdSbsr": "20280430",
+          "cardBrndDsticName": "KB 카드 ",
+          "ownCardIssuncDte": "20221116",
+          "ownCardCardName": "아시아나 KB국민플래티늄카드         ",
+          "ownCardLastAthorYmd": "        ",
+          "ownCardOwnrName": "반자예                                ",
+          "ownCardOwnrDstic": " 개인가족 ",
+          "papnYn": "N"
+        }
+      ],
+      "ownCardGrntLimt": 0
+    }
+  },
+  "customData": {
+    "method": "KAA04K0C41",
+    "key": "SOC",
+    "remoteAddress": "10.141.32.52",
+    "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202133900529",
+    "cConTm": 1675312740529,
+    "error": [],
+    "lgt": [],
+    "authInfo": true,
+    "custIdnfr": "1006756394",
+    "pidGte": 1455,
+    "pidBiz": 1557,
+    "lgTm": 1675312740529,
+    "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1339/KAA04K0C41--1675312740529_SOC_G.json",
+    "host": {
+      "methodCom": "KAA04K0C41",
+      "ip": "172.17.33.92",
+      "domain": "172.17.33.92",
+      "path": "/",
+      "port": 41164,
+      "proto": "soc",
+      "method": "SOC"
+    },
+    "bizLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1339/KAA04K0C41--1675312740529_SOC_B.json"
+  },
+  "outJson": {
+    "code": "9900",
+    "message": "no result from host",
+    "codeHost": "N0000003",
+    "treatCdHost": "        ",
+    "method": "KAA04K0C41",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202133900529",
+    "cConTm": 1675312740529,
+    "OutData": {
+      "mbmrchName": "                                                    ",
+      "kbcdYn": "Y",
+      "cardApDsticName": "                                        ",
+      "ownCardUtznAmt": 0,
+      "lastAthorYmd": "        ",
+      "ownCardMgtbrn": "            ",
+      "ownCardOutptLineCnt": 2,
+      "kbcdChkCardYn": " ",
+      "kbcdPlatYn": "Y",
+      "cardSystemErrInfo": "                                                                                                                                                      ",
+      "mbmrchNo": "               ",
+      "bcYn": " ",
+      "bcChkCardYn": " ",
+      "ownCardOvrduYn": " ",
+      "lastAmus": 0,
+      "bcPlatYn": " ",
+      "cardAmov": 0,
+      "ownCardDataBook": [
+        {
+          "ownCardCardNo": "5549595820461707",
+          "ownCardPyaccDdSbsr": "05",
+          "ownCardExpirDdSbsr": "20280430",
+          "cardBrndDsticName": "KB 카드 ",
+          "ownCardIssuncDte": "20221116",
+          "ownCardCardName": "아시아나 KB국민플래티늄카드         ",
+          "ownCardLastAthorYmd": "        ",
+          "ownCardOwnrName": "추린종                                ",
+          "ownCardOwnrDstic": " 개인본인 ",
+          "papnYn": "N"
+        },
+        {
+          "ownCardCardNo": "5549596308555314",
+          "ownCardPyaccDdSbsr": "05",
+          "ownCardExpirDdSbsr": "20280430",
+          "cardBrndDsticName": "KB 카드 ",
+          "ownCardIssuncDte": "20221116",
+          "ownCardCardName": "아시아나 KB국민플래티늄카드         ",
+          "ownCardLastAthorYmd": "        ",
+          "ownCardOwnrName": "반자예                                ",
+          "ownCardOwnrDstic": " 개인가족 ",
+          "papnYn": "N"
+        }
+      ],
+      "ownCardGrntLimt": 0
+    }
+  }
+}

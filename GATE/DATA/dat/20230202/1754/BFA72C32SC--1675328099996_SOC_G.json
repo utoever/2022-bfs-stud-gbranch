@@ -1,0 +1,18 @@
+{
+  "method": "BFA72C32SC",
+  "key": "SOC",
+  "remoteAddress": "10.141.32.52",
+  "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "StndTranBaseYmd": "20230202",
+  "conDateTime": "20230202175459996",
+  "cConTm": 1675328099996,
+  "error": [],
+  "lgt": [],
+  "authInfo": true,
+  "custIdnfr": "1404400384",
+  "WWWBnkgLginID": "",
+  "pidGte": 2297,
+  "pidBiz": 0,
+  "lgTm": 1675328099996,
+  "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1754/BFA72C32SC--1675328099996_SOC_G.json"
+}

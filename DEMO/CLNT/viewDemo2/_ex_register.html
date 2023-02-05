@@ -1,0 +1,220 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-link"></i> 서버 인증등록
+				</h6>
+				<div style="position:relative;">
+					<img id="certPopup" src="img/certImage.jpg" style="display:none;position:absolute;left:250px;top:100px;z-index:1000;">
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									기관명<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" value="대한변리사회"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									기관 등록번호
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" value="2208200819"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									기관 관리자 성명
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" value="홍길동"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									기관 연락처
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" value="02-1234-5678"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									등록 도메인 (SSL)
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" value="abcdefg.or.kr"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">인증하기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+
+				<div id="registerOK" style="display:none;">
+				<h6 class="mg-md tc-black">
+					기관 인증키/소스
+				</h6>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									등록된 인증서<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" disabled="disabled"
+									value="cn=대한변리사회(kpaa)151646525523434218516516111,ou=kpaaorkr,ou=xsadiejsfd,o=yessing,c=kr"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									인증서 만료일자
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" disabled="disabled" value="2021-12-31"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									발급기간
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" disabled="disabled" value="2021-0101~2021-12-31"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									상태
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" disabled="disabled" value="정상인증완료"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									API Key
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text" disabled="disabled" value="fvfoanSLF4okfjoW5AFNLV8icnaodSK3rojgp5bcxvml4kFJal"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+							</div>
+							<div class="col table-content-col">
+								<div class="divider-h">
+									<span class="divider"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<span class="empty-column"></span>
+							</div>
+							<div class="col table-content-box-col">
+								<textarea class="form-control table-input-text" rows="4" cols="50"><script src="https://g-branch.kbstar.com/cdn/sdk_0.1.9?apiKey=fvfoanSLF4okfjoW5AFNLV8icnaodSK3rojgp5bcxvml4kFJal"></script></textarea><a href="#" class="btn btn-d btn-lg bt-yellow-bottom">SDK CDN소스 복사</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+							</div>
+							<div class="col table-content-box-col">
+								<textarea class="form-control table-input-text" rows="4" cols="50">http://yourDomain/kbgbranch/456161354516561651685163513469/
+===>fvfoanSLF4okfjoW5AFNLV8icnaodSK3rojgp5bcxvml4kFJal</textarea><a href="#" class="btn btn-d btn-lg bt-yellow-bottom">URL인증키 복사</a> 
+								<a href="#" class="btn btn-d btn-lg bt-yellow-bottom">연동설치 메뉴얼 보기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div id="register" class="modal fade" tabindex="-1" role="dialog" style="margin-left:50px;">
+					<div class="modal-dialog  modal-dialog-centered" role="document">
+						<div class="modal-zone bgc-white modal-content">
+							<div class="modal-zone modal-body">
+								<img src="img/certImage.jpg" class="img-fluid mx-auto d-block" alt="popup" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 서버 인증등록');
+$("#register").click(function(){
+	$("#register").modal('hide');
+	$('#registerOK').slideDown();
+});
+</script>
+
+</body>
+</html>

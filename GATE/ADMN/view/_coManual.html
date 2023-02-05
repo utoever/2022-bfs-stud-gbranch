@@ -1,0 +1,95 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-map"></span> 매뉴얼</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/co">기관</a></li>
+            <li class="breadcrumb-item active">매뉴얼</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row pricing-tables" style="margin-top:0;">
+
+            <div class="col-lg-6">
+              <div class="pricing-table pricing-table-warning" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">클라이언트 서버 설정 정보</div>
+                <div class="pricing-table-description">클라이언트측 서버 설정값과 매뉴얼입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-dark alert-dismissible" role="alert">
+                    <!-- <span class="icon s7-info"></span> -->API key : <strong style="font-size:1.2em;">fvfoanSLF4okfjoW5AFNLV8icnaodSK3rojgp5bcxvml4kFJal</strong>
+                  </div></li>
+                  <li><div class="alert alert-success alert-dismissible" role="alert">
+                    <span class="icon s7-check"></span><strong style="font-size:1.2em;">https://abcdefg.or.kr/kbgbranch/456161354516561651685163513469</strong>
+                  </div></li>
+                  <li><div class="alert alert-primary alert-dismissible" role="alert">
+                    ===> <span class="icon s7-close-circle"></span><strong style="font-size:1.2em;">fvfoanSLF4okfjoW5AFNLV8icnaodSK3rojgp5bcxvml4kFJal</strong>
+                  </div></li>
+                  <li><div class="alert alert-alt4 alert-dismissible" role="alert" style="margin-bottom:0;">
+                    <!-- <span class="icon s7-info"></span> -->설명서 : <a href="#"><strong style="font-size:1.2em;">NB_KBK_GBRANCH_Server.docx</strong></a>
+                  </div></li>
+                </ul><!-- <a class="btn btn-alt4" href="#">다운로드</a> -->
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+
+              <div class="pricing-table pricing-table-success" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">클라이언트 연동 매뉴얼</div>
+                <div class="pricing-table-description">클라이언트 프로그램 연동 매뉴얼입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-dark alert-dismissible" role="alert">
+                    <!-- <span class="icon s7-info"></span> -->CDN 소스 : <strong style="font-size:1.2em;">&lt;script src="https://NB_KBK_GBRANCH_SDK.js"></strong>
+                  </div></li>
+                  <li><div class="alert alert-alt4 alert-dismissible" role="alert" style="margin-bottom:0;">
+                    <!-- <span class="icon s7-info"></span> -->설명서 : <a href="#"><strong style="font-size:1.2em;">NB_KBK_GBRANCH_SDK.docx</strong></a>
+                  </div></li>
+                </ul><!-- <a class="btn btn-alt4" href="#">다운로드</a> -->
+              </div>
+
+              <div class="pricing-table pricing-table-alt4" style="margin-top:20px;margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">연동 데이터 스키마</div>
+                <div class="pricing-table-description">전송해야 할 전체 데이터의 종류와 형식을 정리한 문서입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-alt4 alert-dismissible" role="alert">
+                    <!-- <span class="icon s7-info"></span> -->명세서 : <a href="#"><strong style="font-size:1.2em;">http://m2.espsys.link:1100/method/schema</strong></a>
+                  </div></li>
+                  <li><div class="alert alert-alt4 alert-dismissible" role="alert" style="margin-bottom:0;">
+                    <!-- <span class="icon s7-info"></span> -->설명서 : <a href="#"><strong style="font-size:1.2em;">NB_KBK_GBRANCH_SCHEMA.xlsx</strong></a>
+                  </div></li>
+                </ul><!-- <a class="btn btn-alt4" href="#">다운로드</a> -->
+              </div>
+
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+
+
+        </div>
+
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+});
+
+</script>
+</body>
+</html>

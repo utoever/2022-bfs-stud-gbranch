@@ -1,0 +1,151 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-search-dollar"></i> 회비 미납 현황
+				</h6>
+				<div class=" xs-hidden d-none d-sm-block">
+					<ul class="list-unstyled list-horizontal-layout depth">
+						<li class="depth-list">
+							<p class="depth-menu-active" style="background:#ddd;">
+								월회비
+							</p>
+							<p class="depth-menu">
+								실적회비
+							</p>
+							<p class="depth-menu">
+								가산금
+							</p>
+							<p class="depth-menu">
+								입회비
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="space xs-hidden d-none d-sm-block">
+				</div>
+				<div class="row">
+					<div class="col">
+						<span id="autoCall" class="btn btn-d btn-lg bt-yellow-bottom" style="text-align:right;float:right;font-weight:bold;"><i class="fa fa-check-double" style="color:white;"></i> 실시간 자동 일괄조회</span>
+						<h6 class="tc-black">
+							총 회원 32,815명 <br class="xs-visible d-block d-sm-none">(미납 회원수 153명)
+						</h6>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<div class="table-responsive">
+							<table class="table">
+							<tr>
+								<th>회원명</th>
+								<th class="d-none d-sm-table-cell">연락처</th>
+								<th class="d-none d-sm-table-cell">지로발급여부</th>
+								<th>회비</th>
+								<th>구분</th>
+							</tr>
+							<tr>
+								<td>홍길동 <span class="d-none d-sm-inline">(홍길동변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">010-1234-4564</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>이영희 <span class="d-none d-sm-inline">(이영희변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">010-3698-7415</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>김철수 <span class="d-none d-sm-inline">(김철수변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">010-8741-4566</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>강하나 <span class="d-none d-sm-inline">(강하나변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">070-9851-4128</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>박성균 <span class="d-none d-sm-inline">(박성균변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">031-3698-4129</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>홍길동 <span class="d-none d-sm-inline">(홍길동변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">032-1236-7151</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>이영희 <span class="d-none d-sm-inline">(이영희변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">064-8932-6583</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>김철수 <span class="d-none d-sm-inline">(김철수변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">063-6598-3122</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>강하나 <span class="d-none d-sm-inline">(강하나변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">010-3321-7846</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							<tr>
+								<td>박성균 <span class="d-none d-sm-inline">(박성균변리사사무소)</span></td>
+								<td class="d-none d-sm-table-cell">070-9862-9897</td>
+								<td class="d-none d-sm-table-cell">발급</td>
+								<td>150,000원</td>
+								<td class="searchTd"><span class="btn btn-d btn-lg table-contents-bt d-none d-sm-inline">재발급</span><span class="btn btn-d btn-lg table-contents-bt">재확인</span><span class="searchEndFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 납부조회</span></td>
+							</tr>
+							</table>
+							</div>
+
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="?" class="btn btn-d btn-lg bt-yellow-bottom">새로고침</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">납입내역조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 입금관리 / 회비 미납 현황');
+
+/////////////////////
+$('.searchEndFlag').click(function(){
+	searchEnd($(this),200);
+});
+$('#autoCall').click(function(){
+	$('.searchEndFlag').each(function(i,e){
+		searchEnd($(e),300*i);
+	});
+});
+</script>
+
+</body>
+</html>

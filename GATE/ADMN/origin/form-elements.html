@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <title>Amaretti</title>
+    <link rel="stylesheet" type="text/css" href="assets/lib/stroke-7/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/perfect-scrollbar/css/perfect-scrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/select2/css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap-slider/css/bootstrap-slider.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css"/>
+  </head>
+  <body>
+    <div class="am-wrapper">
+      <nav class="navbar navbar-expand-md fixed-top am-top-header">
+        <div class="container-fluid">
+          <div class="am-navbar-header">
+            <div class="page-title"><span>Form Elements</span></div><a class="am-toggle-left-sidebar navbar-toggle collapsed" href="#"><span class="icon-bar"><span></span><span></span><span></span></span></a><a class="navbar-brand" href="index.html"></a>
+          </div>
+          <button class="navbar-toggler hidden-md-up collapsed" data-toggle="collapse" data-target="#am-navbar-collapse"><span class="icon s7-angle-down"></span></button>
+          <div class="collapse navbar-collapse" id="am-navbar-collapse">
+            <ul class="nav navbar-nav am-user-nav">
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="assets/img/avatar.jpg"><span class="user-name">Samantha Amaretti</span><span class="angle-down s7-angle-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"> <span class="icon s7-user"></span>My profile</a></li>
+                  <li><a href="#"> <span class="icon s7-config"></span>Settings</a></li>
+                  <li><a href="#"> <span class="icon s7-help1"></span>Help</a></li>
+                  <li><a href="#"> <span class="icon s7-power"></span>Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav am-top-menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="angle-down s7-angle-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">UI Consulting</a></li>
+                  <li><a href="#">Web Development</a></li>
+                  <li><a href="#">Database Management</a></li>
+                  <li><a href="#">Seo Improvement</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            <ul class="nav navbar-nav am-icons-nav">
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-comment"></span></a>
+                <ul class="dropdown-menu am-messages">
+                  <li>
+                    <div class="title">Messages<span class="badge">3</span></div>
+                    <div class="list">
+                      <div class="am-scroller-top-messages">
+                        <div class="content">
+                          <ul>
+                            <li class="active"><a href="#">
+                                <div class="logo"><img src="assets/img/avatar2.jpg"></div>
+                                <div class="user-content"><span class="date">April 25</span><span class="name">Jessica Caruso</span><span class="text-content">Request you to be a part of the same so that we can work...</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar3.jpg"></div>
+                                <div class="user-content"><span class="date">March 18</span><span class="name">Joel King</span><span class="text-content"> We wish to extend the building.</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar4.jpg"></div>
+                                <div class="user-content"><span class="date">January 3</span><span class="name">Claire Sassu</span><span class="text-content"> We the ladies of a block are wiling to join together to set up a catering...</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar5.jpg"></div>
+                                <div class="user-content"><span class="date">January 2</span><span class="name">Emily Carter</span><span class="text-content"> Request you to be a part of the same so that we can work...</span></div></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer"> <a href="#">View all messages</a></div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-bell"></span><span class="indicator"></span></a>
+                <ul class="dropdown-menu am-notifications">
+                  <li>
+                    <div class="title">Notifications<span class="badge">3</span></div>
+                    <div class="list">
+                      <div class="am-scroller-notifications">
+                        <div class="content">
+                          <ul>
+                            <li class="active"><a href="#">
+                                <div class="logo"><span class="icon s7-pin"></span></div>
+                                <div class="user-content"><span class="circle"></span><span class="name">Jessica Caruso</span><span class="text-content"> accepted your invitation to join the team.</span><span class="date">2 min ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-add-user"></span></div>
+                                <div class="user-content"><span class="name">Joel King</span><span class="text-content"> is now following you</span><span class="date">2 days ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-gleam"></span></div>
+                                <div class="user-content"><span class="name">Claire Sassu</span><span class="text-content"> is watching your main repository</span><span class="date">2 days ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-add-user"></span></div>
+                                <div class="user-content"><span class="name">Emily Carter</span><span class="text-content"> is now following you</span><span class="date">5 days ago</span></div></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer"> <a href="#">View all notifications</a></div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-share"></span></a>
+                <ul class="dropdown-menu am-connections">
+                  <li>
+                    <div class="title">Connections</div>
+                    <div class="list">
+                      <div class="content">
+                        <ul>
+                          <li>
+                            <div class="logo"><img src="assets/img/github.png"></div>
+                            <div class="field"><span>GitHub</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" checked="" name="check1" id="switch1"><span>
+                                    <label for="switch1"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/bitbucket.png"></div>
+                            <div class="field"><span>Bitbucket</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" name="check2" id="switch2"><span>
+                                    <label for="switch2"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/slack.png"></div>
+                            <div class="field"><span>Slack</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" checked="" name="check3" id="switch3"><span>
+                                    <label for="switch3"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/dribbble.png"></div>
+                            <div class="field"><span>Dribbble</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" name="check4" id="switch4"><span>
+                                    <label for="switch4"> </label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="footer"> <a href="#">View all connections</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><a class="am-toggle-right-sidebar" href="#"><span class="icon s7-menu2"></span></a>
+        </div>
+      </nav>
+      <div class="am-left-sidebar">
+        <div class="content">
+          <div class="am-logo"></div>
+          <ul class="sidebar-elements">
+            <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Dashboard</span></a>
+              <ul class="sub-menu">
+                <li><a href="index.html">Version 1</a>
+                </li>
+                <li><a href="dashboard2.html">Version 2</a>
+                </li>
+                <li><a href="dashboard3.html"><span class="badge badge-primary">New</span>Version 3</a>
+                </li>
+                <li><a href="dashboard4.html"><span class="badge badge-primary">New</span>Version 4</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-diamond"></i><span>UI Elements</span></a>
+              <ul class="sub-menu">
+                <li><a href="ui-general.html">General</a>
+                </li>
+                <li><a href="ui-alerts.html">Alerts</a>
+                </li>
+                <li><a href="ui-cards.html">Cards</a>
+                </li>
+                <li><a href="ui-buttons.html">Buttons</a>
+                </li>
+                <li><a href="ui-modals.html">Modals</a>
+                </li>
+                <li><a href="ui-notifications.html">Notifications</a>
+                </li>
+                <li><a href="ui-icons.html">Icons</a>
+                </li>
+                <li><a href="ui-grid.html">Grid</a>
+                </li>
+                <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a>
+                </li>
+                <li><a href="ui-chat.html"><span class="badge badge-primary">New</span>Chat Component</a>
+                </li>
+                <li><a href="ui-nestable-lists.html">Nestable Lists</a>
+                </li>
+                <li><a href="ui-typography.html"><span class="badge badge-primary">New</span>Typography</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-graph"></i><span>Charts</span></a>
+              <ul class="sub-menu">
+                <li><a href="charts-flot.html">Flot</a>
+                </li>
+                <li><a href="charts-morris.html">Morris.js</a>
+                </li>
+                <li><a href="charts-sparklines.html">Sparklines</a>
+                </li>
+                <li><a href="charts-chartjs.html"><span class="badge badge-primary">New</span>Chart.js</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-ribbon"></i><span>Forms</span></a>
+              <ul class="sub-menu">
+                <li class="active"><a href="form-elements.html">Elements</a>
+                </li>
+                <li><a href="form-validation.html">Validation</a>
+                </li>
+                <li><a href="form-spinner.html"><span class="badge badge-primary">New</span>Spinner</a>
+                </li>
+                <li><a href="form-wizard.html">Wizard</a>
+                </li>
+                <li><a href="form-masks.html">Input Masks</a>
+                </li>
+                <li><a href="form-wysiwyg.html">WYSIWYG Editor</a>
+                </li>
+                <li><a href="form-upload.html">Multi Upload</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-box2"></i><span>Tables</span></a>
+              <ul class="sub-menu">
+                <li><a href="tables-general.html">General</a>
+                </li>
+                <li><a href="tables-datatables.html">Data Tables</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-note2"></i><span>Pages</span></a>
+              <ul class="sub-menu">
+                <li><a href="pages-blank.html">Blank Page</a>
+                </li>
+                <li><a href="pages-blank-header.html">Blank Page Header</a>
+                </li>
+                <li><a href="pages-login.html">Login</a>
+                </li>
+                <li><a href="pages-404.html">404 Page</a>
+                </li>
+                <li><a href="pages-sign-up.html">Sign Up</a>
+                </li>
+                <li><a href="pages-forgot-password.html">Forgot Password</a>
+                </li>
+                <li><a href="pages-profile.html">Profile</a>
+                </li>
+                <li><a href="pages-calendar.html">Calendar</a>
+                </li>
+                <li><a href="pages-gallery.html">Gallery</a>
+                </li>
+                <li><a href="pages-pricing-tables.html"><span class="badge badge-primary">New</span>Pricing Tables</a>
+                </li>
+                <li><a href="pages-timeline.html"><span class="badge badge-primary">New</span>Timeline</a>
+                </li>
+                <li><a href="pages-timeline2.html"><span class="badge badge-primary">New</span>Timeline v2</a>
+                </li>
+                <li><a href="pages-invoice.html"><span class="badge badge-primary">New</span>Invoice</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-mail"></i><span>Email</span></a>
+              <ul class="sub-menu">
+                <li><a href="email-inbox.html">Inbox</a>
+                </li>
+                <li><a href="email-detail.html">Email Detail</a>
+                </li>
+                <li><a href="email-compose.html">Email Compose</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-browser"></i><span>Layouts</span></a>
+              <ul class="sub-menu">
+                <li><a href="layouts-nosidebar-left.html">Without Left Sidebar</a>
+                </li>
+                <li><a href="layouts-nosidebar-right.html">Without Right Sidebar</a>
+                </li>
+                <li><a href="layouts-nosidebars.html">Without Both Sidebars</a>
+                </li>
+                <li><a href="layouts-white-header.html">White Header</a>
+                </li>
+                <li><a href="layouts-sticky-footer.html"><span class="badge badge-primary">New</span>Sticky Footer</a>
+                </li>
+                <li><a href="layouts-fixed-sidebar.html">Fixed Left Sidebar</a>
+                </li>
+                <li><a href="layouts-left-sidebar-click.html"><span class="badge badge-primary">New</span>Open left sidebar on click</a>
+                </li>
+                <li><a href="layouts-left-sidebar-delay.html"><span class="badge badge-primary">New</span>Open left sidebar with delay</a>
+                </li>
+                <li><a href="pages-blank-aside.html">Page Aside</a>
+                </li>
+                <li><a href="layouts-search-input.html"><span class="badge badge-primary">New</span>Search Input</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-map-marker"></i><span>Maps</span></a>
+              <ul class="sub-menu">
+                <li><a href="maps-google.html">Google Maps</a>
+                </li>
+                <li><a href="maps-vector.html">Vector Maps</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="documentation.html"><i class="icon s7-notebook"></i><span>Docs</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="am-content">
+        <div class="page-head">
+          <h2>Form Elements</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+            <li class="breadcrumb-item active">Elements</li>
+          </ol>
+        </div>
+        <div class="main-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Basic Form</h3>
+                </div>
+                <div class="card-body">
+                  <form role="form">
+                    <div class="form-group">
+                      <label>Email address</label>
+                      <input class="form-control" type="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input class="form-control" type="password" placeholder="Password">
+                    </div>
+                    <label class="custom-control custom-checkbox">
+                      <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember me</span>
+                    </label>
+                    <div class="text-inverse">
+                      <button class="btn btn-space btn-primary" type="submit">Submit</button>
+                      <button class="btn btn-space btn-secondary">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Horizontal Form</h3>
+                </div>
+                <div class="card-body">
+                  <form role="form">
+                    <div class="form-group row">
+                      <label class="col-md-2 col-lg-2 col-form-label text-md-right" for="inputEmail3">Email</label>
+                      <div class="col-md-10">
+                        <input class="form-control" id="inputEmail3" type="email" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-lg-2 col-form-label text-md-right" for="inputPassword3">Password</label>
+                      <div class="col-md-10">
+                        <input class="form-control" id="inputPassword3" type="password" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-md-2 col-md-10">
+                        <label class="custom-control custom-checkbox">
+                          <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember me</span>
+                        </label>
+                        <div class="text-inverse">
+                          <button class="btn btn-space btn-primary" type="submit">Registrer</button>
+                          <button class="btn btn-space btn-secondary">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Basic Elements</h3>
+                </div>
+                <div class="card-body">
+                  <form class="group-border-dashed" action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Input Text</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Input Password</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="password">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Placeholder Input</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="Placeholder text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Disabled Input</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="text" disabled="disabled" placeholder="Disabled input text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Readonly Input</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="text" readonly="readonly" value="Readonly input text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Textarea</label>
+                      <div class="col-md-6">
+                        <textarea class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Input Sizing</h3>
+                </div>
+                <div class="card-body">
+                  <form class="group-border-dashed" action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Large</label>
+                      <div class="col-md-6">
+                        <input class="form-control form-control-lg" type="text" value="Large input">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Default</label>
+                      <div class="col-md-6">
+                        <input class="form-control" type="text" value="Default input">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Small</label>
+                      <div class="col-md-6">
+                        <input class="form-control form-control-sm" type="text" value="Small input">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Extra Small</label>
+                      <div class="col-md-6 pt-1">
+                        <input class="form-control form-control-xs" type="text" value="Extra small input">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Select & Option Elements</div>
+                </div>
+                <div class="card-body">
+                  <form class="group-border-dashed" action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Basic Select</label>
+                      <div class="col-md-6">
+                        <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Multiple Select</label>
+                      <div class="col-md-6">
+                        <select class="form-control" multiple="">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Radio</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-radio">
+                            <input class="custom-control-input" id="radio1stacked" type="radio" name="radio-stacked" checked=""><span class="custom-control-label">Option 1</span>
+                          </label>
+                          <label class="custom-control custom-radio">
+                            <input class="custom-control-input" id="radio2stacked" type="radio" name="radio-stacked"><span class="custom-control-label">Option 2</span>
+                          </label>
+                          <label class="custom-control custom-radio">
+                            <input class="custom-control-input" id="radio3stacked" type="radio" name="radio-stacked"><span class="custom-control-label">Option 3</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Inline Radio</label>
+                      <div class="col-12 col-md-8 col-lg-6 form-check">
+                        <label class="custom-control custom-radio custom-control-inline">
+                          <input class="custom-control-input" type="radio" name="radio-inline" checked=""><span class="custom-control-label">Option 1</span>
+                        </label>
+                        <label class="custom-control custom-radio custom-control-inline">
+                          <input class="custom-control-input" type="radio" name="radio-inline"><span class="custom-control-label">Option 2</span>
+                        </label>
+                        <label class="custom-control custom-radio custom-control-inline">
+                          <input class="custom-control-input" type="radio" name="radio-inline"><span class="custom-control-label">Option 3</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Checkbox</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 1</span>
+                          </label>
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 2</span>
+                          </label>
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 3</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Inline Checkbox</label>
+                      <div class="col-12 col-md-8 col-lg-6 form-check">
+                        <label class="custom-control custom-checkbox custom-control-inline">
+                          <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 1</span>
+                        </label>
+                        <label class="custom-control custom-checkbox custom-control-inline">
+                          <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 2</span>
+                        </label>
+                        <label class="custom-control custom-checkbox custom-control-inline">
+                          <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Option 3</span>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">Validation States</div>
+                <div class="card-body">
+                  <form action="#">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Success</label>
+                      <div class="col-md-6">
+                        <input class="form-control is-valid" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Danger</label>
+                      <div class="col-md-6">
+                        <input class="form-control is-invalid" type="text">
+                      </div>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Checkbox</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input is-valid" type="checkbox" checked=""><span class="custom-control-label">Success</span>
+                          </label>
+                        </div>
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input is-invalid" type="checkbox"><span class="custom-control-label">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Inline Checkbox</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="form-group">
+                          <label class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input is-valid" type="checkbox" checked=""><span class="custom-control-label">Success</span>
+                          </label>
+                          <label class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input is-invalid" type="checkbox"><span class="custom-control-label">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Full Color</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="form-group">
+                          <label class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input is-valid" type="checkbox" checked=""><span class="custom-control-label custom-control-color">Success</span>
+                          </label>
+                          <label class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input is-invalid" type="checkbox"><span class="custom-control-label custom-control-color">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Radio</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-radio">
+                            <input class="custom-control-input is-valid" type="radio" checked name="radioStateColor"><span class="custom-control-label">Success</span>
+                          </label>
+                        </div>
+                        <div class="custom-controls-stacked">
+                          <label class="custom-control custom-radio">
+                            <input class="custom-control-input is-invalid" type="radio" name="radioStateColor"><span class="custom-control-label">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Inline Radio</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="form-group">
+                          <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input is-valid" type="radio" checked name="radioStateColor2"><span class="custom-control-label">Success</span>
+                          </label>
+                          <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input is-invalid" type="radio" name="radioStateColor2"><span class="custom-control-label">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-12 col-md-3 col-form-label text-md-right">Full Color</label>
+                      <div class="col-12 col-md-8 col-lg-6">
+                        <div class="form-group">
+                          <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input is-valid" type="radio" checked name="radioStateColor3"><span class="custom-control-label custom-control-color">Success</span>
+                          </label>
+                          <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input is-invalid" type="radio" name="radioStateColor3"><span class="custom-control-label custom-control-color">Danger</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Input Groups</div>
+                </div>
+                <div class="card-body">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Input Text</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                          <input class="form-control" type="text" placeholder="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text">
+                          <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                          <input class="form-control" type="text">
+                          <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Input Sizing</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group input-group-lg mb-3">
+                          <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                          <input class="form-control" type="text" placeholder="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                          <input class="form-control" type="text" placeholder="Username">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                          <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                          <input class="form-control" type="text" placeholder="Username">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Checkbox & Radio</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox"><span class="custom-control-label"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <input class="form-control" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <label class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio"><span class="custom-control-label"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <input class="form-control" type="text">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Button Addons</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary">Go!</button>
+                          </div>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary">Action</button>
+                            <button class="btn btn-primary btn-shade1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Switch Component</div>
+                </div>
+                <div class="card-body">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Sizes</label>
+                      <div class="col-12 col-md-6">
+                        <div class="switch-button switch-button-xs">
+                          <input type="checkbox" checked="" name="swt1" id="swt1"><span>
+                            <label for="swt1"></label></span>
+                        </div>
+                        <div class="switch-button switch-button-sm">
+                          <input type="checkbox" checked="" name="swt2" id="swt2"><span>
+                            <label for="swt2"></label></span>
+                        </div>
+                        <div class="switch-button">
+                          <input type="checkbox" checked="" name="swt3" id="swt3"><span>
+                            <label for="swt3"></label></span>
+                        </div>
+                        <div class="switch-button switch-button-lg">
+                          <input type="checkbox" checked="" name="swt4" id="swt4"><span>
+                            <label for="swt4"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Success</label>
+                      <div class="col-12 col-md-6 pt-1">
+                        <div class="switch-button switch-button-success">
+                          <input type="checkbox" checked="" name="swt5" id="swt5"><span>
+                            <label for="swt5"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Info</label>
+                      <div class="col-12 col-md-6 pt-1">
+                        <div class="switch-button switch-button-info">
+                          <input type="checkbox" checked="" name="swt6" id="swt6"><span>
+                            <label for="swt6"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Warning</label>
+                      <div class="col-12 col-md-6 pt-1">
+                        <div class="switch-button switch-button-warning">
+                          <input type="checkbox" checked="" name="swt7" id="swt7"><span>
+                            <label for="swt7"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Danger</label>
+                      <div class="col-12 col-md-6 pt-1">
+                        <div class="switch-button switch-button-danger">
+                          <input type="checkbox" checked="" name="swt8" id="swt8"><span>
+                            <label for="swt8"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Yes/No Labels</label>
+                      <div class="col-12 col-md-6 pt-1">
+                        <div class="switch-button switch-button-yesno">
+                          <input type="checkbox" checked="" name="swt9" id="swt9"><span>
+                            <label for="swt9"></label></span>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Date Picker</div>
+                </div>
+                <div class="card-body">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Default</label>
+                      <div class="col-12 col-md-6">
+                        <input class="form-control datetimepicker" type="text" value="">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Read Only</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="" readonly="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Only Date </label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-min-view="2" data-date-format="yyyy-mm-dd">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Decade View</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-start-view="4" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Year View</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-start-view="3" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Month View</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-start-view="2" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Day View</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-start-view="1" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Hour View</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-start-view="0" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Day View Meridian</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-show-meridian="true" data-start-view="1" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Hour View Meridian</label>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group date datetimepicker col-lg-5 col-7" data-show-meridian="true" data-start-view="0" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd - HH:ii" data-link-field="dtp_input1">
+                          <input class="form-control" size="16" type="text" value="">
+                          <div class="input-group-append">
+                            <button class="btn btn-primary"><i class="icon-th s7-date"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Advanced Controls</div>
+                </div>
+                <div class="card-body">
+                  <form action="#">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Select2</label>
+                      <div class="col-12 col-md-6">
+                        <select class="select2">
+                          <optgroup label="Alaskan/Hawaiian Time Zone">
+                            <option value="AK">Alaska</option>
+                            <option value="HI">Hawaii</option>
+                          </optgroup>
+                          <optgroup label="Pacific Time Zone">
+                            <option value="CA">California</option>
+                            <option value="NV">Nevada</option>
+                            <option value="OR">Oregon</option>
+                            <option value="WA">Washington</option>
+                          </optgroup>
+                          <optgroup label="Mountain Time Zone">
+                            <option value="AZ">Arizona</option>
+                            <option value="CO">Colorado</option>
+                            <option value="ID">Idaho</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="UT">Utah</option>
+                            <option value="WY">Wyoming</option>
+                          </optgroup>
+                          <optgroup label="Central Time Zone">
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TX">Texas</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="WI">Wisconsin</option>
+                          </optgroup>
+                          <optgroup label="Eastern Time Zone">
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="IN">Indiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="OH">Ohio</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WV">West Virginia</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">MultiTag Input</label>
+                      <div class="col-12 col-md-6">
+                        <select class="tags" multiple="">
+                          <option value="1">Green</option>
+                          <option value="2">Red</option>
+                          <option value="3">Blue</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Multitag from Select</label>
+                      <div class="col-12 col-md-6">
+                        <select class="select2" multiple="">
+                          <optgroup label="Alaskan/Hawaiian Time Zone">
+                            <option value="AK">Alaska</option>
+                            <option value="HI">Hawaii</option>
+                          </optgroup>
+                          <optgroup label="Pacific Time Zone">
+                            <option value="CA">California</option>
+                            <option value="NV">Nevada</option>
+                            <option value="OR">Oregon</option>
+                            <option value="WA">Washington</option>
+                          </optgroup>
+                          <optgroup label="Mountain Time Zone">
+                            <option value="AZ">Arizona</option>
+                            <option value="CO">Colorado</option>
+                            <option value="ID">Idaho</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="UT">Utah</option>
+                            <option value="WY">Wyoming</option>
+                          </optgroup>
+                          <optgroup label="Central Time Zone">
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TX">Texas</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="WI">Wisconsin</option>
+                          </optgroup>
+                          <optgroup label="Eastern Time Zone">
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="IN">Indiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="OH">Ohio</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WV">West Virginia</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Slider</label>
+                      <div class="col-12 col-md-6">
+                        <input class="bslider form-control" type="text" value="">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Range Slider</label>
+                      <div class="col-12 col-md-6">
+                        <input class="bslider form-control" type="text" data-slider-value="[250,450]" data-slider-step="5" data-slider-max="1000" data-slider-min="10" value="">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label text-md-right">Vertical Slider</label>
+                      <div class="col-12 col-md-6">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-13" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-9" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-5" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-2" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-5" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-9" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                        <input class="form-control bslider" type="text" data-slider-selection="after" data-slider-orientation="vertical" data-slider-value="-13" data-slider-step="1" data-slider-max="20" data-slider-min="-20" value="">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="am-right-sidebar">
+        <div class="sb-content">
+          <div class="user-info"><img src="assets/img/avatar.jpg"><span class="name">Samantha Amaretti<span class="status"></span></span><span class="position">Art Director</span></div>
+          <div class="tab-navigation">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation"><a class="active" href="#tab1" aria-controls="home" role="tab" data-toggle="tab"> <span class="icon s7-smile"></span></a></li>
+              <li role="presentation"><a href="#tab2" aria-controls="profile" role="tab" data-toggle="tab"> <span class="icon s7-chat"></span></a></li>
+              <li role="presentation"><a href="#tab3" aria-controls="messages" role="tab" data-toggle="tab"> <span class="icon s7-help2"></span></a></li>
+              <li role="presentation"><a href="#tab4" aria-controls="settings" role="tab" data-toggle="tab"> <span class="icon s7-ticket"></span></a></li>
+            </ul>
+          </div>
+          <div class="tab-panel">
+            <div class="tab-content">
+              <div class="tab-pane announcement active" id="tab1" role="tabpanel">
+                <div class="announcement-container">
+                  <div class="announcement-wrapper">
+                    <div class="am-scroller-announcement">
+                      <div class="announcement-content">
+                        <h2>Announcement</h2>
+                        <ul>
+                          <li>
+                            <div class="icon"><span class="icon s7-sun"></span></div>
+                            <div class="content"><a href="#">Happy Day</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                          <li>
+                            <div class="icon"><span class="icon s7-gift"></span></div>
+                            <div class="content"><a href="#">Congratulations Developers</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                          <li>
+                            <div class="icon"><span class="icon s7-star"></span></div>
+                            <div class="content"><a href="#">High Score</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane chat" id="tab2" role="tabpanel">
+                <div class="chat-contacts">
+                  <div class="chat-sections">
+                    <div class="am-scroller-chat">
+                      <div class="content">
+                        <h2>Recent</h2>
+                        <div class="recent">
+                          <div class="user"><a href="#"><img src="assets/img/avatar4.jpg">
+                              <div class="user-data"><span class="status away"></span><span class="name">Claire Sassu</span><span class="message">Can you share the...</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                              <div class="user-data"><span class="status"></span><span class="name">Maggie jackson</span><span class="message">I confirmed the info.</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar3.jpg">
+                              <div class="user-data"><span class="status offline"></span><span class="name">Joel King		</span><span class="message">Ready for the meeti...</span></div></a></div>
+                        </div>
+                        <h2>Contacts</h2>
+                        <div class="contact">
+                          <div class="user"><a href="#"><img src="assets/img/avatar6.jpg">
+                              <div class="user-data2"><span class="status"></span><span class="name">Mike Bolthort</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                              <div class="user-data2"><span class="status"></span><span class="name">Maggie jackson</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar8.jpg">
+                              <div class="user-data2"><span class="status offline"></span><span class="name">Jhon Voltemar</span></div></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+                <div class="chat-window">
+                  <div class="title">
+                    <div class="user"><img src="assets/img/avatar7.jpg">
+                      <h2>Maggie jackson</h2><span>Active 1h ago</span>
+                    </div><span class="icon return s7-angle-left"></span>
+                  </div>
+                  <div class="chat-messages">
+                    <div class="am-scroller-messages">
+                      <div class="content">
+                        <ul>
+                          <li class="friend">
+                            <div class="msg">Hello</div>
+                          </li>
+                          <li class="self">
+                            <div class="msg">Hi, how are you?</div>
+                          </li>
+                          <li class="friend">
+                            <div class="msg">Good, I'll need support with my pc</div>
+                          </li>
+                          <li class="self">
+                            <div class="msg">Sure, just tell me what is going on with your computer?</div>
+                          </li>
+                          <li class="friend">
+                            <div class="msg">I don't know it just turns off suddenly</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-input">
+                    <div class="input-wrapper"><span class="photo s7-camera"></span>
+                      <input type="text" placeholder="Message..." name="q" autocomplete="off"><span class="send-msg s7-paper-plane"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane faqs" id="tab3" role="tabpanel">
+                <div class="faqs-container">
+                  <div class="faqs-wrapper">
+                    <div class="am-scroller-faqs">
+                      <div class="faqs-content">
+                        <h2>FAQs</h2>
+                        <div class="accordion" id="accordion" role="tablist">
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a data-toggle="collapse" data-parent="#accordion" href="#faq1" aria-expanded="true" aria-controls="collapseOne">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Under Error 352</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse show" id="faq1" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq2" aria-expanded="false" aria-controls="collapseTwo">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Failure platform</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq2" aria-labelledby="headingTwo" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq3" aria-expanded="false" aria-controls="collapseThree">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Error 404</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq3" aria-labelledby="headingThree" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq4" aria-expanded="false" aria-controls="collapseThree">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">New workstation</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq4" aria-labelledby="headingFour" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane ticket" id="tab4" role="tabpanel">
+                <div class="ticket-container">
+                  <div class="ticket-wrapper">
+                    <div class="am-scroller-ticket">
+                      <div class="ticket-content">
+                        <h2>New Ticket</h2>
+                        <form>
+                          <div class="form-group send-ticket">
+                            <input class="form-control" type="text" placeholder="Title">
+                          </div>
+                          <div class="form-group send-ticket">
+                            <textarea class="form-control" rows="3" placeholder="Write Here..."></textarea>
+                          </div>
+                          <button class="btn btn-primary btn-lg" type="submit">Create Ticket</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery.nestable/jquery.nestable.js" type="text/javascript"></script>
+    <script src="assets/lib/moment.js/min/moment.min.js" type="text/javascript"></script>
+    <script src="assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="assets/lib/select2/js/select2.min.js" type="text/javascript"></script>
+    <script src="assets/lib/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+    <script src="assets/js/app-form-elements.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      	//- initialize the javascript
+      	App.init();
+      	App.formElements();
+      });
+    </script>
+  </body>
+</html>

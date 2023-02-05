@@ -1,0 +1,15 @@
+alias nbto='cd /home/nodejs/Nodebreaker/'
+alias nbdat='cd /home/nodejs/Nodebreaker/DATA/dat/'
+alias nbs='/usr/local/node/bin/pm2 start /home/nodejs/Nodebreaker/DATA/cfg/appRun.json'
+
+alias dudat='du -sh /home/nodejs/Nodebreaker/DATA/dat/'
+alias deldat='rm -rf /home/nodejs/Nodebreaker/DATA/dat/20*'
+alias dellog='rm -rf /root/.pm2/logs/*.log'
+
+alias pmd='/usr/local/node/bin/pm2 delete all'
+alias pmr='/usr/local/node/bin/pm2 restart all'
+alias pms='/usr/local/node/bin/pm2 stop all'
+alias pmf='/usr/local/node/bin/pm2 flush'
+alias pml='/usr/local/node/bin/pm2 list'
+alias pmm='/usr/local/node/bin/pm2 monit'
+alias pmlg='cd /root/.pm2/logs/'

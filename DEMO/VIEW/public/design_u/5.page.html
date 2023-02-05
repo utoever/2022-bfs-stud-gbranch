@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"> -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"> -->
+
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/common.css">
+
+    <script src="src/js/vue_3238.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="src/css/4.css">
+    <title>ESP System - CRM</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <a href="index.htm"><img src="./src/img/logo_white.png" alt="헤더 로고" /></a>
+        </div>
+        <h1 class="medium-text m-size-text">ESP-CRM</h1>
+        <div class="box shadow-10 notice">
+            <h2 class="title bold-text ">공지사항</h2>
+            <h3 class=".regular-text s-size-text">ESP-CMS 원격지원 서비스 지원 안내</h3>
+            <a href="">
+                <p class="light-text xs-size-text">자세히 보기</p>
+            </a>
+        </div>
+        <ul class="xs-size-text light-text">
+            <li><a href="#">화면잠금</a></li>
+            <li><a href="#">잠금설정</a></li>
+            <li><a href="#">화면인쇄</a></li>
+            <li><a href="#">은행링크</a></li>
+            <li><a href="#">원격지원</a></li>
+            <li><a href="#">도움말</a></li>
+        </ul>
+    </header>
+    <nav>
+        <div class="user">
+            <div class="user-greet">
+                <img src="src/img/user.png" alt="user" />
+                <p class="regular-text s-size-text">홍길동님, 반갑습니다.</p>
+            </div>
+            <div class="close-button">
+                <span class="material-symbols-rounded">close</span>
+            </div>
+            <div class="menu-button">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+        </div>
+        <div class="user-menu">
+            <div class="title">사용자메뉴</div>
+            <ul class="regular-text s-size-text">
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">logout</span>
+                        <p class="user-menu-text">로그아웃</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">calendar_month</span>
+                        <p class="user-menu-text">스케줄러</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            desktop_windows
+                        </span>
+                        <p class="user-menu-text">사용자 화면</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            description
+                        </span>
+                        <p class="user-menu-text">승인 / 결재</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            account_balance
+                        </span>
+                        <p class="user-menu-text">인터넷뱅킹</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div class="menu">
+            <div class="input-wrapper">
+                <input class="menu-input medium-text m-size-text" type="text" placeholder="메뉴명 검색" />
+                <button class="menu-search-button"><span class="material-symbols-rounded">
+                        search
+                    </span></button>
+            </div>
+            <div class="menu-tap">
+                <ul class="s-size-text light-text">
+                    <li class="box-small shadow-10">메뉴</li>
+                    <li class="box-small shadow-10">맞춤</li>
+                    <li class="box-small shadow-10">검색</li>
+                </ul>
+            </div>
+            <ul class="menu-list s-size-text regular-text">
+                <li class="1depth">조회</li>
+                <li class="1depth">지급 / 집금</li>
+                <li class="1depth">당행전자결제</li>
+                <li class="1depth">타행전자결제</li>
+                <li class="1depth">법인카드</li>
+                <li class="1depth">ESP Manager</li>
+                <li class="1depth">외환 / 파생</li>
+                <li class="1depth">퇴직연금</li>
+                <li class="1depth">세금공과금</li>
+                <li class="1depth">전자세금계산서</li>
+                <li class="1depth">특화서비스</li>
+                <li class="1depth">정보관리</li>
+                <li class="1depth">시스템관리</li>
+                <li class="1depth">RCMS</li>
+                <li class="1depth">통합 R&D 자금관리</li>
+                <li class="1depth">대출</li>
+                <li class="1depth">감사시스템</li>
+                <li class="1depth">운영보고서</li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="link-tap">
+            <div class="home-button shadow-10">
+                <a href="index.htm"><span class="material-symbols-rounded">
+                    home
+                </span></a>
+            </div>
+            <ul class="visited-tab">
+                <li>
+                    <div>
+                        <p></p>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="title-black">은행정보등록</div>
+        <div class="button-container">
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+                <p>찾기</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    print
+                </span>
+                <p>인쇄</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    save
+                </span>
+                <p>저장</p>
+            </div>
+        </div>
+        <div class="box shadow-20 top-box">
+            <div class="top">
+                <div class="check-wrapper">
+                    <input type="checkbox" />
+                    <h4 class="m-size-text bold-text">인터넷뱅킹계좌</h4>
+                </div>
+                <div class="check-wrapper">
+                    <input type="checkbox" />
+                    <h4 class="m-size-text bold-text">스피드계좌</h4>
+                </div>
+                <div class="m-size-text bold-text">
+                    <span class="material-symbols-rounded">
+                        notifications
+                    </span>
+                    <p>일반 입출금계좌 외에는 은행에 따라 조회가 불가할 수 있습니다.</p>
+                </div>
+                <div class="button-wrapper">
+                    <div class="m-size-text medium-text  gray-button">수수료 설정</div>
+                    <div class="m-size-text medium-text  gray-button">새로고침</div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="left">
+                    <div>
+                        <h4 class="m-size-text medium-text">은행명</h4>
+                        <select>
+                            <option>
+                                우리은행
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <h4 class="m-size-text medium-text">로그인 ID</h4>
+                        <select>
+                            <option>
+                                testespsys01
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <h4 class="m-size-text medium-text">인증서명</h4>
+                        <select>
+                            <option>
+                                테스트 ESPCMS(DFDF)0020202
+                            </option>
+                        </select>
+                    </div>
+                    <div class="blue-button m-size-text medium-text ">은행계좌 추가등록</div>
+                </div>
+                <div class="right">
+                    <div class="table-wrapper">
+                        <table class="light-text m-size-text">
+                            <tr>
+                                <th>등록구분</th>
+                                <th>계좌등록방법</th>
+                                <th>은행명</th>
+                                <th>계좌번호</th>
+                                <th>그룹명</th>
+                                <th>과목명</th>
+                                <th>계좌종류</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="material-symbols-rounded">
+                                        check_box_outline_blank
+                                    </span>
+                                </td>
+                                <td>등록</td>
+                                <td>자동등록</td>
+                                <td>국민은행</td>
+                                <td>105-134-58798</td>
+                                <td>미지정</td>
+                                <td>미지정</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div>
+                    <h4 class="m-size-text medium-text">계좌 PW</h4>
+                    <input type="password" />
+                </div>
+                <div>
+                    <h4 class="m-size-text medium-text">이체 PW</h4>
+                    <input type="password" />
+                </div>
+                <div>
+                    <h4 class="m-size-text medium-text">빠른조회 ID</h4>
+                    <input type="text" />
+                </div>
+                <div>
+                    <h4 class="m-size-text medium-text">빠른조회 PW</h4>
+                    <input type="password" />
+                </div>
+                <div class="blue-button m-size-text medium-text">일괄적용</div>
+                <div class="gray-button m-size-text medium-text">초기</div>
+                <div class="gray-button m-size-text medium-text">저장</div>
+            </div>
+        </div>
+        <div class="box shadow-20 bottom-box">
+            <div class="top">
+                <div>
+                    <h4 class="m-size-text medium-text">은행명</h4>
+                    <select>
+                        <option>전체</option>
+                    </select>
+                </div>
+                <div>
+                    <h4 class="m-size-text medium-text">그룹명</h4>
+                    <select>
+                        <option>전체</option>
+                    </select>
+                </div>
+                <div class="button-container">
+                    <div class="gray-button m-size-text medium-text">계좌정보ERP연계</div>
+                    <div class="gray-button m-size-text medium-text">추가등록</div>
+                    <div class="blue-button m-size-text medium-text">삭제</div>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="light-text m-size-text">
+                    <tr>
+                        <th>선택</th>
+                        <th>등록구분</th>
+                        <th>계좌등록방법</th>
+                        <th>은행명</th>
+                        <th>계좌번호</th>
+                        <th>그룹명</th>
+                        <th>과목명</th>
+                        <th>계좌종류</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>등록</td>
+                        <td>자동등록</td>
+                        <td>국민은행</td>
+                        <td>105-134-58798</td>
+                        <td>미지정</td>
+                        <td>미지정</td>
+                        <td>자유</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <a href="#">
+                <p class="ligth-text s-size-text">ESP SYSTEM ALL 바로가기</p>
+            </a>
+            <p class="light-text xs-size-text">COPYRIGHT 2022 ESP SYSTEM ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="logo-wrapper">
+            <img src="src/img/logo_white.png" alt="푸터 로고" />
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="src/js/common.js"></script>
+</body>
+
+</html>

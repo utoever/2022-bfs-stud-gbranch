@@ -1,0 +1,126 @@
+<%-include('./top.ejs')%>
+
+<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+	<h6 class="mg-md tc-black" style="font-size:1.2em;">
+		<i class="fa fa-search-dollar"></i> 사용자권한설정
+	</h6>
+	<p>※ 사용자의 권한에 따라 메뉴허용에 대한 제한이 있을 수 있습니다.(기안자는 기안만 가능, 검토자는 중간결재만 가능)</p>
+	<div class="mg-md">
+		<div class="xs-hidden d-none d-sm-block">
+			<ul class="list-unstyled list-horizontal-layout depth">
+				<li class="depth-list">
+					<p class="depth-menu-active" style="background:#ddd;">
+						전체
+					</p>
+					<p class="depth-menu">
+						조회
+					</p>
+					<p class="depth-menu">
+						이체
+					</p>
+					<p class="depth-menu">
+						예금
+					</p>
+					<p class="depth-menu">
+						신탁
+					</p>
+					<p class="depth-menu">
+						대출
+					</p>
+					<p class="depth-menu">
+						외환
+					</p>
+					<p class="depth-menu">
+						펀드
+					</p>
+					<p class="depth-menu">
+						카드
+					</p>
+					<p class="depth-menu">
+						B2B/전자결재
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<div class="col">
+					<span id="autoCall" class="btn btn-d btn-lg bt-yellow-bottom" style="text-align:right;float:right;font-weight:bold;">모두해제</span>
+					<span id="autoCall" class="btn btn-d btn-lg bt-yellow-bottom" style="text-align:right;float:right;font-weight:bold;">모두선택</span>
+				</div>
+				<table>
+					<tbody>
+						<tr>
+							<th class="col-md-2">업무구분</th>
+							<th class="col-md-5 d-none d-sm-table-cell">상세구분</th>
+							<th class="col-md-3 d-none d-sm-table-cell">
+								권한여부
+							</th>
+						</tr>
+						<tr>
+							<td class="table-td depth-list"></td>
+							<td class="table-td depth-list txt-left">계좌 잔액조회</td>
+							<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+						</tr>
+						<tr>
+							<td class="table-td depth-list"></td>
+							<td class="table-td depth-list txt-left">입출금 거래내역</td>
+							<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+						</tr>
+						<tr>
+							<td class="table-td depth-list"></td>
+							<td class="table-td depth-list txt-left">당타행 계좌이체</td>
+							<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+						</tr>
+						<tr>
+							<td class="table-td depth-list"></td>
+							<td class="table-td depth-list txt-left">카드 내역조회</td>
+							<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+						</tr>
+						<tr>
+							<td class="table-td depth-list"></td>
+							<td class="table-td depth-list txt-left">서버 인증등록</td>
+							<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col table-content-col bloc-margin-top">
+				<div class="form-group">
+					<a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">목록</a>
+					<a href="#none" class="btn btn-d btn-lg bt-yellow-bottom">정보변경</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 카드 내역조회');
+
+/////////////////////
+const code='1100';
+let page=0;
+setDateSels(d);
+//setToday(d);
+
+setDate('20210705','20210705');
+cardDateViewer();
+cardSendAct(code);
+
+$('#actionBtn').click(()=>{
+	cardSendAct(code);
+});
+$('#plusPageBtn').click(()=>{
+	cardSendAct(code,true);
+});
+
+</script>
+
+</body>
+</html>

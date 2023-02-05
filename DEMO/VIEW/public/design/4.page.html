@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>ESP System - CRM</title>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+
+<link rel="stylesheet" href="src/css/reset.css">
+<link rel="stylesheet" href="src/css/common.css">
+
+<script src="src/js/vue_3238.js"></script>
+<script src="//unpkg.com/mitt/dist/mitt.umd.js"></script>
+<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+<link rel="stylesheet" href="src/css/index.css">
+<link rel="stylesheet" href="src/css/3.css">
+
+</head>
+
+<body>
+<span id="body">
+  <header><headers /></header>
+  <nav><navs /></nav>
+  <main><mains /></main>
+  <footer><footers /></footer>
+</span>
+</body>
+
+<script type="module">
+import headerjs from './comp/header.js';
+import navjs from './comp/nav.js';
+import mainjs from './comp/main4.js';
+import footerjs from './comp/footer.js';
+
+const eventBus = mitt();
+const vueRoot={
+  components:{
+    headers:headerjs,
+    navs:navjs,
+    mains:mainjs,
+    footers:footerjs
+  },
+  data:()=>{ return {
+    number:0
+  }},
+  methods:{
+  },
+  mounted(){
+    this.eventBus.on('click2p',(msg)=>{
+      this.number++;
+      alert(this.number+msg+' to parent from nav');
+      this.eventBus.emit('click2c',[this.number,msg]);
+    });
+  }
+};
+
+const app=Vue.createApp(vueRoot);
+app.config.globalProperties.eventBus = eventBus;
+app.mount('#body');
+</script>
+
+<script type="text/javascript" src="src/js/common.js"></script>
+
+<script>
+</script>
+</html>

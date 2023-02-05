@@ -1,0 +1,141 @@
+<%-include('./top.ejs')%>
+
+<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+	<h6 class="mg-md tc-black" style="font-size:1.2em;">
+		<i class="fa fa-search-dollar"></i> 업무권한설정
+	</h6>
+	<div class="row">
+		<h6 class="tc-black">
+			사용자권한정보
+		</h6>
+	</div>
+	<div class="inquiry-wrap">
+		<div class="inquiry">
+			<div>
+				조회 구분
+				<input type="checkbox" name="inquiry-inp" id="inquiry01">
+				<label for="inquiry01">전체</label>
+				<input type="checkbox" name="inquiry-inp" id="inquiry02">
+				<label for="inquiry02">정상</label>
+				<input type="checkbox" name="inquiry-inp" id="inquiry03">
+				<label for="inquiry03">해지</label>
+			</div>
+			<div>
+				<p>
+					조회기간: <span id="periodView">2021-07-05 ~ 2021-07-05</span>
+				</p>
+			</div>
+		</div>
+		<div class="mg-md">
+			<div class="row">
+				<div class="table-responsive">
+					<table>
+						<tbody>
+							<tr>
+								<th>선택</th>
+								<th>번호</th>
+								<th>상태</th>
+								<th>ID</th>
+								<th>사용자명</th>
+								<th>부서명</th>
+								<th>직위</th>
+								<th>1일이체한도</th>
+								<th>1회이체한도</th>
+								<th>메뉴권한설정</th>
+								<th>사용자</th>
+							</tr>
+							<tr>
+								<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check01"></td>
+								<td class="table-td depth-list">1</td>
+								<td class="table-td depth-list txt-left">정상</td>
+								<td class="table-td depth-list">SWSM03A0</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list">1,000,000</td>
+								<td class="table-td depth-list">50,000</td>
+								<td class="table-td depth-list">O</td>
+								<td class="table-td depth-list">결재</td>
+							</tr>
+							<tr>
+								<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check02"></td>
+								<td class="table-td depth-list">2</td>
+								<td class="table-td depth-list txt-left">정상</td>
+								<td class="table-td depth-list">SWSM03A2</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list">500,000</td>
+								<td class="table-td depth-list">500,000</td>
+								<td class="table-td depth-list">O</td>
+								<td class="table-td depth-list">결재</td>
+							</tr>
+							<tr>
+								<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check03"></td>
+								<td class="table-td depth-list">3</td>
+								<td class="table-td depth-list txt-left">정상</td>
+								<td class="table-td depth-list">SWSM03A1</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list">1,000,000</td>
+								<td class="table-td depth-list">1,000,000</td>
+								<td class="table-td depth-list">O</td>
+								<td class="table-td depth-list">결재</td>
+							</tr>
+							<tr>
+								<td class="table-td depth-list"><input type="checkbox" name="checkinp" id="check04"></td>
+								<td class="table-td depth-list">4</td>
+								<td class="table-td depth-list txt-left">정상</td>
+								<td class="table-td depth-list">ELRMAQN3</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list">대리</td>
+								<td class="table-td depth-list">0</td>
+								<td class="table-td depth-list">0</td>
+								<td class="table-td depth-list">X</td>
+								<td class="table-td depth-list">기안</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col table-content-col bloc-margin-top">
+					<div class="form-group">
+						<a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">목록</a>
+						<a href="#none" class="btn btn-d btn-lg bt-yellow-bottom">정보변경</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 카드 내역조회');
+
+/////////////////////
+const code='1100';
+let page=0;
+setDateSels(d);
+//setToday(d);
+
+setDate('20210705','20210705');
+cardDateViewer();
+cardSendAct(code);
+
+$('#actionBtn').click(()=>{
+	cardSendAct(code);
+});
+$('#plusPageBtn').click(()=>{
+	cardSendAct(code,true);
+});
+
+</script>
+
+</body>
+</html>

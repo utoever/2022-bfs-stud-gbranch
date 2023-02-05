@@ -1,0 +1,491 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <div class="" style="float:right;text-align:right;">
+            <a href="?"><button style="border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;width:100px;">전체보기</button></a>
+            <input id="searchInput" placeholder="로그검색" value="" style="border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;width:300px;">
+            <div style="padding:10px 10px 0 0;">
+               <!-- (최근 30분) &nbsp; -->
+               Total Size : <strong id="logDiskSize">0</strong>,
+              Count : <strong id="logCount">0</strong>
+            </div>
+          </div>
+          <!-- http://x1.espsys.link:900/ajax/logFind?search=1-- -->
+
+          <h2><span class="icon s7-news-paper"></span> 로그</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/method">메소드</a></li>
+            <li class="breadcrumb-item active">로그</li>
+          </ol>
+
+        </div>
+        <div class="main-content" name="top">
+
+          <div class="row">
+
+            <div id="findList" class="col-sm-6" style="display:none;">
+              <div class="widget widget-fullwidth widget-small">
+                <table id="tableFinds" class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th style="background:#ddd;font-weight:bold;">날짜/시분</th>
+                      <th style="background:#ddd;font-weight:bold;">로그명 (최근 <span id="findCnt">0</span>개)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- <button id="moreLogsBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;margin-bottom:20px;">다음 20개 목록 더보기</button> -->
+            </div>
+
+            <div id="listDates" class="col-sm-2 defaultList" style="display:none;">
+              <div class="widget widget-fullwidth widget-small">
+                <table id="tableDates" class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <!-- <th style="background:#ddd;font-weight:bold;"></th> -->
+                      <th style="background:#ddd;font-weight:bold;text-align:right;">날짜/시:분 (총 <span id="dateCnt">0</span> Dir)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <button id="moreDateBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;margin-bottom:20px;">다음 20개 목록 더보기</button>
+            </div>
+
+            <div id="listLogFiles" class="col-sm-4" style="display:none;">
+              <div class="widget widget-fullwidth widget-small">
+                <table id="tableLogs" class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th style="background:#ddd;font-weight:bold;"><span id="dateHm"></span> (총 <span id="logsCnt">0</span> Log) > 로그명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <button id="moreLogsBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;margin-bottom:20px;">다음 20개 목록 더보기</button>
+            </div>
+
+            <div id="viewLogFile" class="col-sm-6" style="display:none;">
+              <div class="card card-default">
+                <div class="card-header">
+                  <div id="logDivStr" style="float:right;">
+                  </div>
+                  <div id="logFileName" class="card-title">로그내용</div>
+                </div>
+                <div class="card-body">
+                  <div spellcheck="false" id="logDataStr" style="width:100%;min-height:750px;font-family:Verdana;line-height:170%;color:#555;overflow-y:scroll;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- <pre id="debug"></pre> -->
+
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let apps={}; try{apps=JSON.parse('<%-JSON.stringify(apps).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+const appNameDefault='10.LOGR';
+
+
+//////////////////////////////////////
+const logFileDiv=(logFileName)=>{
+  if(logFileName){
+    let namer=logFileName.split('--');
+    let names=namer[1].split('_');
+    return {
+      file:logFileName,
+      method:namer[0],
+      time:names[0],
+      key:names[1],
+      div:names[2].substr(0,1)
+    };
+  }
+}
+
+//////////////////////////////////////
+let from=0;
+let fromDate=0;
+let fromLogs=0;
+let size=20;
+let pageDate=0;
+let pageLogs=0;
+let dateN=0;
+let thisDate='';
+let thisMins='';
+let divVals={G:'Gateway',B:'Business',R:'Response'};
+let firstLink='';
+
+//////////////////////////////////////
+const logFind=()=>{
+
+  $('#listDates').hide();
+  $('#listLogFiles').hide();
+  $('#viewLogFile').hide();
+
+  let url='/ajax/logFind';
+  let data={search:$('#searchInput').val()};
+  //pr(url);pr(data);
+  $.ajax({
+    dataType:'json',
+    data:data,url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      $('#tableFinds tbody').html('');
+      $('#logDataStr').text('');
+      //pr(rs);
+
+      if(rs.length){
+        $('#findList').show();
+        $('.defaultList').hide();
+
+        if(rs.length){
+          for(let i in rs){
+            let log=rs[i];
+            //pr(log);
+            if(i==0) logRead(log.file,'tableFinds');
+
+            let YMD=log.date.substr(0,4)+'-'+log.date.substr(4,2)+'-'+log.date.substr(6,2);
+            let HM=log.Hm.substr(0,2)+':'+log.Hm.substr(2,2);
+
+            $('#tableFinds tbody').append('<tr><td>'
+            +'<strong class="" style="font-family:Verdana;">'+YMD+' '+HM+'</strong></td>'
+            //+''+info.method+' '+info.key+'<br>'
+            +'<td><strong class="logLink" style="font-family:Verdana;cursor:pointer;color:#ef6262;">'+log.file+'</strong></td>'
+            +'</tr>');
+          }
+          linkRead();
+          $('#findCnt').text(nf(rs.length));
+        }
+
+      }
+      else alert('검색 결과가 없습니다.');
+    }
+  });
+}
+
+//////////////////////////////////////
+const mkNowMins=()=>{
+  let nowDate=new Date();
+  return String(nowDate.getHours()).padStart(2,'0')+String(nowDate.getMinutes()).padStart(2,'0');
+}
+let logListPreN=0;
+
+const logList=(fromDate=0,dSize)=>{//시분목록보기
+  dSize=dSize||size;
+  let url='/ajax/logList/'+fromDate+'/'+dSize;//+'/'+$('#searchInput').val();
+  let logListN=0;
+  //pr(url);
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      //pr(rs);
+      if(rs.list){
+        $('#findList').hide();
+
+        if(rs.list.length){
+          $('.defaultList').show();
+          for(let i in rs.list){
+            logListN++;
+            let nowMins=mkNowMins();
+            let dir=rs.list[i];
+
+            if(dir>nowMins){
+              logListPreN++;
+            }
+            else{
+              let YMD=rs.date.substr(0,4)+'-'+rs.date.substr(4,2)+'-'+rs.date.substr(6,2);
+              let HM=dir.substr(0,2)+':'+dir.substr(2,2);
+              let idDate='#tr'+es(YMD+HM);
+              if(!$(idDate).length){
+
+                $('#tableDates tbody').append('<tr id="tr'+es(YMD+HM)+'"><td style="text-align:right;font-family:Verdana;color:#eee;padding:2px 12px;font-size:0.9em;">'
+                +'<strong class="dateLink" data-datemins="'+rs.date+dir+'" style="">'+YMD+' '+HM+'</strong></td>'
+                +'</tr>');
+
+                logListLook(rs.date,dir,(flag,total)=>{
+                  if(!flag){
+                    //$(idDate).find('td').css('padding','2px 12px');
+                    //$(idDate).find('td').css('font-size','0.9em');
+                    $(idDate).find('td').css('color','#ccc');
+                    $(idDate).find('strong').css('cursor','default');
+                    $(idDate).find('strong').attr('data-datemins','');
+                    $(idDate).find('.dateLink').removeClass('dateLink');
+                  }
+                  else{
+                    $(idDate).find('td').css('padding','');
+                    $(idDate).find('td').css('color','#aaa');
+                    $(idDate).find('td').css('font-size','1em');
+                    $(idDate).find('.dateLink').css('cursor','pointer');
+                    $(idDate).find('.dateLink').css('color','#ef6262');
+                    $(idDate).find('.dateLink').parent().prepend('<span class="logCnt">('+nf(total)+')</span> ');
+                  }
+                });
+              }
+            }
+            let nowDirs=rs.total-logListPreN;
+            $('#dateCnt').text(nf(nowDirs));
+          }
+          linkAction();
+        }
+        else if(!fromDate){
+          alert('로그 데이터가 없습니다.');
+        }
+        else{
+          alert('목록의 끝입니다.');
+        }
+      }
+    }
+  });
+}
+
+
+//////////////////////////////////////
+const logListLogs=(date,mins,from=0,dSize,append=false)=>{//로그목록보기
+
+  dSize=dSize||size;
+  //alert(append);
+  let url='/ajax/logListLogs/'+date+'/'+mins+'/'+from+'/'+dSize;
+  let YMD=date.substr(0,4)+'-'+date.substr(4,2)+'-'+date.substr(6,2);
+  let HM=mins.substr(0,2)+':'+mins.substr(2,2);
+  let idDate='#tr'+es(YMD+HM);
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      if(rs.list.length>0){
+        $('#findList').hide();//검색결과 감추기
+        $('.defaultList').show();//목록결과 보이기
+
+        $('#dateHm').text(YMD+' '+HM);
+
+        if(!append){
+          $(document).scrollTop(0);
+          $('#tableLogs tbody').html('');
+          pageLogs=0;
+        }
+        //else pageLogs++;
+
+        for(let i in rs.list){
+          let logFile=rs.list[i];
+          //pr(logFile);
+
+          let info=logFileDiv(logFile);
+          $('#tableLogs tbody').append('<tr id="tr'+info.key+'"><td>'
+          //+''+info.method+' '+info.key+'<br>'
+          +'<strong class="logLink" style="font-family:Verdana;cursor:pointer;color:#ef6262;">'+logFile+'</strong></td>'
+          +'</tr>');
+        }
+        linkAction();
+        $('#logsCnt').text(nf(rs.total));
+        $('#tr'+es(YMD+HM)).find('.logCnt').text('('+nf(rs.total)+')');
+
+      }
+      else{
+        if(append) alert('목록의 끝입니다.');
+      }
+    }
+  });
+}
+
+//////////////////////////////////////
+const logListLook=(date,mins,fnc)=>{//로그목록탐색//내용이 있는지만 확인한다.
+  let url='/ajax/logListLogs/'+date+'/'+mins+'/0/20';
+  let YMD=date.substr(0,4)+'-'+date.substr(4,2)+'-'+date.substr(6,2);
+  let HM=mins.substr(0,2)+':'+mins.substr(2,2);
+  let idDate='#tr'+es(YMD+HM);
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      //pr(rs);
+      let flag=true;
+      if(rs.list.length<1 && !rs.list[0]) flag=false;
+      if(typeof fnc==='function') fnc(flag,rs.total);
+    }
+  });
+}
+
+//////////////////////////////////////
+const logRead=(logFile,heightId='tableLogs')=>{
+
+  let url='/ajax/logRead/'+logFile;
+  //pr(url);
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      //pr(rs);
+      //pr(heightId);
+      if(rs.log){
+        $('#logDataStr').hide();
+        $('#logFileName').text(rs.info.fileName);
+        $('#logDivStr').text(divVals[rs.info.div]);
+        $('#logDataStr').html(hvw(JSON.stringify(rs.log,null,2).trim()));
+        $('#logDataStr').css('height',$('#'+heightId).height()-103);
+        $('#logDataStr').scrollTop(0);
+        $(document).scrollTop(0);
+        $('#logDataStr').fadeIn();
+        //$('#debug').text(JSON.stringify(rs,null,2));//하단디버그창표시
+      }
+    }
+  });
+}
+
+//////////////////////////////////////
+const logSizeInfo=()=>{
+  let data={
+    appName:appNameDefault,
+    cmd:'appSearch'
+  };
+  //pr(data);
+  const ws=new WebSocket(dataUrl);
+  ws.onopen=()=>{
+    ws.send(JSON.stringify(data));//pr('connected');
+  }
+  ws.onmessage=rs=>{
+    if(rs.isTrusted && rs.data){
+      let dt={};
+      try{
+        dt=JSON.parse(rs.data);
+        dt.logCount=dt.appData.osData.logCount.split(' ')[0];
+        dt.logDiskSize=dt.appData.osData.logDiskSize.split(' ')[0];
+      }catch{}
+      //pr(dt);
+      if(dt.logDiskSize) $('#logDiskSize').text(dt.logDiskSize);
+      if(dt.logCount) $('#logCount').text(dt.logCount);
+      ws.close();
+    }
+  }
+  ws.onclose=()=>{//pr('disconnect');
+  }
+}
+
+//////////////////////////////////////
+const linkRead=()=>{
+  $('.logLink').off().click(function(){
+    let logFile=$(this).text();
+    document.location.href='#';
+
+    //pr(logFileName);
+    logRead(logFile,'tableFinds');
+    $('.logLink').css('font-weight','normal');
+    $(this).css('font-weight','bold');
+    $('#viewLogFile').slideDown();
+  });
+}
+
+//////////////////////////////////////
+const linkAction=()=>{
+  $('.dateLink').off().click(function(){
+    let datemins=$(this).data('datemins');
+    if(datemins){
+      //pr(datemins);
+      let date=String(datemins).substr(0,8);
+      let mins=String(datemins).substr(8,4);
+      thisDate=date;
+      thisMins=mins;
+      logListLogs(date,mins,0,size);
+
+      $('.dateLink').css('font-weight','normal');
+      $(this).css('font-weight','bold');
+      $('#listLogFiles').slideDown();
+      $('#viewLogFile').hide();
+    }
+  });
+  $('.logLink').off().click(function(){
+    let logFile=$(this).text();
+    document.location.href='#';
+
+    //pr(logFileName);
+    logRead(logFile,'tableLogs');
+    $('.logLink').css('font-weight','normal');
+    $(this).css('font-weight','bold');
+    $('#viewLogFile').slideDown();
+  });
+}
+
+//////////////////////////////////////
+if(GQ.search && !$('#searchInput').val()){
+  $('#searchInput').val(GQ.search);
+  logFind();
+}
+else{
+  logList(0,21);
+}
+
+$('#moreDateBtn').click(()=>{
+  pageDate++;
+  fromDate=(pageDate*size)+1;
+  logList(fromDate);
+});
+
+$('#moreLogsBtn').click(()=>{
+  pageLogs++;
+  fromLogs=pageLogs*size;
+  //pr(fromLogs);
+  logListLogs(thisDate,thisMins,fromLogs,size,true);
+});
+
+$('#searchInput').on('keyup',function(key){
+  if(key.keyCode==13){
+    page=0;
+    from=0;
+    //$('#tableLogs tbody').html('');
+    logFind();
+  }
+});
+
+logSizeInfo();
+
+setTimeout(()=>{
+  $('.dateLink').first().click();
+},500);
+
+//////////////////////////////////////
+//$(document).ready(function(){
+  App.init();
+//});
+
+</script>
+</body>
+</html>

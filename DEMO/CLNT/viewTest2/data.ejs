@@ -1,0 +1,29 @@
+
+  <div id="resultBtns">
+    <button class="btn btn-sm resultBtn btn-default" data-dataname="outputData" style="outline:none;">Out</button>
+    <button class="btn btn-sm resultBtn btn-default" data-dataname="inputData" style="outline:none;">In</button>
+    <button class="btn btn-sm resultBtn btn-default" data-dataname="sendingData" style="outline:none;">Snd</button>
+    <button class="btn btn-sm resultBtn btn-default" data-dataname="outputError" style="outline:none;">Er</button>
+    <button id="rawBtn" class="btn resultBtn btn-primary" data-dataname="outputRaw" style="outline:none;">Rw</button>
+  </div>
+
+  <input id="repeatNum" type="text" style="border:1px solid #aaa;border-radius:3px;padding:5px;width:40px;vertical-align:middle;text-align:right;" value="40">
+  <button id="repeat" class="btn btn-sm btn-warning" data-flag="on" style="outline:none;">repeat</button>
+  <button id="send" class="btn btn-sm btn-danger" style="outline:none;">start</button>
+
+  <div id="result">
+    <textarea spellcheck="false" id="outputRaw" class="datas" style="font-family:Consolas,'Nanum Gothic Coding';"></textarea>
+    <textarea spellcheck="false" id="outputError" class="datas" style="font-family:Consolas,'Nanum Gothic Coding';"></textarea>
+    <textarea spellcheck="false" id="sendingData" class="datas" style="font-family:Consolas,'Nanum Gothic Coding';"></textarea>
+    <textarea spellcheck="false" id="inputData" class="datas" style="font-family:Consolas,'Nanum Gothic Coding';"></textarea>
+    <textarea spellcheck="false" id="outputData" class="datas" style="font-family:Consolas,'Nanum Gothic Coding';"></textarea>
+  </div>
+
+  <div style="position:fixed;top:30px;right:30px;background:white;padding:20px;border:1px solid #ccc;border-radius:15px;font-size:1.3em;">
+    <span style="font-size:15px;font-family:'Nanum Gothic Coding';">scd:</span> <strong id="sendN" style="color:purple;font-size:1.5em;">0</strong><br>
+    <span style="font-size:15px;font-family:'Nanum Gothic Coding';">tot:</span> <strong id="sendNT" style="color:black;font-size:1.5em;">0</strong><br>
+    <span style="font-size:15px;font-family:'Nanum Gothic Coding';">scs:</span> <strong id="retN" style="color:blue;font-size:1.5em;">0</strong><br>
+    <span style="font-size:15px;font-family:'Nanum Gothic Coding';">ped:</span> <strong id="pedN" style="color:orange;font-size:1.5em;">0</strong><br>
+    <span style="font-size:15px;font-family:'Nanum Gothic Coding';">err:</span> <strong id="errN" style="color:red;font-size:1.5em;">0</strong><br>
+    <input type="text" id="preNT" style="border:1px solid #aaa;border-radius:3px;padding:5px;width:150px;vertical-align:middle;text-align:right;display:none;">
+  </div>

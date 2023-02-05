@@ -1,0 +1,72 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-map"></span> 매뉴얼</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/co">기관</a></li>
+            <li class="breadcrumb-item active">매뉴얼</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row pricing-tables" style="margin-top:0;">
+
+            <div class="col-lg-6">
+              <div class="pricing-table pricing-table-warning" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">제품설명서 및 브로슈어</div>
+                <div class="pricing-table-description">노드브레이커에 대한 간략한 소개 및 홍보자료입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-dark alert-dismissible" role="alert">
+                    제품설명서 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_introduction.zip" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_introduction.png" style="width:100px;"></a>
+                  </div></li>
+                  <li><div class="alert alert-primary alert-dismissible" role="alert" style="margin-bottom:0;">
+                    브로슈어 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_brochure.pdf" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_brochure.png" style="width:100px;"></a>
+                  </div></li>
+                </ul><!-- <a class="btn btn-alt4" href="#">다운로드</a> -->
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+
+              <div class="pricing-table pricing-table-success" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">취급설명서</div>
+                <div class="pricing-table-description">관리자 및 운영자를 위한 상세한 취급설명서입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-success alert-dismissible" role="alert">
+                    취급설명서 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_manual.zip" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_manual.png" style="width:400px;"></a>
+                  </div></li>
+                </ul><!-- <a class="btn btn-alt4" href="#">다운로드</a> -->
+              </div>
+
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+
+
+        </div>
+
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+});
+
+</script>
+</body>
+</html>

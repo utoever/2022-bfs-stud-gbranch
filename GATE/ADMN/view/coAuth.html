@@ -1,0 +1,370 @@
+<%const echo=(v)=>{__append(v);}%>
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-lock"></span> 인증</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/control">기관</a></li>
+            <li class="breadcrumb-item active">인증</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+
+            <div id="" class="col-sm-12" style=""><form>
+
+            <div id="coCon" class="">
+
+              <div id="psCon">
+              <input type="hidden" id="userKy" value="">
+              <input type="hidden" id="coKy" value="">
+
+              <div class="email-body">
+                <div>아이디 : <strong id="userId"></strong></div><br>
+                <div><input id="userPsOld" type="password" class="user" placeholder="" value="" style=""> * 기존 비밀번호</div><br>
+                <div><input id="userPs" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호</div><br>
+                <div><input id="userPsRe" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호 확인</div>
+              </div>
+              <div class="email-body">
+                <span id="psUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">비밀번호수정</span>
+              </div>
+              </div>
+              
+              <div id="infoCon">
+              <div class="email-body">
+                <div><input id="coName" value="" class="user" style=""> * 기관명</div><br>
+                <div><select id="coDiv" class="user" style="">
+                  <option value="private">일반</option>
+                  <option value="public">공기업</option>
+                </select> 기관구분</div><br>
+                <div><input id="coRegNum" value="" class="user" style=""> 기관등록번호</div><br>
+                <div><input id="coTel" value="" class="user" style=""> 기관 연락처</div><br>
+                <div><input id="userName" value="" class="user" style=""> 관리자 이름</div><br>
+                <div><input id="coMail" value="" class="user" style=""> 관리자 이메일</div><br>
+              </div>
+              <div class="email-body">
+                <span id="coUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">정보수정</span>
+                <!-- <span id="coManualBtn" class="btn btn-space btn-success btn-sm btn-rounded">연동설치 메뉴얼보기</span> -->
+              </div>
+              </div>
+
+              <div id="authBtnCon" class="email-body">
+                <div><input id="coDomainSSLnew" value="" class="user" style="" placeholder="sapmple.com:1000"> 접근권한 서버도메인 (도메인:포트 혹은 아이피:포트)</div><br>
+                <div><input id="coAuthIPnew" value="" class="user" style="" placeholder="0.0.0.0"> 접근권한 서버아이피 (포트 제외)</div><br>
+                <span id="authBtn" class="btn btn-space btn-warning btn-lg btn-rounded">인증 등록하기</span>
+              </div>
+              <div id="authCon" style="display:none;">
+
+                <div class="email-body">
+                  <div>만료일자 : <span id="coCertDateEnd"></span></div><br>
+                  <div>발급기간 : <span id="coCertDateStartEnd"></span></div><br>
+
+                  <div>서버도메인 : <span id="coDomainSSL"></span></div><br>
+                  <div>서버아이피 : <span id="coAuthIP"></span></div><br>
+                  <div>인증상태 : <span id="certAuthStr"></span></div><br>
+                  
+                  <!-- <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    등록된 인증서 : <span id="coCertInfo" style="color:white;font-family:Verdana;"></span>
+                  </div><br> -->
+                  
+                  <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    API Key : <span id="coApiKey" style="color:white;font-family:Verdana;"></span>
+                  </div>
+
+                  <!-- <div><textarea id="coCertInfo" class="user" style="width:60%;height:50px;color:black;"></textarea> 등록된 인증서</div><br>
+                  <div><textarea id="coApiKey" class="user" style="width:60%;height:50px;color:black;"></textarea> API Key</div><br>
+                  <div><textarea id="coCdnCode" class="user" style="width:60%;height:50px;color:black;"></textarea> CDN Code</div><br> -->
+                </div>
+
+                <div id="auth2Con"">
+                <div class="email-body">
+                  <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    인증 URL : <span id="coAuthUrl" style="color:white;font-family:Verdana;"></span>
+                  </div><br>
+                  <!-- <div><textarea id="coAuthUrl" class="user" style="width:60%;height:50px;color:black;"></textarea> URL 인증</div><br> -->
+                  위의 URL에 접속했을 때, 검증키 "<strong id="key2" style="color:black;font-weight:bold;"></strong>"가 표시되어야 합니다.<br><br>
+                  <span id="auth2Btn" class="btn btn-space btn-warning btn-lg btn-rounded">서버 검증하기</span>
+                </div>
+
+              </div>
+
+            </div>
+            </form></div>
+          </div>
+          <br>
+
+
+          <pre id="debug"></pre>
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////////////////
+let coInfo={}; try{coInfo=JSON.parse('<%-JSON.stringify(coInfo).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+//pr(coInfo);
+
+//////////////////////////
+const makeCert=(coCert)=>{
+  let data=coCert;
+  let url='/ajax/co/certUpdate';
+
+  //pr(data,'data');
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(rs.flag){
+        alert('정상적으로 인증되었습니다.\n정상적인 진행을 위해 다시 로그인하셔야 합니다.');
+        dlr('/on/login');
+      }
+      else{
+        alert('인증에 실패했습니다.');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const makeAuth=(coAuth)=>{
+  let data=coAuth;
+  let url='/ajax/co/authUpdate';
+
+  pr(data,'data');
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(rs.flag){
+        alert('정상적으로 검증되었습니다.\n정상적인 진행을 위해 다시 로그인하셔야 합니다.');
+        dlr('/on/login');
+      }
+      else{
+        alert('검증에 실패했습니다.');
+      }
+    },
+    error:(req,stat,error)=>{
+      alert('검증에 실패했습니다.');
+    }
+  });
+}
+
+//////////////////////////
+const statView=(coInfo)=>{
+  //pr(coInfo);
+  if(coInfo.coCertStat=='Y' && coInfo.coApiKey){
+    let keys=coInfo.coApiKey.split('_');
+    let key2=keys[1];
+
+    $('#authCon').show();
+    $('#authBtnCon').hide();
+
+    $('#coCertDateEnd').text(coInfo.coCertDateEnd.substr(0,10));
+    $('#coCertDateStartEnd').text(coInfo.coCertDateStart.substr(0,10)+' ~ '+coInfo.coCertDateEnd.substr(0,10));
+
+    $('#coAuthIP').text(coInfo.coAuthIP);
+    $('#coDomainSSL').text(coInfo.coDomainSSL);
+    $('#key2').text(key2);
+    $('#coAuthIP').text(coInfo.coAuthIP);//	기관검증URL	VARCHAR(100)	NULL	기관인증URL
+
+    $('#coCertInfo').text(coInfo.coCertInfo);//	기관인증정보	VARCHAR(100)	NULL	기관인증정보
+    $('#coApiKey').text(coInfo.coApiKey);//	기관APIKEY	VARCHAR(100)	NULL	기관APIKEY
+    $('#coAuthUrl').text(coInfo.coAuthUrl);//	기관검증URL	VARCHAR(100)	NULL	기관인증URL
+    //$('#coCdnCode').text(coInfo.coCdnCode);//	기관CDN코드	VARCHAR(100)	NULL	기관CDN코드
+
+
+    if(coInfo.coAuthStat=='Y'){
+      $('#certAuthStr').text('서버 아이피와 API Key 검증이 모두 완료되었습니다.').css({'color':'blue','font-weight':'bold'});
+      $('#auth2Btn').hide();
+    }
+    else{
+      $('#certAuthStr').text('인증 신청 완료, 서버검증 절차가 남아있습니다.').css({'color':'red','font-weight':'bold'});
+    }
+  }
+}
+
+//////////////////////////
+const keyList=[
+  'userKy',
+  'coKy',
+  'userId',
+  'coName',
+  'coDiv',
+  'coRegNum',
+  //'coDomainSSL',
+  'coTel',
+  'userName',
+  'coMail'
+];
+const coInfoView=(coInfo)=>{
+  pre(coInfo,'coInfo');
+  for(let i in keyList){
+    let key=keyList[i];
+
+    if(key=='userId') $('#'+key).text(coInfo[key]);
+    else $('#'+key).val(coInfo[key]);
+
+    statView(coInfo);
+  }
+}
+
+//////////////////////////
+const coUpdate=(co)=>{
+  let data=co;
+  let errStr=[];
+  let url='/ajax/co/update';
+
+  if(!data.coName) errStr.push('기관명은 필수 항목입니다.');
+  if(!errStr.length){
+    //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(co.coName+' 정보가 정상적으로 모두 수정되었습니다.');
+          //console.log(rs);
+          dlr('?userId='+data.userId);
+        }
+        else{
+          alert(co.coName+' 정보 수정에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const userPsUpdate=(user)=>{
+  //console.log(user);
+  let data=user;
+  let errStr=[];
+  let url='/ajax/user/psUpdate';
+  
+  if(!data.userPsOld||!data.userPs||!data.userPsRe) errStr.push('비밀번호는 모두 필수 항목입니다.');
+  if(!isPs(data.userPs)||!isPs(data.userPsOld)) errStr.push('비밀번호는 6~20 글자로 만들어야 하고,\n영문, 숫자, 특수문자를 각각 하나 이상 포함해야 합니다.');
+  if(data.userPs!=data.userPsRe) errStr.push('비밀번호 확인에 실패했습니다.');
+
+  if(!errStr.length){
+    //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(user.userId+' 비밀번호가 정상적으로 변경되었습니다.');
+          //console.log(rs);
+          dlr('/on/login');
+        }
+        else{
+          alert(user.userId+' 비밀번호 변경에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+//////////////////////////
+//////////////////////////
+$('#psUpdateBtn').click(function(){
+  let user={
+    userPsOld:$('#userPsOld').val().trim(),
+    userPs:$('#userPs').val().trim(),
+    userPsRe:$('#userPsRe').val().trim(),
+    userKy:$('#userKy').val().trim(),
+    userId:$('#userId').text().trim()
+  };
+  userPsUpdate(user);
+});
+$('#coUpdateBtn').click(function(){
+  let co={};
+  for(let i in keyList){
+    let key=keyList[i];
+    co[key]=$('#'+key).val().trim();
+  }
+  co.userId=$('#userId').text().trim();
+  coUpdate(co);
+});
+$('#coMail').blur(function(){
+  let mail=$(this).val();
+  if(!isMail(mail) && mail){
+    alert('적합한 메일 양식이 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#coRegNum').blur(function(){
+  let regNum=$(this).val();
+  if(!isCoRegNum(regNum) && regNum){
+    alert('정상적인 사업자 번호가 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#coDomainSSLnew').blur(function(){
+  let domain=$(this).val();
+  if(!isDomain(domain) && !isIPport(domain) && domain){
+    alert('적합한 도메인 혹은 아이피 양식이 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#coAuthIPnew').blur(function(){
+  let ip=$(this).val();
+  if(!isIP(ip) && ip){
+    alert('적합한 아이피 양식이 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#authBtn').click(function(){
+  let tstamp=+ new Date();
+  let coCert={
+    userKy:coInfo.userKy,
+    coKy:coInfo.coKy,
+    coAuthIP:$('#coAuthIPnew').val().trim(),
+    coDomainSSL:$('#coDomainSSLnew').val().trim()
+  };
+  makeCert(coCert);
+});
+$('#auth2Btn').click(function(){
+  let coAuth={
+    userKy:coInfo.userKy,
+    coKy:coInfo.coKy
+  };
+  makeAuth(coAuth);
+});
+$('#coManualBtn').click(function(){
+  dlh('/co/manual');
+});
+
+//////////////////////////
+coInfoView(coInfo);
+
+//$(document).ready(function(){
+  App.init();
+//});
+
+</script>
+</body>
+</html>

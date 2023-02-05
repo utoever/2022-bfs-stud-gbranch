@@ -1,0 +1,45 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <div class="btn-group btn-space" style="float:right;">
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">BIZ - KBK_GBR_00101SK (계좌이체요청)
+            <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">BIZ - KBK_GBR_00101SK (계좌이체요청)</a>
+              <a class="dropdown-item" href="#">BIZ - KBK_GBR_00101SK (계좌이체요청)</a>
+              <a class="dropdown-item" href="#">BIZ - KBK_GBR_00101SK (계좌이체요청)</a>
+              <!-- <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a> -->
+            </div>
+          </div>
+
+          <h2><span class="icon s7-portfolio"></span> 메소드관리</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/?project=KB_G-Branch">KB G-Branch</a></li>
+            <li class="breadcrumb-item"><a href="/method">메소드</a></li>
+            <li class="breadcrumb-item active">메소드관리</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+        
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+});
+
+</script>
+</body>
+</html>

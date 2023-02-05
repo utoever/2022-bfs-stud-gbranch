@@ -1,0 +1,110 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-wallet"></i> 계좌 잔액조회
+				</h6>
+				<div>
+					<ul class="list-unstyled list-horizontal-layout depth">
+						<li class="depth-list">
+							<p class="depth-menu-active">
+								예금
+							</p>
+							<p class="depth-menu">
+								적금
+							</p>
+							<p class="depth-menu">
+								펀드
+							</p>
+							<p class="depth-menu">
+								대출
+							</p>
+							<p class="depth-menu">
+								신탁
+							</p>
+							<p class="depth-menu">
+								ISA
+							</p>
+							<p class="depth-menu">
+								보험
+							</p>
+							<p class="depth-menu">
+								외화예금
+							</p>
+							<p class="depth-menu">
+								전체계좌
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<h6 class="tc-black">
+							총 잔액(계좌 수: 2개) &nbsp;| &nbsp;6,782,000원
+						</h6>
+					</div>
+					<div class="col">
+						<p class="text-lg-right">
+							조회일시: 2021년 10월 13일 17시 57분 50초
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<table>
+							<tr>
+								<th>예금종류</th>
+								<th>계좌번호</th>
+								<th>신규일자</th>
+								<th>개설점</th>
+								<th>최종거래일자</th>
+								<th>예금잔액</th>
+								<th>거래구분</th>
+							</tr>
+							<tr>
+								<td>저축예금</td>
+								<td class="b">086-24-0263-902</td>
+								<td>2000-01-30</td>
+								<td>발산역지점</td>
+								<td>2021-10-13</td>
+								<td class="b"><b>6,550,000</b></td>
+								<td><a href="kb_deposit?acno=" class="btn btn-d btn-lg table-contents-bt">조회</a><a href="kb_transfer?acno=" class="btn btn-d btn-lg table-contents-bt">이체</a></td>
+							</tr>
+							<tr>
+								<td>저축예금</td>
+								<td class="b">086-24-0263-910</td>
+								<td>2010-02-15</td>
+								<td>방화동지점</td>
+								<td>2021-10-13</td>
+								<td class="b"><b>232,000</b></td>
+								<td><a href="kb_deposit?acno=" class="btn btn-d btn-lg table-contents-bt">조회</a><a href="kb_transfer?acno=" class="btn btn-d btn-lg table-contents-bt">이체</a></td>
+							</tr>
+							</table>
+
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">새로고침</a><a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">계좌순서변경</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 계좌 잔액조회');
+/////////////////////
+const code='241';
+</script>
+
+</body>
+</html>

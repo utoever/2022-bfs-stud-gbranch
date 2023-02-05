@@ -1,0 +1,17 @@
+{
+  "method": "KAA04K0C41",
+  "key": "SOC",
+  "remoteAddress": "10.141.32.52",
+  "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "StndTranBaseYmd": "20230202",
+  "conDateTime": "20230202141704361",
+  "cConTm": 1675315024362,
+  "error": [],
+  "lgt": [],
+  "authInfo": true,
+  "custIdnfr": "1006756394",
+  "pidGte": 22848,
+  "pidBiz": 0,
+  "lgTm": 1675315024362,
+  "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1417/KAA04K0C41--1675315024362_SOC_G.json"
+}

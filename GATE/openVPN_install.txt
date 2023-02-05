@@ -1,0 +1,285 @@
+https://openvpn.net/community-resources/how-to/#installing-openvpn
+https://deskinsight.net/ko/debian-10-9%EC%97%90-openvpn-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%84%A4%EC%B9%98%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
+https://hiteit.tistory.com/5
+https://inmile.tistory.com/15
+https://www.techtarget.com/searchnetworking/answer/Can-you-have-two-VPN-connections-to-the-same-machine-simultaneously
+
+openvpn 서버설치
+
+
+1. apt를 업데이트 하고 openvpn과 easy-rsa 설치
+  sudo apt update
+  sudo apt install openvpn easy-rsa
+  y
+  https://github.com/OpenVPN/easy-rsa/releases
+
+
+2. 홈 파일에서 easy-rsa 폴더 생성후 링크를 건다.
+  ln -s /usr/share/easy-rsa/* ~/easy-rsa/
+  mkdir ~/easy-rsa
+  chmod 777 ~/easy-rsa
+
+
+3. easy-rsa 로 이동, EasyRSA의 초기화 옵션인 init-pki를 추가해 EasyRSA 서버 구축
+  cd ~/easy-rsa
+  ./easyrsa init-pki
+
+
+/////////////////////////////////
+
+
+4. easyrsa로 인증서와 키 파일을 생성, 매번 비번을 넣기 번거로우므로 nopass 옵션
+  ./easyrsa build-ca nopass
+  ==> Common Name (eg: your user, host, or server name) [Easy-RSA CA]:
+  enter (그냥 엔터치면 기본인증기관으로 지정)
+  ==>
+  CA creation complete and you may now import and sign cert requests.
+  Your new CA certificate file for publishing is at:
+  /home/nodejs/easy-rsa/pki/ca.crt
+
+
+5. openVPN에서 사용할 서버인증서와 key파일을 생성
+  ./easyrsa gen-req server nopass
+  ==> Common Name (eg: your user, host, or server name) [server]:
+  enter (그냥 엔터치면 server 이름으로 생성)
+  ==>
+  Keypair and certificate request completed. Your files are:
+  req: /home/nodejs/easy-rsa/pki/reqs/server.req
+  key: /home/nodejs/easy-rsa/pki/private/server.key
+
+
+6. openVPN 디렉터리에 key파일 복사 (openVPN 디렉터리는 /etc/openvpn/)
+  sudo cp ~/easy-rsa/pki/private/server.key /etc/openvpn/server/
+
+
+7. 인증서 파일 만들기
+  ./easyrsa sign-req server server
+  ==> Note: using Easy-RSA configuration from: ./vars
+  yes
+  ==> Certificate created at: /home/nodejs/easy-rsa/pki/issued/server.crt
+
+
+8. 생성된 server.crt 파일과 ca.crt 파일을 openVPN 폴더로 복사
+  sudo cp ~/easy-rsa/pki/issued/server.crt /etc/openvpn/server/
+  sudo cp ~/easy-rsa/pki/ca.crt /etc/openvpn/server/
+ 
+
+9. Diffie-Hellman key 생성
+  ./easyrsa gen-dh
+  ==> DH parameters of size 2048 created at /home/nodejs/easy-rsa/pki/dh.pem
+ 
+
+10. openvpn을 이용해 ta.key 파일 생성
+  sudo openvpn --genkey --secret ta.key
+ 
+
+11. 생성한 dh.pem 파일과 ta.key 파일을 openvpn 폴더로 복사
+  sudo cp ~/easy-rsa/ta.key /etc/openvpn/server/
+  sudo cp ~/easy-rsa/pki/dh.pem /etc/openvpn/server/
+  서버에 대한 인증서는 이제 준비완료
+
+
+/////////////////////////////////
+
+
+12. VPN 계정 만들기
+  client에서 사용할 인증서 파일 만들기
+  client 인증서는 VPN 유저 1명당 발급해야 한다. 따라서 vpn 계정이 여러개일 경우 아래 명령을 반복해야 한다.
+  먼저 client 인증서를 모아둘 폴더를 하나 만든다.
+
+  mkdir -p ~/openvpn-client-configs/keys
+  chmod -R 777 ~/openvpn-client-configs
+ 
+
+13. EasyRSA에서 vpn 계정에 대한 인증서 만들기
+  cd ~/easy-rsa/
+  ./easyrsa gen-req nodejs nopass
+  ==> Common Name (eg: your user, host, or server name) [nodejs]:
+  enter
+  ==>
+  Keypair and certificate request completed. Your files are:
+  req: /home/nodejs/easy-rsa/pki/reqs/nodejs.req
+  key: /home/nodejs/easy-rsa/pki/private/nodejs.key
+ 
+
+14. 생성한 nodejs.key 파일을 클라이언트 keys 폴더(~/openvpn-client-configs/keys)에 복사
+  sudo cp pki/private/nodejs.key ~/openvpn-client-configs/keys/
+ 
+
+15. nodejs.key 파일로 인증서 만들기. request type은 client로
+  ./easyrsa sign-req client nodejs
+  ==> Confirm request details:
+  yes
+  ==>
+  Certificate created at: /home/사용자 이름/easy-rsa/pki/issued/nodejs.crt
+ 
+
+16. 만들어진 인증서 파일(.crt)도 클라이언트 keys 에 복사
+  sudo cp pki/issued/nodejs.crt ~/openvpn-client-configs/keys/
+ 
+
+17. ca.crt 와 ta.key 파일도 클라이언트 keys 에 복사
+  sudo cp ~/easy-rsa/ta.key ~/openvpn-client-configs/keys/
+  sudo cp /etc/openvpn/server/ca.crt ~/openvpn-client-configs/keys/
+  openVPN 계정으로 사용할 계정의 인증서 준비 완료
+
+
+/////////////////////////////////
+
+
+18. openVPN에서 제공한 sample config files 복사하고 압축 해제
+  sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz  /etc/openvpn/
+  sudo gzip -d /etc/openvpn/server.conf.gz
+
+
+19. openVPN conf 수정
+  sudo vi /etc/openvpn/server.conf
+
+  proto tcp #<-- 설정변경
+  ;proto udp
+
+  ca server/ca.crt #<-- 경로수정
+  cert server/server.crt #<-- 경로수정
+  key server/server.key #<-- 경로수정
+  dh server/dh.pem #<-- 경로수정
+
+  push "redirect-gateway"
+  push "dhcp-option DNS 8.8.8.8"
+  push "dhcp-option DNS 8.8.4.4"
+  duplicate-cn #<-- 주석제거
+
+  tls-auth server/ta.key 0 #<-- 경로수정
+  key-direction 0 #<-- 추가할 부분
+
+  cipher AES-256-CBC
+  auth SHA512 #<-- 추가할 부분
+  user nobody #<-- 주석제거
+  group nogroup #<-- 주석제거
+
+  ;mute 20
+  tun-mtu 1450 #<-- 추가할 부분
+  ;fragment 0
+  mssfix 1410 #<-- 추가할 부분
+
+  explicit-exit-notify 0 #<-- 설정변경
+
+
+              20. 네트워크 설정 - ip forwarding
+                sudo vi /etc/sysctl.conf
+                net.ipv4.ip_forward=1 #<-- 주석제거
+                sudo sysctl -p
+
+              21. 네트워크 설정확인
+                ip route | grep default
+                default via 172.26.0.1 dev eth0 <-- 확인
+
+
+20. openvpn 실행
+  sudo service openvpn start
+  sudo systemctl start openvpn@server
+  sudo systemctl restart openvpn@server
+  ==> Created symlink /etc/systemd/system/multi-user.target.wants/openvpn@server.service → /lib/systemd/system/openvpn@.service.
+
+  sudo systemctl status openvpn@server
+  ==>
+  ● openvpn@server.service - OpenVPN connection to server
+     Loaded: loaded (/lib/systemd/system/openvpn@.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2022-08-24 09:47:23 KST; 10s ago
+       Docs: man:openvpn(8)
+             https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+             https://community.openvpn.net/openvpn/wiki/HOWTO
+   Main PID: 25617 (openvpn)
+     Status: "Initialization Sequence Completed"
+      Tasks: 1 (limit: 4915)
+     Memory: 1.7M
+     CGroup: /system.slice/system-openvpn.slice/openvpn@server.service
+             └─25617 /usr/sbin/openvpn --daemon ovpn-server --status /run/openvpn/server.status 10 --cd /etc/openvpn --config /etc/openvpn/server.conf --writepid /run/openvpn
+
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: Listening for incoming TCP connection on [AF_INET][undef]:1194
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: TCPv4_SERVER link local (bound): [AF_INET][undef]:1194
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: TCPv4_SERVER link remote: [AF_UNSPEC]
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: GID set to nogroup
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: UID set to nobody
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: MULTI: multi_init called, r=256 v=256
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: IFCONFIG POOL LIST
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: MULTI: TCP INIT maxclients=1024 maxevents=1028
+  Aug 24 09:47:23 gate.nodebreaker.link ovpn-server[25617]: Initialization Sequence Completed
+
+  shift + q
+
+  ip addr show tun0
+  ==>
+  tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1450 qdisc pfifo_fast state UNKNOWN group default qlen 100
+      link/none
+      inet 10.8.0.1 peer 10.8.0.2/32 scope global tun0
+         valid_lft forever preferred_lft forever
+      inet6 fe80::b5ec:87c1:a457:464f/64 scope link stable-privacy
+         valid_lft forever preferred_lft forever
+
+  /sbin/ifconfig
+  ==>
+  tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1450
+        inet 10.8.0.1  netmask 255.255.255.255  destination 10.8.0.2
+        inet6 fe80::b5ec:87c1:a457:464f  prefixlen 64  scopeid 0x20<link>
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 100  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 6  bytes 288 (288.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+21. client 설정 복사/수정
+  sudo cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf ~/openvpn-client-configs/base.conf
+  sudo vi openvpn-client-configs/base.conf
+
+  proto tcp #<-- 설정변경
+  ;proto udp
+
+  remote gate.nodebreaker.link 1194 #<-- 서버주소 설정변경
+
+  user nobody #<-- 주석제거
+  group nogroup #<-- 주석제거
+
+  ;remote-cert-tls server #<-- 주석처리
+  ;tls-auth ta.key 1 #<-- 주석처리
+
+  cipher AES-256-CBC
+  auth SHA512 #<-- 설정추가
+  key-direction 1 #<-- 설정추가
+
+  ;mute 20
+  tun-mtu 1450 #<-- 설정추가
+  ;fragment 0
+  mssfix 1410 #<-- 설정추가
+
+
+21. client 설정파일 자동으로 생성해주는 스크립트
+  vi make_config.sh
+
+  ==>
+  #!/bin/bash
+  # First argument: Client identifier
+  KEY_DIR=/home/nodejs/openvpn-client-configs/keys
+  OUTPUT_DIR=/home/nodejs/openvpn-client-configs/files
+  BASE_CONFIG=/home/nodejs/openvpn-client-configs/base.conf
+  cat ${BASE_CONFIG} \
+        <(echo -e '<ca>') \
+        ${KEY_DIR}/ca.crt \
+        <(echo -e '</ca>\n<cert>') \
+        ${KEY_DIR}/${1}.crt \
+        <(echo -e '</cert>\n<key>') \
+        ${KEY_DIR}/${1}.key \
+        <(echo -e '</key>\n<tls-auth>') \
+        ${KEY_DIR}/ta.key \
+        <(echo -e '</tls-auth>') \
+        > ${OUTPUT_DIR}/${1}.ovpn
+
+  vi -b make_config.sh <-- ^M 문자삭제
+
+
+22. client 설정파일 생성
+  sudo chmod 777 make_config.sh
+  ./make_config.sh nodejs
+  chown -R nodejs files/
+  chgrp -R nodejs files/

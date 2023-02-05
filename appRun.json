@@ -1,0 +1,83 @@
+{
+  "cfgName": "appRun",
+  "cfgMemo": "실행 앱 설정",
+  "apps": [    
+    {
+      "name": "00.GATE",
+      "appMemo": "노드브레이커 게이트웨이 서버",
+      "script": "/home/bfsadm/gbranch/GATE/GATE/00.GATE.js",
+      "machName": "1.AP_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--tls-min-v1.3 --max-old-space-size=8192"
+    },    
+    {
+      "name": "01.DATA",
+      "appMemo": "노드브레이커 데이터 서버",
+      "script": "/home/bfsadm/gbranch/GATE/DATA/04.DATA.js",
+      "machName": "1.AP_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--tls-min-v1.3 --max-old-space-size=8192"
+    },
+    {
+      "name": "02.LOGR",
+      "appMemo": "노드브레이커 로그관리 서버",
+      "script": "/home/bfsadm/gbranch/GATE/GATE/10.LOGR.js",
+      "machName": "1.AP_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+    {
+      "name": "03.HOST",
+      "script": "/home/bfsadm/gbranch/HOST/HOST/09.HOST.js",
+      "machName": "9.HOST_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+    {
+      "name": "04.BIZ_KFK120B440",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK120B440.js",
+      "machName": "2.WAS_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+    {
+      "name": "05.BIZ_KFK124DG40",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK124DG40.js",
+      "machName": "2.WAS_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+	{
+      "name": "06.BIZ_KFK124CF40",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK124CF40.js",
+      "machName": "2.WAS_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+	{
+      "name": "07.BIZ_KAA04K0C41",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KAA04K0C41.js",
+      "machName": "2.WAS_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    },
+	{
+      "name": "08.BIZ_BFA72C32SC",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_BFA72C32SC.js",
+      "machName": "2.WAS_SERVER",
+      "autostart": true,
+      "restart_delay": 1000,
+      "node_args": "--max-old-space-size=8192"
+    }
+  ],
+  "othr": [
+  ]
+}

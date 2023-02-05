@@ -1,0 +1,593 @@
+<%-include('./top.ejs')%>
+
+      <div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+        <h6 class="mg-md tc-black" style="font-size:1.2em;">
+          <i class="fa fa-location-arrow"></i> 당타행 계좌이체
+        </h6>
+        <div class="row depth">
+          <div class="col">
+            <h6 class="mg-md step-title">
+              <span class="step-num">01</span> 이체정보 입력
+            </h6>
+          </div>
+          <div class="col">
+            <label id="step3" class="step-default">
+              3
+            </label>
+            <label id="step2" class="step-default">
+              2
+            </label>
+            <label id="step1" class="step-active">
+              1
+            </label>
+          </div>
+        </div>
+        <div class="row info-otp">
+          <div class="col otp-col">
+            <div class="row">
+              <div class="col-lg-10">
+                <p class="p-style">
+                  G-Branch 사용 기관은 업무시 별도의 보안카드나 인증서가 필요없습니다.
+                </p>
+                <p class="p-style">
+                  스마트폰을 이용하는 편리한 생체인증으로 보다 간편하게 업무를 진행하세요.
+                </p>
+              </div>
+              <div class="col-lg-2 align-self-center bloc-padding-bottom">
+                <!-- <a href="#" class="btn btn-d btn-sm bt-otp">모바일OTP발급안내</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space">
+        </div>
+        <div class="row">
+          <div class="col">
+
+            <div id="transferStart">
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label">
+                  <strong>출금계좌번호</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <select id="accountNum" class="form-control table-input-text-shot">
+                  </select>
+                  <!-- <input class="form-control table-input-text-shot" /><a href="#" class="btn btn-d btn-sm table-contents-bt">이체가능금액</a><a href="#" class="btn btn-d btn-sm table-contents-bt">자주쓰는이체</a> -->
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>출금계좌 비밀번호</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <!-- <input class="form-control table-input-text-shot" /> -->
+                  <input id="acPass" type="password" class="form-control table-input-text-shot" style="width:60px;" value="1111"/>
+                  <label class="p-style">
+                    &nbsp;숫자 4자리
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label">
+                  <strong>이체금액</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <input id="transAmt" class="form-control table-input-text-shot" style="width:120px;" value="1" placeholder="이체금액"/>
+                  <span id="transAmtBalBtn" class="btn btn-d btn-sm table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-left" style="color:white;"></i> 통장잔액 전액입력</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label">
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <a href="javascript:addTransAmt('1,000,000');" class="btn btn-d btn-sm table-contents-bt">100만원</a>
+                  <a href="javascript:addTransAmt('500,000');" class="btn btn-d btn-sm table-contents-bt">50만원</a>
+                  <a href="javascript:addTransAmt('100,000');" class="btn btn-d btn-sm table-contents-bt">10만원</a>
+                  <a href="javascript:addTransAmt('10,000');" class="btn btn-d btn-sm table-contents-bt">만원</a>
+                </div>
+              </div>
+            </div>
+            <div class="space">
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금은행</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <select class="form-control table-input-text-shot" id="bankName">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금 계좌번호</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <input id="accountNumTo" class="form-control table-input-text table-input-text-shot" style="width:200px;margin-bottom:3px;" value="086-24-0263-908" placeholder="입금 계좌번호"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>수신계좌 예금주명</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <span id="bankownerBtn" class="btn btn-d btn-sm table-contents-bt" style="background:#66cc99;"><i class="fa fa-address-book" style="color:white;"></i> 예금주명 조회</span>
+                  <strong id="bankownerName"></strong>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none">
+                <label class="text-lg-left table-label label-style">
+                  <br>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <span id="tranferMoreBtn" class="btn btn-d btn-lg bt-yellow-bottom " style="font-weight:bold;"><i class="fa fa-arrow-circle-down" style="color:white;"></i> 다음</span>
+                </div>
+                <div class="form-group" style="font-size:0.8em;">
+                  반드시 예금주명을 조회하여 입금계좌를 확인하세요.
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="space">
+            </div>
+            <div class="space">
+            </div>
+
+
+
+            <div id="transferDetail" style="display:none;">
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label">
+                  <strong>출금계좌번호</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div id="accountNumFromView" class="form-group b">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label">
+                  <strong>이체금액</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div id="transAmtView" class="form-group b">
+                </div>
+                <!-- <div style="font-size:12px;">이체금액이 10,000원 이상일 경우 2원이,
+                <br>그외에는 1원이 이체됩니다.</div> -->
+              </div>
+            </div>
+            <div class="space">
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block" style="margin-top:20px;">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금은행</strong>
+                </label>
+              </div>
+              <div class="col table-content-col" style="margin-top:20px;">
+                <div id="bankNameToView" class="form-group b">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금 계좌번호</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div id="accountNumToView" class="form-group b">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금계좌 예금주명</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div id="accountOwnerToView" class="form-group b">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>출금통장 표시내용</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <input id="fromAcNote" class="form-control table-input-text-shot" placeholder="출금통장표시" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+                <label class="text-lg-left table-label label-style">
+                  <strong>입금통장 표시내용</strong>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <input id="toAcNote" class="form-control table-input-text-shot" placeholder="입금통장표시"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 table-title-col-none">
+                <label class="text-lg-left table-label label-style">
+                  <br>
+                </label>
+              </div>
+              <div class="col table-content-col">
+                <div class="form-group">
+                  <span id="transferBtn" class="btn btn-d btn-lg bt-yellow-bottom "><i class="fa fa-arrow-circle-right" style="color:white;"></i> 이체실행</span>
+                </div>
+                <div class="form-group" style="font-size:0.8em;">
+                  위의 이체 정보를 다시 한번 확인해 주세요.
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="space">
+            </div>
+
+
+          </div>
+        </div>
+        
+        <div id="register" class="modal fade" tabindex="-1" role="dialog" style="margin-left:100px;">
+          <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-zone bgc-white modal-content">
+              <div class="modal-zone modal-body">
+                <img src="img/qrCode.png" class="img-fluid mx-auto d-block" alt="popup" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 당타행 계좌이체');
+
+/////////////////////
+const QGacno='<%=QG.acno%>';
+const code='111';
+let accountOwnerTo='';
+acnosSels(acnos);
+banksSels(bankCodes);
+$('#bankName').val('004');
+if(QGacno) $('#accountNum').val(QGacno);
+
+/////////////////////
+const ownerViewer=(ownerName)=>{
+  $('#bankownerName').text('');
+  if(ownerName){
+    $('#bankownerName').text('예금주명: '+ownerName);
+    accountOwnerTo=ownerName;
+  }
+  else{
+    alert('확인할 수 없는 계좌입니다.');
+    accountOwnerTo='';
+  }
+}
+
+/////////////////////
+const ownerMkData=()=>{
+  let mnrcvAcno=es($('#accountNumTo').val());
+  let mnrcvBnkCd=$('#bankName').val();
+  let mrvamt=Number(es($('#transAmt').val()));
+  let data={
+    "instiEntpNo": "A000000001",
+    "cmnDvsnBnkCd": "04",
+    "telgmDstcd": "4000",
+    "bzwkDstcd": "0300",
+    "sndrcvDstcd": "1",
+    "mnrcvBnkCd":mnrcvBnkCd,
+    "mnrcvAcno":mnrcvAcno,
+    "mrvamt":mrvamt
+  };
+  return data;
+}
+
+/////////////////////
+const balMkData=()=>{
+  let acno=es($('#accountNum').val());
+  let data={
+    instiEntpNo:'A000000001',
+    cmnDvsnBnkCd:'04',
+    telgmDstcd:'4000',
+    bzwkDstcd:'0200',
+    sndrcvDstcd:'1',
+    splizTrsmtNotms:'1',
+    idiviDvsnBnkCd:'004',
+    acno:acno
+  };
+  return data;
+}
+
+/////////////////////
+const balSendAct=(code)=>{
+  let acPass=es($('#acPass').val());
+  $('#transAmt').val(0);
+  let data=balMkData();
+  data.hosts=url;
+  data.dt=timeStamp();
+  data.code=code;
+  data.method='KBK_GBR_0000241S';
+  data.lnLimt='';
+  data.srfacBal='';
+  data.cshTrfamt='';
+  data.psnckAmt='';
+  data.cracPrmisNoteAmt='';
+  data.paymtAbilzBal='';
+  data.rspnsCd='';
+  data.srfacBalSin='';
+  data.paymtAbilBalSin='';
+  //alert(JSON.stringify(data));return;
+
+  if(acPass.length!=4){
+    alert('비밀번호 오류입니다.');
+    return;
+  }
+  else{
+    $.ajax({
+      dataType:'json',
+      data:data,
+      url:url,
+      method:'get',
+      beforeSend:(xhr)=>{
+        xhr.setRequestHeader("apiKey",apiKey);
+      },
+      success:function(rs){
+        //alert(JSON.stringify(rs.rspData.outputData));
+        console.log(rs.rspData);
+        let rspnsCd=StndErrcd=OutData='';
+        try{rspnsCd=rs.rspData.outputData.Individual.OutData.telgmCmnDvsn.rspnsCd;}catch(e){}
+        try{StndErrcd=rs.rspData.outputData.Common.ErrInfo.StndErrcd;}catch(e){}
+        if(rspnsCd=='0000'){
+          let OutData=rs.rspData.outputData.Individual.OutData;
+          //alert(OutData.bzwkIdiviDvsn.paymtAbilzBal);
+          addTransAmt(OutData.bzwkIdiviDvsn.paymtAbilzBal);
+        }
+        else{
+          let Individual=rs.rspData.outputData.Individual;
+          //alert('StndErrcd:'+StndErrcd);
+        }
+      }
+    });
+  }
+}
+
+/////////////////////
+const ownerSendAct=(code)=>{
+  let data=ownerMkData();
+  data.hosts=url;
+  data.dt=timeStamp();
+  data.code=code;
+  data.method='KBK_GBR_0000341A';
+  data.rspnsCd='';
+  data.inhabBzno='';
+  data.fndsChatrDstcd='';
+  //alert(JSON.stringify(data));return;
+  if(!data.mrvamt){
+    alert('이체금액이 누락되었습니다.');
+    return;
+  }
+  else{
+    $.ajax({
+      dataType:'json',
+      data:data,
+      url:url,
+      method:'get',
+      beforeSend:(xhr)=>{
+        xhr.setRequestHeader("apiKey",apiKey);
+      },
+      success:function(rs){
+        //alert(JSON.stringify(rs.rspData.outputData));return;
+        console.log(rs.rspData);
+        let rspnsCd=StndErrcd=OutData='';
+        try{rspnsCd=rs.rspData.outputData.Individual.OutData.telgmCmnDvsn.rspnsCd;}catch(e){}
+        try{StndErrcd=rs.rspData.outputData.Common.ErrInfo.StndErrcd;}catch(e){}
+
+        if(rspnsCd=='0000'){//정상
+          let OutData=rs.rspData.outputData.Individual.OutData;
+          ownerViewer(OutData.bzwkIdiviDvsn.inquryAfDpstrFname.trim());
+          //alert();
+        }
+        else{
+          alert('확인할 수 없는 계좌입니다.');
+          accountOwnerTo='';
+        }
+      }
+    });
+  }
+}
+//ownerSendAct('341');
+
+/////////////////////
+const transferCancel=()=>{
+  $('#transferDetail').hide();
+  $('#step1').addClass('step-active').removeClass('step-default');
+  $('#step2').removeClass('step-active').addClass('step-default');
+  $('#bankownerName').text('');
+  accountOwnerTo='';
+}
+
+const transferMkData=()=>{
+  let drwotAcno=es($('#accountNum').val());
+  let mnrcvBnkCd=$('#bankName').val();
+  let mnrcvAcno=es($('#accountNumTo').val());
+  let trsaccAmt=Number(es($('#transAmt').val()));
+  //if(trsaccAmt>=10000) trsaccAmt=2;
+  //else if(trsaccAmt>0) trsaccAmt=1;
+
+  let mnrcvSumry=es($('#toAcNote').val());
+  let drwotSumry=es($('#fromAcNote').val());
+
+  let data={
+    "instiEntpNo": "A000000001",
+    "cmnDvsnBnkCd": "04",
+    "telgmDstcd": "5000",
+    "bzwkDstcd": "0100",
+    "sndrcvDstcd": "1",
+    "splizTrsmtNotms": "1",
+
+    "drwotAcno":drwotAcno,
+    "drwotAcnPwd": "",
+    "mnrcvBnkCd":mnrcvBnkCd,
+    "mnrcvAcno":mnrcvAcno,
+    "trsaccAmt":trsaccAmt,//이체금액
+
+    "rqstrFname": "",
+    "draweFname": "",
+    "mnrcvSumry":mnrcvSumry,
+    "drwotSumry":drwotSumry
+  };
+  return data;
+}
+
+/////////////////////
+const transferSendAct=(code)=>{
+  let acPass=es($('#acPass').val());
+  let data=transferMkData();
+  data.hosts=url;
+  data.dt=timeStamp();
+  data.code=code;
+  data.rspnsCd='';
+  data.drwotAcnPwd=acPass;
+  data.tranCnclDstcd='';
+  data.mnrcvPtrnDstcd='';
+  data.fndsChatrDstcd='00';
+  data.method='KBK_GBR_0000111A';
+  if(acPass.length!=4){
+    alert('비밀번호 오류입니다.');
+    return;
+  }
+  else if(!data.trsaccAmt){
+    alert('이체금액이 누락되었습니다.');
+    return;
+  }
+  else{
+    $.ajax({
+      dataType:'json',
+      data:data,
+      url:url,
+      method:'get',
+      beforeSend:(xhr)=>{
+        xhr.setRequestHeader("apiKey",apiKey);
+      },
+      success:function(rs){
+        //alert(JSON.stringify(rs.rspData.outputData));return;
+        console.log(rs.rspData);
+        let rspnsCd=StndErrcd=OutData='';
+        try{rspnsCd=rs.rspData.outputData.Individual.OutData.telgmCmnDvsn.rspnsCd;}catch(e){}
+        try{StndErrcd=rs.rspData.outputData.Common.ErrInfo.StndErrcd;}catch(e){}
+
+        if(rspnsCd=='0000'){//정상
+          let OutData=rs.rspData.outputData.Individual.OutData;
+          alert('정상적으로 이체가 처리되었습니다.');
+        }
+        else{
+          let Individual=rs.rspData.outputData.Individual;
+          alert('StndErrcd:'+StndErrcd);
+        }
+        transferCancel();
+        $("#register").modal('hide');
+      }
+    });
+  }
+}
+//transferSendAct('111');
+
+/////////////////////
+$('#transAmtBalBtn').click(()=>{
+  balSendAct('241');
+});
+$('#bankownerBtn').click(function(){
+  ownerSendAct('341');
+});
+$('#transferBtn').click(function(){
+  $("#register").modal();
+});
+$("#register").click(function(){
+  transferSendAct('111');
+});
+
+$('#tranferMoreBtn').click(function(){
+  if(es($('#acPass').val()).length!=4) alert('비밀번호를 정확히 입력해 주세요.');
+  else if(Number(es($('#transAmt').val()))<1) alert('이체금액을 정확히 입력해 주세요.');
+  else if(!accountOwnerTo) alert('반드시 예금주명을 조회하여 입금계좌를 확인하세요.');
+  else{
+    $('#accountNumFromView').text(acNoDivider($('#accountNum').val()));
+    $('#transAmtView').text(nf(es($('#transAmt').val()))+'원');
+
+    $('#bankNameToView').text(bankCodes[$('#bankName').val()]);
+    $('#accountNumToView').text($('#accountNumTo').val());
+    $('#accountOwnerToView').text(accountOwnerTo);
+
+    $('#transferDetail').slideDown();
+    $('#step2').addClass('step-active').removeClass('step-default');
+    $('#step1').removeClass('step-active').addClass('step-default');
+  }
+});
+
+$('#transferStart span, #transferStart button, #transferStart a').click(()=>{
+  transferCancel();
+});
+
+$('#transferStart select').change(()=>{
+  transferCancel();
+});
+
+$('#transferStart input').blur(()=>{
+  transferCancel();
+});
+</script>
+
+</body>
+</html>

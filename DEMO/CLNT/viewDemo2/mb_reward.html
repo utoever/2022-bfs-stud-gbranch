@@ -1,0 +1,175 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-share"></i> 과오납 일괄처리
+				</h6>
+				<div class=" xs-hidden d-none d-sm-block">
+					<ul class="list-unstyled list-horizontal-layout depth">
+						<li class="depth-list">
+							<p class="depth-menu-active" style="background:#ddd;">
+								월회비
+							</p>
+							<p class="depth-menu">
+								실적회비
+							</p>
+							<p class="depth-menu">
+								가산금
+							</p>
+							<p class="depth-menu">
+								입회비
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="space xs-hidden d-none d-sm-block">
+				</div>
+				<div class="row">
+					<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+						<label class="text-lg-left table-label">
+							<strong>출금계좌번호</strong>
+						</label>
+					</div>
+					<div class="col table-content-col">
+						<div class="form-group">
+							<select class="form-control table-input-text-shot">
+								<option value="0">
+									086-24-0263-908
+								</option>
+								<option value="1">
+									086-24-0263-910
+								</option>
+							</select>
+							<!-- <input class="form-control table-input-text-shot" /><a href="#" class="btn btn-d btn-sm table-contents-bt">이체가능금액</a><a href="#" class="btn btn-d btn-sm table-contents-bt">자주쓰는이체</a> -->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+						<label class="text-lg-left table-label label-style">
+							<strong>출금계좌 비밀번호</strong>
+						</label>
+					</div>
+					<div class="col table-content-col">
+						<div class="form-group">
+							<input type="password" class="form-control table-input-text-shot" style="width:60px;" value="...."/>
+							<label class="p-style">
+								&nbsp;숫자 4자리
+							</label>
+						</div>
+					</div>
+				</div>
+																	
+
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<span href="#" id="autoTransfer" class="btn btn-d btn-lg bt-yellow-bottom"
+						style="text-align:right;float:right;font-weight:bold;"><i class="fa fa-check-double" style="color:white;"></i> 일괄 환불처리</span>
+						<span id="autoFind" class="btn btn-d btn-lg bt-yellow-bottom"
+						style="text-align:right;float:right;font-weight:bold;"><i class="fa fa-check-double" style="color:white;"></i> 일괄 계좌확인</span>
+						<h6 class="tc-black">
+							<span class=" xs-visible d-block d-sm-none">과오납<br>4건</span>
+							<span class=" xs-hidden d-none d-sm-block">과오납 건수 4건</span>
+						</h6>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<div class="table-responsive">
+							<table class="table">
+							<tr>
+								<th>회원명</th>
+								<th class="d-none d-sm-table-cell">사업자명</th>
+								<th class="d-none d-sm-table-cell">연락처</th>
+								<th class="d-none d-sm-table-cell">사유</th>
+								<th class="d-none d-sm-table-cell">회비<br>실입금</th>
+								<th>환불액</th>
+								<th>회원계좌</th>
+								<th>구분</th>
+							</tr>
+							<tr>
+								<td>홍길동</td>
+								<td class="d-none d-sm-table-cell">홍길동변리사사무소</td>
+								<td class="d-none d-sm-table-cell">010-1234-4569</td>
+								<td class="d-none d-sm-table-cell">초과입금</td>
+								<td class="d-none d-sm-table-cell">150,000<br>200,000</td>
+								<td class="b">50,000</td>
+								<td>국민 086-24-0263-120</td>
+								<td class="rewardTd"><span class="rewardFindFlag btn btn-d btn-lg table-contents-bt" data-membername="홍길동" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 계좌확인</span><span class="rewardTransferFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 환불이체</span></td>
+							</tr>
+							<tr>
+								<td>이영희</td>
+								<td class="d-none d-sm-table-cell">이영희변리사사무소</td>
+								<td class="d-none d-sm-table-cell">010-3698-7413</td>
+								<td class="d-none d-sm-table-cell">중복입금</td>
+								<td class="d-none d-sm-table-cell">150,000<br>300,000</td>
+								<td class="b">150,000</td>
+								<td>국민 086-24-0263-100</td>
+								<td class="rewardTd"><span class="rewardFindFlag btn btn-d btn-lg table-contents-bt" data-membername="이영희" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 계좌확인</span><span class="rewardTransferFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 환불이체</span></td>
+							</tr>
+							<tr>
+								<td>강하나</td>
+								<td class="d-none d-sm-table-cell">강하나변리사사무소</td>
+								<td class="d-none d-sm-table-cell">064-8932-6582</td>
+								<td class="d-none d-sm-table-cell">중복입금</td>
+								<td class="d-none d-sm-table-cell">150,000<br>300,000</td>
+								<td class="b">150,000</td>
+								<td>국민 086-24-0263-130</td>
+								<td class="rewardTd"><span class="rewardFindFlag btn btn-d btn-lg table-contents-bt" data-membername="강하나" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 계좌확인</span><span class="rewardTransferFlag btn btn-d btn-lg table-contents-bt" style="background:#66cc99;"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 환불이체</span></td>
+							</tr>
+							<tr>
+								<td>김철수</td>
+								<td class="d-none d-sm-table-cell">김철수변리사사무소</td>
+								<td class="d-none d-sm-table-cell">010-1234-4568</td>
+								<td class="d-none d-sm-table-cell">중복입금</td>
+								<td class="d-none d-sm-table-cell">150,000<br>450,000</td>
+								<td class="b">300,000</td>
+								<td>정보없음</td>
+								<td class="rewardTd">이체불가</td>
+							</tr>
+							</table>
+							</div>
+
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="?" class="btn btn-d btn-lg bt-yellow-bottom">새로고침</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">납입내역조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 회비환불 / 과오납 일괄처리');
+
+/////////////////////
+$('.rewardTransferFlag').click(function(){
+	rewardTransfer($(this),200);
+});
+$('.rewardFindFlag').click(function(){
+	rewardFind($(this),200);
+});
+$('#autoFind').click(function(){
+	$('.rewardFindFlag').each(function(i,e){
+		rewardFind($(e),300*i);
+	});
+});
+$('#autoTransfer').click(function(){
+	$('.rewardTransferFlag').each(function(i,e){
+		rewardTransfer($(e),300*i);
+	});
+});
+</script>
+
+</body>
+</html>

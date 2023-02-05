@@ -1,0 +1,257 @@
+<%-include('./top.ejs')%>
+
+<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+	<h6 class="mg-md tc-black" style="font-size:1.2em;">
+		<i class="fa fa-search-dollar"></i> 업무권한설정
+	</h6>
+	<!-- 사용자정보 -->
+	<div class="row">
+		<div class="col">
+			<h6 class="tc-black">
+				사용자정보
+			</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div>
+					<label class="lebel-center">
+						ID
+					</label>
+				</div>
+				<div class="col table-content-col">
+					<div class="form-group">
+						<select id="user-id" class="form-control table-input-text-shot"><option value=""></option><option value="1111111111">1111111111</option><option value="2222222222222">2222222222222</option><option value="33333333333">33333333333</option></select>
+						<a href="#" class="btn btn-d btn-sm table-contents-bt table-btn xs-hidden d-none d-sm-inline">이동</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div>
+					<label class="lebel-center">
+						사용자명
+					</label>
+				</div>
+				<div class="col table-content-col">
+					<div class="form-group">
+						<input style="width:100%;" id="user-name" class="form-control" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="row">
+				<div>
+					<label class="lebel-center">
+						부서명<br>
+					</label>
+				</div>
+				<div class="col table-content-col">
+					<div class="form-group">
+						<input style="width:100%;" id="department" class="form-control" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div>
+					<label class="lebel-center">
+						직위<br>
+					</label>
+				</div>
+				<div class="col table-content-col">
+					<div class="form-group">
+						<input style="width:100%;" id="position" class="form-control" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="row">
+				<div>
+					<label class="lebel-center">
+						보안매체일련번호<br>
+					</label>
+				</div>
+				<div class="col table-content-col">
+					<div class="form-group">
+						<input style="width:100%;" id="security-num" class="form-control" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <!-- //사용자정보 -->
+	 <!-- 사용자이체한도설정 -->
+	<div class="mg-md">
+		<div class="row">
+			<div class="col">
+				<h6 class="tc-black">
+					사용자이체한도설정
+				</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="table-responsive">
+					<table>
+						<tbody>
+							<tr>
+								<th>구분</th>
+								<th class="d-none d-sm-table-cell">원화(원)</th>
+								<th class="d-none d-sm-table-cell">외화(USD)</th>
+								<th class="d-none d-sm-table-cell"></th>
+							</tr>
+							<tr>
+								<td>1일 사용자 한도</td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit01" class="text-lg-right"></td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit02" class="text-lg-right">,</td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit03" class="text-lg-right"></td>
+							</tr>
+							<tr>
+								<td>1일 사용자 한도</td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit04" class="text-lg-right"></td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit05" class="text-lg-right">,</td>
+								<td class="table-td depth-list"><input type="text" name="limitinp" id="limit06" class="text-lg-right"></td>
+							</tr>
+							<tr>
+								<td>당일사용자금액합계</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+							</tr>
+							<tr>
+								<td>당일사용자금액합계</td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+								<td class="table-td depth-list"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col table-content-col bloc-margin-top">
+				<span id="autoCall" class="btn btn-d btn-lg bt-yellow-bottom" style="text-align:right;float:right;font-weight:bold;">submit</span>
+			</div>
+		</div>
+	</div>
+	<!-- //사용자이체한도설정 -->
+	<!-- 로그인가능시간설정 -->
+	<div>
+		<div class="row">
+			<div class="col">
+				<h6 class="tc-black">
+					로그인가능시간설정
+				</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="table-responsive">
+					<table>
+						<tbody>
+							<tr>
+								<th>업무가능요일</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="mon">
+										<label for="week01">월</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="tue">
+										<label for="week01">화</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="wed">
+										<label for="week01">수</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="thu">
+										<label for="week01">목</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="fri">
+										<label for="week01">금</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="sat">
+										<label for="week01">토</label>
+									</form>
+								</th>
+								<th class="table-week">
+									<form class="week-wrap">
+										<input type="checkbox" name="week-choice" id="sun">
+										<label for="week01">일</label>
+									</form>
+								</th>
+							</tr>
+							<tr>
+								<td>업무가능시간</td>
+								<td colspan="7" class="table-td depth-list">
+									<form>
+										<p><input type="time" value="" min="00:00" max="24:00"></p>
+										~
+										<p><input type="time" value="" min="00:00" max="24:00"></p>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mg-md">
+					<p class="p-small">※ 사용자가 인터넷뱅킹 로그인이 가능한 요일 및 시간을 설정하실 수 있습니다.</p>
+					<p class="p-small">※ 사용자가 로그인 후 로그아웃 되기 전까지 계속 로그인유지가 가능하며 설정된 시간 에는 다시 재로그인하실 수 있습니다.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //로그인가능시간설정 -->
+</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 카드 내역조회');
+
+/////////////////////
+const code='1100';
+let page=0;
+setDateSels(d);
+//setToday(d);
+
+setDate('20210705','20210705');
+cardDateViewer();
+cardSendAct(code);
+
+$('#actionBtn').click(()=>{
+	cardSendAct(code);
+});
+$('#plusPageBtn').click(()=>{
+	cardSendAct(code,true);
+});
+
+</script>
+
+</body>
+</html>

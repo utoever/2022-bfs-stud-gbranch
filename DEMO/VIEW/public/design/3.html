@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/default.css">
+    <title>ESP System - CRM</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <img src="./src/img/logo_white.png" alt="헤더 로고" />
+        </div>
+        <h1 class="medium-text m-size-text">ESP-CRM</h1>
+        <div class="box shadow-10 notice">
+            <h2 class="title bold-text ">공지사항</h2>
+            <h3 class=".regular-text s-size-text">ESP-CMS 원격지원 서비스 지원 안내</h3>
+            <a href="">
+                <p class="light-text xs-size-text">자세히 보기</p>
+            </a>
+        </div>
+        <ul class="xs-size-text light-text">
+            <li><a href="#">화면잠금</a></li>
+            <li><a href="#">잠금설정</a></li>
+            <li><a href="#">화면인쇄</a></li>
+            <li><a href="#">은행링크</a></li>
+            <li><a href="#">원격지원</a></li>
+            <li><a href="#">도움말</a></li>
+        </ul>
+    </header>
+    <nav>
+        <div class="user">
+            <div class="user-greet">
+                <img src="src/img/user.png" alt="user" />
+                <p class="regular-text s-size-text">홍길동님, 반갑습니다.</p>
+            </div>
+            <div class="close-button">
+                <span class="material-symbols-rounded">close</span>
+            </div>
+            <div class="menu-button">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+        </div>
+        <div class="user-menu">
+            <div class="title">사용자메뉴</div>
+            <ul class="regular-text s-size-text">
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">logout</span>
+                        <p class="user-menu-text">로그아웃</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">calendar_month</span>
+                        <p class="user-menu-text">스케줄러</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            desktop_windows
+                        </span>
+                        <p class="user-menu-text">사용자 화면</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            description
+                        </span>
+                        <p class="user-menu-text">승인 / 결재</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            account_balance
+                        </span>
+                        <p class="user-menu-text">인터넷뱅킹</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div class="menu">
+            <div class="input-wrapper">
+                <input class="menu-input medium-text m-size-text" type="text" placeholder="메뉴명 검색" />
+                <button class="menu-search-button"><span class="material-symbols-rounded">
+                        search
+                    </span></button>
+            </div>
+            <div class="menu-tap">
+                <ul class="s-size-text light-text">
+                    <li class="box-small shadow-10">메뉴</li>
+                    <li class="box-small shadow-10">맞춤</li>
+                    <li class="box-small shadow-10">검색</li>
+                </ul>
+            </div>
+            <ul class="menu-list s-size-text regular-text">
+                <li class="1depth">조회</li>
+                <li class="1depth">지급 / 집금</li>
+                <li class="1depth">
+                    <a href="./popup.html" onclick="window.open(this.href, '_blank', 'width=1200px, height=1000px, toolbars=no, scrollbars=no'); return false;">당행전자결제</a>
+                </li>
+                <li class="1depth">타행전자결제</li>
+                <li class="1depth">법인카드</li>
+                <li class="1depth">ESP Manager</li>
+                <li class="1depth">외환 / 파생</li>
+                <li class="1depth">퇴직연금</li>
+                <li class="1depth">세금공과금</li>
+                <li class="1depth">전자세금계산서</li>
+                <li class="1depth">특화서비스</li>
+                <li class="1depth">정보관리</li>
+                <li class="1depth">시스템관리</li>
+                <li class="1depth">RCMS</li>
+                <li class="1depth">통합 R&D 자금관리</li>
+                <li class="1depth">대출</li>
+                <li class="1depth">감사시스템</li>
+                <li class="1depth">운영보고서</li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-03">
+        <div class="link-tap">
+            <div class="home-button shadow-10">
+                <span class="material-symbols-rounded">
+                    home
+                </span>
+            </div>
+            <ul class="visited-tab">
+                <li>
+                    <div>
+                        <p></p>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="title-black">B2B대출 납품대금조회 및 대출신청</div>
+        <div class="button-container">
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+                <p>찾기</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    print
+                </span>
+                <p>인쇄</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    save
+                </span>
+                <p>저장</p>
+            </div>
+        </div>
+        <div class="top-box box shadow-20">
+            <div class="text-wrapper">
+                <input type="checkbox" />
+                <h4 class="m-size-text regular-text">전 체 : 대표사업자인 경우 전체 부사업자에 대해 발행된 채권이 모드 조회됨</h4>
+            </div>
+            <div class="text-wrapper">
+                <input type="checkbox" />
+                <h4 class="m-size-text regular-text">주계약업체별 : 대표사업자인 경우 채권을 발행한 주계약업체별로 조회됨</h4>
+            </div>
+            <div class="text-wrapper">
+                <input type="checkbox" />
+                <h4 class="m-size-text regular-text">해당사업자별 : 해당 사업자에 대해 발행채권만 조회됨</h4>
+            </div>
+            <div class="bottom">
+                <div class="select-wrapper">
+                    <h4 class="m-size-text medium-text">주계약업체</h4>
+                    <select>
+                        <option>업체명 / 135-81-71759 (055)</option>
+                    </select>
+                </div>
+                <div class="blue-button">조회</div>
+            </div>
+        </div>
+        <div class="box shadow-20 middle-box">
+            <div class="left">
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">주계약업체명</h4>
+                    <input type="text" placeholder="업체명" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">사업자등록번호</h4>
+                    <input type="text" placeholder="135-81-71759" disabled />
+                </div>
+            </div>
+            <div class="center">
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">한도금액</h4>
+                    <input type="text" placeholder="0" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">대출잔액</h4>
+                    <input type="text" placeholder="202,606,521" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">한도여유액</h4>
+                    <input type="text" placeholder="0" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">한도기일</h4>
+                    <input type="text" placeholder="2022-08-22" disabled />
+                </div>
+            </div>
+            <div class="right">
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">30일 이하</h4>
+                    <input type="text" placeholder="5,306" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">60일 이하</h4>
+                    <input type="text" placeholder="5,870" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">90일 이하</h4>
+                    <input type="text" placeholder="6,306" disabled />
+                </div>
+                <div class="contents-wrapper">
+                    <h4 class="m-size-text regular-text">180일 이하</h4>
+                    <input type="text" placeholder="7,306" disabled />
+                </div>
+            </div>
+        </div>
+        <div class="text-container">
+            <h4 class="m-size-text bold-text">※ 상기 표시된 대출이름은 오늘 대출을 실행할 경우 총액한도 대출대상에 적용되는 금리입니다.</h4>
+            <h4 class="m-size-text regular-text">- 대출이자율 : 대출일직전 3영업일간의 91을CD유통수익률단순평균 + 기간별가산금리</h4>
+            <h4 class="m-size-text bold-text">※ 채권양도일자가 조회되지 않는 업체의 경우 채권양도신청을 먼저 하신 후 2-3 영업일 후에 대출이 가능합니다.</h4>
+        </div>
+        <div class="bottom-box box shadow-20">
+            <div class="table-wrapper">
+                <table class="light-text m-size-text">
+                    <tr>
+                        <th>선택</th>
+                        <th>채권번호</th>
+                        <th>채권상태</th>
+                        <th>금액</th>
+                        <th>대출가능금액</th>
+                        <th>세금계산서등록여부</th>
+                        <th>세금계산서등록금액</th>
+                        <th>접수날짜</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </td>
+                        <td>0496-20190730550</td>
+                        <td>정상</td>
+                        <td>550</td>
+                        <td>550</td>
+                        <td>미등록</td>
+                        <td>0</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="bottom-text-container">
+            <h4 class="m-size-text bold-text">※ 만기일이 휴일인 경우 익영업일로 표시됩니다.</h4>
+            <div class="button-container">
+                <div class="gray-button m-size-text medium-text">채권양도</div>
+                <div class="blue-button m-size-text medium-text">세금계산서 등록</div>
+                <div class="blue-button m-size-text medium-text">대출신청</div>
+                <div class="blue-button m-size-text medium-text">취소동의</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <a href="#">
+                <p class="ligth-text s-size-text">ESP SYSTEM ALL 바로가기</p>
+            </a>
+            <p class="light-text xs-size-text">COPYRIGHT 2022 ESP SYSTEM ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="logo-wrapper">
+            <img src="src/img/logo_white.png" alt="푸터 로고" />
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="src/js/common.js"></script>
+</body>
+
+</html>

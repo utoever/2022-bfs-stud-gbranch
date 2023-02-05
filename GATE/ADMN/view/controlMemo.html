@@ -1,0 +1,329 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <!-- <div class="" style="float:right;">
+            <select class="" style="border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;">
+              <option>메모내용</option>
+              <option>위치</option>
+              <option>날짜</option>
+            </select>
+            <input class="" value="박말순" style="border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;">
+          </div> -->
+
+          <h2><span class="icon s7-note"></span> 메모</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/control">운영</a></li>
+            <li class="breadcrumb-item active">메모</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="widget widget-fullwidth widget-small">
+                <table class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th style="background:#ddd;font-weight:bold;width:50%;">메모</th>
+                      <!-- <th style="background:#ddd;font-weight:bold;">위치</th> -->
+                      <th style="background:#ddd;font-weight:bold;">날짜</th>
+                    </tr>
+                  </thead>
+                  <tbody id="memoList"></tbody>
+                </table>
+              </div>
+              <button id="memoNewBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;">메모 새로쓰기</button>
+              <button id="moreMemoBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;margin-bottom:20px;">다음 10개 목록 더보기</button>
+            </div>
+
+            <div class="col-sm-8">
+              <input id="memoKy" type="hidden">
+              <input id="cmd" type="hidden">
+              <input id="memoPageNew" type="hidden" value="/control/memo">
+              <input id="memoUrlNew" type="hidden" value="">
+
+              <div id="editCon" style="display:none;">
+              <div class="email-head">
+                <div><input id="memoTitleEdit" value="" placeholder="메모제목" class="user" style="font-weight:bold;"> 메모제목 (한글 165글자)</div><br>
+              </div>
+              <div class="email-body">
+              <textarea id="memoTextEdit" placeholder="메모내용" class="user" style="width:100%;height:500px;"></textarea>
+              </div>
+              <div class="email-body">
+                <span id="memoEditCancelBtn" class="btn btn-space btn-alt4 btn-sm btn-rounded">입력취소</span>
+                <span id="memoEditSubmitBtn" class="btn btn-space btn-success btn-sm btn-rounded">메모입력</span>
+              </div>
+              </div>
+
+              <div id="memoCon" style="display:none;">
+              <div class="email-head">
+                <h3 id="memoTitle"></h3>
+                <h4><!-- <span id="memoPage"></span> -->
+                <div id="memoDate" class="date"></div>
+                </h4>
+              </div>
+              <div id="memoText" class="email-body"></div>
+              <div class="email-body">
+                <button id="memoUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">메모수정</button>
+                <button id="memoDeleteBtn" class="btn btn-space btn-primary btn-sm btn-rounded">메모삭제</button>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+          <br>
+
+
+          <!-- <pre id="debug"></pre> -->
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+
+let size=10;
+let pageMemo=1;
+
+let memoListInfo={};
+const memoList=()=>{
+  let data={size:size,page:pageMemo};
+  data=Object.assign(data,GQ);
+  data.userKy=sess.userKy;
+  let url='/ajax/memo/list';
+  //console.log('data',data);
+
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //console.log('rs',rs);
+      if(rs.flag){
+
+        //console.log(rs.memoList[0]);
+        let memoListHTML='';
+
+        if(Array.isArray(rs.memoList)){
+          for(let i in rs.memoList){
+            let memo=rs.memoList[i];
+            memoListInfo[memo.memoKy]=memo;
+            memoListHTML+='<tr>'
+            +'<td><a href="#" class="memoInfoBtn" data-memoky="'+memo.memoKy+'">'+hvw(memo.memoTitle)+'</a></td>'
+            +'<!-- <td><a href="/control/memo?schPage='+memo.memoPage+'">'+memo.memoPage+'</a></td> --><td>'+memo.memoDateCre.substr(0,10)+'</td></tr>';
+          }
+          $('#memoList').append(memoListHTML);
+          btnAction();
+          if(memoListInfo['<%-GQ.memoKy%>']) viewMemo(memoListInfo['<%-GQ.memoKy%>']);
+          else viewMemo(rs.memoList[0]);
+          //$('#debug').text(pre(memoListInfo));
+
+          pageMemo++;
+        }
+      }
+      if(rs.memoList.length<size){
+        $('#moreMemoBtn').hide();
+        //alert('더 이상의 목록이 없습니다.');
+        //console.log('no data');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const memoDelete=(memo)=>{
+  let data=memo;
+  let url='/ajax/memo/delete';
+
+  if(confirm('이 메모를 삭제하시겠습니까?\n이 명령은 취소할 수 없습니다.')){
+    //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        //console.log(rs);
+        if(rs.flag){
+          alert('메모가 정상적으로 삭제되었습니다.');
+          dlr('?');
+        }
+        else{
+          alert('메모 삭제에 실패했습니다.');
+        }
+      }
+    });
+  }
+}
+
+//////////////////////////
+const memoAdd=(dataNew)=>{
+  //console.log(newData);
+  let data=dataNew;
+  let errStr=[];
+  let url='/ajax/memo/add';
+
+  if(!data.memoTitle) errStr.push('메모제목이 누락되었습니다.');
+  if(!data.memoText) errStr.push('메모내용이 누락되었습니다.');
+
+  if(!errStr.length){
+    //console.log(data);
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        //console.log(rs);
+        if(rs.flag){
+          alert('메모가 정상적으로 추가되었습니다.');
+          dlr('?');
+        }
+        else{
+          alert('메모 입력에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const memoUpdate=(dataEdit)=>{
+  //console.log(newData);
+  let data=dataEdit;
+  let errStr=[];
+  let url='/ajax/memo/update';
+
+  if(!data.memoTitle) errStr.push('메모제목이 누락되었습니다.');
+  if(!data.memoText) errStr.push('메모내용이 누락되었습니다.');
+
+  if(!errStr.length){
+    //console.log(data);
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        //console.log(rs);
+        if(rs.flag){
+          alert('메모가 정상적으로 수정되었습니다.');
+          dlr('?memoKy='+data.memoKy);
+        }
+        else{
+          alert('메모 수정에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const viewMemo=(memo)=>{
+  $('#cmd').val('');
+  $('#editCon').hide();
+  $('#memoCon').hide();
+  $('#memoKy').val(memo.memoKy);
+  $('#memoTitle').html(hvw(memo.memoTitle));
+  $('#memoText').html(hvw(memo.memoText));
+  $('#memoPage').html('<a href="'+memo.memoPage+'">'+memo.memoPage+'</a>');
+  $('#memoUrl').text(memo.memoUrl);
+  $('#memoDate').text(
+    memo.memoDateCre.substr(0,10)+' '+
+    memo.memoDateCre.substr(11,8)
+  );
+  $('#memoCon').slideDown();
+}
+
+//////////////////////////
+//////////////////////////
+//////////////////////////
+const btnAction=()=>{
+  $('.memoInfoBtn').off().click(function(){
+    let memoKy=$(this).data('memoky');
+    viewMemo(memoListInfo[memoKy]);
+  });
+}
+//////////////////////////
+$('#memoDeleteBtn').click(function(){
+  let memoKy=$('#memoKy').val();
+  memoDelete(memoListInfo[memoKy]);
+});
+$('#memoNewBtn').click(function(){
+  $('#cmd').val('add');
+  $('#memoTitleEdit').val('');
+  $('#memoTextEdit').val('');
+  $('#memoCon').hide();
+  $('#editCon').slideDown();
+});
+$('#memoUpdateBtn').click(function(){
+  let memoKy=$('#memoKy').val();
+  let mmData=memoListInfo[memoKy];
+  $('#cmd').val('update');
+  $('#memoTitleEdit').val(mmData.memoTitle);
+  $('#memoTextEdit').val(mmData.memoText);
+  $('#memoCon').hide();
+  $('#editCon').slideDown();
+});
+$('#memoEditCancelBtn').click(function(){
+  $('#cmd').val('');
+  $('#editCon').hide();
+  $('#memoCon').slideDown();
+});
+
+$('#moreMemoBtn').click(()=>{
+  memoList();
+});
+
+$('#memoEditSubmitBtn').click(function(){
+  let cmd=$('#cmd').val();
+  if(cmd=='update'){
+    let dataAdd={
+      memoKy:$('#memoKy').val().trim(),//(PK)	메모Ky(PK)	INT	NOT NULL	메모Ky
+      memoTitle:$('#memoTitleEdit').val().trim(),//메모제목	VARCHAR(200)	NULL	메모제목
+      memoText:$('#memoTextEdit').val().trim()//메모내용	TEXT	NOT NULL	메모내용
+    };
+    memoUpdate(dataAdd);
+    //console.log(dataAdd);
+  }
+  else if(cmd=='add'){
+    let dataNew={
+      userKy:sess.userKy,//(FK)	사용자Ky(FK)	INT	NOT NULL	사용자Ky
+      memoTitle:$('#memoTitleEdit').val().trim(),//메모제목	VARCHAR(200)	NULL	메모제목
+      memoText:$('#memoTextEdit').val().trim(),//메모내용	TEXT	NOT NULL	메모내용
+      memoPage:$('#memoPageNew').val().trim(),//메모페이지명	VARCHAR(200)	NULL	메모페이지명
+      memoUrl:$('#memoUrlNew').val().trim()//메모URL	VARCHAR(200)	NULL	메모URL
+    };
+    memoAdd(dataNew);
+    //console.log(dataNew);
+  }
+});
+
+//////////////////////////
+memoList();
+
+
+
+//$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+//});
+
+</script>
+</body>
+</html>

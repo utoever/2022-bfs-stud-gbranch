@@ -1,0 +1,122 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-map"></span> 매뉴얼</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/control">운영</a></li>
+            <li class="breadcrumb-item active">매뉴얼</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row pricing-tables" style="margin-top:0;">
+
+            <div class="col-lg-6">
+
+
+              <div class="pricing-table pricing-table-warning" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">API 명세서 및 API 테스터</div>
+                <div class="pricing-table-description">프로젝트 내에 설치된 API의 명세서와 테스터 URL을 제공합니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-dark alert-dismissible" role="alert">
+                    좋은은행 동산그룹연계 API 명세서<br>
+                    버전 V.1.123_22015632 (22/1/5 업데이트)<br>
+                    <button id="moreDateBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="margin:10px 0 10px 0;">온라인 명세서</button><br>
+                    <img src="/download/Nodebreaker_1.0_brochure.png" style="width:150px;">
+                    <img src="/download/Nodebreaker_1.0_introduction.png" style="width:150px;"><br>
+                    <button id="moreDateBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="margin:10px 0 10px 0;color:black;">API 테스터</button>
+                    <button id="moreDateBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="margin:10px 0 10px 0;color:black;">클라이언트 서버측 테스터</button>
+                  </div></li>
+                  <li><div class="alert alert-primary alert-dismissible" role="alert" style="margin-bottom:0;">
+                    좋은은행 한국대연계 API 명세서<br>
+                    버전 V.1.123_22015632 (22/1/5 업데이트)<br>
+                    <button id="moreDateBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="margin:10px 0 10px 0;">온라인 명세서</button><br>
+                    <img src="/download/Nodebreaker_1.0_brochure.png" style="width:150px;">
+                    <img src="/download/Nodebreaker_1.0_introduction.png" style="width:150px;"><br>
+                    <button id="moreDateBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="margin:10px 0 10px 0;color:black;">API 테스터</button>
+                    <button id="moreDateBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="margin:10px 0 10px 0;color:black;">클라이언트 서버측 테스터</button>
+                  </div></li>
+                </ul>
+              </div>
+              <br>
+
+<!-- 
+              <div class="pricing-table pricing-table-warning" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">제품설명서 및 브로슈어</div>
+                <div class="pricing-table-description">노드브레이커에 대한 간략한 소개 및 홍보자료입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-dark alert-dismissible" role="alert">
+                    제품설명서 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_introduction.zip" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_introduction.png" style="width:150px;"></a>
+                  </div></li>
+                  <li><div class="alert alert-primary alert-dismissible" role="alert" style="margin-bottom:0;">
+                    브로슈어 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_brochure.pdf" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_brochure.png" style="width:150px;"></a>
+                  </div></li>
+                </ul>
+              </div>
+ -->
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <div class="pricing-table pricing-table-success" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">취급설명서</div>
+                <div class="pricing-table-description">관리자 및 운영자를 위한 상세한 취급설명서입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-success alert-dismissible" role="alert">
+                    취급설명서 &nbsp; &nbsp; <a href="/download/Nodebreaker_1.0_manual.zip" style="font-size:1.2em;"><img src="/download/Nodebreaker_1.0_manual.png" style="width:300px;"></a>
+                  </div></li>
+                </ul>
+              </div><br>
+
+              <div class="pricing-table pricing-table-success" style="margin-bottom:0;">
+                <div class="pricing-table-title" style="margin-bottom:10px;">콘솔명령어</div>
+                <div class="pricing-table-description">물리서버의 SSH 콘솔에서 직접 입력하는 노드브레이커 운영 명령어입니다.</div>
+                <div class="card-divider card-divider-xl"></div>
+                <ul class="pricing-table-features" style="margin-bottom:0;">
+                  <li><div class="alert alert-alt4 alert-dismissible" role="alert" style="color:black;text-align:left;">
+                    <strong style="font-family:Verdana;font-weight:bold;">nbto</strong> : 노드브레이커 디렉토리로 이동<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">nbs</strong> : 노드브레이커 전체 논리서버 시작하기 (프로세스가 없을 경우)<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">pmr</strong> : 전체 논리서버 재시작하기 (프로세스가 살아있을 경우)<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">pmd</strong> : 전체 논리서버 끄기 (프로세스가 종료됩니다.)<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">pms</strong> : 전체 논리서버 중지하기 (프로세스는 살아있습니다.)<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">pml</strong> : 전체 논리서버 목록보기<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">pmm</strong> : 전체 논리서버 현황보기<br>
+                    <strong style="font-family:Verdana;font-weight:bold;">dudat</strong> : 로그파일 용량 보기<br>
+                  </div></li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+
+
+        </div>
+
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+});
+
+</script>
+</body>
+</html>

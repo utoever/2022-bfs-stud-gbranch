@@ -1,0 +1,638 @@
+<%const echo=(v)=>{__append(v);}%>
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-culture"></span> 기관</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/control">운영</a></li>
+            <li class="breadcrumb-item active">기관</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="widget widget-fullwidth widget-small">
+                <table class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th style="background:#ddd;font-weight:bold;">아이디</th>
+                      <th style="background:#ddd;font-weight:bold;">기관명</th>
+                      <th style="background:#ddd;font-weight:bold;">인증여부</th>
+                    </tr>
+                  </thead>
+                  <tbody id="coList"></tbody>
+                </table>
+              </div>
+              <span id="coNewBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;">기관 추가하기</span>
+            </div>
+
+            <div id="" class="col-sm-8" style=""><form>
+
+            <div id="coNew" class="" style="display:none;">
+              <div class="email-body">
+                <div><input id="coNameNew" value="" placeholder="기관명" class="user" style="font-weight:bold;">* 신규 기관명</div><br>
+                <div><input id="userIdNew" value="" placeholder="아이디" class="user" style="font-weight:bold;">* 신규 아이디</div><br>
+                <div><input id="userPsNew" type="password" placeholder="비밀번호" value="" class="user" style="">* 비밀번호</div><br>
+                <div><input id="userPsNewRe" type="password" placeholder="비밀번호 재입력" value="" class="user" style="">* 비밀번호 확인</div>
+              </div>
+              <div class="email-body">
+                <span id="coNewCancelBtn" class="btn btn-space btn-alt4 btn-sm btn-rounded">입력취소</span>
+                <span id="coNewSubmitBtn" class="btn btn-space btn-success btn-sm btn-rounded">기관입력</span>
+              </div>
+            </div>
+
+            <div id="coCon" class="" style="display:none;">
+
+              <div id="psCon">
+              <input type="hidden" id="userKy" value="">
+              <input type="hidden" id="coKy" value="">
+
+              <div class="email-body">
+                <div>아이디 : <strong id="userId"></strong></div><br>
+                <div><input id="userPsMy" type="password" class="user" placeholder="" value="" style=""> * 기존 비밀번호 (<%-sess.userId%>)</div><br>
+                <div><input id="userPs" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호 (<span id="forUserId"></span>)</div><br>
+                <div><input id="userPsRe" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호 확인</div>
+              </div>
+              <div class="email-body">
+                <span id="psUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">비밀번호수정</span>
+              </div>
+              </div>
+              
+              <div id="infoCon">
+              <div class="email-body">
+                <div><input id="coName" value="" class="user" style=""> * 기관명</div><br>
+                <div><select id="coDiv" class="user" style="">
+                  <option value="private">일반</option>
+                  <option value="public">공기업</option>
+                </select> 기관구분</div><br>
+                <div><input id="coRegNum" value="" class="user" style=""> 기관등록번호</div><br>
+                <!-- <div><input id="coDomainSSL" value="abcdefg.or.kr" class="user" style=""> SSL 등록 도메인</div><br> -->
+                <div><input id="coTel" value="" class="user" style=""> 기관 연락처</div><br>
+                <div><input id="userName" value="" class="user" style=""> 관리자 이름</div><br>
+                <div><input id="coMail" value="" class="user" style=""> 관리자 이메일</div><br>
+              </div>
+              <div class="email-body">
+                <span id="coUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">정보수정</span>
+                <span id="blockFreeBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="display:none;">차단해제</span>
+                <span id="coDeleteBtn" class="btn btn-space btn-primary btn-sm btn-rounded">기관삭제</span>
+                <!-- <span id="coManualBtn" class="btn btn-space btn-success btn-sm btn-rounded">연동설치 메뉴얼보기</span> -->
+              </div>
+              </div>
+
+              <div id="authBtnCon" class="email-body" style="display:none;">
+                <span id="authBtn" class="btn btn-space btn-warning btn-lg btn-rounded">인증서 등록하기</span>
+              </div>
+              <div id="authCon" style="display:none;">
+
+                <div class="email-body">
+                  <div>만료일자 : <span id="coCertDateEnd"></span></div><br>
+                  <div>발급기간 : <span id="coCertDateStartEnd"></span></div><br>
+
+                  <div>서버도메인 : <span id="coDomainSSL"></span></div><br>
+                  <div>서버아이피 : <span id="coAuthIP"></span></div><br>
+                  <div>인증상태 : <span id="certAuthStr"></span></div><br>
+                  
+                  <!-- <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    등록된 인증서 : <span id="coCertInfo" style="color:white;font-family:Verdana;"></span>
+                  </div><br> -->
+                  
+                  <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    API Key : <span id="coApiKey" style="color:white;font-family:Verdana;"></span>
+                  </div>
+
+                  <!-- <div><textarea id="coCertInfo" class="user" style="width:60%;height:50px;color:black;"></textarea> 등록된 인증서</div><br>
+                  <div><textarea id="coApiKey" class="user" style="width:60%;height:50px;color:black;"></textarea> API Key</div><br>
+                  <div><textarea id="coCdnCode" class="user" style="width:60%;height:50px;color:black;"></textarea> CDN Code</div><br> -->
+                </div>
+
+                <div id="auth2Con">
+                <div class="email-body">
+                  <div style="padding:10px 20px;background:#bbb;border-radius:10px;font-weight:bold;">
+                    인증 URL : <span id="coAuthUrl" style="color:white;font-family:Verdana;"></span>
+                  </div><br>
+                  <!-- <div><textarea id="coAuthUrl" class="user" style="width:60%;height:50px;color:black;"></textarea> URL 인증</div><br> -->
+                  위의 URL에 접속했을 때, " <strong id="key2" style="color:black;font-weight:bold;"></strong> "와 같은 검증키가 보여져야 합니다.<br><br>
+                  <span id="auth2Btn" class="btn btn-space btn-warning btn-lg btn-rounded" style="display:none;">서버 검증하기</span>
+                </div>
+
+              </div>
+
+            </div>
+            </div>
+            </form></div>
+          </div>
+          <br>
+
+
+          <!-- <pre id="debug"></pre> -->
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+//let sess={}; try{sess=JSON.parse('<%-JSON.stringify(sess).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+
+//////////////////////////
+const makeCert=(coCert)=>{
+  let data=coCert;
+  let url='/ajax/co/certUpdate';
+
+  //pr(data,'data');
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(rs.flag){
+        alert('정상적으로 인증되었습니다.\n정상적인 진행을 위해 다시 로그인하셔야 합니다.');
+        dlr('/on/login');
+      }
+      else{
+        alert('인증에 실패했습니다.');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const makeAuth=(coAuth)=>{
+  let data=coAuth;
+  let url='/ajax/co/authUpdate';
+
+  //pr(data,'data');
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(rs.flag){
+        alert('정상적으로 검증되었습니다.\n정상적인 진행을 위해 다시 로그인하셔야 합니다.');
+        dlr('/on/login');
+      }
+      else{
+        alert('검증에 실패했습니다.');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const statView=(coInfo)=>{
+  //pr(coInfo);
+  if(coInfo.coCertStat=='Y' && coInfo.coApiKey){
+    let keys=coInfo.coApiKey.split('_');
+    let key2=keys[1];
+
+    $('#authCon').show();
+    $('#authBtnCon').hide();
+
+    $('#coCertDateEnd').text(coInfo.coCertDateEnd.substr(0,10));
+    $('#coCertDateStartEnd').text(coInfo.coCertDateStart.substr(0,10)+' ~ '+coInfo.coCertDateEnd.substr(0,10));
+
+    $('#coAuthIP').text(coInfo.coAuthIP);
+    $('#coDomainSSL').text(coInfo.coDomainSSL);
+    $('#key2').text(key2);
+    $('#coAuthIP').text(coInfo.coAuthIP);//	기관검증URL	VARCHAR(100)	NULL	기관인증URL
+
+    $('#coCertInfo').text(coInfo.coCertInfo);//	기관인증정보	VARCHAR(100)	NULL	기관인증정보
+    $('#coApiKey').text(coInfo.coApiKey);//	기관APIKEY	VARCHAR(100)	NULL	기관APIKEY
+    $('#coAuthUrl').text(coInfo.coAuthUrl);//	기관검증URL	VARCHAR(100)	NULL	기관인증URL
+    //$('#coCdnCode').text(coInfo.coCdnCode);//	기관CDN코드	VARCHAR(100)	NULL	기관CDN코드
+
+
+    if(coInfo.coAuthStat=='Y'){
+      $('#certAuthStr').text('서버 아이피와 API Key 검증이 모두 완료되었습니다.').css({'color':'blue','font-weight':'bold'});
+      $('#auth2Btn').hide();
+    }
+    else{
+      $('#certAuthStr').text('인증 신청 완료, 서버검증 절차가 남아있습니다.').css({'color':'red','font-weight':'bold'});
+    }
+  }
+}
+
+//////////////////////////
+let coListInfo={};
+const coList=()=>{
+  let data={};
+  let url='/ajax/co/list';
+
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      if(rs.flag){
+
+        //console.log(rs.coList);
+        let coListHTML='';
+
+        if(Array.isArray(rs.coList)){
+          coListInfo={};
+          for(let i in rs.coList){
+            let co=rs.coList[i];
+            coListInfo[co.userId]=co;
+            coListHTML+='<tr>'
+            +'<td><a href="#" class="coInfoBtn" data-userid="'+co.userId+'">'+co.userId+'</a></td>'
+            +'<td><a href="#" class="coInfoBtn" data-userid="'+co.userId+'">'+hvw(co.coName)+'</a></td>'
+            +'<!-- <td>'+hvw(co.userName)+'</td> --><td>'+co.coCertStat+' '+co.coAuthStat+'</td></tr>';
+          }
+          $('#coList').html(coListHTML);
+          btnAction();
+          if(coListInfo['<%-GQ.userId%>']) viewCo(coListInfo['<%-GQ.userId%>']);
+          else viewCo(rs.coList[0]);
+          //$('#debug').text(pre(coListInfo));
+        }
+      }
+      else{
+        console.log('no data');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const coDelete=(co)=>{
+  let data=co;
+  let url='/ajax/user/delete';
+
+  if(confirm(co.coName+' 정보를 모두 삭제하시겠습니까?\n이 과정은 취소할 수 없습니다.')){
+    //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(co.coName+' 정보가 정상적으로 모두 삭제되었습니다.');
+          //console.log(rs);
+          dlr('?');
+        }
+        else{
+          alert(co.coName+' 정보 삭제에 실패했습니다.');
+        }
+      }
+    });
+  }
+}
+
+//////////////////////////
+const coUpdate=(co)=>{
+  let data=co;
+  let errStr=[];
+  let url='/ajax/co/update';
+
+  if(!data.coName) errStr.push('기관명은 필수 항목입니다.');
+  if(!errStr.length){
+  //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(co.coName+' 정보가 정상적으로 모두 수정되었습니다.');
+          //console.log(rs);
+          dlr('?userId='+data.userId);
+        }
+        else{
+          alert(co.coName+' 정보 수정에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const userIdFind=(userId,fnc)=>{
+  let data={userId:userId};
+  let url='/ajax/user/idFind';
+
+  //alert(JSON.stringify(data));
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //console.log(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+
+//////////////////////////
+const myLogin=(userPs,fnc)=>{
+  let data={
+    userId:sess.userId,
+    userPs:userPs
+  };
+  let url='/ajax/auth/myLogin';
+
+  //pr(data);
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+/*myLogin('xxxxxxxxxxxxx',(flag)=>{
+  pr(flag);
+});*/
+
+//////////////////////////
+const userBlockFree=(userKy,fnc)=>{
+  let data={userKy:userKy};
+  let url='/ajax/auth/free';
+
+  //alert(JSON.stringify(data));
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //console.log(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+
+//////////////////////////
+const userPsUpdate=(user)=>{
+  //console.log(user);
+  let data=user;
+  let errStr=[];
+  let url='/ajax/user/psUpdate';
+  
+  if(!data.userPsMy||!data.userPs||!data.userPsRe) errStr.push('비밀번호는 모두 필수 항목입니다.');
+  if(!isPs(data.userPs)||!isPs(data.userPsMy)) errStr.push('비밀번호는 6~20 글자로 만들어야 하고,\n영문, 숫자, 특수문자를 각각 하나 이상 포함해야 합니다.');
+  if(data.userPs!=data.userPsRe) errStr.push('비밀번호 확인에 실패했습니다.');
+
+  if(!errStr.length){
+
+    //alert(JSON.stringify(data));
+    myLogin(data.userPsMy,(flag)=>{
+      if(flag){
+        //alert(JSON.stringify(flag));
+
+        $.ajax({
+          dataType:'json',method:'post',
+          data:data,url:url,
+          beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+          success:function(rs){
+            if(rs.flag){
+              alert(user.userId+' 비밀번호가 정상적으로 변경되었습니다.');
+              //console.log(rs);
+              dlr('?userId='+data.userId);
+            }
+            else{
+              alert(비밀번호를+' 비밀번호 변경에 실패했습니다.');
+            }
+          }
+        });
+      }
+      else{
+        alert('첫번째 비밀번호가 틀립니다. 첫번째 비밀번호는 자기 자신의 비밀번호여야 합니다.');
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const coNew=(newData)=>{
+  //console.log(newData);
+  let data=newData;
+  let errStr=[];
+  let url='/ajax/co/add';
+
+  if(!data.coName) errStr.push('기관명은 필수 항목입니다.');
+  if(!data.userId) errStr.push('아이디는 필수 항목입니다.');
+  if(!isId(data.userId)) errStr.push('아이디는 반드시 영어로 시작해야 하고,\n영어/숫자로 4~20 글자가 되도록 만들어야 합니다.');
+  if(!data.userPs||!data.userPsRe) errStr.push('비밀번호는 필수 항목입니다.');
+  if(data.userPs!=data.userPsRe) errStr.push('비밀번호 확인에 실패했습니다.');
+  if(!isPs(data.userPs)) errStr.push('비밀번호는 6~20 글자로 만들어야 하고,\n영문, 숫자, 특수문자를 각각 하나 이상 포함해야 합니다.');
+
+  if(!errStr.length){
+    //console.log(data);
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(data.userId+' 기관이 정상적으로 추가되었습니다.');
+          //console.log(rs);
+          dlr('?userId='+data.userId);
+        }
+        else{
+          alert(data.userId+' 기관 추가에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const keyList=[
+  'userKy',
+  'coKy',
+  'userId',
+  'coName',
+  'coDiv',
+  'coRegNum',
+  //'coDomainSSL',
+  'coTel',
+  'userName',
+  'coMail'
+];
+
+const viewCo=(co)=>{
+  $('#coCon').hide();
+  $('#authCon').hide();
+
+  if(co.userFailN>4) $('#blockFreeBtn').data('userky',co.userKy).show();
+  else $('#blockFreeBtn').data('userky','').hide();
+  
+  for(let i in keyList){
+    let key=keyList[i];
+
+    if(key=='userId') co.userId=co.userId.toUpperCase();
+    if(key=='userId') $('#'+key).text(co[key]);
+    else $('#'+key).val(co[key]);
+  }
+  
+  //$('#authBtnCon').show();
+  statView(co);
+  $('#coNew').hide();
+  $('#coCon').slideDown();
+  $('#forUserId').text(co.userId);
+}
+
+//////////////////////////
+//////////////////////////
+//////////////////////////
+const btnAction=()=>{
+  $('.coInfoBtn').off().click(function(){
+    let userId=$(this).data('userid');
+    viewCo(coListInfo[userId]);
+  });
+}
+
+//////////////////////////
+$('#coDeleteBtn').click(function(){
+  let userId=$('#userId').text();
+  coDelete(coListInfo[userId]);
+});
+$('#coNewBtn').click(function(){
+  $('#coNameNew').val('');
+  $('#userIdNew').val('');
+  $('#userPsNew').val('');
+  $('#userPsNewRe').val('');
+  $('#coCon').hide();
+  $('#coNew').slideDown();
+});
+$('#coNewCancelBtn').click(function(){
+  $('#coCon').slideDown();
+  $('#coNew').hide();
+});
+$('#coNewSubmitBtn').click(function(){
+  let newData={
+    coName:$('#coNameNew').val().trim(),
+    userId:$('#userIdNew').val().trim().toUpperCase(),
+    userPs:$('#userPsNew').val().trim(),
+    userPsRe:$('#userPsNewRe').val().trim()
+  };
+  coNew(newData);
+});
+$('#userIdNew').blur(function(){
+  let idNew=$(this).val().trim().toUpperCase();
+  if(idNew){
+    $(this).val(idNew);
+    userIdFind(idNew,(flag)=>{
+      if(flag){
+        alert('사용할 수 없는 아이디입니다.');
+        $('#userIdNew').val('');
+      }
+    });
+  }
+});
+$('#userName,#coName,#coNameNew').blur(function(){
+  let veriName=es($(this).val(),/[^0-9a-zA-Z가-힣_@\/\:\.\s\-]/g);
+  $(this).val(veriName);
+});
+$('#psUpdateBtn').click(function(){
+  let user={
+    userPsMy:$('#userPsMy').val().trim(),
+    userPs:$('#userPs').val().trim(),
+    userPsRe:$('#userPsRe').val().trim(),
+    userKy:$('#userKy').val().trim(),
+    userId:$('#userId').text().trim()
+  };
+  userPsUpdate(user);
+});
+$('#coUpdateBtn').click(function(){
+  let co={};
+  for(let i in keyList){
+    let key=keyList[i];
+    co[key]=$('#'+key).val().trim();
+  }
+  co.userId=$('#userId').text().trim();
+  coUpdate(co);
+});
+$('#coMail').blur(function(){
+  let mail=$(this).val();
+  if(!isMail(mail) && mail){
+    alert('적합한 메일 양식이 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#coDomainSSL').blur(function(){
+  let domain=$(this).val();
+  if(!isDomain(domain) && domain){
+    alert('적합한 도메인 양식이 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#coRegNum').blur(function(){
+  let regNum=$(this).val();
+  if(!isCoRegNum(regNum) && regNum){
+    alert('정상적인 사업자 번호가 아닙니다.');
+    $(this).val('');
+  }
+});
+$('#blockFreeBtn').click(function(){
+  let userKy=$(this).data('userky');
+  //alert(userKy);
+  if(userKy){
+    userBlockFree(userKy,(flag)=>{
+      if(flag){
+        alert('로그인 차단이 해제되었습니다.');
+        $('#blockFreeBtn').hide();
+      }
+    });
+  }
+});
+
+/*$('#authBtn').click(function(){
+  let coCert={
+    userKy:coInfo.userKy,
+    coKy:coInfo.coKy,
+    coCertDateEnd:'2022-12-31 23:59:59',//	기관인증완료일	DATETIME	NULL	기관인증완료일
+    coCertDateStart:'2022-01-01 00:00:01',//	기관인증시작일	DATETIME	NULL	기관인증시작일
+    coCertInfo:'cn=대한민국회사(koreacom)151646525523434218516516111,ou=koreacom,ou=xsadiejsfd,o=yessing,c=kr',//	기관인증정보	VARCHAR(100)	NULL	기관인증정보
+    coApiKey:'fvfoanSLF4okfjoW5AFNLV8_icnaodSK3rojgp5bcxvml4kFJal',//	기관APIKEY	VARCHAR(100)	NULL	기관APIKEY
+    coCdnCode:'https://nodebreaker.com/cdn/sdk_0.1.9/fvfoanSLF4okfjoW5AFNLV8',//	기관CDN코드	VARCHAR(100)	NULL	기관CDN코드
+    coCertStat:'Y',//	기관인증상태	ENUM('N','Y')	NOT NULL	기관인증상태(무효,유효)
+    coAuthUrl:'https://sample.com/nb/fvfoanSLF4okfjoW5AFNLV8.txt',//	기관검증URL	VARCHAR(100)	NULL	기관인증URL
+    //coAuthStat:'Y',//	기관검증상태	ENUM('N','Y')	NOT NULL	기관검증상태(무효,유효)
+  };
+  makeCert(coCert);
+});
+$('#auth2Btn').click(function(){
+  let coAuth={
+    userKy:coInfo.userKy,
+    coKy:coInfo.coKy
+  };
+  makeAuth(coAuth);
+});*/
+$('#coManualBtn').click(function(){
+  dlh('/co/manual');
+});
+
+//////////////////////////
+coList();
+
+//$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+//});
+
+</script>
+</body>
+</html>

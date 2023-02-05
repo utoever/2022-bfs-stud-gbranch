@@ -1,0 +1,50 @@
+{
+  "_args": [
+    [
+      "@foxythemes/skycons@1.0.0",
+      "/home/miguel/projects/amaretti"
+    ]
+  ],
+  "_from": "@foxythemes/skycons@1.0.0",
+  "_id": "@foxythemes/skycons@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-new/aJHgMOULKLBKw9FTG5OWNtZKouH9iVoeaEBO50iZ1941Fd/QMc0Mowcq6GAevSIfKs8DLP4ukop/CSx95Q==",
+  "_location": "/@foxythemes/skycons",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@foxythemes/skycons@1.0.0",
+    "name": "@foxythemes/skycons",
+    "escapedName": "@foxythemes%2fskycons",
+    "scope": "@foxythemes",
+    "rawSpec": "1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "1.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@foxythemes/skycons/-/skycons-1.0.0.tgz",
+  "_spec": "1.0.0",
+  "_where": "/home/miguel/projects/amaretti",
+  "author": {
+    "name": "Miguel Henao"
+  },
+  "bugs": {
+    "url": "https://github.com/foxythemes/skycons/issues"
+  },
+  "description": "Skycons fork",
+  "homepage": "https://github.com/foxythemes/skycons#readme",
+  "license": "MIT",
+  "main": "skycons.js",
+  "name": "@foxythemes/skycons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foxythemes/skycons.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

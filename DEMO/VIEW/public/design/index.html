@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/default.css">
+    <title>ESP System - CRM</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <img src="./src/img/logo_white.png" alt="헤더 로고" />
+        </div>
+        <h1 class="medium-text m-size-text">ESP-CRM</h1>
+        <div class="box shadow-10 notice">
+            <h2 class="title bold-text ">공지사항</h2>
+            <h3 class=".regular-text s-size-text">ESP-CMS 원격지원 서비스 지원 안내</h3>
+            <a href="">
+                <p class="light-text xs-size-text">자세히 보기</p>
+            </a>
+        </div>
+        <ul class="xs-size-text light-text">
+            <li><a href="#">화면잠금</a></li>
+            <li><a href="#">잠금설정</a></li>
+            <li><a href="#">화면인쇄</a></li>
+            <li><a href="#">은행링크</a></li>
+            <li><a href="#">원격지원</a></li>
+            <li><a href="#">도움말</a></li>
+        </ul>
+    </header>
+    <nav>
+        <div class="user">
+            <div class="user-greet">
+                <img src="src/img/user.png" alt="user" />
+                <p class="regular-text s-size-text">홍길동님, 반갑습니다.</p>
+            </div>
+            <div class="close-button">
+                <span class="material-symbols-rounded">close</span>
+            </div>
+            <div class="menu-button">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+        </div>
+        <div class="user-menu">
+            <div class="title">사용자메뉴</div>
+            <ul class="regular-text s-size-text">
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">logout</span>
+                        <p class="user-menu-text">로그아웃</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">calendar_month</span>
+                        <p class="user-menu-text">스케줄러</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            desktop_windows
+                        </span>
+                        <p class="user-menu-text">사용자 화면</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            description
+                        </span>
+                        <p class="user-menu-text">승인 / 결재</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            account_balance
+                        </span>
+                        <p class="user-menu-text">인터넷뱅킹</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div class="menu">
+            <div class="input-wrapper">
+                <input class="menu-input medium-text m-size-text" type="text" placeholder="메뉴명 검색" />
+                <button class="menu-search-button"><span class="material-symbols-rounded">
+                        search
+                    </span></button>
+            </div>
+            <div class="menu-tap">
+                <ul class="s-size-text light-text">
+                    <li class="box-small shadow-10">메뉴</li>
+                    <li class="box-small shadow-10">맞춤</li>
+                    <li class="box-small shadow-10">검색</li>
+                </ul>
+            </div>
+            <ul class="menu-list s-size-text regular-text">
+                <li class="1depth">조회</li>
+                <li class="1depth">지급 / 집금</li>
+                <li class="1depth">
+                    <a href="./popup.html" onclick="window.open(this.href, '_blank', 'width=1200px, height=1000px, toolbars=no, scrollbars=no'); return false;">당행전자결제</a>
+                </li>
+                <li class="1depth">타행전자결제</li>
+                <li class="1depth">법인카드</li>
+                <li class="1depth">ESP Manager</li>
+                <li class="1depth">외환 / 파생</li>
+                <li class="1depth">퇴직연금</li>
+                <li class="1depth">세금공과금</li>
+                <li class="1depth">전자세금계산서</li>
+                <li class="1depth">특화서비스</li>
+                <li class="1depth">정보관리</li>
+                <li class="1depth">시스템관리</li>
+                <li class="1depth">RCMS</li>
+                <li class="1depth">통합 R&D 자금관리</li>
+                <li class="1depth">대출</li>
+                <li class="1depth">감사시스템</li>
+                <li class="1depth">운영보고서</li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-index">
+        <div class="link-tap">
+            <div class="home-button shadow-10">
+                <span class="material-symbols-rounded">
+                    home
+                </span>
+            </div>
+            <ul class="visited-tab">
+                <li>
+                    <div>
+                        <p></p>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-box-wrapper">
+            <div class="main-box">
+                <div class="main-notice-top">
+                    <h2 class="title-black bold-text">통합공지사항</h2>
+                    <div class="blue-button s-size-text medium-text">더보기</div>
+                </div>
+                <div class="box shadow-20">
+                    <ul class="main-notice-list">
+                        <li>
+                            <p class="m-size-text regular-text main-notice-content">ESP-CMS 원격지원 서비스 지원 안내</p>
+                            <p class="xs-size-text light-text">2022-08-10</p>
+                        </li>
+                        <li>
+                            <p class="m-size-text regular-text main-notice-content">ESP-CMS 원격지원 서비스 지원 안내</p>
+                            <p class="xs-size-text light-text">2022-08-10</p>
+                        </li>
+                        <li>
+                            <p class="m-size-text regular-text main-notice-content">ESP-CMS 원격지원 서비스 지원 안내</p>
+                            <p class="xs-size-text light-text">2022-08-10</p>
+                        </li>
+                        <li>
+                            <p class="m-size-text regular-text main-notice-content">ESP-CMS 원격지원 서비스 지원 안내</p>
+                            <p class="xs-size-text light-text">2022-08-10</p>
+                        </li>
+                        <li>
+                            <p class="m-size-text regular-text main-notice-content">ESP-CMS 원격지원 서비스 지원 안내</p>
+                            <p class="xs-size-text light-text">2022-08-10</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-box">
+                <h2 class="title-black bold-text">현황보기</h2>
+                <div class="box shadow-20 main-status">
+                    <div class="main-status-tap">
+                        <div class="blue-button bold-text s-size-text">승인 / 결재</div>
+                        <div class="gray-button bold-text s-size-text">스케줄 현황</div>
+                        <div class="gray-button bold-text s-size-text">시스템 현황</div>
+                    </div>
+                    <ul class="main-status-list">
+                        <li>
+                            <p class="regular-size-text medium-text">결재 대상</p>
+                            <span class="regular-size-text medium-text">0</span>
+                        </li>
+                        <li>
+                            <p class="regular-size-text medium-text">결재 완료</p>
+                            <span class="regular-size-text medium-text">0</span>
+                            <a href="#">
+                                <p class="s-size-text light-text">결재창 바로가기</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-box">
+                <h2 class="title-black bold-text">금융자산현황</h2>
+                <div class="box shadow-20">
+                    <div class="table-wrapper">
+                        <table class="asset-status medium-text m-size-text">
+                            <tr>
+                                <th>구분</th>
+                                <th>당행 금액 잔액</th>
+                                <th>타행 금액 잔액</th>
+                            </tr>
+                            <tr>
+                                <th>입 / 출금식 예금</th>
+                                <td>35,559,995,999,000</td>
+                                <td>995,999,000</td>
+                            </tr>
+                            <tr>
+                                <th>예 / 적금</th>
+                                <td>1,588,559,900</td>
+                                <td>1,588,559,900</td>
+                            </tr>
+                            <tr>
+                                <th>신탁 / 펀드</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>대출</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="main-box">
+                <h2 class="title-black bold-text">통화별 현황</h2>
+                <div class="box shadow-20">
+                    <div class="table-wrapper">
+                        <table class="asset-status medium-text m-size-text">
+                            <tr>
+                                <th>구분</th>
+                                <th>당행 금액 잔액</th>
+                                <th>타행 금액 잔액</th>
+                                <th>구분</th>
+                                <th>당행 금액 잔액</th>
+                                <th>타행 금액 잔액</th>
+                            </tr>
+                            <tr>
+                                <th>EUR</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>EUR</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>GBP</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>GBP</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>HKD</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>HKD</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>JPY</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>JPY</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>KRW</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>KRW</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <th>USD</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <th>USD</th>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="main-box">
+                <h2 class="title-black bold-text">자금관리 서비스</h2>
+                <div class="box shadow-20 main-management-services-container">
+                    <div>
+                        <span class="material-symbols-rounded">
+                            arrow_back_ios
+                        </span>
+                    </div>
+                    <div class="main-management-services-wrapper">
+                        <div class="main-management-services">
+                            <h3 class="medium-text m-size-text">전자 세금 계산서</h3>
+                            <p class="light-text s-size-text">세금계산서를 인터넷을 통해<br />주고 받을 수 있는 서비스</p>
+                            <span class="material-symbols-rounded">
+                                receipt_long
+                            </span>
+                        </div>
+                        <div class="main-management-services">
+                            <h3 class="medium-text m-size-text">ESP Manager</h3>
+                            <p class="light-text s-size-text">고객이 보유한 모든 종류의<br />내용을 통합관리</p>
+                            <span class="material-symbols-rounded">
+                                manage_accounts
+                            </span>
+                        </div>
+                        <div class="main-management-services">
+                            <h3 class="medium-text m-size-text">뱅킹계약 서비스</h3>
+                            <p class="light-text s-size-text">인터넷뱅킹 계약 서비스</p>
+                            <span class="material-symbols-rounded">
+                                alarm
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="material-symbols-rounded">
+                            arrow_forward_ios
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="main-box">
+                <div class="main-currency-top">
+                    <h2 class="title-black bold-text">환율 / 금리</h2>
+                    <div class="blue-button s-size-text medium-text">더보기</div>
+                </div>
+                <div class="box shadow-20">
+                    <div class="main-status-tap">
+                        <div class="blue-button bold-text s-size-text">환율</div>
+                        <div class="gray-button bold-text s-size-text">금리</div>
+                    </div>
+                    <div class="table-wrapper currency-wrapper">
+                        <table class="currency medium-text m-size-text">
+                            <tr>
+                                <th>구분</th>
+                                <th>단위</th>
+                                <th>사실 때</th>
+                                <th>파실 때</th>
+                            </tr>
+                            <tr>
+                                <th>USD</th>
+                                <td>1달러</td>
+                                <td>1,364.97</td>
+                                <td>3,318.03</td>
+                            </tr>
+                            <tr>
+                                <th>JPY</th>
+                                <td>100엔</td>
+                                <td>995.64</td>
+                                <td>961.40</td>
+                            </tr>
+                            <tr>
+                                <th>EUR</th>
+                                <td>100유로</td>
+                                <td>137,127.00</td>
+                                <td>131,777.0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <a href="#">
+                <p class="ligth-text s-size-text">ESP SYSTEM ALL 바로가기</p>
+            </a>
+            <p class="light-text xs-size-text">COPYRIGHT 2022 ESP SYSTEM ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="logo-wrapper">
+            <img src="src/img/logo_white.png" alt="푸터 로고" />
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="src/js/common.js"></script>
+</body>
+
+</html>

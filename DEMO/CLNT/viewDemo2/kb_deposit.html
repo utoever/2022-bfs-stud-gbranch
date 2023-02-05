@@ -1,0 +1,280 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-list-alt"></i> 입출금 거래내역
+				</h6>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label">
+									계좌번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select id="accountNum" class="form-control table-input-text-shot">
+									</select>
+									<a href="#" class="btn btn-d btn-sm table-contents-bt xs-hidden d-none d-sm-inline">계좌기본정보조회</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label">
+									조회기간
+								</label>
+							</div>
+							<style>.form-group select{margin-bottom:3px;}</style>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="fromYear">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="fromMonth">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="fromDay">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										일 부터&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toYear">
+									</select> 
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toMonth">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toDay">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										일 까지&nbsp;
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- 
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-sm table-contents-bt">당일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">전일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1주</a><a href="#" class="btn btn-d btn-sm table-contents-bt">15일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">6개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1년</a>
+								</div>
+							</div>
+						</div> -->
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label xs-hidden d-none d-sm-block">
+									조회구분
+								</label>
+							</div>
+							<div class="col table-content-col xs-hidden d-none d-sm-block">
+								<div class="form-group">
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" checked="checked" disabled="disabled"/>
+										<label class="form-check-label">
+											전체
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" disabled="disabled"/>
+										<label class="form-check-label">
+											입금
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_2394" disabled="disabled"/>
+										<label class="form-check-label">
+											출금
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1476" disabled="disabled"/>
+										<label class="form-check-label">
+											무통장(미기장)
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" id="actionBtn" class="btn btn-d btn-lg bt-yellow-bottom"><i class="fa fa-arrow-circle-down" style="color:white;"></i> 조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">상세조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div id="searchInfo" style="display:none;">
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회일시: <span id="actTimeView">0000년 00월 00일 00시 00분 00초</span>
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col table-title-col-yellow-bg" style="border-color:white;padding-left:20px;">
+									<h6 class="text-lg-left search-title" style="font-size:15px;">
+										<i class="fa fa-asterisk" style="color:white;"></i> <span id="lowN">0</span>건의 조회 결과가 있습니다.<br>
+									</h6>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+									<label class="text-lg-left table-label">
+										계좌번호<br>
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par" id="accountNumView">
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+									<label class="text-lg-left table-label">
+										예금주명
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										대한변리사회
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+									<label class="text-lg-left table-label">
+										예금종류
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										저축예금
+									</p>
+								</div>
+							</div>
+							<!-- <div class="row">
+								<div class="col-lg-2 table-title-col-none">
+									<label class="text-lg-left table-label label-style">
+										잔액
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										6,470,000 원
+									</p>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회기간: <span id="periodView">0000-00-00 ~ 0000-00-00</span>
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+
+								<div class="table-responsive">
+								<table class="table">
+								<thead>
+								<tr>
+									<th class="th-sm">순번</th>
+									<th>거래일시</th>
+									<th class="d-none d-sm-table-cell">거래구분</th>
+									<th>출금금액</th>
+									<th>입금금액</th>
+									<th>잔액</th>
+									<th>거래기록</th>
+									<th class="d-none d-sm-table-cell">거래점</th>
+								</tr>
+								</thead>
+								<tbody id="depositbody">
+								</tbody>
+								</table>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<span id="plusPageBtn" class="btn btn-d btn-lg bt-yellow-bottom" style="font-weight:bold;display:none;"><i class="fa fa-arrow-circle-down" style="color:white;"></i> 다음목록보기</span><span id="hrefTransfer" class="btn btn-d btn-lg bt-yellow-bottom"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 즉시이체</span><a href="kb_account" class="btn btn-d btn-lg bt-yellow-bottom"><i class="fa fa-arrow-circle-right" style="color:white;"></i> 전계좌조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+
+$('#navigator').html('/ 금융업무 / 입출금 거래내역');
+
+/////////////////////
+const QGacno='<%=QG.acno%>';
+const code='141';
+
+/////////////////////
+let callPos={};
+let lowN=0;
+setDateSels(d);
+acnosSels(acnos);
+if(QGacno) $('#accountNum').val(QGacno);
+setDate('20210101',d.today);//초기데이타셋
+//depositDateViewer();
+
+//let paymtAbilzBalTotal=acnosN=0;
+//$('#thisTimeView').text(d.todayFullHan);
+
+depositSendAction(code);
+
+$('#actionBtn').click(()=>{
+	lowN=0;
+	$('#lowN').text(0);
+	callPos={};
+	depositSendAction(code);
+});
+$('#plusPageBtn').click(()=>{
+	depositSendAction(code);
+});
+$('#hrefTransfer').click(()=>{
+	document.location.href='kb_transfer?acno='+$('#accountNum').val();
+});
+</script>
+
+</body>
+</html>

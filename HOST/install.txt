@@ -1,0 +1,32 @@
+노드브레이커 1.0 설치 안내
+0. 최소 작동환경 : 리눅스 64비트, 2GHz 이상의 CPU, 4Gb 이상의 RAM, 20Gb 이상의 저장장치
+1. node.js v.16 이상이 설치되어 있어야 합니다. (콘솔에서 node -v 로 확인)
+2. node.js와 글로벌로 연동되는 pm2 v.5이상이 설치되어 있어야 합니다. (콘솔에서 pm2 -v 로 확인)
+
+/////////////////////
+4_HOST (m4.espsys.link,3.37.157.246)
+
+/home/nodejs/Nodebreaker/
+
+  DATA/
+    node_modules/...
+
+    dat/
+    log/
+    cfg/
+      apps.json
+      conf.json
+      appRun.json
+
+    alert.js
+    cf.js
+    data.js
+    log.js
+    mths.js
+    statis.js
+    ut.js
+    watcher.js
+
+  HOST/
+    node_modules/...
+    09.HOST.js

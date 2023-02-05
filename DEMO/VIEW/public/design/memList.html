@@ -1,0 +1,385 @@
+<html lang="ko"><head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>ESP System - CRM</title>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+
+<link rel="stylesheet" href="src/css/reset.css">
+<link rel="stylesheet" href="src/css/default.css">
+<script src="src/js/jquery_361.js"></script>
+<script src="src/js/util.js"></script>
+
+</head>
+
+<body>
+      <header>
+        <div class="logo-wrapper">
+          <a href="memLogin.html">
+            <img src="./src/img/logo_white.png" alt="헤더 로고">
+          </a>
+        </div>
+        <h1 class="medium-text m-size-text">ESP-CRM</h1>
+        <div class="box shadow-10 notice">
+          <h2 class="title bold-text">공지사항</h2>
+          <h3 class="regular-text s-size-text">ESP-CMS 원격지원 서비스 지원 안내</h3>
+          <a href="">
+            <p class="light-text xs-size-text">자세히 보기</p>
+          </a>
+        </div>
+        <ul class="xs-size-text light-text">
+          <li>
+            <a href="#">화면잠금</a>
+          </li>
+          <li>
+            <a href="#">잠금설정</a>
+          </li>
+          <li>
+            <a href="#">화면인쇄</a>
+          </li>
+          <li>
+            <a href="#">은행링크</a>
+          </li>
+          <li>
+            <a href="#">원격지원</a>
+          </li>
+          <li>
+            <a href="#">도움말</a>
+          </li>
+        </ul>
+      </header>
+      <nav style="width: 295px;">
+        <div class="user" style="margin-bottom: 0px;">
+          <div class="user-greet" style="display: flex;">
+            <img src="src/img/user.png" alt="user">
+            <p class="regular-text s-size-text">홍길동님, 반갑습니다.</p>
+          </div>
+          <div class="close-button" style="display: block;">
+            <span class="material-symbols-rounded">close</span>
+          </div>
+          <div class="menu-button" style="display: none;">
+            <span class="material-symbols-rounded">menu</span>
+          </div>
+        </div>
+        <div class="user-menu">
+          <!-- <div class="title">사용자메뉴</div> -->
+          <ul class="regular-text">
+            <hr class="menu-divide" style="display: block; width: 295px;">
+            <li>
+              <a href="#">
+                <span class="material-symbols-rounded">person</span>
+                <p class="user-menu-text" style="display: block;">회원관리</p>
+              </a>
+              <ul class="regular-text s-size-text sub-menu" style="margin-left: 20px; display: block;">
+                <li>
+                  <a href="memList.html">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">group</span>
+                    <p class="">회원목록</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="memCreate.html">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">person_add</span>
+                    <span class="">회원가입</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="memLogout.html">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">logout</span>
+                    <p class="">로그아웃</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <hr class="menu-divide" style="display: block; width: 295px;">
+            <li>
+              <a href="#">
+                <span class="material-symbols-rounded">payments</span>
+                <p class="user-menu-text" style="display: block;">계좌관리</p>
+              </a>
+              <ul class="regular-text s-size-text sub-menu" style="margin-left: 20px; display: block;">
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">wallet</span>
+                    <span class="">계좌목록</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">price_change</span>
+                    <p class="">계좌추가</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <hr class="menu-divide" style="display: block; width: 295px;">
+            <li>
+              <a href="#">
+                <span class="material-symbols-rounded">currency_exchange</span>
+                <p class="user-menu-text" style="display: block;">이체</p>
+              </a>
+              <ul class="regular-text s-size-text sub-menu" style="margin-left: 20px; display: block;">
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">directions_alt</span>
+                    <span class="">건별이체</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">difference</span>
+                    <p class="">다계좌이체</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">table_view</span>
+                    <p class="">대량이체</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">playlist_add_check</span>
+                    <p class="">이체요청목록</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <hr class="menu-divide" style="display: block; width: 295px;">
+            <li>
+              <a href="#">
+                <span class="material-symbols-rounded">credit_card</span>
+                <p class="user-menu-text" style="display: block;">카드관리</p>
+              </a>
+              <ul class="regular-text s-size-text sub-menu" style="margin-left: 20px; display: block;">
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">redeem</span>
+                    <span class="">카드목록</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="material-symbols-rounded" style="font-size: 1.5em;">add_card</span>
+                    <p class="">카드추가</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <hr class="menu-divide" style="display: block; width: 295px;">
+          </ul>
+        </div>
+        <div class="menu">
+          <div class="input-wrapper">
+            <input class="menu-input medium-text m-size-text" type="text" placeholder="메뉴명 검색" style="display: block;">
+            <button class="menu-search-button">
+              <span class="material-symbols-rounded"> search </span>
+            </button>
+          </div>
+          <div class="menu-tap" style="display: block;">
+            <ul class="s-size-text light-text">
+              <li class="box-small shadow-10">메뉴</li>
+              <li class="box-small shadow-10">맞춤</li>
+              <li class="box-small shadow-10">검색</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <main class="main-01" style="padding: 40px 50px; left: 295px; width: calc(100% - 295px);">
+        <div class="link-tap">
+          <div class="home-button shadow-10">
+            <a href="memLogin.html">
+              <span class="material-symbols-rounded"> home </span>
+            </a>
+          </div>
+        </div>
+        <div class="title-black">은행계좌통합조회</div>
+        <div class="button-container">
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+                <p>찾기</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    print
+                </span>
+                <p>인쇄</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    save
+                </span>
+                <p>저장</p>
+            </div>
+        </div>
+        <div class="box shadow-20 middle-box">
+          <div class="table-wrapper">
+            <table class="light-text m-size-text" style="width: 100%;">
+              <thead>
+              <tr>
+                <th style="text-align: center;">
+                  <span class="material-symbols-rounded chk1 chk1-g">check_box_outline_blank</span>
+                </th>
+                <th>아이디</th>
+                <th>회원명</th>
+                <th>직책/급</th>
+                <th>부서</th>
+                <th>회원구분</th>
+                <th>가입일</th>
+                <th>명령</th>
+              </tr>
+              </thead>
+              <tbody id="memListBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <span id="debugName"></span>
+          <br>
+          <pre id="debug"></pre>
+        </div>
+      </main>
+      <footer style="padding: 0px 50px;">
+        <div>
+          <p class="light-text xs-size-text">COPYRIGHT 2022 ESP SYSTEM ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="logo-wrapper">
+          <img src="src/img/logo_white.png" alt="푸터 로고">
+        </div>
+      </footer>
+      <script type="text/javascript" src="src/js/common.js"></script>
+  </body>
+
+<script>
+/////////////
+const debug=(data,name,flag)=>{
+  name=name||'';
+  if(flag && data) console.log(data,name,JSON.stringify(data));
+  const debugName=ut.qs('#debugName');
+  const debug=ut.qs('#debug');
+  if(debugName && name) debugName.innerHTML=name;
+  if(debug && data) debug.innerHTML=JSON.stringify(data,null,4);
+}
+/////////////
+const wOpen=(url,flag)=>{
+  if(flag) window.open(url,'popup','width=1200px,height=1000px,toolbars=no,scrollbars=no');//팝업으로 열기
+  else window.open(url,'_blank');//새탭으로 열기
+}
+/////////////
+const href=(url)=>{
+  document.location.href=url;
+}
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+const memDivEn={//DB ENUM
+  'system':'시스템관리자',
+  'general':'일반관리자',
+};
+let memList=[];
+/////////////
+const memListLoad=()=>{
+  return [{
+    memKy:4,
+    memId:'ADMIN',
+    memDiv:'system',
+    memGrade:1,
+    memName:'admin22',
+    memDateCre:'2022-08-14',
+    checked:false
+  },{
+    memKy:5,
+    memId:'ADMIN1',
+    memDiv:'general',
+    memGrade:2,
+    memName:'김철수',
+    memRoll:'부장',
+    memDep:'개발팀',
+    memDateCre:'2022-08-15',
+    checked:false
+  },{
+    memKy:6,
+    memId:'ADMIN2',
+    memDiv:'general',
+    memGrade:0,
+    memName:'administrator',
+    memDateCre:'2022-08-16',
+    checked:false
+  }];
+}
+/////////////
+const memListRender=()=>{
+  memList=memListLoad();
+  debug(memList,'memList');
+  for(let n in memList){
+    let mem=memList[n];
+    //debug(mem,'mem',true);
+    $('#memListBody').append(`
+      <tr data-memky="${mem.memKy||0}">
+        <td style="text-align: center;"><span class="material-symbols-rounded chk1">check_box_outline_blank</span></td>
+        <td><a href="#">${mem.memId||''}</a></td>
+        <td>${mem.memName||''}</td>
+        <td>${memDivEn[mem.memDiv]||''}</td>
+        <td>${mem.memRoll||''}</td>
+        <td>${mem.memDep||''}</td>
+        <td>${mem.memDateCre||'0000-00-00'}</td>
+        <td style="text-align: center;">
+          <a href="#"><span class="material-symbols-rounded">info</span></a>
+          <a href="#"><span class="material-symbols-rounded">edit</span></a>
+          <a href="#"><span class="material-symbols-rounded">delete</span></a>
+        </td>
+      </tr>
+    `);
+  }
+}
+memListRender();
+/////////////
+const memCheck=function(className){
+  const ch_yes='check_box';
+  const ch_no='check_box_outline_blank';
+  let chIdx=0;
+
+  $('.'+className).click(function(){
+    try{chIdx=Number($('.'+className).index(this));}catch{}
+
+    if($(this).text()==ch_no){
+      $(this).text(ch_yes);
+      if(chIdx) memList[chIdx-1].checked=true;//데이터
+    }
+    else{
+      $(this).text(ch_no);
+      if(chIdx) memList[chIdx-1].checked=false;//데이터
+    }
+
+    if(chIdx==0 && $(this).hasClass(className+'-g')){
+      for(let n in memList){
+        let el=$('.'+className).eq(Number(n)+1);
+        //console.log(el);
+        if($(this).text()==ch_no){
+          el.text(ch_no);
+          memList[n].checked=false;//데이터
+        }
+        else{
+          el.text(ch_yes);
+          memList[n].checked=true;//데이터
+        }
+      }
+    }
+    debug(memList,'memList');
+  });
+}
+memCheck('chk1');
+
+
+</script>
+</html>

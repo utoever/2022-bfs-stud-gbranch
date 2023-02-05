@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>ESP System - CRM</title>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+
+<link rel="stylesheet" href="src/css/reset.css">
+<link rel="stylesheet" href="src/css/common.css">
+
+<script src="src/js/vue_3238.js"></script>
+<script src="src/js/mitt_300.js"></script>
+<script src="src/js/jquery_361.js"></script>
+
+<link rel="stylesheet" href="src/css/memLogin.css">
+
+</head>
+
+<body>
+<span id="body">
+  <main class="login-main"><logins /></main>
+  <footer><footers /></footer>
+</span>
+</body>
+
+<script type="module">
+import loginjs from './comp/memLogin.js';
+import footerjs from './comp/footer.js';
+
+const eventBus = mitt();
+const vueRoot={
+  components:{
+    logins:loginjs,
+    footers:footerjs
+  },
+  methods:{
+  }
+};
+
+const app=Vue.createApp(vueRoot);
+app.config.globalProperties.eventBus = eventBus;
+app.mount('#body');
+</script>
+
+</html>

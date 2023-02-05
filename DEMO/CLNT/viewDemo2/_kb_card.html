@@ -1,0 +1,384 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-credit-card"></i> 카드 내역조회
+				</h6>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									사업자번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input style="width:120px;" class="kbInputData_1100_bzNo form-control table-input-text-shot" disabled="disabled" value="101-86-61717" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									카드번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot">
+										<option value="9410491906946872">
+											9410-4919-****-6872 마스타
+										</option>
+										<option value="0000000000000000">
+											1225-8552-****-3224 비자
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label">
+									조회기간
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="select_245">
+										<option value="0">
+											2021
+										</option>
+										<option value="1">
+											2020
+										</option>
+										<option value="1">
+											2019
+										</option>
+									</select>
+									<label class="p-style">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_253">
+										<option value="0">
+											10
+										</option>
+										<option value="1">
+											09
+										</option>
+									</select>
+									<label class="p-style">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1225">
+										<option value="0">
+											13
+										</option>
+										<option value="1">
+											12
+										</option>
+									</select>
+									<label class="p-style">
+										일 부터&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_500">
+										<option value="0">
+											2021
+										</option>
+										<option value="1">
+											2020
+										</option>
+									</select> 
+									<label class="p-style">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1089">
+										<option value="0">
+											10
+										</option>
+										<option value="1">
+											09
+										</option>
+									</select>
+									<label class="p-style">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1438">
+										<option value="0">
+											13
+										</option>
+										<option value="1">
+											12
+										</option>
+									</select>
+									<label class="p-style">
+										일 까지&nbsp;
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-sm table-contents-bt">당일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">전일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1주</a><a href="#" class="btn btn-d btn-sm table-contents-bt">15일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">6개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1년</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label">
+									조회구분
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" checked="checked" />
+										<label class="form-check-label">
+											일시불
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" />
+										<label class="form-check-label">
+											할부
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" />
+										<label class="form-check-label">
+											해외승인
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" />
+										<label class="form-check-label">
+											국내승인
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">상세조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회기간: 2021-10-13 ~ 2021-10-13
+						</p>
+					</div>
+				</div>
+
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<table>
+							<thead>
+							<tr>
+								<th class="th-sm">순번</th>
+								<th>승인일시</th>
+								<th>카드번호</th>
+								<th>할부/일시불</th>
+								<th>승인금액</th>
+								<th>가맹점명</th>
+								<th>승인번호</th>
+							</tr>
+							</thead>
+							<tbody id="cardTbody">
+							<!-- <tr>
+								<td colspan="7">카드 내역이 없습니다.</td>
+							</tr> -->
+							<tr>
+								<td>1</td>
+								<td>2021-10-13  13:37:34</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>15,000</td>
+								<td>우정사업본부</td>
+								<td>10208070</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>2021-10-13  12:37:33</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>35,000</td>
+								<td>진짜도시락</td>
+								<td>10201171</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>2021-10-13  11:37:32</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>155,000</td>
+								<td>우리자전거</td>
+								<td>10208076</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>2021-10-13  10:37:31</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>230,000</td>
+								<td>교보문고</td>
+								<td>10208072</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>2021-10-13  09:37:30</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>50,000</td>
+								<td>공영주차장</td>
+								<td>10208073</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>2021-10-13  08:37:29</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>15,000</td>
+								<td>CU</td>
+								<td>10208079</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>2021-10-13  07:37:28</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>41,000</td>
+								<td>황제반점</td>
+								<td>10208070</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>2021-10-13  06:37:27</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>23,148</td>
+								<td>농민마트</td>
+								<td>10208076</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>2021-10-13  05:37:26</td>
+								<td>9410-4919-****-9872</td>
+								<td>할부 (3개월)</td>
+								<td>251,000</td>
+								<td>주노헤어</td>
+								<td>10208077</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>2021-10-13  04:37:25</td>
+								<td>9410-4919-****-9872</td>
+								<td>일시불</td>
+								<td>2,500</td>
+								<td>지하철</td>
+								<td>10208078</td>
+							</tr>
+							</tbody>
+							</table>
+							
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">잔여한도확인</a><a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">현재결제총액조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 카드 내역조회');
+/////////////////////
+/*
+const es=function(str,regex){regex=regex||/[^0-9]/g; return String(str).replace(regex,'');}//escape number
+const nf=function(nm){//number format
+	nm=es(String(nm),/[^0-9\.]/g);
+	var x=nm.split('.'), x1=x[0], x2=x.length>1 ? '.'+x[1]:'', rgx=/(\d+)(\d{3})/;
+	while(rgx.test(x1)){x1=x1.replace(rgx,'$1'+','+'$2');}
+	return x1+x2;
+}
+const toCardDiv=function(cardnum){return cardnum.substr(0,4)+'-'+cardnum.substr(4,4)+'-'+cardnum.substr(8,4)+'-'+cardnum.substr(12,4);}
+const toDate=function(Ymd){return Ymd.substr(0,4)+'-'+Ymd.substr(4,2)+'-'+Ymd.substr(6,2);}
+const toTime=function(His){return His.substr(0,2)+':'+His.substr(2,2)+':'+His.substr(3,2);}
+*/
+const viewJson=(cardList)=>{
+	let tbody='',n=0;
+	cardList.forEach((use)=>{
+		n++;
+		let term='일시불';
+		if(use.athInstTerm>1) term=use.athInstTerm+'개월';
+		tbody+='<tr>'
+		+'	<td>'+n+'</td>'
+		+'	<td>'+toDate(use.apvDt)+' '+toTime(use.apvTm)+'</td>'
+		+'	<td>'+toCardDiv(use.useCrdno)+'</td>'
+		+'	<td>'+term+'</td>'
+		+'	<td>'+nf(use.apvAmt)+'</td>'
+		+'	<td>'+use.mbrMchntNm+'</td>'
+		+'	<td>'+use.apvNo+'</td>'
+		+'</tr>'
+	});
+	$('#cardTbody').html(tbody);
+}
+/////////////////////
+const code='1100';
+const sendAction=(code)=>{
+
+	let data={
+		bzNo:es($('.kbInputData_1100_bzNo').first().val()),//'1018661717',//
+		startDate:'20210101',
+		endDate:'20211231',
+		inqDscd:'2',
+		cardNo:'9410491906946872',
+		requestPage:'1'
+	};
+	data.hosts=url;
+	data.dt=Math.floor(new Date().getTime()/1000);
+	data.code=code;
+	//alert(JSON.stringify(data));return;
+
+	$.ajax({
+		dataType:'json',
+		data:data,
+		url:url,
+		method:'get',
+		success:function(rs){
+			//alert(JSON.stringify(rs.rspData.outputData));
+			//$('body').append(rs);
+			let cardList=rs.rspData.outputData.dataBody._BeginLoop_cardUseDtls;
+			//viewJson(cardList);
+		}
+	});
+}
+
+sendAction(code);
+</script>
+
+</body>
+</html>

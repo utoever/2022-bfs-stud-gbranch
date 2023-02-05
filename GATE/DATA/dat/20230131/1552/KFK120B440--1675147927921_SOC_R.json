@@ -1,0 +1,40 @@
+{
+  "flag": true,
+  "msg": {
+    "code": "1000",
+    "str": "success from host",
+    "codeHost": "N0000000",
+    "treatCdHost": "        ",
+    "OutData": {
+      "cnif": "Xi85r6D5/IikSNuLwHmJcIbsmJ+qyrvxs7y8AVVjjFVjFiX6Q2HM0MHszaEdlzlNDiNcvUz8Y8E7nJ1006756394"
+    }
+  },
+  "customData": {
+    "method": "KFK120B440",
+    "key": "SOC",
+    "remoteAddress": "10.141.32.52",
+    "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "StndTranBaseYmd": "20230131",
+    "conDateTime": "20230131155207920",
+    "cConTm": 1675147927921,
+    "error": [],
+    "lgt": [],
+    "authInfo": true,
+    "cnif": "Xi85r6D5/IikSNuLwHmJcIbsmJ+qyrvxs7y8AVVjjFVjFiX6Q2HM0MHszaEdlzlNDiNcvUz8Y8E7nJ1006756394",
+    "pidGte": 2131,
+    "pidBiz": 2232,
+    "lgTm": 1675147927921,
+    "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230131/1552/KFK120B440--1675147927921_SOC_G.json",
+    "host": {
+      "methodCom": "KFK120B440",
+      "ip": "172.17.33.92",
+      "domain": "172.17.33.92",
+      "path": "/",
+      "port": 41164,
+      "proto": "soc",
+      "method": "SOC"
+    },
+    "bizLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230131/1552/KFK120B440--1675147927921_SOC_B.json",
+    "resLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230131/1552/KFK120B440--1675147927921_SOC_R.json"
+  }
+}

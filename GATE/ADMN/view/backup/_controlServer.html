@@ -1,0 +1,572 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <div class="btn-group btn-space" style="float:right;">
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+              <span id="appListSelected">서버 선택</span>
+              <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div id="appListDropDown" class="dropdown-menu">
+            </div>
+          </div>
+
+          <h2><span class="icon s7-server"></span> 서버정보 : <span id="appNameTitle">서버명</span></h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/?project=KB_G-Branch">KB G-Branch</a></li>
+            <li class="breadcrumb-item"><a href="/control">운영</a></li>
+            <li class="breadcrumb-item active">서버정보</li>
+          </ol>
+
+        </div>
+
+        <style>
+        #logDataStr{border:1px solid #ccc;width:100%;height:700px;padding:20px;font-family:Verdana;line-height:170%;background:#cccccc;color:black;}
+        #logOutStr{border:1px solid #ccc;width:100%;height:700px;padding:20px;font-family:Verdana;line-height:170%;background:#3d3c3c;color:white;overflow-y:hidden;border-radius:10px;}
+        </style>
+        <div class="main-content">
+          <div class="row">
+
+            <div class="col-sm-6">
+              <button id="appStatPageBtn" class="btn btn-space btn-alt4 btn-rounded btn-lg"><i class="icon icon-left s7-graph1"></i> 서버상태</button>
+              <button id="appLogPageBtn" class="btn btn-space btn-success btn-rounded btn-lg"><i class="icon icon-left s7-map"></i> 로그목록</button>
+              <button id="appRestartBtn" class="btn btn-space btn-alt3 btn-rounded btn-lg"><i class="icon icon-left s7-refresh"></i> 재시동</button>
+              <button id="appToggleBtn" class="btn btn-space btn-primary btn-rounded btn-lg"><i class="icon icon-left s7-close-circle"></i> <span>서버중지</span></button><br><br>
+              <i id="appUptimeIcon" class="icon icon-left s7-attention" style="color:red;display:none;"></i> <span id="appUptimeStr">서버 시작 시간 :</span> (<span id="appUptime">2022-01-01 00:00:00.000</span>)
+            </div>
+
+            <div class="col-lg-6">
+              <div class="widget widget-fullwidth line-chart">
+                <div class="chart-container">
+                  <div class="counter">
+                    <div class="desc">&nbsp;</div>
+                    <div class="desc">최근 1시간</div>
+                  </div>
+                  <div id="line-chart1" style="height: 100px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div id="cols1-msg" class="col-sm-12">
+              <div class="card card-default">
+                <div class="card-header">
+                  <div class="tools dropdown">
+                    <button id="logOutBtn" class="btn btn-space btn-primary btn-rounded btn-xs"><i class="icon icon-left s7-close-circle"></i> <span>메시지 일시정지</span></button>
+                  </div>
+                  <div class="card-title">
+                    <button class="onBtn btn btn-space btn-default btn-rounded btn-xs" style="border-radius:20px;"><i class="icon s7-gleam"></i></button>
+                    실시간 메시지
+                  </div>
+                </div>
+                <div class="card-body">
+                  <textarea id="logOutStr" disabled="disabled" style=""></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div id="cols2-data" class="col-sm-4" style="display:none;">
+              <div class="card card-default">
+                <div class="card-header">
+                  <select id="logDataSelect" style="font-size:13px;float:right;"></select>
+                  <!-- <div class="tools dropdown"></div> -->
+                  <div class="card-title">최근 데이터 로그</div>
+                </div>
+                <div class="card-body">
+                  <textarea id="logDataStr" disabled="disabled" style=""></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div id="cols3-schema" class="col-sm-4" style="display:none;">
+              <div class="card card-default">
+                <div class="card-header">
+                  <div class="tools dropdown">
+                    <button id="editSchmaBtn" class="btn btn-space btn-success btn-rounded btn-xs"><i class="icon icon-left s7-pen"></i> 수정</button>
+                  </div>
+                  <div class="card-title"><strong id="methodTile"></strong> (<span id="methodMemo"></span>) 스키마</div>
+                </div>
+                <div class="card-body">
+                  <table id="methodTable" class="table table-sm table-hover table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th class="">key</th>
+                        <th class="">memo</th>
+                        <th class="">type</th>
+                        <th class="">max</th>
+                        <th class="">min</th>
+                        <th class="">sample</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <pre id="debug">apps <%-JSON.stringify(apps,null,2)%></pre>
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+    <script src="/assets/lib/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/jquery.flot.pie.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/jquery.flot.time.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/plugins/curvedLines.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-flot/plugins/jquery.flot.tooltip.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-uk-mill-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-fr-merc-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-us-il-chicago-mill-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-au-mill-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-in-mill-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-map.js" type="text/javascript"></script>
+    <script src="/assets/lib/jquery.vectormap/maps/jquery-jvectormap-ca-lcc-en.js" type="text/javascript"></script>
+    <script src="/assets/lib/countup/countUp.min.js" type="text/javascript"></script>
+    <script src="/assets/lib/chartjs/Chart.min.js" type="text/javascript"></script>
+    <script src="/assets/js/app-dashboard.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+  //App.dashboard();
+});
+
+
+//////////////////////////////////////
+const apps=JSON.parse('<%-JSON.stringify(apps)%>');
+const appNmToMth=JSON.parse('<%-JSON.stringify(appNmToMth)%>');
+const appNameDefault='04.GATE';
+//alert(apps);
+
+
+//////////////////////////////////////
+const GQ=JSON.parse('<%-JSON.stringify(GQ)%>');
+let method='';
+let logLen=200;
+let watchN=0;
+let logOutActWatch={};
+let logOutActFlag=true;
+let appListHTML='';
+
+
+//////////////////////////////////////
+$('#logOutBtn').click(()=>{
+  //<button id="logOutBtn" class="btn btn-space btn-primary btn-rounded btn-xs"><i class="icon icon-left s7-close-circle"></i> <span>정지</span></button>
+
+  if($('#logOutBtn').hasClass('btn-primary')==true){//실행중
+    $('#logOutBtn').removeClass('btn-primary');
+    $('#logOutBtn').addClass('btn-success');
+    $('#logOutBtn i.icon').removeClass('s7-close-circle');
+    $('#logOutBtn i.icon').addClass('s7-angle-right-circle');
+    $('#logOutBtn span').text('메시지 재실행');
+    $('#logOutStr').css({
+      'color':'aqua','overflow-y':'scroll','border-radius':'0',
+      'border-top':'4px solid #00cccc','border-bottom':'4px solid #00cccc'
+    });
+    logOutActFlag=false;
+  }
+  else{//정지중
+    $('#logOutBtn').addClass('btn-primary');
+    $('#logOutBtn').removeClass('btn-success');
+    $('#logOutBtn i.icon').addClass('s7-close-circle');
+    $('#logOutBtn i.icon').removeClass('s7-angle-right-circle');
+    $('#logOutBtn span').text('메시지 일시정지');
+    $('#logOutStr').css({
+      'color':'white','overflow-y':'hidden',
+      'border-radius':'10px','border':'0'
+    });
+    logOutActFlag=true;
+  }
+});
+
+//////////////////////////////////////
+const mthSearch=(method)=>{
+  $('#methodTile').text(method);
+  $('#cols1-msg').removeClass('col-sm-12').addClass('col-sm-4');
+  $('#cols2-data').show();
+  $('#cols3-schema').show();
+  let url='http://222.108.224.3:900/ajax/appSchema/'+method;
+
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      if(rs.mthData){
+        //methodTable
+        $('#methodMemo').text(rs.mthData.methodNote);
+
+        for(let key in rs.mthData.schema){
+          let row=rs.mthData.schema[key];
+          if(!row.min) row.min='0';
+          if(!row.max) row.max='0';
+          if(!row.sample) row.sample='';
+          if(row.type=='div'){
+            $('#methodTable tbody').append('<tr>'
+              +'<td>'+row.key+'</td>'
+              +'<td>'+row.note+'</td>'
+              +'<td colspan="4">'+row.type+'</td>'
+            +'</tr>');
+          }
+          else{
+            $('#methodTable tbody').append('<tr>'
+              +'<td>'+row.key+'</td>'
+              +'<td>'+row.note+'</td>'
+              +'<td>'+row.type+'</td>'
+              +'<td class="number">'+row.max+'</td>'
+              +'<td class="number">'+row.min+'</td>'
+              +'<td>'+row.sample+'</td>'
+            +'</tr>');
+          }
+        }
+        console.log(rs);
+      }
+      else{
+        //console.log('no data');
+      }
+    }
+  });
+}
+
+//////////////////////////////////////
+//console.log(apps);
+let appNameFlag=false;
+for(let i in apps){
+  let app=apps[i];
+  if(!GQ.appName) GQ.appName=appNameDefault;
+  //console.log(app);
+
+  if(app){
+    if(app.name==GQ.appName){
+      $('#appNameTitle').html(app.name+' ['+app.appMemo+']');
+      $('#appListSelected').html('<i class="icon s7-server"></i> '+app.name+' ['+app.appMemo+']');
+      appListHTML+='<a class="dropdown-item" href="?appName='+app.name+'"style="background:#ccc;">'
+      +'<i class="icon s7-server"></i> <strong>'+app.name+' <!-- ['+app.appMemo+'] --></strong></a>';
+      appNameFlag=true;
+    }
+    else appListHTML+='<a class="dropdown-item" href="?appName='+app.name+'">'
+    +'<i class="icon s7-server"></i> '+app.name+' <!-- ['+app.appMemo+'] --></a>';
+  }
+}
+
+$('#appListDropDown').html(appListHTML);
+
+//////////////////////////////////////
+if(appNmToMth[GQ.appName]){
+  method=appNmToMth[GQ.appName];
+  mthSearch(method);
+}
+if(!appNameFlag) document.location.href='/control/server';
+
+//////////////////////////////////////
+$('#appStatPageBtn').click(()=>{
+  document.location.href='/stat/condition?appName='+GQ.appName;
+});
+$('#appLogPageBtn').click(()=>{
+  document.location.href='/method/log?method='+method;
+});
+$('#editSchmaBtn').click(()=>{
+  document.location.href='/method/schema#'+method;
+});
+
+//////////////////////////////////////
+$('#appRestartBtn').click(()=>{
+  let url='/ajax/appRestart/'+GQ.appName;
+  $('#logOutStr').css('color','red');
+  $('#appRestartBtn').removeClass('btn-alt3');
+  $('#appRestartBtn').addClass('btn-alt4');
+
+  $.ajax({
+    dataType:'json',
+    data:{},url:url,
+    method:'get',
+    beforeSend:(xhr)=>{
+      xhr.setRequestHeader("sessKey",'1111111111111111111');
+    },
+    success:function(rs){
+      if(rs.flag){
+        console.log('server restarted');
+        setTimeout(()=>{
+          $('#logOutStr').css('color','white');
+          $('#appRestartBtn').addClass('btn-alt3');
+          $('#appRestartBtn').removeClass('btn-alt4');
+        },1500);
+      }
+      else{
+        console.log('restart failed');
+      }
+    }
+  });
+});
+
+//////////////////////////////////////
+//기본은 작동중
+$('#appToggleBtn').addClass('btn-primary');
+$('#appToggleBtn').removeClass('btn-info');
+$('#appToggleBtn i.icon').addClass('s7-close-circle');
+$('#appToggleBtn i.icon').removeClass('s7-angle-right-circle');
+$('#appToggleBtn span').text('서버중지');
+$('#logOutStr').css('color','white');
+let toggleFlag=true;//작동으로 변경
+let ajxCmd='';
+
+$('#appToggleBtn').click(()=>{
+  //alert(toggleFlag);
+
+  if($('#appToggleBtn').hasClass('btn-primary')){//작동중일때
+    toggleFlag=false;//중단으로 변경
+    ajxCmd='/ajax/appStop/'+GQ.appName;//중단으로 변경
+    $('#appToggleBtn').removeClass('btn-primary');
+    $('#appToggleBtn').addClass('btn-info');
+    $('#appToggleBtn i.icon').removeClass('s7-close-circle');
+    $('#appToggleBtn i.icon').addClass('s7-angle-right-circle');
+    $('#appToggleBtn span').text('서버시작');
+    $('#logOutStr').css('color','red');
+  }
+  else{
+    toggleFlag=true;//작동으로 변경
+    ajxCmd='/ajax/appRestart/'+GQ.appName;//작동으로 변경
+    $('#appToggleBtn').addClass('btn-primary');
+    $('#appToggleBtn').removeClass('btn-info');
+    $('#appToggleBtn i.icon').addClass('s7-close-circle');
+    $('#appToggleBtn i.icon').removeClass('s7-angle-right-circle');
+    $('#appToggleBtn span').text('서버중지');
+    $('#logOutStr').css('color','white');
+  }
+
+  //alert(GQ.appName);
+  if(GQ.appName && ajxCmd){
+    //alert(ajxCmd);
+    $.ajax({
+      dataType:'json',
+      data:{},url:ajxCmd,
+      method:'get',
+      beforeSend:(xhr)=>{
+        xhr.setRequestHeader("sessKey",'1111111111111111111');
+      },
+      success:function(rs){
+        //alert(rs);
+        if(rs.flag){
+          if(!toggleFlag){//중단으로 변경
+            console.log('server stop success');
+          }
+          else{//작동으로 변경
+            console.log('server start success');
+          }
+        }
+        else{
+          console.log('restart failed');
+        }
+      }
+    });
+  }
+});
+
+//////////////////////////////////////
+const uTimeToDate=(t)=>{
+  let date=new Date(Number(t));
+  let year=String(date.getFullYear());
+  let month="0"+(date.getMonth()+1);
+  let day="0"+date.getDate();
+  let hour="0"+date.getHours();
+  let minute="0"+date.getMinutes();
+  let second="0"+date.getSeconds();
+  let milli="00"+date.getMilliseconds();
+  return year
+  +"-"+month.substr(-2)
+  +"-"+day.substr(-2)
+  +" "+hour.substr(-2)
+  +":"+minute.substr(-2)
+  +":"+second.substr(-2)
+  +"."+milli.substr(-3);
+}
+
+//////////////////////////////////////
+const logDataListSelect=(list,selVals)=>{//셀렉트박스 만들기
+  let opts='<option value="">로그 파일 선택</option>';
+  list.reverse();
+  if(Array.isArray(list)){
+    for(let i in list){
+      let fileName=list[i];
+      let fileNamer=fileName.split('--');
+      let method=fileNamer[0];
+      let fileNames=fileNamer[1].split('_');
+      let time=fileNames[0];
+      let key=fileNames[1];
+      let date=uTimeToDate(time);
+      opts+='<option value="'+time+'_'+key+'">['+date.substr(11,8)+'] '+key+'</option>';
+
+      let lgKeys=selVals.split('_');
+      if(lgKeys[1]==key) selVals=time+'_'+key;
+    }
+    $('#logDataSelect').html(opts);
+    $('#logDataSelect').val(selVals).show();
+  }
+}
+$('#logDataSelect').change(()=>{//셀렉트박스 변경
+  let lgKey=$('#logDataSelect').val();
+  //alert(lgKey);
+  logDataSearch(lgKey);
+});
+
+const onRed=(className,time)=>{
+  $('.'+className).removeClass('btn-default');
+  $('.'+className).addClass('btn-primary');
+  setTimeout(()=>{
+    $('.'+className).addClass('btn-default');
+    $('.'+className).removeClass('btn-primary');
+  },time);
+}
+
+//////////////////////////////////////
+const ws=new WebSocket(dataUrl);
+let onFlag=true;
+let onN=0;
+let runN=0;
+
+//////////////////////////////////////
+const logDataSearch=(selVals)=>{//로그검색
+  //console.log(selVals);
+  let lgKeys=selVals.split('_');
+  let lgDts={
+    appName:GQ.appName,
+    method:method,
+    cmd:'logPicker',
+    time:lgKeys[0],
+    key:lgKeys[1]
+  }
+  //alert(lgDts);
+  //console.log(lgDts);
+  ws.send(JSON.stringify(lgDts));
+}
+
+//////////////////////////////////////
+let oldLogOut='';
+let oldLogData='';
+ws.onopen=()=>{
+  ws.send(JSON.stringify({
+    appName:GQ.appName,
+    cmd:'appSearch'
+  }));
+  ws.onmessage=(rs)=>{
+
+    //console.log(rs);
+    onN++;
+
+    if(rs.isTrusted){
+      let rData={};
+      onFlag=true;
+      try{
+        rData=JSON.parse(rs.data);
+      }catch{}
+
+      $('#debug').text(onN+' '+JSON.stringify(rData,null,2).trim());
+      onRed('onBtn',200);
+      //console.log(onN,rData);
+
+      if(rData.osData && rData.appData){
+        let thisTime= + new Date();
+        let upTimeGap=Number(thisTime)-Number(rData.appData.env.pm_uptime);
+        let appUpDate=uTimeToDate(rData.appData.env.pm_uptime);
+        $('#appUptime').text(appUpDate);
+        let upTimeStr='서버 시작 시간 :';
+        if(upTimeGap<1000*60*60){
+          upTimeStr='서버가 최근 재시동 되었습니다.';//1시간
+          $('#appUptimeIcon').show();
+        }
+        else{
+          upTimeStr='서버 시작 시간 :';
+          $('#appUptimeIcon').hide();
+        }
+        $('#appUptimeStr').text(upTimeStr);
+
+        if(rData.appData.logOut){
+          let logOut=rData.appData.logOut;
+
+
+          if(logOutActFlag && oldLogOut!=logOut){
+            $('#logOutStr').text(logOut.trim());
+            $('#logOutStr').scrollTop($('#logOutStr')[0].scrollHeight);
+            oldLogOut=logOut;
+          }
+        }
+      }
+
+      if(rData.osData && rData.mthData){
+        if(Object.keys(rData.mthData).length>0){
+          let logDataLastFile=rData.mthData.list[rData.mthData.list.length-1];
+          let logDataLastFiles=logDataLastFile.split('--');
+          logDataLastFile=logDataLastFiles[1];
+          //console.log(logDataLastFile);
+          let logDataList=JSON.stringify(rData.mthData.list,null,2).trim();
+
+          if(oldLogData!=logDataLastFile){//현재로그내용표시와 다를 경우
+            logDataSearch(logDataLastFile);//로그내용확인
+            oldLogData=logDataLastFile;//현재로그내용갱신
+            logDataListSelect(rData.mthData.list,logDataLastFile);//셀렉트박스생성
+            $('#debug').text(logDataList);//하단디버그창표시
+          }
+        }
+        else{
+          $('#logDataSelect').val('').hide();
+          $('#logDataStr').text('');
+          //$('#debug').text('');
+        }
+      }
+      else if(rData.osData){
+        $('#logDataSelect').val('').hide();
+        $('#logDataStr').text('');
+        //$('#debug').text('');
+      }
+
+      if(rData.logData){
+        //console.log(rData);
+        $('#logDataStr').text(JSON.stringify(rData.logData,null,2).trim());
+        $('#logDataStr').scrollTop(0);
+      }
+
+    }
+    else onFlag=false;
+  }
+}
+
+//////////////////////////////////////
+ws.onerror=()=>{
+  console.log('error');
+  onFlag=false;
+}
+ws.onclose=()=>{
+  console.log('close');
+  onFlag=false;
+}
+setInterval(()=>{
+  runN++;
+  if(runN>=600) window.location.reload();
+  if(!onFlag) window.location.reload();
+  onFlag=false;
+},1000*10);
+</script>
+</body>
+</html>

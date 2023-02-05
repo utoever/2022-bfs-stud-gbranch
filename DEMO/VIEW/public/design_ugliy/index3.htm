@@ -1,0 +1,22 @@
+<html>
+<title>vue3 sfc</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<script src="src/js/vue_3238.js"></script>
+<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<script type="module">
+import headerjs from './header.js'
+const create=Vue.createApp;
+create({
+  components: {
+    headers:headerjs
+  }
+}).mount('body');
+</script>
+
+<body>
+<header>
+  <headers />
+</header>
+</body>
+</html>

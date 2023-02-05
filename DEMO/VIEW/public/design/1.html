@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/default.css">
+    <title>ESP System - CRM</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <img src="./src/img/logo_white.png" alt="헤더 로고" />
+        </div>
+        <h1 class="medium-text m-size-text">ESP-CRM</h1>
+        <div class="box shadow-10 notice">
+            <h2 class="title bold-text ">공지사항</h2>
+            <h3 class=".regular-text s-size-text">ESP-CMS 원격지원 서비스 지원 안내</h3>
+            <a href="">
+                <p class="light-text xs-size-text">자세히 보기</p>
+            </a>
+        </div>
+        <ul class="xs-size-text light-text">
+            <li><a href="#">화면잠금</a></li>
+            <li><a href="#">잠금설정</a></li>
+            <li><a href="#">화면인쇄</a></li>
+            <li><a href="#">은행링크</a></li>
+            <li><a href="#">원격지원</a></li>
+            <li><a href="#">도움말</a></li>
+        </ul>
+    </header>
+    <nav>
+        <div class="user">
+            <div class="user-greet">
+                <img src="src/img/user.png" alt="user" />
+                <p class="regular-text s-size-text">홍길동님, 반갑습니다.</p>
+            </div>
+            <div class="close-button">
+                <span class="material-symbols-rounded">close</span>
+            </div>
+            <div class="menu-button">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+        </div>
+        <div class="user-menu">
+            <div class="title">사용자메뉴</div>
+            <ul class="regular-text s-size-text">
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">logout</span>
+                        <p class="user-menu-text">로그아웃</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">calendar_month</span>
+                        <p class="user-menu-text">스케줄러</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            desktop_windows
+                        </span>
+                        <p class="user-menu-text">사용자 화면</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            description
+                        </span>
+                        <p class="user-menu-text">승인 / 결재</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            account_balance
+                        </span>
+                        <p class="user-menu-text">인터넷뱅킹</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <div class="menu">
+            <div class="input-wrapper">
+                <input class="menu-input medium-text m-size-text" type="text" placeholder="메뉴명 검색" />
+                <button class="menu-search-button"><span class="material-symbols-rounded">
+                        search
+                    </span></button>
+            </div>
+            <div class="menu-tap">
+                <ul class="s-size-text light-text">
+                    <li class="box-small shadow-10">메뉴</li>
+                    <li class="box-small shadow-10">맞춤</li>
+                    <li class="box-small shadow-10">검색</li>
+                </ul>
+            </div>
+            <ul class="menu-list s-size-text regular-text">
+                <li class="1depth">조회</li>
+                <li class="1depth">지급 / 집금</li>
+                <li class="1depth">
+                    <a href="./popup.html" onclick="window.open(this.href, '_blank', 'width=1200px, height=1000px, toolbars=no, scrollbars=no'); return false;">당행전자결제</a>
+                </li>
+                <li class="1depth">타행전자결제</li>
+                <li class="1depth">법인카드</li>
+                <li class="1depth">ESP Manager</li>
+                <li class="1depth">외환 / 파생</li>
+                <li class="1depth">퇴직연금</li>
+                <li class="1depth">세금공과금</li>
+                <li class="1depth">전자세금계산서</li>
+                <li class="1depth">특화서비스</li>
+                <li class="1depth">정보관리</li>
+                <li class="1depth">시스템관리</li>
+                <li class="1depth">RCMS</li>
+                <li class="1depth">통합 R&D 자금관리</li>
+                <li class="1depth">대출</li>
+                <li class="1depth">감사시스템</li>
+                <li class="1depth">운영보고서</li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-01">
+        <div class="link-tap">
+            <div class="home-button shadow-10">
+                <span class="material-symbols-rounded">
+                    home
+                </span>
+            </div>
+            <ul class="visited-tab">
+                <li>
+                    <div>
+                        <p></p>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="title-black">은행계좌통합조회</div>
+        <div class="button-container">
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+                <p>찾기</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    print
+                </span>
+                <p>인쇄</p>
+            </div>
+            <div class="blue-button m-size-text regular-text">
+                <span class="material-symbols-rounded">
+                    save
+                </span>
+                <p>저장</p>
+            </div>
+        </div>
+        <div class="box shadow-20">
+            <div class="select-container-top">
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 조회구분</h4>
+                    <select>
+                        <option class="s-size-text light-text">잔액조회</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 원화 / 외화</h4>
+                    <select>
+                        <option class="s-size-text light-text">원화</option>
+                        <option class="s-size-text light-text">외화</option>
+                    </select>
+                </div>
+            </div>
+            <div class="select-container-middle">
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 조회기간</h4>
+                    <div class="date-input-wrapper">
+                        <input type="date" />
+                        <p class="m-size-text medium-text">~</p>
+                        <input type="date" />
+                    </div>
+                </div>
+                <div class="date-button-container s-size-text regular-text">
+                    <div class="gray-button">전일</div>
+                    <div class="gray-button">당일</div>
+                    <div class="gray-button">3일</div>
+                    <div class="gray-button">7일</div>
+                    <div class="gray-button">1개월</div>
+                    <div class="gray-button">3개월</div>
+                    <div class="gray-button">6개월</div>
+                </div>
+            </div>
+            <div class="select-container-bottom">
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 계좌그룹</h4>
+                    <select>
+                        <option class="s-size-text light-text">전체</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 과목명</h4>
+                    <select>
+                        <option class="s-size-text light-text">전체</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 은행</h4>
+                    <select>
+                        <option class="s-size-text light-text">전체</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 소계</h4>
+                    <select>
+                        <option class="s-size-text light-text">전체</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <h4 class="m-size-text regular-text">• 통화</h4>
+                    <select>
+                        <option class="s-size-text light-text">전체</option>
+                    </select>
+                </div>
+                <div class="checkbox">
+                    <span class="material-symbols-rounded">
+                        check_box_outline_blank
+                    </span>
+                    <p>은행명 셀병합</p>
+                </div>
+            </div>
+        </div>
+        <div class="box shadow-20 middle-box">
+            <div class="table-wrapper">
+                <table class="light-text m-size-text">
+                    <tr>
+                        <th>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </th>
+                        <th>은행명</th>
+                        <th>계좌번호</th>
+                        <th>예금주</th>
+                        <th>계좌종류</th>
+                        <th>계좌별칭</th>
+                        <th>잔액</th>
+                        <th>최종조회날짜</th>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="text-wrpper">
+            <div class="title-black">거래내역</div>
+            <p class="medium-text m-size-text">· 위의 계좌를 선택하시면 거래내역이 조회됩니다.</p>
+            <div class="blue-button">
+                <div class="title">거래내역 ERP 연계</div>
+            </div>
+        </div>
+
+        <div class="box shadow-20 bottom-box">
+            <div class="table-wrapper">
+                <table class="light-text s-size-text">
+                    <tr>
+                        <th>
+                            <span class="material-symbols-rounded">
+                                check_box_outline_blank
+                            </span>
+                        </th>
+                        <th>은행명</th>
+                        <th>계좌번호</th>
+                        <th>예금주</th>
+                        <th>계좌종류</th>
+                        <th>계좌별칭</th>
+                        <th>잔액</th>
+                        <th>최종조회날짜</th>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="material-symbols-rounded">
+                            check_box_outline_blank
+                        </span></td>
+                        <td>우리은행</td>
+                        <td>1002-050-844-551313</td>
+                        <td>홍길동</td>
+                        <td>기업자유예금</td>
+                        <td></td>
+                        <td>9,700,000</td>
+                        <td>2022-08-22</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div>
+            <a href="#">
+                <p class="ligth-text s-size-text">ESP SYSTEM ALL 바로가기</p>
+            </a>
+            <p class="light-text xs-size-text">COPYRIGHT 2022 ESP SYSTEM ALL RIGHTS RESERVED.</p>
+        </div>
+        <div class="logo-wrapper">
+            <img src="src/img/logo_white.png" alt="푸터 로고" />
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="src/js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html style="height:100%;">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="robots" content="index, follow">
+    <title>KB G-Branch 기관관리자 시스템</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/fonts_googleapis_com_css_family_Roboto_display_swap_subset_latin_latin-ext.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="/js/jquery.js"></script>
+	<script src="/util.js"></script>
+    
+</head>
+<body style="height:100%;">
+
+<!-- Preloader -->
+<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
+<!-- Preloader END -->
+
+
+<!-- Main container -->
+<div class="page-container">
+    
+<!-- bloc-0 -->
+<div class="bloc full-width-bloc l-bloc" id="bloc-0">
+	<div class="container bloc-lg bloc-no-padding-lg" style="border-top:solid 8px gray;border-bottom:1px solid #ddd;">
+		<div class="row">
+			<div class="col-sm-4 menu-col col-lg-2">
+				<a href="/">
+				<div class="row l-bloc">
+					<div class="col col-menu-bg">
+						<h3 class="mg-md menu-top-left">
+							<span class="fa fa-bars"></span> 메뉴
+						</h3>
+					</div>
+					<div class="col col-bg" style="background-color:#e7e7e7;">
+						<h3 class="mg-md menu-top-left">
+							<span class="float-lg-right fa fa-chevron-right"></span>전체보기
+						</h3>
+					</div>
+				</div><a>
+			</div>
+			<div class="col-sm-8 col-lg-10 menu-col">
+				<div class="col-bg">
+					<div class="row">
+						<div class="col top-col" style="padding-left:10px;">
+							<span class="icon-sm ion ion-home"></span>
+							<label class="top-p">
+								HOME <span id="navigator">/ 입금관리 / 회비 미납 현황</span>
+							</label>
+						</div>
+						<div class="col" style="padding-top:3px;">
+							<a href="/" class="btn btn-d btn-sm float-lg-right top-bt-logout">로그아웃</a><a href="/" class="btn btn-d btn-sm float-lg-right top-bt xs-hidden d-none d-sm-block">마이페이지</a>
+							<!-- <label class="top-my text-lg-left">
+								민숙현님이 로그인 하셨습니다
+							</label><span class="icon-sm top-photo ion ion-person"></span> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-0 END -->
+
+<!-- bloc-1 -->
+<div class="bloc full-width-bloc" id="bloc-1">
+	<div class="container bloc-lg bloc-no-padding-lg">
+		<div class="row">
+			<div class="col-sm-4 col-lg-2 col-bg-left">
+				<ul class="list-unstyled">
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-compass"></i> 회비기준
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-won-sign"></i> 월회비
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-star-of-life"></i> 실적회비
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-percent"></i> 가산금
+						</h3>
+					</li>
+					<a href="mb_search" class="menu-link-sub">
+					<li class="list-menu">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-money-bill"></i> 입금관리
+						</h3>
+					</li></a>
+					<a href="mb_reward" class="menu-link-sub">
+					<li class="list-menu">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-share"></i> 회비환불
+						</h3>
+					</li></a>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-chart-bar"></i> 출력(통계)
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-users"></i> 회원관리
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-file-invoice"></i> 회원 재증명 발급
+						</h3>
+					</li>
+					<li class="list-menu xs-hidden d-none d-sm-block">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-right icon-re"></span> <i class="fa fa-user-cog"></i> 관리자관리
+						</h3>
+					</li>
+					<a href="kb_qrCode" class="menu-link-sub">
+					<li class="list-menu">
+						<h3 class="mg-md menu">
+							<span class="float-lg-right fa fa-chevron-down icon-re"></span> <i class="fa fa-ethernet"></i> 금융업무
+						</h3>
+					</li></a>
+					<a href="kb_account" class="menu-link-sub">
+					<li class="list-menu list-menu-sub">
+						<h3 class="mg-md menu">
+							<i class="fa fa-caret-right"></i> 계좌 잔액조회
+						</h3>
+					</li></a>
+					<a href="kb_deposit" class="menu-link-sub">
+					<li class="list-menu list-menu-sub">
+						<h3 class="mg-md menu">
+							<i class="fa fa-caret-right"></i> 입출금 거래내역
+						</h3>
+					</li></a>
+					<a href="kb_transfer" class="menu-link-sub">
+					<li class="list-menu list-menu-sub">
+						<h3 class="mg-md menu">
+							<i class="fa fa-caret-right"></i> 당타행 계좌이체
+						</h3>
+					</li></a>
+					<a href="kb_card" class="menu-link-sub">
+					<li class="list-menu list-menu-sub">
+						<h3 class="mg-md menu">
+							<i class="fa fa-caret-right"></i> 카드 내역조회
+						</h3>
+					</li></a>
+					<a href="ex_register" class="menu-link-sub">
+					<li class="list-menu list-menu-sub">
+						<h3 class="mg-md menu">
+							<i class="fa fa-caret-right"></i> 서버 인증등록
+						</h3>
+					</li></a>
+				</ul>
+			</div>

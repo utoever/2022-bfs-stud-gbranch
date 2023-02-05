@@ -1,0 +1,701 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <div class="btn-group btn-space" style="float:right;">
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+              <span id="appListSelected">서버 선택</span>
+              <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div id="appListDropDown" class="dropdown-menu">
+            </div>
+          </div>
+
+          <h2><span class="icon s7-graph2"></span> 서버상태 : <span id="appNameTitle">서버명</span></h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/stat">관제</a></li>
+            <li class="breadcrumb-item active">서버상태</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="widget widget-fullwidth line-chart">
+                <div class="widget-head"><span class="title">현재상태</span>
+                </div>
+                <div class="chart-container">
+                  <div class="counter">
+                    <div id="tttContact" class="value">0</div>
+                    <div class="desc">초당 접속수</div>
+                  </div>
+                  <div id="statGraph" style="height: 285px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="useAppMem" class="value" data-toggle="counter" data-end="18.6" data-decimals="1" data-suffix="MB">0 MB</div>
+                      <div class="desc">총사용 메모리</div>
+                    </div>
+                    <div class="icon"><span class="s7-diskette"></span></div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="tContact" class="value" data-toggle="counter" data-end="156">0</div>
+                      <div class="desc">최근접속 (1분)</div>
+                    </div>
+                    <div class="icon"><span class="s7-graph1"></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="nHeapMem" class="value" data-toggle="counter" data-end="18.6" data-decimals="1" data-suffix="MB">0 MB</div>
+                      <div class="desc">힙메모리 <!-- (객체버퍼 : <span id="aryBuffer"></span>) --></div>
+                    </div>
+                    <div class="icon"><span class="s7-science"></span></div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="ttContact" class="value" data-toggle="counter" data-end="33" data-suffix="%">0</div>
+                      <div class="desc">총 접속량 (1시간)</div>
+                    </div>
+                    <div class="icon"><span class="s7-calculator"></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="heapPer" class="value" data-toggle="counter" data-end="33" data-suffix="%">0 %</div>
+                      <div class="desc">힙메모리 점유율 / <span id="tHeapMem">0</span></div>
+                    </div>
+                    <div class="icon"><span class="s7-timer"></span></div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="widget widget-tile">
+                    <div class="data-info">
+                      <div id="appUptime" class="value" data-toggle="counter" data-decimals="1" data-end="7.5" data-suffix="일">2022-01-01 00:00</div>
+                      <div id="appGaptime" class="desc">서버시작</div>
+                    </div>
+                    <div class="icon"><span class="s7-date"></span></div>
+                  </div>
+                </div>
+
+                <!-- <div class="col-lg-12">
+                  <div class="widget widget-tile widget-tile-wide">
+                    <div class="tile-info">
+                      <div class="icon"><span class="s7-display1"></span></div>
+                      <div class="data-info">
+                        <div class="title">총 접속량</div>
+                        <div class="desc">최근 1시간</div>
+                      </div>
+                    </div>
+                    <div class="tile-value"><span data-toggle="counter" data-decimals="2" data-end="28458" data-prefix="" id="ttContact">0</span></div>
+                  </div>
+                </div> -->
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-lg-5">
+              <button id="appServerPageBtn" class="btn btn-space btn-success btn-rounded btn-lg"><i class="icon icon-left s7-server"></i> 서버정보</button></a>
+              <button id="appMachPageBtn" class="btn btn-space btn-alt4 btn-rounded btn-lg"><i class="icon icon-left s7-tools"></i> <strong id="machName" style="font-size:1.2em;">AP</strong> 서버목록</button></a>
+              <!-- <button class="btn btn-space btn-success btn-rounded btn-lg"><i class="icon icon-left s7-portfolio"></i> 메소드정보</button>
+              <button class="btn btn-space btn-alt4 btn-rounded btn-lg"><i class="icon icon-left s7-map"></i> 로그목록</button> -->
+            </div>
+
+          </div>
+          <div class="row">
+            
+            <div class="col-lg-12" style="margin-top:20px;">
+              <div class="widget widget-tile widget-tile-wide">
+                <div class="tile-info">
+                  <div class="icon"><span class="s7-display1"></span></div>
+                  <div id="onDataInfo" class="data-info"></div>
+                </div>
+              </div>
+            </div>
+
+
+          <!-- <pre id="debug"></pre> -->
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script src="/assets/lib/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.pie.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.time.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/curvedLines.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/jquery.flot.tooltip.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/assets/lib/skycons/skycons.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="/assets/lib/countup/countUp.min.js" type="text/javascript"></script>
+<script src="/assets/data/app-graphs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+
+//////////////////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let cfg={}; try{cfg=JSON.parse('<%-JSON.stringify(cfg).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let apps={}; try{apps=JSON.parse('<%-JSON.stringify(apps).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let appsAll={}; try{appsAll=cfg.appsAll;}catch{}
+
+const appNameDefault=Object.keys(appsAll)[0];
+
+//////////////////////////////////////
+//console.log(apps);
+let appNameFlag=false;
+let thisApp={};
+let appListHTML='';
+
+for(let appName in appsAll){
+  let app=appsAll[appName];
+  if(!GQ.appName) GQ.appName=appNameDefault;
+  //console.log(app);
+
+  if(app){
+    if(app.name==GQ.appName){
+      $('#appNameTitle').html(app.name+' ['+app.appMemo+']');
+      $('#appListSelected').html('<i class="icon s7-server"></i> '+app.name+' <!-- ['+app.appMemo+'] -->');
+      appListHTML+='<a class="dropdown-item" href="?appName='+app.name+'"style="background:#ccc;">'
+      +'<i class="icon s7-server"></i> <strong>'+app.name+' <!-- ['+app.appMemo+'] --></strong></a>';
+      thisApp=app;
+      appNameFlag=true;
+    }
+    else appListHTML+='<a class="dropdown-item" href="?appName='+app.name+'">'
+    +'<i class="icon s7-server"></i> '+app.name+' <!-- ['+app.appMemo+'] --></a>';
+  }
+}
+
+$('#appListDropDown').html(appListHTML);
+if(!appNameFlag) document.location.href='/stat/condition';
+
+//////////////////////////////////////
+$('#appServerPageBtn').click(()=>{
+  document.location.href='/stat/server?appName='+GQ.appName;
+});
+$('#appMachPageBtn').click(()=>{
+  document.location.href='/stat/arrange?machName='+thisApp.machName;
+});
+
+//console.log(thisApp);
+
+$('#machName').text(thisApp.machName);
+let machUrl=thisApp.machDomain;
+if(thisApp.machDiv=='was') machUrl=thisApp.machIpIn;
+$('#machURL').text(machUrl);
+
+//////////////////////////////////////
+const uTimeToDateGap=(t1,t2)=>{
+  let gap=Number(t2)-Number(t1);
+  let rt='';
+
+  if(gap < 1000 * 60)
+     rt+=Math.floor(gap / 1000) + '초';
+  else if(gap < 1000 * 60 * 60)
+     rt+=Math.floor(gap / (1000 * 60)) + '분';
+  else if(gap < 1000 * 60 * 60 * 24)
+     rt+=Math.floor(gap / (1000 * 60 * 60)) + '시간';
+  else if(gap < 1000 * 60 * 60 * 24 * 30)
+     rt+=Math.floor(gap / (1000 * 60 * 60 * 24)) + '일';
+  else if(gap < 1000 * 60 * 60 * 24 * 30 * 12)
+     rt+=Math.floor(gap / (1000 * 60 * 60 * 24 * 30)) + '달';
+  return rt;
+}
+
+//////////////////////////////////////
+const ws=new WebSocket(dataUrl);
+let onFlag=true;
+let onN=0;
+let offN=0;
+let runN=0;
+let oldDataTime='';
+
+//////////////////////////////////////
+const rowOnData=(rData)=>{
+  //console.log(rData.appData.env.name);
+  let ad=rData.appData;
+  //console.log(ad);
+
+  let onData={
+    name:ad.env.name,//"05.BIZ1_httpPOST",
+    pm_id:ad.env.pm_id,//"5",
+    pm_uptime:ad.env.pm_uptime,//"1646868020751"
+
+    user:ad.cpuUsage.user,//"23671000"
+    system:ad.cpuUsage.system,//"19468000"
+
+    rss:ad.memoryUsage.rss,//"34373632"
+    heapTotal:ad.memoryUsage.heapTotal,//"10641408"
+    heapUsed:ad.memoryUsage.heapUsed,//"8176704"
+    external:ad.memoryUsage.external,//"13589217"
+    aryBuffer:ad.memoryUsage.arrayBuffers,//"13589217"
+
+    pm_exec_path:ad.env.pm_exec_path,//"C:\\NodeBreaker\\95\\2_DMZ\\BIZS\\05.BIZ1.js",
+    pm_err_log_path:ad.env.pm_err_log_path,//"C:\\Users\\espsys\\.pm2\\logs\\05.BIZ1-httpPOST-error.log",
+    pm_out_log_path:ad.env.pm_out_log_path,//"C:\\Users\\espsys\\.pm2\\logs\\05.BIZ1-httpPOST-out.log",
+    pm_pid_path:ad.env.pm_pid_path,//"C:\\Users\\espsys\\.pm2\\pids\\05.BIZ1-httpPOST-5.pid",
+  };
+
+  if(ad.osData.cpu) onData=Object.assign(onData,{
+    cpu:ad.osData.cpu,//"Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz",
+    cpuLen:ad.osData.cpuLen,//"4,
+    hostName:ad.osData.hostName,//"espsys-i54570",
+    type:ad.osData.type,//"Windows_NT",
+    arch:ad.osData.arch,//"x64",
+    release:ad.osData.release,//"10.0.19044",
+    freeMem:ad.osData.freeMem,//"18756317184,
+    freememv:ad.osData.freememv,//"17.5 Gb",
+    totalMem:ad.osData.totalMem,//"25709981696,
+    totalMemv:ad.osData.totalMemv,//"23.9 Gb",
+    rateFreeMem:ad.osData.rateFreeMem,//"73,
+    rateFreeMemv:ad.osData.rateFreeMemv,//"73 %",
+    loadAvg:ad.osData.loadAvg,//"[0,0,0]  
+  });
+
+  //console.log(onData);
+  let onDataText='<strong>Server App/Machine Data</strong>';
+  for(let key in onData){
+    let val=onData[key];
+    if(key=='user'||key=='system'||key=='rss'||key=='heapTotal'||key=='heapUsed'||key=='external'||key=='aryBuffer')
+    onDataText+=' | '+key+' : <strong style="color:orange;">'+nf(val)+'</strong>';
+    else onDataText+=' | '+key+' : <strong>'+val+'</strong>';
+  }
+  return {
+    data:onData,
+    text:onDataText
+  };
+}
+
+//////////////////////////////////////
+const optsGr=[{
+  showLabels: true,
+  label: "힙메모리 점유율 %",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "총 사용메모리 MB",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "힙메모리 MB",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "접속량",
+  labelPlacement: "below"
+}];
+const colorsGr=[
+  '#ddd',
+  'rgb(249,200,200)',
+  'rgb(239,98,98)',
+  '#444444'
+];
+const makeGr=(datas)=>{
+  gr.live(
+    'statGraph',
+    datas,
+    optsGr,
+    colorsGr
+  );
+  //console.log(datas);
+  /*$('#debug').text(
+    datas[0].length+' : '+JSON.stringify(datas[0])+'\n'+
+    datas[1].length+' : '+JSON.stringify(datas[1])+'\n'+
+    datas[2].length+' : '+JSON.stringify(datas[2])
+  );*/
+}
+
+//////////////////////////////////////
+const combArys=(arys,cmd='sum')=>{//다중배열을 한 행으로 합산한다. map/reduce와 같다.
+  let ret=[];
+  for(let i in arys){//행
+    if(i==0) ret=arys[i];//첫번째 열은 직접 복사한다.
+    else for(let n in arys[i]){//두번째 이후 열은 합산한다.
+      ret[n]+=Number(arys[i][n]);
+    }
+  }
+  if(cmd=='avr'){
+    for(let m in ret){//열
+      ret[m]=Math.round((ret[m]/arys.length)*10)/10;
+    }
+  }
+  //ret=arys;
+  return ret;
+}
+
+/////////
+const combStatis=(cms,chs)=>{//클러스터를 통해 분산처리된 통계를 합산한다.
+  //분당자료
+  let retm=cms[0];
+  let contactm=[];
+  let blockedm=[];
+  let heapMemm=[];
+  let heapPerm=[];
+  let useMemm=[];
+
+  for(let i in cms){
+    let css=cms[i];
+    if(Array.isArray(css.blocked) && css.blocked.length){
+      blockedm.push(css.blocked);
+    }
+    if(Array.isArray(css.contact) && css.contact.length){
+      contactm.push(css.contact);
+    }
+    if(Array.isArray(css.heapMem) && css.heapMem.length){
+      heapMemm.push(css.heapMem);
+    }
+    if(Array.isArray(css.heapPer) && css.heapPer.length){
+      heapPerm.push(css.heapPer);
+    }
+    if(Array.isArray(css.useMem) && css.useMem.length){
+      useMemm.push(css.useMem);
+    }
+  }
+  retm.blocked=combArys(blockedm);
+  retm.contact=combArys(contactm);
+  retm.heapMem=combArys(heapMemm,'avr');
+  retm.heapPer=combArys(heapPerm,'avr');
+  retm.useMem=combArys(useMemm,'avr');
+  
+  ////////////////
+  //시간자료
+  let reth=chs[0];
+  let blockedh=[];
+  let contacth=[];
+  let heapMemh=[];
+  let heapPerh=[];
+  let useMemh=[];
+
+  for(let i in chs){
+    let css=chs[i];
+    if(Array.isArray(css.blocked.data) && css.blocked.data.length){
+      blockedh.push(css.blocked.data);
+    }
+    if(Array.isArray(css.contact.data) && css.contact.data.length){
+      contacth.push(css.contact.data);
+    }
+    if(Array.isArray(css.heapMem.data) && css.heapMem.data.length){
+      heapMemh.push(css.heapMem.data);
+    }
+    if(Array.isArray(css.heapPer.data) && css.heapPer.data.length){
+      heapPerh.push(css.heapPer.data);
+    }
+    if(Array.isArray(css.useMem.data) && css.useMem.data.length){
+      useMemh.push(css.useMem.data);
+    }
+  }
+  reth.blocked=combArys(blockedh);
+  reth.contact=combArys(contacth);
+  reth.heapMem=combArys(heapMemh,'avr');
+  reth.heapPer=combArys(heapPerh,'avr');
+  reth.useMem=combArys(useMemh,'avr');
+
+  return {m:retm,h:reth};
+}
+
+/////////
+const mergStatis=appDts=>{
+  let ret=appDts;
+  let mainPid=Object.keys(appDts.statis)[0];//첫번째 값은 마스터이므로, 2번째 부터 실제 코어이다. 여기에 나머지 값을 계산해서 반환한다.
+  ret.cpuUsed=1;//클러스터를 적용하지 않았을 경우
+
+  if(Object.keys(appDts.statis).length>1){//클러스터를 적용하면 코어수+1(마스터)의 결과가 나온다. 즉 pid가 2,3,4,5개...로 2개인 경우는 없다.//어차피 값은 비어있으므로 전체를 합산하면 된다.
+    ret.cpuUsed=ret.cpuN;
+
+    let cms=[],chs=[];
+    for(let pid in appDts.statis){
+      cms.push(appDts.statis[pid].lastMin);//분당자료
+      chs.push(appDts.statis[pid].lastHour);//시간당자료
+    }
+    let {m,h}=combStatis(cms,chs);//합산한다.
+    //pr(m,'m');pr(h,'h');
+
+    ret.statis={
+      lastMin:{
+        blocked:m.blocked,
+        contact:m.contact,
+        heapMem:m.heapMem,
+        heapPer:m.heapPer,
+        useMem:m.useMem,
+        strange:{},
+        clients:{}
+      },
+      lastHour:{
+        blocked:{val:arySum(h.blocked),data:h.blocked},
+        contact:{val:arySum(h.contact),data:h.contact},
+        heapMem:{val:aryAvr(h.heapMem),data:h.heapMem},
+        heapPer:{val:aryAvr(h.heapPer),data:h.heapPer},
+        useMem:{val:aryAvr(h.useMem),data:h.useMem},
+        strange:{},
+        clients:{}
+      }
+    };
+  }
+  else{
+    ret.statis=appDts.statis[mainPid];
+  }
+  return ret;
+};
+
+//////////////////////////////////////
+ws.onopen=()=>{
+  ws.send(JSON.stringify({
+    appName:GQ.appName,
+    cmd:'appSearch'
+  }));
+  ws.onmessage=(rs)=>{
+
+    //pr(rs);
+    onN++;
+
+    if(rs.isTrusted){
+      let rData={};
+      onFlag=true;
+      try{
+        rData=JSON.parse(rs.data);
+      }catch{}
+
+      //onRed('onBtn',200);
+      //console.log(onN,rowOnData(rData));
+      //countView();
+
+      if(rData.appData){
+        //pr(rData);
+        ///*
+        try{rData.appData=mergStatis(rData.appData);}catch{}//pid값에 따라 분산되어 전달되는 값을 하나로 합산한다.
+        //$('#debug').text(JSON.stringify({rData},null,6));
+        //pr(rData.appData);
+
+        if(oldDataTime==rData.appData.time){//보고 정지상태
+          onFlag=false;
+          onN=0;
+          offN++;
+        }
+        else{//정상작동중
+          if(oldDataTime){
+            onN++;
+            offN=0;
+          }
+          oldDataTime=rData.appData.time;
+        }
+
+        if(onN>0){
+          //pr('server run');
+
+          let onData=rowOnData(rData);
+          $('#onDataInfo').html(onData.text);
+
+          let nHeapMem=Math.round((onData.data.heapUsed/1024/1024)*10)/10;
+          let tHeapMem=Math.round((onData.data.heapTotal/1024/1024)*10)/10;
+          let heapPer=Math.round((nHeapMem/tHeapMem)*100*10)/10;
+          $('#nHeapMem').html('<strong>'+nHeapMem+'</strong> MB');
+          $('#tHeapMem').text(tHeapMem+' MB');
+          let heapColor='#0099ff';
+          if(heapPer>=85) heapColor='orange';
+          else if(heapPer>=93) heapColor='red';
+          $('#heapPer').html('<strong style="color:'+heapColor+';">'+heapPer+'</strong> %');
+
+          let thisTime= + new Date();
+          let dateGap=uTimeToDateGap(onData.data.pm_uptime,thisTime);
+          let appUpDate=uTimeToDate(onData.data.pm_uptime);
+          $('#appUptime').text(appUpDate.substr(0,16));
+          $('#appGaptime').text('서버시작 '+dateGap+' 경과');
+
+          let useMem=Math.round((onData.data.rss/1024/1024)*10)/10;
+          let memColor='#0099ff';
+          if(useMem>=50) memColor='orange';
+          else if(useMem>=70) memColor='red';
+          $('#useAppMem').html('<strong style="color:'+memColor+';">'+useMem+'</strong> MB');
+
+          let aryBuffer=Math.round(onData.data.aryBuffer/1024);
+          $('#aryBuffer').html('<strong>'+aryBuffer+'</strong> KB');
+
+          if(rData.appData.statis){
+            if(Array.isArray(rData.appData.statis.lastMin.contact)){
+              let grAry=rData.appData.statis.lastMin;
+              //console.log(grAry);
+              let grData=[[],[],[],[]];
+              for(let n in grAry.contact){
+                grData[0].push([Number(n)+1,grAry.heapPer[n]]);
+                grData[1].push([Number(n)+1,grAry.useMem[n]]);
+                grData[2].push([Number(n)+1,grAry.heapMem[n]]);
+                grData[3].push([Number(n)+1,grAry.contact[n]]);
+              }
+              makeGr(grData);
+              let hrAry=rData.appData.statis.lastHour;
+              //console.log(hrAry);
+              $('#tContact').text(nf(arySum(grAry.contact)));//최근1분
+              $('#ttContact').text(nf(hrAry.contact.val));//한시간
+              $('#tttContact').text(nf(grAry.contact[grAry.contact.length-1]));//마지막1초
+            }
+          }
+          //*/
+
+          /*//let cpuStr=(Math.round((onData.data.user/onData.data.system)*100))+'%';
+          let cpuStr= (onData.data.user + onData.data.system)/500;
+          //console.log(cpuStr);
+          $('#cpuRate').html(cpuStr);
+          //countView();*/
+        }
+
+      }
+
+    }
+    else onFlag=false;
+  }
+}
+
+//////////////////////////////////////
+ws.onerror=()=>{
+  console.log('error');
+  onFlag=false;
+}
+ws.onclose=()=>{
+  console.log('close');
+  onFlag=false;
+}
+
+setInterval(()=>{
+  runN++;
+  if(runN>=6*60) window.location.reload();
+  if(!onFlag) window.location.reload();
+  onFlag=false;
+  //pr(ws);
+},1000*10);
+
+setInterval(()=>{
+  offN++;
+  if(offN>=3){
+    pr('server stop');
+
+    $('#onDataInfo').html('<br>서버로부터 보고를 받지 못했습니다.');
+    $('#nHeapMem').html('<strong>0</strong> MB');
+    $('#tHeapMem').text('0 MB');
+    $('#heapPer').html('<strong style="color:#0099ff;">0</strong> %');
+    $('#appUptime').text('0000-00-00 00:00');
+    $('#appGaptime').text('서버 정지');
+    $('#useAppMem').html('<strong style="color:#0099ff;">0</strong> MB');
+    $('#aryBuffer').html('<strong>0</strong> KB');
+    $('#tContact').text('0');//최근1분
+    $('#ttContact').text('0');//한시간
+    $('#tttContact').text('서버 정지');//마지막1초
+    makeGr([[],[],[],[]]);
+  }
+},1000);
+
+
+//////////////////////////////////////
+//$(document).ready(function(){
+  App.init();
+//});
+
+</script>
+</body>
+</html>
+
+<!-- 
+
+arch: "x64"
+cpu: "Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz"
+cpuLen: 4
+external: 61761295
+freeMem: 17822773248
+freememv: "16.6 Gb"
+heapTotal: 11165696
+heapUsed: 7949792
+hostName: "espsys-i54570"
+loadAvg: (3) [0, 0, 0]
+name: "04.GATE"
+pm_err_log_path: "C:\\Users\\espsys\\.pm2\\logs\\04.GATE-error.log"
+pm_exec_path: "C:\\NodeBreaker\\95\\2_DMZ\\GATE\\04.GATE.js"
+pm_id: "4"
+pm_out_log_path: "C:\\Users\\espsys\\.pm2\\logs\\04.GATE-out.log"
+pm_pid_path: "C:\\Users\\espsys\\.pm2\\pids\\04.GATE-4.pid"
+pm_uptime: "1646868020714"
+rateFreeMem: 69.3
+rateFreeMemv: "69.3 %"
+release: "10.0.19044"
+rss: 35414016
+system: 59218000
+totalMem: 25709981696
+totalMemv: "23.9 Gb"
+type: "Windows_NT"
+user: 56515000
+
+{
+    "rsCmd": "appSearch",
+    "appData": {
+        "cmd": "watchApp",
+        "appName": "05.BIZ1_httpPOST",
+        "env": {
+            "name": "05.BIZ1_httpPOST",
+            "pm_id": "5",
+            "pm_exec_path": "C:\\NodeBreaker\\95\\2_DMZ\\BIZS\\05.BIZ1.js",
+            "pm_err_log_path": "C:\\Users\\espsys\\.pm2\\logs\\05.BIZ1-httpPOST-error.log",
+            "pm_out_log_path": "C:\\Users\\espsys\\.pm2\\logs\\05.BIZ1-httpPOST-out.log",
+            "pm_pid_path": "C:\\Users\\espsys\\.pm2\\pids\\05.BIZ1-httpPOST-5.pid",
+            "pm_uptime": "1646868020751"
+        },
+        "cpuUsage": {
+            "user": 23671000,
+            "system": 19468000
+        },
+        "memoryUsage": {
+            "rss": 34373632,
+            "heapTotal": 10641408,
+            "heapUsed": 8176704,
+            "external": 13589217,
+            "arrayBuffers": 73934
+        },
+        "conN": 9461
+    },
+    "osData": {
+        "cpu": "Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz",
+        "cpuLen": 4,
+        "hostName": "espsys-i54570",
+        "type": "Windows_NT",
+        "arch": "x64",
+        "release": "10.0.19044",
+        "freeMem": 18756317184,
+        "freememv": "17.5 Gb",
+        "totalMem": 25709981696,
+        "totalMemv": "23.9 Gb",
+        "rateFreeMem": 73,
+        "rateFreeMemv": "73 %",
+        "loadAvg": [
+            0,
+            0,
+            0
+        ]
+    }
+}
+-->

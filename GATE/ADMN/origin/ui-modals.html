@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <title>Amaretti</title>
+    <link rel="stylesheet" type="text/css" href="assets/lib/stroke-7/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/perfect-scrollbar/css/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css"/>
+  </head>
+  <body>
+    <div class="am-wrapper">
+      <nav class="navbar navbar-expand-md fixed-top am-top-header">
+        <div class="container-fluid">
+          <div class="am-navbar-header">
+            <div class="page-title"><span>UI Modals</span></div><a class="am-toggle-left-sidebar navbar-toggle collapsed" href="#"><span class="icon-bar"><span></span><span></span><span></span></span></a><a class="navbar-brand" href="index.html"></a>
+          </div>
+          <button class="navbar-toggler hidden-md-up collapsed" data-toggle="collapse" data-target="#am-navbar-collapse"><span class="icon s7-angle-down"></span></button>
+          <div class="collapse navbar-collapse" id="am-navbar-collapse">
+            <ul class="nav navbar-nav am-user-nav">
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="assets/img/avatar.jpg"><span class="user-name">Samantha Amaretti</span><span class="angle-down s7-angle-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"> <span class="icon s7-user"></span>My profile</a></li>
+                  <li><a href="#"> <span class="icon s7-config"></span>Settings</a></li>
+                  <li><a href="#"> <span class="icon s7-help1"></span>Help</a></li>
+                  <li><a href="#"> <span class="icon s7-power"></span>Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav am-top-menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="angle-down s7-angle-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">UI Consulting</a></li>
+                  <li><a href="#">Web Development</a></li>
+                  <li><a href="#">Database Management</a></li>
+                  <li><a href="#">Seo Improvement</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            <ul class="nav navbar-nav am-icons-nav">
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-comment"></span></a>
+                <ul class="dropdown-menu am-messages">
+                  <li>
+                    <div class="title">Messages<span class="badge">3</span></div>
+                    <div class="list">
+                      <div class="am-scroller-top-messages">
+                        <div class="content">
+                          <ul>
+                            <li class="active"><a href="#">
+                                <div class="logo"><img src="assets/img/avatar2.jpg"></div>
+                                <div class="user-content"><span class="date">April 25</span><span class="name">Jessica Caruso</span><span class="text-content">Request you to be a part of the same so that we can work...</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar3.jpg"></div>
+                                <div class="user-content"><span class="date">March 18</span><span class="name">Joel King</span><span class="text-content"> We wish to extend the building.</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar4.jpg"></div>
+                                <div class="user-content"><span class="date">January 3</span><span class="name">Claire Sassu</span><span class="text-content"> We the ladies of a block are wiling to join together to set up a catering...</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><img src="assets/img/avatar5.jpg"></div>
+                                <div class="user-content"><span class="date">January 2</span><span class="name">Emily Carter</span><span class="text-content"> Request you to be a part of the same so that we can work...</span></div></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer"> <a href="#">View all messages</a></div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-bell"></span><span class="indicator"></span></a>
+                <ul class="dropdown-menu am-notifications">
+                  <li>
+                    <div class="title">Notifications<span class="badge">3</span></div>
+                    <div class="list">
+                      <div class="am-scroller-notifications">
+                        <div class="content">
+                          <ul>
+                            <li class="active"><a href="#">
+                                <div class="logo"><span class="icon s7-pin"></span></div>
+                                <div class="user-content"><span class="circle"></span><span class="name">Jessica Caruso</span><span class="text-content"> accepted your invitation to join the team.</span><span class="date">2 min ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-add-user"></span></div>
+                                <div class="user-content"><span class="name">Joel King</span><span class="text-content"> is now following you</span><span class="date">2 days ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-gleam"></span></div>
+                                <div class="user-content"><span class="name">Claire Sassu</span><span class="text-content"> is watching your main repository</span><span class="date">2 days ago</span></div></a></li>
+                            <li><a href="#">
+                                <div class="logo"><span class="icon s7-add-user"></span></div>
+                                <div class="user-content"><span class="name">Emily Carter</span><span class="text-content"> is now following you</span><span class="date">5 days ago</span></div></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer"> <a href="#">View all notifications</a></div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-share"></span></a>
+                <ul class="dropdown-menu am-connections">
+                  <li>
+                    <div class="title">Connections</div>
+                    <div class="list">
+                      <div class="content">
+                        <ul>
+                          <li>
+                            <div class="logo"><img src="assets/img/github.png"></div>
+                            <div class="field"><span>GitHub</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" checked="" name="check1" id="switch1"><span>
+                                    <label for="switch1"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/bitbucket.png"></div>
+                            <div class="field"><span>Bitbucket</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" name="check2" id="switch2"><span>
+                                    <label for="switch2"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/slack.png"></div>
+                            <div class="field"><span>Slack</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" checked="" name="check3" id="switch3"><span>
+                                    <label for="switch3"></label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="logo"><img src="assets/img/dribbble.png"></div>
+                            <div class="field"><span>Dribbble</span>
+                              <div class="switch-container">
+                                <div class="switch-button switch-button-sm">
+                                  <input type="checkbox" name="check4" id="switch4"><span>
+                                    <label for="switch4"> </label></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="footer"> <a href="#">View all connections</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><a class="am-toggle-right-sidebar" href="#"><span class="icon s7-menu2"></span></a>
+        </div>
+      </nav>
+      <div class="am-left-sidebar">
+        <div class="content">
+          <div class="am-logo"></div>
+          <ul class="sidebar-elements">
+            <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Dashboard</span></a>
+              <ul class="sub-menu">
+                <li><a href="index.html">Version 1</a>
+                </li>
+                <li><a href="dashboard2.html">Version 2</a>
+                </li>
+                <li><a href="dashboard3.html"><span class="badge badge-primary">New</span>Version 3</a>
+                </li>
+                <li><a href="dashboard4.html"><span class="badge badge-primary">New</span>Version 4</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-diamond"></i><span>UI Elements</span></a>
+              <ul class="sub-menu">
+                <li><a href="ui-general.html">General</a>
+                </li>
+                <li><a href="ui-alerts.html">Alerts</a>
+                </li>
+                <li><a href="ui-cards.html">Cards</a>
+                </li>
+                <li><a href="ui-buttons.html">Buttons</a>
+                </li>
+                <li class="active"><a href="ui-modals.html">Modals</a>
+                </li>
+                <li><a href="ui-notifications.html">Notifications</a>
+                </li>
+                <li><a href="ui-icons.html">Icons</a>
+                </li>
+                <li><a href="ui-grid.html">Grid</a>
+                </li>
+                <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a>
+                </li>
+                <li><a href="ui-chat.html"><span class="badge badge-primary">New</span>Chat Component</a>
+                </li>
+                <li><a href="ui-nestable-lists.html">Nestable Lists</a>
+                </li>
+                <li><a href="ui-typography.html"><span class="badge badge-primary">New</span>Typography</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-graph"></i><span>Charts</span></a>
+              <ul class="sub-menu">
+                <li><a href="charts-flot.html">Flot</a>
+                </li>
+                <li><a href="charts-morris.html">Morris.js</a>
+                </li>
+                <li><a href="charts-sparklines.html">Sparklines</a>
+                </li>
+                <li><a href="charts-chartjs.html"><span class="badge badge-primary">New</span>Chart.js</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-ribbon"></i><span>Forms</span></a>
+              <ul class="sub-menu">
+                <li><a href="form-elements.html">Elements</a>
+                </li>
+                <li><a href="form-validation.html">Validation</a>
+                </li>
+                <li><a href="form-spinner.html"><span class="badge badge-primary">New</span>Spinner</a>
+                </li>
+                <li><a href="form-wizard.html">Wizard</a>
+                </li>
+                <li><a href="form-masks.html">Input Masks</a>
+                </li>
+                <li><a href="form-wysiwyg.html">WYSIWYG Editor</a>
+                </li>
+                <li><a href="form-upload.html">Multi Upload</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-box2"></i><span>Tables</span></a>
+              <ul class="sub-menu">
+                <li><a href="tables-general.html">General</a>
+                </li>
+                <li><a href="tables-datatables.html">Data Tables</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-note2"></i><span>Pages</span></a>
+              <ul class="sub-menu">
+                <li><a href="pages-blank.html">Blank Page</a>
+                </li>
+                <li><a href="pages-blank-header.html">Blank Page Header</a>
+                </li>
+                <li><a href="pages-login.html">Login</a>
+                </li>
+                <li><a href="pages-404.html">404 Page</a>
+                </li>
+                <li><a href="pages-sign-up.html">Sign Up</a>
+                </li>
+                <li><a href="pages-forgot-password.html">Forgot Password</a>
+                </li>
+                <li><a href="pages-profile.html">Profile</a>
+                </li>
+                <li><a href="pages-calendar.html">Calendar</a>
+                </li>
+                <li><a href="pages-gallery.html">Gallery</a>
+                </li>
+                <li><a href="pages-pricing-tables.html"><span class="badge badge-primary">New</span>Pricing Tables</a>
+                </li>
+                <li><a href="pages-timeline.html"><span class="badge badge-primary">New</span>Timeline</a>
+                </li>
+                <li><a href="pages-timeline2.html"><span class="badge badge-primary">New</span>Timeline v2</a>
+                </li>
+                <li><a href="pages-invoice.html"><span class="badge badge-primary">New</span>Invoice</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-mail"></i><span>Email</span></a>
+              <ul class="sub-menu">
+                <li><a href="email-inbox.html">Inbox</a>
+                </li>
+                <li><a href="email-detail.html">Email Detail</a>
+                </li>
+                <li><a href="email-compose.html">Email Compose</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-browser"></i><span>Layouts</span></a>
+              <ul class="sub-menu">
+                <li><a href="layouts-nosidebar-left.html">Without Left Sidebar</a>
+                </li>
+                <li><a href="layouts-nosidebar-right.html">Without Right Sidebar</a>
+                </li>
+                <li><a href="layouts-nosidebars.html">Without Both Sidebars</a>
+                </li>
+                <li><a href="layouts-white-header.html">White Header</a>
+                </li>
+                <li><a href="layouts-sticky-footer.html"><span class="badge badge-primary">New</span>Sticky Footer</a>
+                </li>
+                <li><a href="layouts-fixed-sidebar.html">Fixed Left Sidebar</a>
+                </li>
+                <li><a href="layouts-left-sidebar-click.html"><span class="badge badge-primary">New</span>Open left sidebar on click</a>
+                </li>
+                <li><a href="layouts-left-sidebar-delay.html"><span class="badge badge-primary">New</span>Open left sidebar with delay</a>
+                </li>
+                <li><a href="pages-blank-aside.html">Page Aside</a>
+                </li>
+                <li><a href="layouts-search-input.html"><span class="badge badge-primary">New</span>Search Input</a>
+                </li>
+              </ul>
+            </li>
+            <li class="parent"><a href="#"><i class="icon s7-map-marker"></i><span>Maps</span></a>
+              <ul class="sub-menu">
+                <li><a href="maps-google.html">Google Maps</a>
+                </li>
+                <li><a href="maps-vector.html">Vector Maps</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="documentation.html"><i class="icon s7-notebook"></i><span>Docs</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="am-content">
+        <div class="page-head">
+          <h2>Modals</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+            <li class="breadcrumb-item active">Modals</li>
+          </ol>
+        </div>
+        <div class="main-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Modal Alerts</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Samantha Amaretti, </a>as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-success" data-toggle="modal" data-target="#mod-success"><i class="icon icon-left s7-check"></i>Success</button>
+                    <button class="btn btn-space btn-info" data-toggle="modal" data-target="#mod-info"><i class="icon icon-left s7-info"></i>Information</button>
+                    <button class="btn btn-space btn-warning" data-toggle="modal" data-target="#mod-warning"><i class="icon icon-left s7-attention"></i>Warning</button>
+                    <button class="btn btn-space btn-danger" data-toggle="modal" data-target="#mod-error"><i class="icon icon-left s7-close-circle"></i>Error</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Full Color Alerts</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-primary md-trigger" data-modal="full-primary">Primary</button>
+                    <button class="btn btn-space btn-success md-trigger" data-modal="full-success">Success</button>
+                    <button class="btn btn-space btn-info md-trigger" data-modal="full-info">info</button>
+                    <button class="btn btn-space btn-warning md-trigger" data-modal="full-warning">Warning</button>
+                    <button class="btn btn-space btn-danger md-trigger" data-modal="full-danger">Danger</button>
+                    <button class="btn btn-space btn-dark md-trigger" data-modal="full-dark">Dark</button>
+                  </div>
+                  <div class="modal-container modal-full-color modal-effect-8" id="full-primary">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Primary</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-full-color-success modal-effect-8" id="full-success">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Success</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-success btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-full-color-info modal-effect-8" id="full-info">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Info</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-info btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-info btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-full-color-warning modal-effect-8" id="full-warning">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Warning</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-warning btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-warning btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-full-color-danger modal-effect-8" id="full-danger">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Danger</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-danger btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-danger btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-full-color-dark modal-effect-8" id="full-dark">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Dark</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-dark btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-dark btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Bootstrap Modals</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#md-default"> Default</button>
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#md-fullWidth"> Full Width</button>
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#md-custom"> Custom width</button>
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#md-colored"> Colored Header</button>
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#md-fullColor"> Full Color</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Nifty Modals</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="nft-default"> Default</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="nft-fullWidth"> Full Width</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="nft-custom"> Custom width</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="nft-colored"> Colored Header</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="nft-fullColor"> Full Color</button>
+                  </div>
+                  <div class="modal-container modal-effect-1" id="nft-default">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container full-width modal-effect-1" id="nft-fullWidth">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-width modal-container modal-effect-1" id="nft-custom">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-effect-1" id="nft-colored">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-full-color modal-effect-1" id="nft-fullColor">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Full Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">  
+              <div class="card">
+                <div class="card-header"><span class="title">Colored Header Modals</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-primary md-trigger" data-modal="colored-primary">Primary</button>
+                    <button class="btn btn-space btn-success md-trigger" data-modal="colored-success">Success</button>
+                    <button class="btn btn-space btn-info md-trigger" data-modal="colored-info">Info</button>
+                    <button class="btn btn-space btn-warning md-trigger" data-modal="colored-warning">Warning</button>
+                    <button class="btn btn-space btn-danger md-trigger" data-modal="colored-danger">Danger</button>
+                    <button class="btn btn-space btn-dark md-trigger" data-modal="colored-dark">Dark</button>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-effect-10" id="colored-primary">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-colored-header-success modal-effect-10" id="colored-success">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-colored-header-info modal-effect-10" id="colored-info">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-info"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-info modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-colored-header-warning modal-effect-10" id="colored-warning">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-warning"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-warning modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-colored-header-danger modal-effect-10" id="colored-danger">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-danger"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-danger modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-colored-header-dark modal-effect-10" id="colored-dark">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-dark"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-dark modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card dark-box">
+                <div class="card-header"><span class="title">Dark Flat Side</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-primary md-trigger" data-modal="dark-primary"> Primary</button>
+                    <button class="btn btn-space btn-success md-trigger" data-modal="dark-success"> Success</button>
+                    <button class="btn btn-space btn-info md-trigger" data-modal="dark-info"> Info</button>
+                    <button class="btn btn-space btn-warning md-trigger" data-modal="dark-warning"> Warning</button>
+                    <button class="btn btn-space btn-danger md-trigger" data-modal="dark-danger"> Danger</button>
+                    <button class="btn btn-space btn-dark md-trigger" data-modal="dark-dark"> Dark</button>
+                  </div>
+                  <div class="modal-container modal-dark modal-effect-3" id="dark-primary">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-success modal-effect-3" id="dark-success">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-success"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-success modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-info modal-effect-3" id="dark-info">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-info"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-info btn modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-info btn modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-warning modal-effect-3" id="dark-warning">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-warning"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-warning modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-warning modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-danger modal-effect-3" id="dark-danger">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-danger"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-danger modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-danger modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-dark modal-effect-3" id="dark-dark">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Custom Header Color</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-dark btn-shade1 modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-dark btn-shade1 modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Nifty Modals Effects</span></div>
+                <div class="card-body">
+                  <h4>Examples</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-scale"> Fade in & Scale</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-slideLeft"> Slide in Left</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-slideUp"> Slide in Up</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-fall"> Fall</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-sideFall"> Side Fall</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-stickyUp"> Sticky Up</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-flipH"> 3D Flip Horizontal</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-flipV"> 3D Flip Vertical</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-3dSign"> 3D Sign</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-superScaled"> Super Scaled</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-justModal"> Just Modal</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-3dRotateUp"> 3D Rotate Up</button>
+                    <button class="btn btn-space btn-alt3 md-trigger" data-modal="md-3dRotateRight"> 3D Rotate Right</button>
+                  </div>
+                  <div class="modal-container modal-effect-1" id="md-scale">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-2" id="md-slideLeft">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-3" id="md-slideUp">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-5" id="md-fall">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-6" id="md-sideFall">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-7" id="md-stickyUp">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-8" id="md-flipH">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-9" id="md-flipV">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-10" id="md-3dSign">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-11" id="md-superScaled">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-12" id="md-justModal">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-14" id="md-3dRotateUp">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-effect-15" id="md-3dRotateRight">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+                          <h4>Awesome!</h4>
+                          <p>Changes has been saved successfully!</p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><span class="title">Form Modals</span></div>
+                <div class="card-body">
+                  <h4>Nifty Forms</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="mt-6 mb-4 text-center">
+                    <button class="btn btn-space btn-primary md-trigger" data-modal="form-primary">Basic Form</button>
+                    <button class="btn btn-space btn-success md-trigger" data-modal="form-green">Dark Form</button>
+                  </div>
+                  <h4>Bootstrap Forms</h4>
+                  <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip options.</a></p>
+                  <div class="text-center">
+                    <button class="btn btn-space btn-primary" data-toggle="modal" data-target="#form-bp1">Basic Form</button>
+                    <button class="btn btn-space btn-success" data-toggle="modal" data-target="#form-bp2">Dark Form</button>
+                  </div>
+                  <div class="modal-container modal-colored-header modal-effect-9" id="form-primary">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Form Modal</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body form">
+                        <div class="form-group">
+                          <label>Email address</label>
+                          <input class="form-control" type="email" placeholder="username@example.com">
+                        </div>
+                        <div class="form-group">
+                          <label>Your name</label>
+                          <input class="form-control" type="name" placeholder="John Doe">
+                        </div>
+                        <div class="row">
+                          <div class="form-group col-lg-12">
+                            <label>Your birth date</label>
+                          </div>
+                        </div>
+                        <div class="row no-margin-y">
+                          <div class="form-group col-3">
+                            <input class="form-control" type="name" placeholder="DD">
+                          </div>
+                          <div class="form-group col-3">
+                            <input class="form-control" type="name" placeholder="MM">
+                          </div>
+                          <div class="form-group col-3">
+                            <input class="form-control" type="name" placeholder="YYYY">
+                          </div>
+                        </div>
+                        <p>
+                          <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" name="c[]" checked=""><span class="custom-control-label">Send me notifications about new products and services.</span>
+                          </label>
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-container modal-dark modal-dark-success modal-effect-9" id="form-green">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title">Form Modal</h3>
+                        <button class="close modal-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+                      </div>
+                      <div class="modal-body form">
+                        <div class="text-center">
+                          <p>Ready to publish your site to the web? Awesome! Use Twitter, Facebook, or your email to save your site. You can always make edits to your site later.</p>
+                        </div>
+                        <div class="form-group">
+                          <label>Email address</label>
+                          <input class="form-control" type="email" placeholder="username@example.com">
+                        </div>
+                        <div class="form-group">
+                          <label>Your name</label>
+                          <input class="form-control" type="name" placeholder="John Doe">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-success modal-close" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success modal-close" data-dismiss="modal">Proceed</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="am-right-sidebar">
+        <div class="sb-content">
+          <div class="user-info"><img src="assets/img/avatar.jpg"><span class="name">Samantha Amaretti<span class="status"></span></span><span class="position">Art Director</span></div>
+          <div class="tab-navigation">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation"><a class="active" href="#tab1" aria-controls="home" role="tab" data-toggle="tab"> <span class="icon s7-smile"></span></a></li>
+              <li role="presentation"><a href="#tab2" aria-controls="profile" role="tab" data-toggle="tab"> <span class="icon s7-chat"></span></a></li>
+              <li role="presentation"><a href="#tab3" aria-controls="messages" role="tab" data-toggle="tab"> <span class="icon s7-help2"></span></a></li>
+              <li role="presentation"><a href="#tab4" aria-controls="settings" role="tab" data-toggle="tab"> <span class="icon s7-ticket"></span></a></li>
+            </ul>
+          </div>
+          <div class="tab-panel">
+            <div class="tab-content">
+              <div class="tab-pane announcement active" id="tab1" role="tabpanel">
+                <div class="announcement-container">
+                  <div class="announcement-wrapper">
+                    <div class="am-scroller-announcement">
+                      <div class="announcement-content">
+                        <h2>Announcement</h2>
+                        <ul>
+                          <li>
+                            <div class="icon"><span class="icon s7-sun"></span></div>
+                            <div class="content"><a href="#">Happy Day</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                          <li>
+                            <div class="icon"><span class="icon s7-gift"></span></div>
+                            <div class="content"><a href="#">Congratulations Developers</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                          <li>
+                            <div class="icon"><span class="icon s7-star"></span></div>
+                            <div class="content"><a href="#">High Score</a><span>Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</span></div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane chat" id="tab2" role="tabpanel">
+                <div class="chat-contacts">
+                  <div class="chat-sections">
+                    <div class="am-scroller-chat">
+                      <div class="content">
+                        <h2>Recent</h2>
+                        <div class="recent">
+                          <div class="user"><a href="#"><img src="assets/img/avatar4.jpg">
+                              <div class="user-data"><span class="status away"></span><span class="name">Claire Sassu</span><span class="message">Can you share the...</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                              <div class="user-data"><span class="status"></span><span class="name">Maggie jackson</span><span class="message">I confirmed the info.</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar3.jpg">
+                              <div class="user-data"><span class="status offline"></span><span class="name">Joel King		</span><span class="message">Ready for the meeti...</span></div></a></div>
+                        </div>
+                        <h2>Contacts</h2>
+                        <div class="contact">
+                          <div class="user"><a href="#"><img src="assets/img/avatar6.jpg">
+                              <div class="user-data2"><span class="status"></span><span class="name">Mike Bolthort</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                              <div class="user-data2"><span class="status"></span><span class="name">Maggie jackson</span></div></a></div>
+                          <div class="user"><a href="#"><img src="assets/img/avatar8.jpg">
+                              <div class="user-data2"><span class="status offline"></span><span class="name">Jhon Voltemar</span></div></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+                <div class="chat-window">
+                  <div class="title">
+                    <div class="user"><img src="assets/img/avatar7.jpg">
+                      <h2>Maggie jackson</h2><span>Active 1h ago</span>
+                    </div><span class="icon return s7-angle-left"></span>
+                  </div>
+                  <div class="chat-messages">
+                    <div class="am-scroller-messages">
+                      <div class="content">
+                        <ul>
+                          <li class="friend">
+                            <div class="msg">Hello</div>
+                          </li>
+                          <li class="self">
+                            <div class="msg">Hi, how are you?</div>
+                          </li>
+                          <li class="friend">
+                            <div class="msg">Good, I'll need support with my pc</div>
+                          </li>
+                          <li class="self">
+                            <div class="msg">Sure, just tell me what is going on with your computer?</div>
+                          </li>
+                          <li class="friend">
+                            <div class="msg">I don't know it just turns off suddenly</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-input">
+                    <div class="input-wrapper"><span class="photo s7-camera"></span>
+                      <input type="text" placeholder="Message..." name="q" autocomplete="off"><span class="send-msg s7-paper-plane"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane faqs" id="tab3" role="tabpanel">
+                <div class="faqs-container">
+                  <div class="faqs-wrapper">
+                    <div class="am-scroller-faqs">
+                      <div class="faqs-content">
+                        <h2>FAQs</h2>
+                        <div class="accordion" id="accordion" role="tablist">
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a data-toggle="collapse" data-parent="#accordion" href="#faq1" aria-expanded="true" aria-controls="collapseOne">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Under Error 352</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse show" id="faq1" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq2" aria-expanded="false" aria-controls="collapseTwo">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Failure platform</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq2" aria-labelledby="headingTwo" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq3" aria-expanded="false" aria-controls="collapseThree">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">Error 404</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq3" aria-labelledby="headingThree" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" role="tab">
+                              <h4 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq4" aria-expanded="false" aria-controls="collapseThree">
+                                  <div class="icon"><span class="s7-angle-down"></span></div><span class="title">New workstation</span></a></h4>
+                            </div>
+                            <div class="card-collapse collapse" id="faq4" aria-labelledby="headingFour" data-parent="#accordion">
+                              <div class="card-body">Suspendisse nec leo tortor rhoncus tincidunt. Duis sit amet rutrum elit.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search">
+                    <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane ticket" id="tab4" role="tabpanel">
+                <div class="ticket-container">
+                  <div class="ticket-wrapper">
+                    <div class="am-scroller-ticket">
+                      <div class="ticket-content">
+                        <h2>New Ticket</h2>
+                        <form>
+                          <div class="form-group send-ticket">
+                            <input class="form-control" type="text" placeholder="Title">
+                          </div>
+                          <div class="form-group send-ticket">
+                            <textarea class="form-control" rows="3" placeholder="Write Here..."></textarea>
+                          </div>
+                          <button class="btn btn-primary btn-lg" type="submit">Create Ticket</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+    <script src="assets/lib/jquery.niftymodals/js/jquery.niftymodals.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      //- Set Nifty Modals defaults
+      $.fn.niftyModal('setDefaults',{
+      	overlaySelector: '.modal-overlay',
+      	contentSelector: '.modal-content',
+      	closeSelector: '.modal-close',
+      	classAddAfterOpen: 'modal-show',
+      	classModalOpen: 'modal-open',
+      	classScrollbarMeasure: 'modal-scrollbar-measure',
+      	afterOpen: function(){
+      	 $("html").addClass('am-modal-open');
+      	},
+      	afterClose: function(){
+      		$("html").removeClass('am-modal-open');
+      	}
+      });
+      
+      $(document).ready(function(){
+      	//- initialize the javascript
+      	App.init();
+      });
+    </script>
+    <div class="modal fade" id="mod-success" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button " data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-success"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="mod-info" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-info"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-info" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="mod-warning" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-warning"><i class="icon s7-attention"></i></div>
+              <h4>Warning!</h4>
+              <p>Something is going wrong here...</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-warning" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="mod-error" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-danger"><i class="icon s7-close"></i></div>
+              <h4>Oh god!</h4>
+              <p>You're by your own now, good luck!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-danger" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="md-default" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button " data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="md-fullWidth" tabindex="-1" role="dialog">
+      <div class="modal-dialog full-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-width modal fade" id="md-custom" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully!</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-colored-header" id="md-colored" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Custom Colored Header</h3>
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle text-primary"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully! </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="md-fullColor" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-full-color">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Full Color</h3>
+            <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="i-circle primary"><i class="icon s7-check"></i></div>
+              <h4>Awesome!</h4>
+              <p>Changes has been saved successfully! </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-shade1" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary btn-shade1" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-colored-header" id="form-bp1" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Form Modal</h3>
+            <button class="close md-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body form">
+            <div class="form-group">
+              <label>Email address</label>
+              <input class="form-control" type="email" placeholder="username@example.com">
+            </div>
+            <div class="form-group">
+              <label>Your name</label>
+              <input class="form-control" type="name" placeholder="John Doe">
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-12">
+                <label>Your birth date</label>
+              </div>
+            </div>
+            <div class="row no-margin-y">
+              <div class="form-group col-3">
+                <input class="form-control" type="name" placeholder="DD">
+              </div>
+              <div class="form-group col-3">
+                <input class="form-control" type="name" placeholder="MM">
+              </div>
+              <div class="form-group col-3">
+                <input class="form-control" type="name" placeholder="YYYY">
+              </div>
+            </div>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" name="c[]" checked=""><span class="custom-control-label">Send me notifications about new products and services.</span>
+              </label>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary md-close" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary md-close" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-dark modal-dark-success" id="form-bp2" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Form Modal</h3>
+            <button class="close md-close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+          </div>
+          <div class="modal-body form">
+            <div class="text-center">
+              <p>Ready to publish your site to the web? Awesome! Use Twitter, Facebook, or your email to save your site. You can always make edits to your site later.</p>
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input class="form-control" type="email" placeholder="username@example.com">
+            </div>
+            <div class="form-group">
+              <label>Your name</label>
+              <input class="form-control" type="name" placeholder="John Doe">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success md-close" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success md-close" data-dismiss="modal">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

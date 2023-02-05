@@ -1,0 +1,55 @@
+{
+  "flag": true,
+  "msg": {
+    "code": "1000",
+    "message": "success from host",
+    "treatCdHost": "        ",
+    "method": "KFK124DG40",
+    "StndTranBaseYmd": "20230203",
+    "conDateTime": "20230203134945855",
+    "cConTm": 1675399785855,
+    "OutData": {
+      "kbSBnkgJoinYn": "0"
+    }
+  },
+  "customData": {
+    "method": "KFK124DG40",
+    "key": "SOC",
+    "remoteAddress": "10.141.32.52",
+    "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "StndTranBaseYmd": "20230203",
+    "conDateTime": "20230203134945855",
+    "cConTm": 1675399785855,
+    "error": [],
+    "lgt": [],
+    "authInfo": true,
+    "cnif": "Xi85r6D5/IikSNuLwHmJcIbsmJ+qyrvxs7y8AVVjjFVjFiX6Q2HM0MHszaEdlzlNDiNcvUz8Y8E7nJ1006756394",
+    "pidGte": 26547,
+    "pidBiz": 26612,
+    "lgTm": 1675399785855,
+    "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230203/1349/KFK124DG40--1675399785855_SOC_G.json",
+    "host": {
+      "methodCom": "KFK124DG40",
+      "ip": "172.17.33.92",
+      "domain": "172.17.33.92",
+      "path": "/",
+      "port": 41164,
+      "proto": "soc",
+      "method": "SOC"
+    },
+    "bizLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230203/1349/KFK124DG40--1675399785855_SOC_B.json"
+  },
+  "outJson": {
+    "code": "1000",
+    "message": "success from host",
+    "codeHost": "N0000000",
+    "treatCdHost": "        ",
+    "method": "KFK124DG40",
+    "StndTranBaseYmd": "20230203",
+    "conDateTime": "20230203134945855",
+    "cConTm": 1675399785855,
+    "OutData": {
+      "kbSBnkgJoinYn": "0"
+    }
+  }
+}

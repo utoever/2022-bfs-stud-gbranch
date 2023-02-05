@@ -1,0 +1,173 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <div class="" style="float:right;display:none;">
+            <select id="datePicker" class="" style="border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;">
+              <option>일별 이상신호</option>
+            </select>
+          </div>
+
+          <h2><span class="icon s7-way"></span> 이상신호</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/stat">관제</a></li>
+            <li class="breadcrumb-item active">이상신호</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <ul id="alertList" class="timeline">
+                <li class="timeline-item timeline-loadmore"><a class="load-more-btn" href="#">50라인 더보기</a></li>
+              </ul>
+            </div>
+          </div>
+          <br>
+
+
+          <!-- <pre id="debug"></pre> -->
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+let list=[]; try{list=JSON.parse('<%-JSON.stringify(list).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let appNmToMth={}; try{appNmToMth=JSON.parse('<%-JSON.stringify(appNmToMth).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+
+const loadData=(dt)=>{
+
+  $('#alertList').hide();
+  $('#alertList').html('');
+  let data={dt:dt};
+  let url='/ajax/alert/load/'+dt;
+
+  //pr(url);http://x1.espsys.link:900/stat/server?appName=08.BIZ4_webSocket&logTypeFlag=err
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(rs.flag){
+
+        let alertListHTML='';
+
+        if(Array.isArray(rs.alertList)){
+          for(let i in rs.alertList){
+            let alert=rs.alertList[i];
+            alert.method='';
+            try{if(appNmToMth[alert.appName]) alert.method=appNmToMth[alert.appName];}catch{}
+
+            let btnType='btn-alt3';
+            let iconEle='<span class="icon s7-gleam"></span>';
+            let logBtnStr='';
+            let errFlag='';
+
+            if(alert.type=='logError'){
+              btnType='btn-primary';
+              errFlag='err';
+              iconEle='<span class="icon s7-attention" style="color:red;"></span>';
+              //logBtnStr='<button data-data="'+alert.dataType.join('|')
+              //+'" class="findErrorByLinesBtn btn btn-space '+btnType+' btn-rounded btn-xs">에러구문</button>';
+            }
+            else if(alert.method){
+              logBtnStr='<a href="/method/log?search='+alert.method+'">'
+              +'<button class="btn btn-space '+btnType+' btn-rounded btn-xs">데이터로그</button></a>';
+            }
+            alertListHTML+='<li class="timeline-item">'
+              +'<div class="timeline-date"><span>'+uTimeToDate(alert.time).substr(0,10)+'</span></div>'
+              +'<div class="timeline-content"><div class="timeline-avatar" style="font-size:2em;">'+iconEle+'</div>'
+              +'<div class="timeline-header">'
+                +'<span class="timeline-time">'+logBtnStr+' &nbsp; '+uTimeToDate(alert.time).substr(11,8)+'</span>'
+                +'<a href="/stat/server?appName='+alert.appName+'&logTypeFlag='+errFlag+'"><button id="statServerBtn" class="btn btn-space '+btnType+' btn-rounded btn-sm">'
+                +'<i class="icon icon-left s7-server"></i> '+alert.appName+' 서버</button></a>'
+                +'<a href="/stat/condition?appName='+alert.appName+'"><button id="statConditionBtn" class="btn btn-space btn-alt4 btn-rounded btn-sm">'
+                +'<i class="icon icon-left s7-display1"></i> 상태</button></a>'
+                +'<span class="timeline-autor">'+alert.title+'</span> &nbsp;'
+                +'<p class="timeline-activity">'+alert.data+'</p>'
+             +'</div></div></li>';
+          }
+        }
+        $('#alertList').html(alertListHTML);
+        $('#alertList').slideDown();
+        alertErrorBtnAct();
+        //$('#debug').text(pre(rs));
+      }
+      else{
+        alert('경고 데이터가 없습니다.');
+        //pr('no data');
+      }
+
+    }
+  });
+}
+
+const alertErrorBtnAct=()=>{
+  $('.findErrorByLinesBtn').off().click(function(){
+    let thisBtn=$(this);
+    let dt=$(this).data('data');
+    let pa=$(this).parent().parent();
+    let dts=dt.split('|');
+    alertFindErrorByLines({
+      from:dts[0],
+      to:dts[1],
+      file:dts[2]
+    },(rsText)=>{
+      pa.append(
+        '<div style="margin-top:15px;color:red;"><strong>'
+        +hvw(rsText).replace('<br />','</strong><br />')+'</div>'
+      );
+      thisBtn.hide();
+    });
+  });
+}
+
+const alertFindErrorByLines=(data,fnc)=>{
+  //let data={from:1,to:91,file:'C:/Users/espsys/.pm2/logs/00.DATA-error.log'};
+  let url='/ajax/alert/findByLines/';
+  //pre(url);
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      if(typeof fnc==='function') fnc(rs.rsText);
+    }
+  });
+}
+
+$('#datePicker').change(function(){
+  let dt=$(this).val();
+  loadData(dt);
+});
+
+const dateList=(list)=>{
+  if(Array.isArray(list)){
+    for(let i in list){
+      let dt=list[i];
+      //console.log(dt);
+      let date=dt.substr(0,4)+'-'+dt.substr(4,2)+'-'+dt.substr(6,2);
+      $('#datePicker').append('<option value="'+dt+'">'+date+'</option>');
+    }
+    loadData(list[0]);
+    $('#datePicker').val(list[0]);
+  }
+}
+dateList(list);
+
+//$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+//});
+</script>
+</body>
+</html>

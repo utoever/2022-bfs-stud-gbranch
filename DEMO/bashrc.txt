@@ -1,0 +1,48 @@
+
+
+
+alias cdto='cd /home/nodejs/'
+alias nbto='cd /home/nodejs/Nodebreaker/'
+alias nbdat='cd /home/nodejs/Nodebreaker/DATA/dat/'
+alias nbs='pm2 start /home/nodejs/Nodebreaker/DATA/cfg/appRun.json'
+
+alias dudat='du -sh /home/nodejs/Nodebreaker/DATA/dat/'
+alias deldat='rm -rf /home/nodejs/Nodebreaker/DATA/dat/20*'
+alias dellg='rm -rf /home/nodejs/Nodebreaker/DATA/log/*.txt'
+alias dellog='rm -rf /home/nodejs/.pm2/logs/*.log'
+
+alias pmd='pm2 delete all'
+alias pmr='pm2 restart all'
+alias pms='pm2 stop all'
+alias pmf='pm2 flush'
+alias pml='pm2 list'
+alias pmm='pm2 monit'
+alias pmlg='cd /home/nodejs/.pm2/logs/'
+
+alias ps0='pm2 stop 0'
+alias ps1='pm2 stop 1'
+alias ps2='pm2 stop 2'
+alias ps3='pm2 stop 3'
+alias ps4='pm2 stop 4'
+alias ps5='pm2 stop 5'
+alias ps6='pm2 stop 6'
+alias ps7='pm2 stop 7'
+alias ps8='pm2 stop 8'
+alias ps9='pm2 stop 9'
+
+alias pr0='pm2 restart 0'
+alias pr1='pm2 restart 1'
+alias pr2='pm2 restart 2'
+alias pr3='pm2 restart 3'
+alias pr4='pm2 restart 4'
+alias pr5='pm2 restart 5'
+alias pr6='pm2 restart 6'
+alias pr7='pm2 restart 7'
+alias pr8='pm2 restart 8'
+alias pr9='pm2 restart 9'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias df='df -i'
+alias ll='ls -al'

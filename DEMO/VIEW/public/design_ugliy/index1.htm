@@ -1,0 +1,137 @@
+<html>
+<title>vue3 sfc</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="src/js/vue_3238.js"></script>
+<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+
+
+
+<style>
+body{
+  margin:0;
+  padding:20px;
+}
+ul{
+  width:200px;
+}
+li{
+  list-style:none;
+  display:inline-block;
+  font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+  font-weight:bold;
+  padding:5px 20px;
+  margin-top:5px;
+  background:#ededed;
+  border-radius:5px;
+  color:#444;
+  width:200px;
+}
+a{
+  text-decoration:none;
+}
+#treeDiv{
+  background:#eee;
+  padding:0 5px;
+  border-radius:5px;
+  display:inline-block;
+  color:black;
+  font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+  font-weight:bold;
+}
+</style>
+
+
+
+<body>
+<ul id="menu">
+  <li v-for="menu in menus">
+    <a v-bind:href="file(menu)" :style="backColor">{{menu}}</a>
+  </li>
+</ul>
+<br>
+<ul id="menu2">
+  <li v-for="menu in menus">
+    <a v-bind:href="file(menu)" :style="backColor">{{menu}}</a>
+    <p v-html="aLinkToArdor"></p>
+  </li>
+</ul>
+<br>
+<div id="treeDiv"></div>
+</body>
+
+
+
+<script>
+  const creater={
+    vuetify: new Vuetify(),
+    data() {
+      return {
+        menus:[
+          '0.login',
+          '1.index',
+          '2.page',
+          '3.page',
+          '4.page',
+          '5.page',
+          '6.pop'
+        ],
+        backColor:{'background':'#ededed'},
+        aLinkToArdor:'<a href="http://ardor.net">ardor.net</a>'
+      }
+    },
+    methods:{
+      file(menu){
+        return menu+'.html';
+      }
+    }
+  };
+  const app=Vue.createApp(creater);
+  const app1=Vue.createApp(creater);
+  app.mount('#menu');
+  app1.mount('#menu2');
+
+//https://en.wikipedia.org/wiki/Box-drawing_character
+const tree=`╔═════════════════════╗
+║      ANSI_Line      ║
+╟─────────────────────╢
+║  root/              ║
+║  ├── file           ║
+║  ├── file           ║
+║  ├── dir1/          ║
+║  │   ├── file       ║
+║  │   └── file       ║
+║  └── dir2/          ║
+║      ├── file       ║
+║      ├── file       ║
+║      └── dir3/      ║
+║          ├── file   ║
+║          └── file   ║
+╠════════╤════════════╣
+║   ┌───1┼Tree────┐   ║
+║   ├───2┼Box─────┤   ║
+║   └───3┼Line────┘   ║
+╠════════╧════════════╣
+║ ┌─┬┐ ╔═╦╗ ╓─╥╖ ╒═╤╕ ║
+║ │A││ ║B║║ ║C║║ │D││ ║
+║ ├─┼┤ ╠═╬╣ ╟─╫╢ ╞═╪╡ ║
+║ └─┴┘ ╚═╩╝ ╙─╨╜ ╘═╧╛ ║
+╚═════════════════════╝`;
+//console.log(tree);
+
+$('#treeDiv').append(
+  tree
+  .replace(/ /g,'&nbsp;')
+  .replace(/\n/g,'<br />')
+  .replace(/ANSI_Line/,'<a href="https://naver.com">ANSI_Line</a>')
+  .replace(/root\//,'<a href="https://naver.com">root/</a>')
+  .replace(/dir1\//,'<a href="https://naver.com">dir1/</a>')
+  .replace(/dir2\//,'<a href="https://naver.com">dir2/</a>')
+  .replace(/dir3\//,'<a href="https://naver.com">dir3/</a>')
+);
+</script>
+</html>

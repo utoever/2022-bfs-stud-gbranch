@@ -1,0 +1,150 @@
+
+alias cdto='cd /home/nodejs/'
+alias nbto='cd /home/nodejs/Nodebreaker/'
+alias nbdat='cd /home/nodejs/Nodebreaker/DATA/dat/'
+alias nbs='pm2 start /home/nodejs/Nodebreaker/DATA/cfg/appRun.json'
+
+alias dudat='du -sh /home/nodejs/Nodebreaker/DATA/dat/'
+alias deldat='rm -rf /home/nodejs/Nodebreaker/DATA/dat/20*'
+alias dellg='rm -rf /home/nodejs/Nodebreaker/DATA/log/*.txt'
+alias dellog='rm -rf /home/nodejs/.pm2/logs/*.log'
+
+alias pmd='pm2 delete all'
+alias pmr='pm2 restart all'
+alias pms='pm2 stop all'
+alias pmf='pm2 flush'
+alias pml='pm2 list'
+alias pmm='pm2 monit'
+alias pmlg='cd /home/nodejs/.pm2/logs/'
+
+
+alias ps0='pm2 stop 0'
+alias ps1='pm2 stop 1'
+alias ps2='pm2 stop 2'
+alias ps3='pm2 stop 3'
+alias ps4='pm2 stop 4'
+alias ps5='pm2 stop 5'
+alias ps6='pm2 stop 6'
+alias ps7='pm2 stop 7'
+alias ps8='pm2 stop 8'
+alias ps9='pm2 stop 9'
+
+alias pr0='pm2 restart 0'
+alias pr1='pm2 restart 1'
+alias pr2='pm2 restart 2'
+alias pr3='pm2 restart 3'
+alias pr4='pm2 restart 4'
+alias pr5='pm2 restart 5'
+alias pr6='pm2 restart 6'
+alias pr7='pm2 restart 7'
+alias pr8='pm2 restart 8'
+alias pr9='pm2 restart 9'
+
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias df='df -i'
+alias ll='ll -al'
+
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+초기화
+pmd
+deldat
+dellog
+nbs
+pmm
+
+/////////////////////////
+
+
+
+/////비정상종료시 프로세스 찾아서 죽이기
+//https://velog.io/@dami/nodejs-%EC%8B%A4%ED%96%89%EC%A4%91%EC%9D%B8-node-process-%EC%A2%85%EB%A3%8C%ED%95%98%EA%B8%B0-address-already-in-use-3000-Error-%ED%95%B4%EA%B2%B0
+killall node
+lsof -i :800
+kill -9 pid
+
+//특정 디렉토리 용량/파일갯수
+https://www.manualfactory.net/10591
+du -sh /root/.pm2/logs/
+du -sh /home/nodejs/Nodebreaker/DATA/dat/
+https://coding-factory.tistory.com/804
+find /home/nodejs/Nodebreaker/DATA/dat/ -type f -name *.json | wc -l
+
+//복사
+cp /root/.pm2/logs/0 /home/nodejs/Nodebreaker/
+
+//삭제
+rm -rf /root/.pm2/logs/*
+rm -rf /home/nodejs/Nodebreaker/DATA/dat/*
+
+//메모리
+free -m
+
+
+
+/////로그파일용량에 따른 디스크 사이즈
+1,244바이트 1.2KB 로그파일
+1244*1500(초당)*60*60*12=하루12시간 총용량
+=80,611,200,000
+=약 75GB
+
+/////기본가용량,20GiB
+10,484,672 (9,241,872사용)
+=약 9GB 사용가능
+
+/////x1추가확장량,500GiB
+=524,275,692
+515,033,820 (9,241,872사용)
+약 491GB 사용가능
+
+//////////////////////
+단일거래당 1.2KB
+1500개 초당 1800K
+1500개 하루 155520000K=151875M=148G
+
+//////////////////////
+실제로는 4K 안밖으로 저장됨
+300개 분당 71M
+300개 시간당 4260M
+개당 시간당 14.2M
+1500개 시간당 21300M
+1500개 하루 511200M=499G
+
+300개 13분 931M
+1500개 13분 4655M
+1500개 1분 358M
+1500개 하루 515520M=503G
+
+1500개 하루 527433728K
+
+8시간 31G 초당 200개=5K
+320s 분당 78M=4K
+
+//////////////////////
+점유(사용)메모리
+메모리의 경우 자체저장 데이터가 많은 수록 늘어나며, 힙메모리 변화가 클 수록 완충량을 확보하기 위해 메모리가 늘어난다.
+시스템 허용 내에서 메모리 증가 자체만으로는 위험요소가 되지 않지만, 일정 비율로 무한히 증가하는 것은 치명적이다.
+즉 활동량에 따라 일정량 확보하는 것은 자연스럽지만, 더 이상 늘어나지 않는지, 주기적으로 원복되는지 반드시 확인해야 한다.
+서버(클라우드인스턴스)가 노브 전용으로 사용된다고 가정할 때, 가용 메모리는 대략 100M 안밖이다.
+
+x1
+total        used   available      shared  buff/cache        free
+16038        2124       13633                    4123        9790
+TOTOAL 16GB = USED 2.1GB + AVAIL 13.6GB (CACHE 4.1GB + FREE 9.7GB)
+
+m1234
+total        used   available      shared  buff/cache        free
+ 3942         974        2689           0        2065         902
+TOTOAL 3.9GB = USED 1GB + AVAIL 2.7GB (CACHE 2.0GB + FREE 0.9GB)
+
+admin0000####

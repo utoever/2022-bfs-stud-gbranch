@@ -1,0 +1,218 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-credit-card"></i> 카드 내역조회
+				</h6>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label">
+									사업자번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input style="width:120px;" id="bzNo" class="bzNo form-control table-input-text-shot" disabled="disabled" value="101-86-61717" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label">
+									카드번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="cardNo" disabled="disabled">
+										<option value="">전체 보유 카드</option>
+										<option value="">9410-49**-****-8897</option>
+										<option value="">9410-49**-****-4828</option>
+										<option value="">6243-70**-****-6869</option>
+										<option value="">9410-49**-****-5834</option>
+										<option value="">9410-49**-****-8819</option>
+										<option value="">4265-86**-****-7809</option>
+										<option value="">9410-49**-****-2833</option>
+										<option value="">5585-26**-****-9850</option>
+										<option value="">4265-86**-****-8828</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label">
+									조회기간
+								</label>
+							</div>
+							<style>.form-group select{margin-bottom:3px;}</style>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="fromYear">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="fromMonth">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="fromDay">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										일 부터&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toYear">
+									</select> 
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toMonth">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="toDay">
+									</select>
+									<label class="p-style xs-hidden d-none d-sm-inline">
+										일 까지&nbsp;
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- 
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-sm table-contents-bt">당일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">전일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1주</a><a href="#" class="btn btn-d btn-sm table-contents-bt">15일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">6개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1년</a>
+								</div>
+							</div>
+						</div> -->
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none xs-hidden d-none d-sm-block">
+								<label class="text-lg-left table-label xs-hidden d-none d-sm-block">
+									조회구분
+								</label>
+							</div>
+							<div class="col table-content-col xs-hidden d-none d-sm-block">
+								<div class="form-group">
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" checked="checked" disabled="disabled"/>
+										<label class="form-check-label">
+											일시불
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" disabled="disabled"/>
+										<label class="form-check-label">
+											할부
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" disabled="disabled"/>
+										<label class="form-check-label">
+											해외승인
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" disabled="disabled"/>
+										<label class="form-check-label">
+											국내승인
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" id="actionBtn" class="btn btn-d btn-lg bt-yellow-bottom"><i class="fa fa-arrow-circle-down" style="color:white;"></i> 조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">상세조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회기간: <span id="periodView">0000-00-00 ~ 0000-00-00</span>
+						</p>
+					</div>
+				</div>
+
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<div class="table-responsive">
+							<table class="table">
+							<thead>
+							<tr>
+								<th class="th-sm">순번</th>
+								<th>승인일시</th>
+								<th>카드번호</th>
+								<th class="d-none d-sm-table-cell">할부/일시불</th>
+								<th>승인금액</th>
+								<th>가맹점명</th>
+								<th class="d-none d-sm-table-cell">승인번호</th>
+							</tr>
+							</thead>
+							<tbody id="cardTbody">
+							<tr>
+								<td colspan="7">카드 내역이 없습니다.</td>
+							</tr>
+							</tbody>
+							</table>
+							</div>
+							
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<span id="plusPageBtn" class="btn btn-d btn-lg bt-yellow-bottom" style="font-weight:bold;"><i class="fa fa-arrow-circle-down" style="color:white;"></i> 다음목록보기</span><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">잔여한도확인</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">현재결제총액조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 카드 내역조회');
+
+/////////////////////
+const code='1100';
+let page=0;
+setDateSels(d);
+//setToday(d);
+
+setDate('20210705','20210705');
+cardDateViewer();
+cardSendAct(code);
+
+$('#actionBtn').click(()=>{
+	cardSendAct(code);
+});
+$('#plusPageBtn').click(()=>{
+	cardSendAct(code,true);
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-link"></i> 관리자 권한확인
+				</h6>
+				
+				<div id="register" class="modal fade" tabindex="-1" role="dialog" style="margin-left:100px;">
+					<div class="modal-dialog  modal-dialog-centered" role="document">
+						<div class="modal-zone bgc-white modal-content">
+							<div class="modal-zone modal-body">
+								<img src="img/qrCode.png" class="img-fluid mx-auto d-block" alt="popup" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무');
+$("#register").modal();
+$("#register").click(function(){
+	document.location.href='kb_account';
+});
+</script>
+
+</body>
+</html>

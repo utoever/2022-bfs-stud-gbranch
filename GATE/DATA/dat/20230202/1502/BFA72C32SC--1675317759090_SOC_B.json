@@ -1,0 +1,50 @@
+{
+  "flag": false,
+  "msg": {
+    "code": "9900",
+    "message": "no result from host",
+    "treatCdHost": "UBFA0264",
+    "method": "BFA72C32SC",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202150239090",
+    "cConTm": 1675317759090
+  },
+  "customData": {
+    "method": "BFA72C32SC",
+    "key": "SOC",
+    "remoteAddress": "10.141.32.52",
+    "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202150239090",
+    "cConTm": 1675317759090,
+    "error": [],
+    "lgt": [],
+    "authInfo": true,
+    "custIdnfr": "1006756394",
+    "WWWBnkgLginID": "1578568",
+    "pidGte": 2297,
+    "pidBiz": 2402,
+    "lgTm": 1675317759090,
+    "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1502/BFA72C32SC--1675317759090_SOC_G.json",
+    "host": {
+      "methodCom": "BFA72C32SC",
+      "ip": "172.17.33.92",
+      "domain": "172.17.33.92",
+      "path": "/",
+      "port": 41164,
+      "proto": "soc",
+      "method": "SOC"
+    },
+    "bizLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230202/1502/BFA72C32SC--1675317759090_SOC_B.json"
+  },
+  "outJson": {
+    "code": "9900",
+    "message": "no result from host",
+    "codeHost": "B3900042",
+    "treatCdHost": "UBFA0264",
+    "method": "BFA72C32SC",
+    "StndTranBaseYmd": "20230202",
+    "conDateTime": "20230202150239090",
+    "cConTm": 1675317759090
+  }
+}

@@ -1,0 +1,156 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-list-alt"></i> 업무권한설정
+				</h6>
+				<p style="font-size:1em;">
+					사용자권한정보
+				</p>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col table-title-col-none">
+								<label class="text-lg-left table-label">
+									조회구분
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" checked="checked" />
+										<label class="form-check-label">
+											전체
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" />
+										<label class="form-check-label">
+											정상
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_2394" />
+										<label class="form-check-label">
+											해지
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">상세조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회일시: 2021-11-19 14:11:35 | 단위 원
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<table>
+								<tr>
+									<th class="th-sm">선택</th>
+									<th>번호</th>
+									<th>상태</th>
+									<th>ID</th>
+									<th>사용자명</th>
+									<th>부서명</th>
+									<th>직위</th>
+									<th>1일이체한도</th>
+									<th>1회이체한도</th>
+									<th>메뉴권한설정</th>
+									<th>사용자</th>
+								</tr>
+								<tr>
+									<td><input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="check_01" /></td>
+									<td>1</td>
+									<td>정상</td>
+									<td>SWSM03A0</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>1,000,000</td>
+									<td>50,000</td>
+									<td>O</td>
+									<td>결재</td>
+								</tr>
+								<tr>
+									<td><input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="check_01" checked/></td>
+									<td>2</td>
+									<td>정상</td>
+									<td>SWSM03A2</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>500,000</td>
+									<td>500,000</td>
+									<td>O</td>
+									<td>결재</td>
+								</tr>
+								<tr>
+									<td><input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="check_01" /></td>
+									<td>3</td>
+									<td>정상</td>
+									<td>SWSM03A1</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>1,000,000</td>
+									<td>1,000,000</td>
+									<td>O</td>
+									<td>결재</td>
+								</tr>
+								<tr>
+									<td><input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="check_01" /></td>
+									<td>4</td>
+									<td>정상</td>
+									<td>ELRMAQN3</td>
+									<td></td>
+									<td></td>
+									<td>대리</td>
+									<td>0</td>
+									<td>0</td>
+									<td>X</td>
+									<td>기안</td>
+								</tr>
+								</table>
+							</div>
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">업무권한설정</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 입출금 거래내역');
+</script>
+
+</body>
+</html>

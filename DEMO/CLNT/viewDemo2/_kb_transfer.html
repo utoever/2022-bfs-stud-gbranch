@@ -1,0 +1,271 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-location-arrow"></i> 당타행 계좌이체
+				</h6>
+				<div class="row depth">
+					<div class="col">
+						<h6 class="mg-md step-title">
+							<span class="step-num">01</span> 이체정보 입력
+						</h6>
+					</div>
+					<div class="col">
+						<label id="step3" class="step-default">
+							3
+						</label>
+						<label id="step2" class="step-default">
+							2
+						</label>
+						<label id="step1" class="step-active">
+							1
+						</label>
+					</div>
+				</div>
+				<div class="row info-otp">
+					<div class="col otp-col">
+						<div class="row">
+							<div class="col-lg-10">
+								<p class="p-style">
+									G-Branch 사용 기관은 업무시 별도의 보안카드나 인증서가 필요없습니다.
+								</p>
+								<p class="p-style">
+									스마트폰을 이용하는 편리한 생체인증으로 보다 간편하게 업무를 진행하세요.
+								</p>
+							</div>
+							<div class="col-lg-2 align-self-center bloc-padding-bottom">
+								<!-- <a href="#" class="btn btn-d btn-sm bt-otp">모바일OTP발급안내</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									<strong>출금계좌번호</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot">
+										<option value="0">
+											086-24-0263-908
+										</option>
+										<option value="1">
+											086-24-0263-910
+										</option>
+									</select>
+									<!-- <input class="form-control table-input-text-shot" /><a href="#" class="btn btn-d btn-sm table-contents-bt">이체가능금액</a><a href="#" class="btn btn-d btn-sm table-contents-bt">자주쓰는이체</a> -->
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									<strong>이체금액</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text-shot" /> <a href="#" class="btn btn-d btn-sm table-contents-bt">통장잔액전액</a><a href="#" class="btn btn-d btn-sm table-contents-bt">100만원</a><a href="#" class="btn btn-d btn-sm table-contents-bt">50만원</a><a href="#" class="btn btn-d btn-sm table-contents-bt">10만원</a><a href="#" class="btn btn-d btn-sm table-contents-bt">5만원</a><a href="#" class="btn btn-d btn-sm table-contents-bt">만원</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<strong>출금계좌 비밀번호</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<!-- <input class="form-control table-input-text-shot" /> -->
+									<input type="password" class="form-control table-input-text-shot" style="width:60px;"/>
+									<label class="p-style">
+										&nbsp;숫자 4자리
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="space">
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금은행</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="select_1234">
+										<option value="0">
+											국민은행
+										</option>
+										<option value="1">
+											하나은행
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금 계좌번호</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text table-input-text-shot" />
+									<a href="javascript:$('#bankownerName').show();" class="btn btn-d btn-sm table-contents-bt">예금주명조회</a>
+									<span id="bankownerName" style="display:none;">(홍길동)</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a id="tranferMoreBtn" href="#" class="btn btn-d btn-lg bt-yellow-bottom ">다음</a>
+								</div>
+								<div class="form-group" style="font-size:0.8em;">
+									반드시 예금주명을 조회하여 입금계좌를 확인하세요.
+								</div>
+							</div>
+						</div>
+
+
+						<div id="transperDetail" style="display:none;">
+						<div class="space">
+						</div>
+
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									<strong>출금계좌번호</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group b">
+									086-24-0263-908
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label">
+									<strong>이체금액</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group b">
+									150,000
+								</div>
+							</div>
+						</div>
+						<div class="space">
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금은행</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group b">
+									국민은행
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금 계좌번호</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group b">
+									086-24-0263-910
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금계좌 예금주명</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group b">
+									홍길동
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label label-style">
+									<strong>출금통장 표시내용</strong>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<input class="form-control table-input-text-shot" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<strong>입금통장 표시내용</strong>
+								</label>
+							</div>
+							<div class="col table-content-col-none">
+								<div class="form-group">
+									<input class="form-control table-input-text-shot" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-lg bt-yellow-bottom ">이체실행</a>
+								</div>
+								<div class="form-group" style="font-size:0.8em;">
+									위의 이체 정보를 다시 한번 확인해 주세요.
+								</div>
+							</div>
+						</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 당타행 계좌이체');
+$('#tranferMoreBtn').click(function(){
+	$('#transperDetail').slideDown();
+	$('#step2').addClass('step-active').removeClass('step-default');
+	$('#step1').removeClass('step-active').addClass('step-default');
+});
+</script>
+
+</body>
+</html>

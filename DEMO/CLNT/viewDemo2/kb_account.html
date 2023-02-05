@@ -1,0 +1,110 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-wallet"></i> 계좌 잔액조회
+				</h6>
+				<div class="xs-hidden d-none d-sm-block">
+					<ul class="list-unstyled list-horizontal-layout depth">
+						<li class="depth-list">
+							<p class="depth-menu-active" style="background:#ddd;">
+								예금
+							</p>
+							<p class="depth-menu">
+								적금
+							</p>
+							<p class="depth-menu">
+								펀드
+							</p>
+							<p class="depth-menu">
+								대출
+							</p>
+							<p class="depth-menu">
+								신탁
+							</p>
+							<p class="depth-menu">
+								ISA
+							</p>
+							<p class="depth-menu">
+								보험
+							</p>
+							<p class="depth-menu">
+								외화예금
+							</p>
+							<p class="depth-menu">
+								전체계좌
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="space xs-hidden d-none d-sm-block">
+				</div>
+				<div class="row">
+					<div class="col">
+						<h6 class="tc-black">
+							<span class=" xs-visible d-block d-sm-none">총 잔액 <span id="balTotal1">0</span>원<br>(계좌 수: <span id="acCount1">0</span>개)</span>
+							<span class=" xs-hidden d-none d-sm-block">총 잔액(계좌 수: <span id="acCount2">0</span>개) &nbsp;| &nbsp;<span id="balTotal2">0</span>원</span>
+						</h6>
+					</div>
+					<div class="col">
+						<p class="text-lg-right">
+							조회일시: <span id="thisTimeView"></span>
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+
+							<div class="table-responsive">
+							<table class="table">
+							<thead>
+							<tr>
+								<th>예금종류</th>
+								<th>계좌번호</th>
+								<th class="d-none d-sm-table-cell">신규일자</th>
+								<th class="d-none d-sm-table-cell">개설점</th>
+								<th class="d-none d-sm-table-cell">최종거래일자</th>
+								<th>예금잔액</th>
+								<th>거래구분</th>
+							</tr>
+							</thead>
+							<tbody id="accountTbody">
+							</tbody>
+							</table>
+							</div>
+
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="/kb_account" class="btn btn-d btn-lg bt-yellow-bottom">새로고침</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">계좌순서변경</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 계좌 잔액조회');
+
+/////////////////////
+const code='241';
+let paymtAbilzBalTotal=acnosN=0;
+$('#thisTimeView').text(d.todayFullHan);
+
+/////////////////////
+for(let n in acnosAry){
+	let ac=acnosAry[n];
+	setTimeout(()=>{
+		accountSendAct(code,ac);
+	},500*n);
+}
+</script>
+
+</body>
+</html>

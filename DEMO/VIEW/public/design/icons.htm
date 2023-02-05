@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>ESP System - CRM</title>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+
+<link rel="stylesheet" href="src/css/reset.css">
+
+<script src="src/js/vue_3238.js"></script>
+<script src="//unpkg.com/mitt/dist/mitt.umd.js"></script>
+<script src="src/js/jquery_361.js"></script>
+
+<style>
+.iconDiv{margin:30px 0;font-size:1.5em;font-weight:bold;}
+.iconBox{cursor:pointer;min-width:120px;padding:10px 5px;display:inline-block;text-align:center;margin:0 10px 10px 0;border:1px solid #bbb;border-radius:5px;background:#f8f8f8;box-shadow:2px 2px 3px #ddd;}
+.idxBox{position:relative;}
+.idx{position:absolute;left:0px;top:0px;ont-family:Consolas;font-size:0.6em;color:#0099cc;}
+.icon{cursor:pointer;font-size:4em;color:#0099cc;border:1px dashed #ccc;padding:0;box-shadow:1px 1px 2px #ddd;background:white;}
+.iconName{cursor:pointer;font-family:Consolas;font-size:0.8em;text-align:center;border:0;background:transparent;width:100%;color:black;}
+</style>
+
+</head>
+
+<body style="background:#eaeaea;">
+<div id="body">
+  <div><icons /></div>
+</div>
+</body>
+
+<script type="module">
+import iconjs from './comp/icon.js';
+
+const eventBus = mitt();
+const vueRoot={
+  components:{
+    icons:iconjs
+  },
+  methods:{
+  }
+};
+
+const app=Vue.createApp(vueRoot);
+app.config.globalProperties.eventBus = eventBus;
+app.mount('#body');
+</script>
+
+</html>

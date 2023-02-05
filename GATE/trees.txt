@@ -1,0 +1,289 @@
+tree -L 3 -o trees.txt
+
+
+Nodebreaker/
+├── ADMN/
+│   ├── 03.ADMN.js
+│   ├── controller/
+│   │   ├── ctrAuth.js
+│   │   ├── ctrCo.js
+│   │   ├── ctrMemo.js
+│   │   ├── ctrUser.js
+│   │   ├── logAlert.js
+│   │   └── logData.js
+│   ├── node_modules/
+│   │   ├── accepts/
+│   │   ├── ansi-styles/
+│   │   ├── array-flatten/
+│   │   ├── async/
+│   │   ├── balanced-match/
+│   │   ├── body-parser/
+│   │   ├── brace-expansion/
+│   │   ├── buffer-equal-constant-time/
+│   │   ├── bytes/
+│   │   ├── chalk/
+│   │   ├── color-convert/
+│   │   ├── color-name/
+│   │   ├── concat-map/
+│   │   ├── content-disposition/
+│   │   ├── content-type/
+│   │   ├── cookie/
+│   │   ├── cookie-parser/
+│   │   ├── cookie-signature/
+│   │   ├── cors/
+│   │   ├── debug/
+│   │   ├── depd/
+│   │   ├── destroy/
+│   │   ├── ecdsa-sig-formatter/
+│   │   ├── ee-first/
+│   │   ├── ejs/
+│   │   ├── encodeurl/
+│   │   ├── escape-html/
+│   │   ├── etag/
+│   │   ├── express/
+│   │   ├── filelist/
+│   │   ├── finalhandler/
+│   │   ├── forwarded/
+│   │   ├── fresh/
+│   │   ├── has-flag/
+│   │   ├── http-errors/
+│   │   ├── iconv-lite/
+│   │   ├── inherits/
+│   │   ├── ipaddr.js/
+│   │   ├── jake/
+│   │   ├── jsonwebtoken/
+│   │   ├── jwa/
+│   │   ├── jws/
+│   │   ├── lodash.includes/
+│   │   ├── lodash.isboolean/
+│   │   ├── lodash.isinteger/
+│   │   ├── lodash.isnumber/
+│   │   ├── lodash.isplainobject/
+│   │   ├── lodash.isstring/
+│   │   ├── lodash.once/
+│   │   ├── media-typer/
+│   │   ├── merge-descriptors/
+│   │   ├── methods/
+│   │   ├── mime/
+│   │   ├── mime-db/
+│   │   ├── mime-types/
+│   │   ├── minimatch/
+│   │   ├── ms/
+│   │   ├── negotiator/
+│   │   ├── object-assign/
+│   │   ├── on-finished/
+│   │   ├── parseurl/
+│   │   ├── path-to-regexp/
+│   │   ├── proxy-addr/
+│   │   ├── qs/
+│   │   ├── range-parser/
+│   │   ├── raw-body/
+│   │   ├── safe-buffer/
+│   │   ├── safer-buffer/
+│   │   ├── semver/
+│   │   ├── send/
+│   │   ├── serve-static/
+│   │   ├── setprototypeof/
+│   │   ├── sha2/
+│   │   ├── statuses/
+│   │   ├── supports-color/
+│   │   ├── toidentifier/
+│   │   ├── type-is/
+│   │   ├── unpipe/
+│   │   ├── utils-merge/
+│   │   ├── vary/
+│   │   └── ws/
+│   ├── origin/
+│   │   ├── assets/
+│   │   ├── charts-chartjs.html
+│   │   ├── charts-flot.html
+│   │   ├── charts-morris.html
+│   │   ├── charts-sparklines.html
+│   │   ├── dashboard2.html
+│   │   ├── dashboard3.html
+│   │   ├── dashboard4.html
+│   │   ├── documentation.html
+│   │   ├── email-compose.html
+│   │   ├── email-detail.html
+│   │   ├── email-inbox.html
+│   │   ├── form-elements.html
+│   │   ├── form-masks.html
+│   │   ├── form-spinner.html
+│   │   ├── form-upload.html
+│   │   ├── form-validation.html
+│   │   ├── form-wizard.html
+│   │   ├── form-wysiwyg.html
+│   │   ├── index.html
+│   │   ├── layouts-fixed-sidebar.html
+│   │   ├── layouts-left-sidebar-click.html
+│   │   ├── layouts-left-sidebar-delay.html
+│   │   ├── layouts-nosidebar-left.html
+│   │   ├── layouts-nosidebar-right.html
+│   │   ├── layouts-nosidebars.html
+│   │   ├── layouts-search-input.html
+│   │   ├── layouts-sticky-footer.html
+│   │   ├── layouts-white-header.html
+│   │   ├── maps-google.html
+│   │   ├── maps-vector.html
+│   │   ├── pages-404.html
+│   │   ├── pages-blank-aside.html
+│   │   ├── pages-blank-header.html
+│   │   ├── pages-blank.html
+│   │   ├── pages-calendar.html
+│   │   ├── pages-forgot-password.html
+│   │   ├── pages-gallery.html
+│   │   ├── pages-invoice.html
+│   │   ├── pages-login.html
+│   │   ├── pages-pricing-tables.html
+│   │   ├── pages-profile.html
+│   │   ├── pages-sign-up.html
+│   │   ├── pages-timeline2.html
+│   │   ├── pages-timeline.html
+│   │   ├── tables-datatables.html
+│   │   ├── tables-general.html
+│   │   ├── ui-alerts.html
+│   │   ├── ui-buttons.html
+│   │   ├── ui-cards.html
+│   │   ├── ui-chat.html
+│   │   ├── ui-general.html
+│   │   ├── ui-grid.html
+│   │   ├── ui-icons.html
+│   │   ├── ui-modals.html
+│   │   ├── ui-nestable-lists.html
+│   │   ├── ui-notifications.html
+│   │   ├── ui-tabs-accordions.html
+│   │   └── ui-typography.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public/
+│   │   ├── assets/
+│   │   ├── download/
+│   ├── route/
+│   │   ├── ajax.js
+│   │   ├── co.js
+│   │   ├── control.js
+│   │   ├── method.js
+│   │   ├── on.js
+│   │   ├── stat.js
+│   │   └── temp.txt
+│   ├── sql_sample.txt
+│   └── view/
+│       ├── backup/
+│       ├── coAuth.html
+│       ├── _coManual.html
+│       ├── coManual.html
+│       ├── controlAdmin.html
+│       ├── controlCompany.html
+│       ├── controlConfig.html
+│       ├── controlManual.html
+│       ├── controlMemo.html
+│       ├── down.ejs
+│       ├── methodLog.html
+│       ├── methodSchema.html
+│       ├── onButtons.html
+│       ├── onError.html
+│       ├── onGraphs.html
+│       ├── onIcons.html
+│       ├── onLogin.html
+│       ├── onPopup.html
+│       ├── sample/
+│       ├── statAlert.html
+│       ├── statArrange.html
+│       ├── statCondition.html
+│       ├── _statMachine.html
+│       ├── statPanel.html
+│       ├── statServer.html
+│       └── top.ejs
+├── bashrc.txt
+├── cert/
+├── DATA/
+│   ├── 04.DATA.js
+│   ├── alert.js
+│   ├── appDataSample.json
+│   ├── cfg/
+│   │   ├── appRun.json
+│   │   ├── apps.json
+│   │   └── conf.json
+│   ├── cf.js
+│   ├── dat/
+│   ├── data.js
+│   ├── log/
+│   ├── log.js
+│   ├── mth/
+│   │   ├── ND_METH_TEST1.json
+│   │   ├── ND_METH_TEST2.json
+│   │   ├── ND_METH_TEST3.json
+│   │   └── ND_METH_TEST4.json
+│   ├── mths.js
+│   ├── my.js
+│   ├── node_modules/
+│   │   ├── asap/
+│   │   ├── babel-runtime/
+│   │   ├── barrage/
+│   │   ├── bignumber.js/
+│   │   ├── buffer-from/
+│   │   ├── concat-stream/
+│   │   ├── core-js/
+│   │   ├── core-util-is/
+│   │   ├── get-port/
+│   │   ├── graceful-fs/
+│   │   ├── inherits/
+│   │   ├── isarray/
+│   │   ├── is-stream/
+│   │   ├── make-dir/
+│   │   ├── mysql/
+│   │   ├── prepend-file/
+│   │   ├── process-nextick-args/
+│   │   ├── promise/
+│   │   ├── readable-stream/
+│   │   ├── regenerator-runtime/
+│   │   ├── safe-buffer/
+│   │   ├── semver/
+│   │   ├── sqlstring/
+│   │   ├── string_decoder/
+│   │   ├── sync-mysql/
+│   │   ├── sync-rpc/
+│   │   ├── temp-dir/
+│   │   ├── temp-write/
+│   │   ├── then-mysql/
+│   │   ├── typedarray/
+│   │   ├── util-deprecate/
+│   │   ├── uuid/
+│   │   └── ws/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── statis.js
+│   ├── ut.js
+│   └── watcher.js
+├── GATE/
+│   ├── 00.GATE.js
+│   ├── 10.LOGR.js
+│   ├── gateRun.js
+│   ├── loadApiKeys.js
+│   ├── node_modules/
+│   │   ├── cluster/
+│   │   ├── d/
+│   │   ├── duration/
+│   │   ├── es5-ext/
+│   │   ├── es6-iterator/
+│   │   ├── es6-symbol/
+│   │   ├── event-emitter/
+│   │   ├── ext/
+│   │   ├── http-pooling-agent/
+│   │   ├── log/
+│   │   ├── mkdirp/
+│   │   ├── next-tick/
+│   │   ├── sprintf-kit/
+│   │   ├── type/
+│   │   ├── uni-global/
+│   │   └── ws/
+│   ├── package.json
+│   └── package-lock.json
+├── install.txt
+├── nb_10.sql
+├── openVPN_install.txt
+├── package.json
+├── package-lock.json
+└── trees.txt
+
+159 directories, 169 files

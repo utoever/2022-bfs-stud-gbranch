@@ -1,0 +1,46 @@
+<%-include('./top.ejs')%>
+
+<div id="contentsCon"class="col-md-10">
+  <form>
+  <div id="value" class="">
+
+    <input name="instipNum" value="ABCDE00001"> instipNum (기관업체번호)<br><!-- 기관업체번호	PIC X(n)	10	0 -->
+    <input name="cmnBnkCode" value="00"> cmnBnkCode (공통은행코드)<br><!-- 공통부은행코드	PIC X(n)	2	0 -->
+    <input name="rqstName" value="홍길동"> rqstName (요청고객명)<br>
+    <input name="drwAcNum" value="060210680000"> drwAcNum (출금계좌번호)<br><!-- 출금계좌번호	PIC X(n)	20	0 -->
+    <input name="drwAcnPass" value="1111"> drwAcnPass (출금비밀번호)<br><!-- 출금계좌비밀번호	PIC X(n)	36	0 -->
+
+    <br>
+    <input name="drwTest1" value="0000"> drwTest1 (테스트값1)<br><!-- 출금계좌비밀번호	PIC X(n)	36	0 -->
+    <input name="drwTest2" value="00.0"> drwTest2 (테스트값2)<br><!-- 출금계좌비밀번호	PIC X(n)	36	0 -->
+    <input name="drwTest3" value="A1B2"> drwTest3 (테스트값3)<br><!-- 출금계좌비밀번호	PIC X(n)	36	0 -->
+    <!-- <strong class="construction">개발중</strong><br> -->
+    <br>
+    <input name="method" value="<%=method%>" disabled> method (httpGET)<br><!-- //Y //메소드명 -->
+
+  </div>
+  </form>
+  <%-include('./data.ejs')%>
+</div>
+
+</body>
+</html>
+
+<script src="custom.js" ></script>
+<script>
+/////////////////////
+const code='<%=code%>';
+const method='<%=method%>';
+menuPointer(code);
+
+/////////////////////
+let sendN=0;
+let retN=0;
+let pedN=0;
+let errN=0;
+$('#send').click(function(){
+  loopSubmit(true);//고정시,출력없음,관리자비연결
+  //loopSubmit(100);//랜덤
+});
+
+</script>

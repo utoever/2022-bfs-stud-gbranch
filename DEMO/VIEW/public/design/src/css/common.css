@@ -1,0 +1,452 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+
+a {text-decoration: none;}
+
+* {
+    box-sizing: border-box;
+}
+
+.material-symbols-rounded {
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right:3px;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.light-text {
+    font-weight: 300;
+}
+
+.regular-text {
+    font-weight: 400;
+}
+
+.medium-text {
+    font-weight: 500;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+.xs-size-text {
+    font-size: 9px;
+}
+
+.s-size-text {
+    font-size: 12px;
+}
+
+.m-size-text {
+    font-size: 16px;
+}
+
+.l-size-text {
+    font-size: 18px;
+}
+
+
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 100%;
+}
+
+body {
+    background: #00559F;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    padding: 30px 158px 40px 242px;
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    white-space: nowrap;
+}
+
+header .logo-wrapper {
+    margin-right: 20px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header .notice {
+    width: 600px;
+    height: 40px;
+    display: flex;
+    line-height: 40px;
+    margin: 0 auto;
+    align-items: center;
+}
+header .notice .title {
+    position: relative;
+    top: -3px;
+}
+header .notice a {
+    position: absolute;
+    right: 20px;
+    text-decoration: underline;
+}
+header .notice a p:hover {
+    font-weight: 700;
+}
+
+header ul {
+    display: flex;
+    font-weight: 300;
+    margin-left: auto;
+}
+header ul li:hover {
+    font-weight: 700;
+}
+header ul li::after {
+    content: '|';
+    margin: 0 5px;
+}
+
+header ul li:last-child::after {
+    content: "";
+    margin: 0;
+}
+
+nav {
+    width: 84px;
+    height: calc(100% - 180px);
+    position: fixed;
+    top: 110px;
+    color: #ffffff;
+    padding: 0 25px 70px 25px;
+    overflow: hidden;
+}
+nav hr {
+    width: 20px;
+    margin-bottom: 20px;
+    border-color: rgba(255, 255, 255, 0.479);
+}
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav .user {
+    display: flex;
+    margin-left: 2px;
+    margin-bottom: 80px;
+}
+nav .user .user-greet {
+    display: none;
+    align-items: center;
+}
+nav .user .user-greet img {
+    margin-right: 10px;
+}
+nav .user .close-button {
+    position:absolute;
+    right: 25px;
+}
+nav .user-menu .title {
+    border-top: 1px solid rgba(255, 255, 255, 0.479);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.479);
+    margin: 20px 0;
+    padding: 0 0 10px 0;
+}
+nav .user-menu li a {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 2px;
+}
+nav .user-menu li:last-child {
+    margin-bottom: 20px;
+
+}
+nav .user-menu .user-menu-text{
+    line-height: 24px;
+    margin-left: 10px;
+}
+nav .close-button, nav .user-greet, nav .user-menu .title, nav .user-menu-text, nav .menu-input, nav .menu-tap, nav .menu-list {
+    display: none;
+}
+nav .menu .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+nav .menu .input-wrapper .menu-input {
+    width: 80%;
+    background-color: #d7e1ebc7;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0px 3px 6px #002c5252;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #00559F;
+    padding: 0 20px;
+}
+nav .menu .input-wrapper .menu-input::placeholder {
+    color: #00559F;
+}
+nav .menu .menu-search-button {
+    box-shadow: 0 0 10px #002c5252;
+    background-color: #ffffff41;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none;
+    width: 30px;
+    height: 30px;
+    color: #ffffff;
+    border-radius: 50%;
+}
+nav .menu .menu-search-button span {
+    margin-left: -2px;
+}
+nav .menu-tap ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    text-align: center;
+}
+nav .menu-tap ul li {
+    width: 30%;
+}
+nav .menu-tap ul li:first-child {
+    font-weight: 700;
+    background-color: #ffffff60;
+}
+nav .menu-list {
+    width: 100%;
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+nav .menu-list::-webkit-scrollbar {
+    width: 10px;
+}
+nav .menu-list::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.253);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: inset 0 0 10px #002c5252;
+
+}
+nav .menu-list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.315);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px #002c5252;
+}
+nav .menu-list li {
+    line-height: 25px;
+    cursor: pointer;
+}
+nav .menu-list li::before {
+    font-family: 'Material Icons';
+    content: '\e5df';
+    font-size: 20px;
+    color: #D7E1EB;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+}
+footer {
+    background-color: #00559F;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    padding: 0 158px;
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+    color: #ffffff;
+    z-index: -1;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer .logo-wrapper {
+    margin-left: 30px;
+}
+
+footer a>p {
+    margin-bottom: 10px;
+}
+
+footer .logo-wrapper img {
+    width: 90px;
+}
+
+.box {
+    border-radius: 20px;
+    background-color: #ffffff41;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.box-small {
+    border-radius: 20px;
+    background-color: #ffffff41;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 5px 20px;
+}
+
+.shadow-10 {
+    box-shadow: 0 0 10px #002c5252;
+}
+
+.shadow-20 {
+    box-shadow: 0 0 20px #002c5252;
+}
+
+.title {
+    font-size: 16px;
+    margin-right: 30px;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.title::before {
+    font-family: 'Material Icons';
+    content: '\e5df';
+    font-size: 24px;
+    color: #D7E1EB;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    top: 6px;
+    margin-right: 10px;
+}
+.title-black {
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 30px;
+    color: black;
+    white-space: nowrap;
+}
+
+.title-black::before {
+    font-family: 'Material Icons';
+    content: '\e5df';
+    font-size: 24px;
+    color: #00559F;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    top: 6px;
+    margin-right: 10px;
+}
+
+.blue-button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    color: #fff;   
+    background-color: #00559F;
+    box-shadow: 0 0 10px #002c5252;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+.gray-button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    color:#00559F;   
+    background-color: #D7E1EB;
+    box-shadow: 0 0 10px #002c5252;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width: 1600px) {
+    .xs-size-text {
+        font-size: 8px;
+    }
+    
+    .s-size-text {
+        font-size: 11px;
+    }
+    
+    .m-size-text {
+        font-size: 14px;
+    }
+    
+    .l-size-text {
+        font-size: 16px;
+    }
+
+
+    header {
+        padding: 30px 50px 40px 134px;
+    }
+    footer {
+        padding: 0 50px;
+    }
+
+
+    .title-black {
+        font-size: 14px;
+    }
+    .title {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .xs-size-text {
+        font-size: 8px;
+    }
+    
+    .s-size-text {
+        font-size: 10px;
+    }
+    
+    .m-size-text {
+        font-size: 12px;
+    }
+    
+    .l-size-text {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body {
+        overflow: scroll;
+    }
+}
+
+
+
+
+
+#debug{
+  font-family:consolas;
+  font-size:11px;
+  line-height:120%;
+}
+#debugName{
+  font-family:consolas;
+  font-size:14px;
+  font-weight:bold;
+}

@@ -1,0 +1,264 @@
+<%-include('./top.ejs')%>
+
+<div class="modal fade" id="methodEditor" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-full-color">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Full Color</h3>
+        <button class="close" data-dismiss="modal" aria-hidden="true"><i class="icon s7-close"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <textarea id="methodEditorText" style="width:100%;height:500px;background:#333;opacity:0.8;border:0;color:white;"></textarea>
+
+          <!-- <div class="i-circle primary"><i class="icon s7-check"></i></div>
+          <h4>Awesome!</h4>
+          <p>Changes has been saved successfully! </p> -->
+
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-shade1" data-dismiss="modal">취소</button>
+        <button id="mthodEditSubmit" class="btn btn-dark btn-shade1">저장</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-filter"></span> 스키마</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/method">메소드</a></li>
+            <li class="breadcrumb-item active">스키마</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="widget widget-fullwidth widget-small">
+                <table id="mthList" class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th>메소드명</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+            <style>
+            table.table th.head{background:#ddd;font-weight:bold;}
+            table.table td.div{background:#eee;font-weight:bold;}
+            </style>
+            <div id="schemaCon" class="col-sm-10"></div>
+
+          </div>
+
+          <!-- <pre id="debug"></pre> -->
+
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let mthToNm={}; try{mthToNm=JSON.parse('<%-JSON.stringify(cfg.appMthToNm).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let mths={}; try{mths=JSON.parse('<%-JSON.stringify(mths).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+//pr(cfg);
+
+//////////////////////////////////////
+let schemas='';
+for(let method in mths){
+  let mth=mths[method];
+  $('#mthList').append('<tr>'
+    +'<td><strong><a href="#'+method+'">'+method+'</a></strong><br>'+mth.methodNote+'</td>'
+  +'</tr>');
+
+  schemas+=`
+  <div class="card card-default">
+    <div class="card-header" id="${mth.method}">
+      <button class="btn btn-space btn-success btn-sm btn-rounded methodEditBtn" data-toggle="modal"
+      data-target="#methodEditor" style="float:right;" data-method="${method}">스키마수정</button>
+
+      <a href="/method/log?search=${method}"><button class="btn btn-space btn-alt4 btn-sm btn-rounded statServerBtn" style="float:right;">
+      ${method} 로그검색</button></a>
+      <a href="/stat/server?appName=${mthToNm[method]}"><button class="btn btn-space btn-alt4 btn-sm btn-rounded statServerBtn" style="float:right;">
+      ${mthToNm[method]} 서버정보</button></a>
+
+      <div class="card-title"><strong>${mth.method}</strong> (${mth.methodNote})</div>
+    </div>
+    <div class="card-body">
+      <table id="${mth.method}_table" class="table table-sm table-hover table-bordered table-striped">
+        <thead>
+          <tr>
+          <th class="head">key</th>
+          <th class="head">memo</th>
+          <th class="head">type</th>
+          <th class="head">max</th>
+          <th class="head">min</th>
+          <th class="head">sample</th>
+          </tr>
+        </thead>
+        <tbody>
+  `;
+  for(let key in mth.schema){
+    let sch=JSON.parse(JSON.stringify(mth.schema[key]));
+    if(!sch.note) sch.note='';
+    if(!sch.sample) sch.sample='';
+    if(sch.type=='div')
+    schemas+=`
+        <tr>
+        <td class="div">${key}</td>
+        <td class="div">${sch.note}</td>
+        <td class="div" colspan="4">${sch.type}</td>
+        </tr>
+    `;
+    else
+    schemas+=`
+        <tr>
+        <td><strong style="font-family:Verdana;">${key}</strong></td>
+        <td>${sch.note}</td>
+        <td>${sch.type}</td>
+        <td>${sch.max}</td>
+        <td>${sch.min}</td>
+        <td>${sch.sample}</td>
+        </tr>
+    `;
+  }
+  schemas+=`
+        </tbody>
+      </table>
+    </div>
+  </div>
+  `;
+  //console.log(mth);
+}
+
+//////////////////
+$('#schemaCon').html(schemas);
+
+//////////////////
+let mthName='';
+$('.methodEditBtn').click(function(){
+  mthName=method=$(this).data('method');
+  let schData=mths[mthName].schema;
+  let schDataStr=JSON.stringify(schData,null,8)
+  $('#methodEditor h3').text(method);
+  $('#methodEditorText').val(schDataStr);
+});
+
+//////////////////
+const schVeri=(obj)=>{
+  let need=[];
+  if(Object.keys(obj).length){//키가 존재해야하고
+    for(let key in obj){
+      let sch=obj[key];
+      if(typeof sch==='object'){//스키마가 정상이어야하고
+        if(sch.type!='div'){
+          if(sch.type=='int'||sch.type=='inp'||sch.type=='flt'||sch.type=='cha'){
+            sch.max=parseInt(sch.max)||0;
+            sch.min=parseInt(sch.min)||0;
+            if(sch.max<sch.min){
+              alert(JSON.stringify(sch));
+              alert('max와 min은 반드시 0이상의 정수여야 하고,max가 min이상이어야 합니다.');
+              return false;
+            }
+            else{//검증필요 확인
+              if(!sch.max && !sch.min) alert('"'+key+'"의 max와 min이 모두 0으로 설정되었습니다.\n이 설정은 클라이언트가 반드시 해당 키에 빈 값이라도 넣어서 반드시 전송해야 함을 의미합니다.');
+              need.push(key);
+            }
+          }
+          else{
+            alert('type는 div, int, inp, flt, cha 중의 하나여야 합니다.');
+            return false;
+          }
+        }
+      }
+    }
+  }
+  if(!need.length){
+    alert(
+      '하나 이상의 유효한 검증키가 있어야 합니다.\n'
+      +'(검증키 별로 각각 type, max, min이 모두 존재하는지 확인하세요.\n'
+      +'type가 div이거나 max, min이 0보다 작을 경우 무효처리 됩니다.)'
+    );
+    return false;
+  }
+  else return obj;
+}
+
+//////////////////
+const jsonVeri=(jsonStr)=>{
+  let obj=false;
+  try{obj=JSON.parse(jsonStr);}catch{}
+  if(!obj) alert('JSON 구문에 오류가 있어 수정할 수 없습니다.');
+  else obj=schVeri(obj);
+  return obj;
+}
+
+//////////////////////////////////////
+const mthExt=(mthName,schData)=>{
+  let data={
+   mthName:mthName,
+   schData:schData,
+   cmd:'appMthExt'
+  };
+  //console.log(data);
+  const ws=new WebSocket(dataUrl);
+  ws.onopen=()=>{
+    ws.send(JSON.stringify(data));
+    //console.log('data server connected');
+  }
+  ws.onmessage=rs=>{
+    //console.log(rs);
+    if(rs.data){
+      alert('수정에 성공했습니다.\n수정된 메소드는 관련 서버앱 '+mthToNm[mthName]+'을 재시동 한 후 반영됩니다.');
+      ws.close();
+    }
+  }
+  ws.onclose=()=>{
+    document.location.reload();
+    //console.log('data server disconnect');
+  }
+}
+
+//////////////////////////////////////
+$('#mthodEditSubmit').click(function(){
+  let token=getCookie('token');
+  if(token){
+    let schData=jsonVeri($('#methodEditorText').val());
+    //alert(JSON.stringify(schData),null,8);
+
+    if(mthName && schData && confirm(
+    '스키마 값을 수정하시겠습니까?\n의도하지 않은 결과를 초래할 수 있으므로\n수정에 신중을 기하여 다시 한번 확인해주시기 바랍니다.'
+    )){
+      mthExt(mthName,schData);
+    }
+    //else alert('JSON 구문에 오류가 있어 수정할 수 없습니다.');
+  }
+  else logout(true);
+});
+
+//$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+//});
+
+</script>
+</body>
+</html>

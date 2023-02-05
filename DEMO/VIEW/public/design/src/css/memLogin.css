@@ -1,0 +1,349 @@
+.login-main {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #fff;
+    background-image: url(../img/bg.png);
+    padding: 80px 158px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-main .infomation-section {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.login-main .infomation-section>h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+    margin: 30px 0;
+    white-space: normal
+}
+
+.login-main .infomation-section>h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00559F;
+    margin-bottom: 10px;
+    white-space: normal
+}
+
+.login-main .infomation-section>div>p {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.login-main .infomation-section>p {
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.login-main .infomation-section .box-container {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+.login-main .infomation-section .box-container .box {
+    width: 50%;
+    margin-right: 30px;
+}
+.login-main .infomation-section .box-container .box:last-child {
+    margin-right: 0;
+}
+
+.login-main .infomation-section .services-link {
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.login-main .infomation-section .services-link div {
+    background-color: #00559F;
+    border-radius: 20px;
+    color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px #002c5252;
+    width: 30%;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-main .title-black {
+    margin-bottom: 20px;
+}
+
+.login-main .consulting h1 {
+    font-size: 30px;
+    color: #00559F;
+    margin-bottom: 15px;
+}
+
+.login-main .login-notice ul li {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #d7e1eb;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    font-size: 16px;
+    align-items: baseline;
+}
+
+.login-main .login-notice ul li h4 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.login-main .login-notice ul li h4::before {
+    content: "•";
+    width: 5px;
+    height: 5px;
+    color: #00559F;
+    margin-right: 10px;
+}
+
+.login-main .login-notice ul li p {
+    font-weight: 300;
+    font-size: 8px;
+    line-height: 20px;
+}
+
+
+.login-main .login-section {
+    width: 35%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-main .login-section .logo-wrapper {
+    margin: 0 auto;
+    width: 120px;
+}
+
+.login-main .login-section .logo-wrapper img {
+    width: 120px;
+}
+
+.login-main .login-section h1 {
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 700;
+    font-size: 25px;
+    color: #00559F;
+}
+
+.login-main .login-section hr {
+    width: 40px;
+    border-top: 1px solid #00559fb7;
+    margin-bottom: 40px;
+}
+
+.login-main .login-section form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.login-main .login-section form .input-container {
+    width: 70%;
+}
+
+.login-main .login-section form input {
+    display: block;
+    border: none;
+    outline: #00559F;
+    background-color: #d7e1eb;
+    border-radius: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 30px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: #00559F;
+    font-weight: 500;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-main .login-section form input:last-child {
+    margin-bottom: 0;
+}
+
+.login-main .login-section form .login-button {
+    background-color: #00559F;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #002c5252;
+    width: 25%;
+    text-align: center;
+    display: table;
+    cursor: pointer;
+}
+
+.login-main .login-section form .login-button p {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.login-main .login-section form input::placeholder {
+    font-weight: 300;
+    color: #00559F;
+}
+
+.login-main .login-section .certificate-login {
+    justify-self: flex-end;
+}
+
+.login-main .login-section .certificate-login .blue-button {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.login-main .login-section .certificate-login a {
+    display: block;
+    color: #00559F;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.login-main .login-section .certificate-login p {
+    text-align: center;
+}
+
+
+
+
+
+@media screen and (max-width: 1600px) {
+    .login-main {
+        padding: 80px 50px;
+    }
+    .login-main .infomation-section {
+        width: 52%;
+    }
+    .login-main .infomation-section>h1 {
+        font-size: 30px;
+    }
+    
+    .login-main .infomation-section>h2 {
+        font-size: 16px;
+    }
+    
+    .login-main .infomation-section>div>p {
+        font-size: 14px;
+    }
+    
+    .login-main .infomation-section>p {
+        font-size: 12px;
+        margin-top: 30px;
+    }
+    .login-main .login-notice ul li {
+        flex-direction: column;
+        height: auto;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    .login-main .login-notice ul li h4{
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .login-main .login-notice ul li p {
+        margin-left: 15px;
+        line-height: 10px;
+    }
+    .login-main .login-section {
+        width: 40%;
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .login-main {
+        padding: 50px 30px;
+    }
+    .login-main .login-section form {
+        flex-direction: column;
+    }
+    .login-main .login-section form .input-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .login-main .login-section form input {
+        font-size: 14px;
+    }
+    .login-main .login-section form .login-button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .login-main {
+        flex-direction: column;
+        height: 220%;
+        justify-content: flex-start;
+    }
+    .login-main .infomation-section {
+        width: 100%;
+    }
+    .login-main .infomation-section>h1 {
+        font-size: 18px;
+    }
+    
+    .login-main .infomation-section>h2 {
+        font-size: 14px;
+    }
+    
+    .login-main .infomation-section>div>p {
+        font-size: 12px;
+    }
+    
+    .login-main .infomation-section>p {
+        font-size: 8px;
+        margin-top: 30px;
+    }
+    .login-main .infomation-section .box-container {
+        position: relative;
+        margin-top: 80px;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .login-main .infomation-section .box-container .box {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .login-main .login-section {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .login-main .login-section {
+       padding: 100px 50px;
+       margin-bottom: 80px;
+    }
+}
+

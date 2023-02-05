@@ -1,0 +1,445 @@
+<%const echo=(v)=>{__append(v);}%>
+<%-include('./top.ejs')%>
+
+      <style>
+      input{border:2px solid #eee;padding:6px 15px;color:gray;margin-right:10px;}
+      </style>
+
+      <div class="am-content">
+        <div class="page-head">
+
+          <h2><span class="icon s7-users"></span> 관리자</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><%-cfg.apps.project.proName%></a></li>
+            <li class="breadcrumb-item"><a href="/control">운영</a></li>
+            <li class="breadcrumb-item active">관리자</li>
+          </ol>
+
+        </div>
+        <div class="main-content">
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="widget widget-fullwidth widget-small">
+                <table class="table table-striped table-fw-widget">
+                  <thead>
+                    <tr>
+                      <th style="background:#ddd;font-weight:bold;">아이디</th>
+                      <th style="background:#ddd;font-weight:bold;">관리자명</th>
+                      <!-- <th style="background:#ddd;font-weight:bold;">권한</th> -->
+                    </tr>
+                  </thead>
+                  <tbody id="adminList"></tbody>
+                  <tbody>
+                </table>
+              </div>
+              <span id="adminNewBtn" class="btn btn-space btn-success btn-sm btn-rounded" style="float:right;">관리자 추가하기</span>
+            </div>
+
+            <div class="col-sm-8"><form>
+
+              <div id="adminNew" class="" style="display:none;">
+                <div class="email-body">
+                  <div><input id="userIdNew" value="" placeholder="아이디" class="user" style="font-weight:bold;">* 신규 아이디</div><br>
+                  <div><input id="userPsNew" type="password" placeholder="비밀번호" value="" class="user" style="">* 비밀번호</div><br>
+                  <div><input id="userPsNewRe" type="password" placeholder="비밀번호 재입력" value="" class="user" style="">* 비밀번호 확인</div><br>
+                  <div><input id="userNameNew" value="" placeholder="관리자명" class="user" style=""> 신규 관리자명</div>
+                </div>
+                <div class="email-body">
+                  <span id="adminNewCancelBtn" class="btn btn-space btn-alt4 btn-sm btn-rounded">입력취소</span>
+                  <span id="adminNewSubmitBtn" class="btn btn-space btn-success btn-sm btn-rounded">관리자입력</span>
+                </div>
+              </div>
+
+
+              <div id="adminCon" style="display:none;">
+              <input id="userKy" type="hidden" value="">
+
+              <div class="email-body">
+                <div>아이디 : <strong id="userId"></strong></div><br>
+                <div><input id="userPsMy" type="password" class="user" placeholder="" value="" style=""> * 기존 비밀번호 (<%-sess.userId%>)</div><br>
+                <div><input id="userPs" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호 (<span id="forUserId"></span>)</div><br>
+                <div><input id="userPsRe" type="password" class="user" placeholder="" value="" style=""> * 신규 비밀번호 확인</div>
+              </div>
+              <div class="email-body">
+                <span id="psUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">비밀번호수정</span>
+              </div>
+              <div class="email-body">
+                <!-- <div><input class="user" value="대한변리사회 / KPAA_KB" style="" disabled> 기관 / 프로젝트 명</div><br> -->
+                <div><input id="userName" class="user" placeholder="관리자명" style=""> 관리자명</div>
+                <div><select id="userDiv" class="user" style="">
+                  <option value="system">시스템관리자</option>
+                  <option value="admin">일반관리자</option>
+                </select> 권한</div>
+              </div>
+              <div class="email-body">
+                <span id="adminUpdateBtn" class="btn btn-space btn-success btn-sm btn-rounded">정보수정</span>
+                <span id="blockFreeBtn" class="btn btn-space btn-warning btn-sm btn-rounded" style="display:none;">차단해제</span>
+                <span id="adminDeleteBtn" class="btn btn-space btn-primary btn-sm btn-rounded">관리자삭제</span>
+              </div>
+              </div>
+
+            </form></div>
+
+          </div>
+          <br>
+
+
+          <!-- <pre id="debug"></pre> -->
+        </div>
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////
+let GQ={}; try{GQ=JSON.parse(
+'<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>'
+);}catch{}
+
+//////////////////////////
+let adminListInfo={};
+const adminList=()=>{
+  let data={};
+  let url='/ajax/user/list';
+
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      if(rs.flag){
+
+        //pr(rs.userList);
+        let adminListHTML='';
+
+        if(Array.isArray(rs.userList)){
+          adminListInfo={};
+          for(let i in rs.userList){
+            let admin=rs.userList[i];
+            adminListInfo[admin.userId]=admin;
+            adminListHTML+='<tr>'
+            +'<td><a href="#" class="adminInfoBtn" data-userid="'+admin.userId+'" data-userfailn="'+admin.userFailN+'">'+admin.userId+'</a></td>'
+            +'<td>'+hvw(admin.userName)+'</td><!-- <td>'+admin.userDiv+'</td> --></tr>';
+          }
+          $('#adminList').html(adminListHTML);
+          btnAction();
+          if(adminListInfo['<%-GQ.userId%>']) viewAdmin(adminListInfo['<%-GQ.userId%>']);
+          else viewAdmin(rs.userList[0]);
+          //$('#debug').text(pre(adminListInfo));
+        }
+      }
+      else{
+        console.log('no data');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const adminDelete=(admin)=>{
+  let data=admin;
+  let url='/ajax/user/delete';
+
+  if(confirm(admin.userId+' 정보를 모두 삭제하시겠습니까?\n이 과정은 취소할 수 없습니다.')){
+    //alert(JSON.stringify(data));
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        if(rs.flag){
+          alert(admin.userId+' 정보가 정상적으로 모두 삭제되었습니다.');
+          //console.log(rs);
+          dlr('?');
+        }
+        else{
+          alert(admin.userId+' 정보 삭제에 실패했습니다.');
+        }
+      }
+    });
+  }
+}
+
+//////////////////////////
+const adminUpdate=(admin)=>{
+  let data=admin;
+  let url='/ajax/user/update';
+
+  //alert(pre(data));
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      if(rs.flag){
+        alert(admin.userId+' 정보가 정상적으로 모두 수정되었습니다.');
+        //console.log(rs);
+        dlr('?userId='+data.userId);
+      }
+      else{
+        alert(admin.userId+' 정보 수정에 실패했습니다.');
+      }
+    }
+  });
+}
+
+//////////////////////////
+const userIdFind=(userId,fnc)=>{
+  let data={userId:userId};
+  let url='/ajax/user/idFind';
+
+  //alert(JSON.stringify(data));
+  $.ajax({
+    dataType:'json',method:'get',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //console.log(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+
+//////////////////////////
+const myLogin=(userPs,fnc)=>{
+  let data={
+    userId:sess.userId,
+    userPs:userPs
+  };
+  let url='/ajax/auth/myLogin';
+
+  //pr(data);
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //pr(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+/*myLogin('xxxxxxxxxxxxx',(flag)=>{
+  pr(flag);
+});*/
+
+//////////////////////////
+const userBlockFree=(userKy,fnc)=>{
+  let data={userKy:userKy};
+  let url='/ajax/auth/free';
+
+  //alert(JSON.stringify(data));
+  $.ajax({
+    dataType:'json',method:'post',
+    data:data,url:url,
+    beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+    success:function(rs){
+      //console.log(rs);
+      if(typeof fnc==='function') fnc(rs.flag);
+    }
+  });
+}
+
+//////////////////////////
+const userPsUpdate=(admin)=>{
+  //console.log(admin);
+  //admin0#
+  //admin0000####
+  let data=admin;
+  let errStr=[];
+  let url='/ajax/user/psUpdate';
+
+  if(!data.userPsMy||!data.userPs||!data.userPsRe) errStr.push('비밀번호는 모두 필수 항목입니다.');
+  if(!isPs(data.userPs)||!isPs(data.userPsMy)) errStr.push('비밀번호는 6~20 글자로 만들어야 하고,\n영문, 숫자, 특수문자를 각각 하나 이상 포함해야 합니다.');
+  if(data.userPs!=data.userPsRe) errStr.push('비밀번호 확인에 실패했습니다.');
+
+  if(!errStr.length){
+
+    //alert(JSON.stringify(data));
+    myLogin(data.userPsMy,(flag)=>{
+      if(flag){
+        //alert(JSON.stringify(flag));
+
+        $.ajax({
+          dataType:'json',method:'post',
+          data:data,url:url,
+          beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+          success:function(rs){
+            //console.log(rs);
+            if(rs.flag){
+              alert(admin.userId+' 비밀번호가 정상적으로 변경되었습니다.');
+              dlr('?userId='+data.userId);
+            }
+            else{
+              alert(admin.userId+' 비밀번호 변경에 실패했습니다.');
+            }
+          }
+        });
+      }
+      else{
+        alert('첫번째 비밀번호가 틀립니다. 첫번째 비밀번호는 자기 자신의 비밀번호여야 합니다.');
+      }
+    });
+
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//alert(isId('T1234546789012345678'));
+
+//////////////////////////
+const adminNew=(newData)=>{
+  //console.log(newData);
+  let data=newData;
+  let errStr=[];
+  let url='/ajax/user/add';
+
+  //alert(isId(data.userId));
+
+  if(!data.userId) errStr.push('아이디는 필수 항목입니다.');
+  if(!isId(data.userId)||data.userId.length<4||data.userId.length>20) errStr.push('아이디는 반드시 영어로 시작해야 하고,\n영어/숫자로 4~20 글자가 되도록 만들어야 합니다.');
+  if(!data.userPs||!data.userPsRe) errStr.push('비밀번호는 필수 항목입니다.');
+  if(data.userPs!=data.userPsRe) errStr.push('비밀번호 확인에 실패했습니다.');
+  if(!isPs(data.userPs)||data.userPs.length<6||data.userPs.length>20) errStr.push('비밀번호는 6~20 글자로 만들어야 하고,\n영문, 숫자, 특수문자를 각각 하나 이상 포함해야 합니다.');
+
+  if(!errStr.length){
+    //console.log(data);
+    $.ajax({
+      dataType:'json',method:'post',
+      data:data,url:url,
+      beforeSend:(xhr)=>{xhr.setRequestHeader("test",'xxxx');},
+      success:function(rs){
+        console.log(rs);
+        if(rs.flag){
+          alert(data.userId+' 관리자가 정상적으로 추가되었습니다.');
+          dlr('?userId='+data.userId);
+        }
+        else{
+          alert(data.userId+' 관리자 추가에 실패했습니다.');
+        }
+      }
+    });
+  }
+  else{
+    alert(errStr.join('\n'));
+  }
+}
+
+//////////////////////////
+const viewAdmin=(admin)=>{
+  $('#adminCon').hide();
+  $('#userKy').val(admin.userKy);
+  $('#userId').text(admin.userId);
+  //$('#userDiv').val(admin.userDiv);
+  $('#userName').val(admin.userName);
+  $('#adminCon').slideDown();
+  if(admin.userFailN>4) $('#blockFreeBtn').data('userky',admin.userKy).show();
+  else $('#blockFreeBtn').data('userky','').hide();
+  $('#forUserId').text(admin.userId);
+}
+
+//////////////////////////
+//////////////////////////
+//////////////////////////
+const btnAction=()=>{
+  $('.adminInfoBtn').off().click(function(){
+    let userId=$(this).data('userid');
+    viewAdmin(adminListInfo[userId]);
+  });
+}
+//////////////////////////
+$('#adminDeleteBtn').click(function(){
+  let userId=$('#userId').text();
+  adminDelete(adminListInfo[userId]);
+});
+$('#adminNewBtn').click(function(){
+  $('#userIdNew').val('');
+  $('#userNameNew').val('');
+  $('#userPsNew').val('');
+  $('#userPsNewRe').val('');
+  $('#adminCon').hide();
+  $('#adminNew').slideDown();
+});
+$('#adminNewCancelBtn').click(function(){
+  $('#adminCon').slideDown();
+  $('#adminNew').hide();
+});
+$('#adminNewSubmitBtn').click(function(){
+  let newData={
+    userId:$('#userIdNew').val().trim().toUpperCase(),
+    userName:$('#userNameNew').val().trim(),
+    userPs:$('#userPsNew').val().trim(),
+    userPsRe:$('#userPsNewRe').val().trim()
+  };
+  adminNew(newData);
+});
+$('#userIdNew').blur(function(){
+  let idNew=$(this).val().trim().toUpperCase();
+  if(idNew){
+    $(this).val(idNew);
+    userIdFind(idNew,(flag)=>{
+      if(flag){
+        alert('사용할 수 없는 아이디입니다.');
+        $('#userIdNew').val('');
+      }
+    });
+  }
+});
+$('#userName,#userNameNew').blur(function(){
+  let veriName=es($(this).val(),/[^0-9a-zA-Z가-힣_@\/\:\.\s\-]/g);
+  $(this).val(veriName);
+});
+$('#adminUpdateBtn').click(function(){
+  let admin={
+    userKy:$('#userKy').val().trim(),
+    userId:$('#userId').text().trim(),
+    //userDiv:$('#userDiv').val().trim(),
+    userName:$('#userName').val().trim()
+  };
+  adminUpdate(admin);
+});
+$('#psUpdateBtn').click(function(){
+  let admin={
+    userPsMy:$('#userPsMy').val().trim(),
+    userPs:$('#userPs').val().trim(),
+    userPsRe:$('#userPsRe').val().trim(),
+    userKy:$('#userKy').val().trim(),
+    userId:$('#userId').text().trim()
+  };
+  userPsUpdate(admin);
+});
+$('#blockFreeBtn').click(function(){
+  let userKy=$(this).data('userky');
+  //alert(userKy);
+  if(userKy){
+    userBlockFree(userKy,(flag)=>{
+      if(flag){
+        alert('로그인 차단이 해제되었습니다.');
+        $('#blockFreeBtn').hide();
+      }
+    });
+  }
+});
+
+
+
+//////////////////////////
+adminList();
+
+
+$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+});
+
+</script>
+</body>
+</html>

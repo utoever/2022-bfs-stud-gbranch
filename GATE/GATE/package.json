@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "http-pooling-agent": "^1.0.0",
+    "ws": "^8.5.0"
+  }
+}

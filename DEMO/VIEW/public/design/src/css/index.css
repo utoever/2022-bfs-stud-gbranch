@@ -1,0 +1,287 @@
+main {
+    position: relative;
+    width: calc(100% - 84px);
+    height: calc(100% - 180px);
+    padding: 40px 158px;
+    top: 110px;
+    left: 84px;
+    background-color: #ffffff;
+    background-image: url(../img/bg.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: -10px 0px 50px #00000042;
+    border-radius: 20px 0 0 20px;
+}
+main .link-tap {
+    position: absolute;
+    top: -20px;
+    color: #00559F;
+}
+main .link-tap .home-button {
+    width: 40px;   
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    text-align: center;
+}
+main .link-tap .material-symbols-rounded {
+    margin-left:2px;
+    font-size: 30px;
+    line-height: 40px;
+}
+main .main-box-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 10px 30px;
+    grid-gap: 10px 30px;
+}
+main .main-box-wrapper .main-box:nth-child(1) {
+    grid-column: 1 / 8;
+    grid-row: 1 / 4;
+}
+main .main-box-wrapper .main-box:nth-child(2) {
+    grid-column: 8 / 13;
+    grid-row: 1 / 4;
+
+}
+main .main-box-wrapper .main-box:nth-child(3) {
+    grid-column: 1 / 6;
+    grid-row: 4 / 7;
+
+}
+main .main-box-wrapper .main-box:nth-child(4) {
+    grid-column: 6 / 13;
+    grid-row: 4 / 7;
+
+}
+main .main-box-wrapper .main-box:nth-child(5) {
+    grid-column: 1 / 9;
+    grid-row: 7 / 9;
+
+}
+main .main-box-wrapper .main-box:nth-child(6) {
+    grid-column: 9 / 13;
+    grid-row: 7 / 9;
+
+
+}
+main .main-box-wrapper .main-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main .main-box-wrapper .main-box .box {
+    height: 100%;
+    overflow: hidden;
+}
+main .main-box-wrapper .main-box h2{
+    margin-bottom: 10px;
+}
+main .main-notice-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .main-notice-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+main .main-notice-list li {
+    display: flex;
+    justify-content: space-between;
+    line-height: 20px;
+    vertical-align: bottom;
+    background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #002c5252;
+
+    white-space: nowrap;
+}
+
+main .main-notice-list li .main-notice-content::before {
+    content: "•";
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    color: #00559F;
+}
+
+main .main-status-tap {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0px 20px;
+    margin-bottom: 20px;
+}
+
+main .main-status-list li {
+    display: flex;
+    background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    align-items: center;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px #002c5252;
+
+}
+
+main .main-status-list li > p {
+    margin-right: 40px;
+}
+main .main-status-list li span {
+    background-color: #00559F;
+    border-radius: 50%;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+main .main-status-list > li > p::before {
+    content: "•";
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    color: #00559F;
+}
+main .main-status-list > li a {
+    display: block;
+    position: absolute;
+    right: 40px;
+    color: #00559F;
+}
+main .asset-status {
+    width: 100%;
+    height: 100%;
+    border-spacing: 3px;
+    border-collapse: separate;
+    white-space: nowrap;
+}
+main .main-box .table-wrapper {
+    height: 100%;
+    overflow: scroll;
+}
+main .main-box .table-wrapper::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+main .main-box .table-wrapper::-webkit-scrollbar-track {
+    background-color: #D7E1EB;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px #002c523d;
+}
+main .main-box .table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #00559F;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #002c523d;
+}
+main .main-box .table-wrapper tr > th {
+    box-shadow: 0 0 5px #002c5252;
+    background-color: #D7E1EB;
+    color: #00559F;
+    padding: 5px;
+}
+main .main-box .table-wrapper tr:first-child th {
+    background-color: #00559F;
+    color: #fff;
+}
+main .main-box .table-wrapper tr:first-child th:first-child{
+    border-radius: 15px 0 0 0;
+}
+main .main-box .table-wrapper tr:first-child th:last-child{
+    border-radius: 0 15px 0 0;
+}
+main .main-box .table-wrapper tr:last-child th{
+    border-radius: 0 0 0 15px;
+}
+main .main-box .table-wrapper tr:last-child td:last-child{
+    border-radius: 0 0 15px 0;
+}
+main .main-box .table-wrapper td {
+    padding: 0 10px;
+    text-align: right;
+    font-weight: 400;
+    background-color: #fff;
+    box-shadow: 0 0 5px #002c5252;
+
+}
+
+main .main-management-services-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .main-management-services-container .main-management-services-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 30px;
+}
+main .main-management-services-container .main-management-services-wrapper .main-management-services{
+    position: relative;
+    background-color: #D7E1EB;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #002c5252;
+    height: 100%;
+    margin-right: 20px;
+    overflow: hidden;
+    padding: 20px;
+    white-space: nowrap;
+    width: 30%;
+    cursor: pointer;
+}
+main .main-management-services-container .main-management-services-wrapper .main-management-services:last-child{
+    margin-right: 0;
+}
+main .main-management-services-container .main-management-services-wrapper .main-management-services span {
+    position:absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 90px;
+    color: #00559f3d;
+}
+main .main-management-services-container .main-management-services-wrapper .main-management-services h3 {
+    color: #00559F;
+    margin-bottom: 10px;
+}
+
+main .main-currency-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .currency {
+    width: 100%;
+    height: 100%;
+    border-spacing: 3px;
+    border-collapse: separate;
+    white-space: nowrap;
+}
+main .currency td{
+        padding: 0 10px;
+        text-align: right;
+        font-weight: 400;
+        background-color: #fff;
+        box-shadow: 0 0 5px #002c5252;
+}
+
+@media screen and (max-width: 1600px) {
+    main {
+        padding: 40px 50px;
+    }
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}

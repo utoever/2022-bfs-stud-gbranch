@@ -1,0 +1,17 @@
+{
+  "method": "KFK124DG40",
+  "key": "SOC",
+  "remoteAddress": "10.141.32.52",
+  "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "StndTranBaseYmd": "20230201",
+  "conDateTime": "20230201155924612",
+  "cConTm": 1675234764612,
+  "error": [],
+  "lgt": [],
+  "authInfo": true,
+  "cnif": "Xi85r6D5/IikSNuLwHmJcIbsmJ+qyrvxs7y8AVVjjFVjFiX6Q2HM0MHszaEdlzlNDiNcvUz8Y8E7nJ1006756394",
+  "pidGte": 15818,
+  "pidBiz": 0,
+  "lgTm": 1675234764612,
+  "gteLog": "/home/bfsadm/gbranch/GATE/DATA/dat/20230201/1559/KFK124DG40--1675234764612_SOC_G.json"
+}

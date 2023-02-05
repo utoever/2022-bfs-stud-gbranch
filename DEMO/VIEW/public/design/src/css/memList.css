@@ -1,0 +1,193 @@
+main {
+    white-space: nowrap;
+}
+main > .title-black {
+    margin-top: -20px;
+}
+.button-container{
+    display: flex;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+.button-container .blue-button{
+    display: flex;
+    line-height: 20px;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
+.button-container .blue-button span {
+    font-size: 20px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 0,
+    'opsz' 20
+
+}
+.button-container .blue-button p {
+    margin-left: 10px;
+}
+
+select, input {
+    font-family: 'Noto Sans KR', sans-serif;
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0 10px #002c5252;
+
+}
+select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding: 0 40px 0 20px;
+    background: url(../img/arrow.png) no-repeat right 20px center #fff;
+}
+input {
+    width: 200px;
+}
+.select-container-top{
+    display: flex;
+    margin-bottom: 10px;
+}
+.select-container-top .select-wrapper {
+    display: flex;
+    line-height: 30px;
+    width: 265px;
+}
+.select-wrapper h4 {
+    color: #00559F;
+    margin-right: 20px;
+}
+.select-container-middle {
+    margin-bottom: 10px;
+}
+.select-container-middle .select-wrapper{
+    width: 600px;
+    display: flex;
+    line-height: 30px;
+}
+.select-container-middle .select-wrapper .date-input-wrapper {
+    display: flex;
+}
+.select-container-middle .select-wrapper .date-input-wrapper p {
+    margin: 0 10px;
+}
+.select-container-middle .date-button-container {
+    line-height: normal;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 80px;
+}
+.select-container-middle .date-button-container div{
+    cursor: pointer;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+.select-container-middle .date-button-container div:hover{
+    background-color: #00559F;
+    color: #fff;
+}
+.select-container-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.select-container-bottom .select-wrapper {
+    display: flex;
+    line-height: 30px;
+}
+.select-container-bottom .select-wrapper select {
+    width: 90px;
+}
+.select-container-bottom .select-wrapper h4 {
+    margin-right: 10px;
+}
+.select-container-bottom .checkbox {
+    display: flex;
+    color: #00559F;
+    line-height: 30px;
+}
+.select-container-bottom span {
+    line-height: 30px;
+    margin-right: 5px;
+}
+main .middle-box {
+    height: 300px;
+    margin: 10px 0;
+}
+main .box .table-wrapper {
+    height: 100%;
+    overflow: scroll;
+    box-shadow: inset -5px -5px 20px #002c522f;
+}
+main .box .table-wrapper::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+main .box .table-wrapper::-webkit-scrollbar-track {
+    background-color: #D7E1EB;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px #002c523d;
+}
+main .box .table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #00559F;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #002c523d;
+}
+main .box .table-wrapper table th {
+    background-color: #D7E1EB;
+    color: #00559F;
+    font-weight: 700;
+}
+main .box .table-wrapper table td {
+    padding: 0 20px;
+}
+main .box .table-wrapper table th, td {
+    border-top: 1px solid #00559f59;
+    border-left: 1px solid #00559f59;
+    border-bottom: 1px solid #00559f59;
+    /*border-right: 1px solid #00559f59;*/
+    padding: 5px 50px;
+    vertical-align: middle;
+    white-space: nowrap;
+    height:30px;
+}
+main .box .table-wrapper table span {
+    color: #00559F;
+}
+
+
+main .text-wrpper {
+    display: flex;
+    justify-content: space-between;
+    color: #00559F;
+    align-items: center;
+    margin-bottom: 10px;
+}
+main .text-wrpper .title-black {
+    margin-top: -9px;
+    color: #00559F;
+}
+main .text-wrpper .blue-button {
+    line-height: 30px;
+    height: 30px;
+}
+main .text-wrpper .title {
+    height: 30px;
+    line-height: 30px;
+    margin-right: 0;
+    margin-top: -9px;
+}
+
+main .bottom-box {
+    height: 160px;
+}
+main .bottom-box .table-wrapper table th, td {
+    padding: 2px 50px;
+}

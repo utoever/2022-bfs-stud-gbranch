@@ -1,0 +1,36 @@
+{
+  "cfgName": "conf",
+  "cfgMemo": "기본 설정",
+  "limit": {
+    "_logLimitMinute": "1000*//로그파일의 보관기간 (분)",
+    "logLimitMinute": 3600
+  },
+  "rate": {
+    "_appListen": "100*//개별앱의 상태보고 주기",
+    "appListen": 10,
+    "_appReport": "100*//데이터앱의 관리자화면 전송주기",
+    "appReport": 10,
+    "_watcherReconnectSec": "1000*//상태보고 재연결 지연초",
+    "watcherReconnectSec": 10
+  },
+  "dirs": {
+    "_logDir": "pm2가 자동생성하는 로그파일, 콘솔 메시지와 에러 메시지 저장 폴더",
+    "logDir": "/home/bfsadm/.pm2/logs/",
+    "_mthDir": "메소드 스키마 저장 폴더",
+    "mthDir": "/home/bfsadm/gbranch/GATE/DATA/mth/",
+    "_datDir": "클라이언트와 호스트간 유통되는 실제 데이터 저장 디렉토리",
+    "datDir": "/home/bfsadm/gbranch/GATE/DATA/dat/"
+  },
+  "url": {
+    "_watchIp": "DATA 논리서버의 아이피/도메인",
+    "watchIp": "10.141.32.52",
+    "_watchPort": "DATA 논리서버의 포트",
+    "watchPort": 1800
+  },
+  "debug": {
+    "_conMsg": "서버 메시지에 접속내용 표시",
+    "conMsg": false,
+    "_rdResHost": "샘플호스트 응답 랜덤지연",
+    "rdResHost": false
+  }
+}

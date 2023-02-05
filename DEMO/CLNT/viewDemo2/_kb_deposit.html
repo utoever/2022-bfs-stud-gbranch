@@ -1,0 +1,340 @@
+<%-include('./top.ejs')%>
+
+			<div class="col-sm-8 col-lg-10 content" style="min-height:1200px;">
+				<h6 class="mg-md tc-black" style="font-size:1.2em;">
+					<i class="fa fa-list-alt"></i> 입출금 거래내역
+				</h6>
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+								<label class="text-lg-left table-label">
+									계좌번호<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot">
+										<option value="0">
+											086-24-0263-910
+										</option>
+										<option value="1">
+											086-24-0263-800
+										</option>
+									</select><a href="#" class="btn btn-d btn-sm table-contents-bt">계좌기본정보조회</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label">
+									조회기간
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<select class="form-control table-input-text-shot" id="select_245">
+										<option value="0">
+											2021
+										</option>
+										<option value="1">
+											2020
+										</option>
+									</select> 
+									<label class="p-style">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_253">
+										<option value="0">
+											10
+										</option>
+										<option value="1">
+											09
+										</option>
+									</select>
+									<label class="p-style">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1225">
+										<option value="0">
+											12
+										</option>
+										<option value="1">
+											11
+										</option>
+									</select>
+									<label class="p-style">
+										일 부터&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_500">
+										<option value="0">
+											2021
+										</option>
+										<option value="1">
+											2020
+										</option>
+									</select> 
+									<label class="p-style">
+										년&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1089">
+										<option value="0">
+											10
+										</option>
+										<option value="1">
+											09
+										</option>
+									</select>
+									<label class="p-style">
+										월&nbsp;
+									</label>
+									<select class="form-control table-input-text-shot-right" id="select_1438">
+										<option value="0">
+											16
+										</option>
+										<option value="1">
+											15
+										</option>
+									</select>
+									<label class="p-style">
+										일 까지&nbsp;
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col">
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-sm table-contents-bt">당일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">전일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1주</a><a href="#" class="btn btn-d btn-sm table-contents-bt">15일</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">3개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">6개월</a><a href="#" class="btn btn-d btn-sm table-contents-bt">1년</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col table-title-col-none">
+								<label class="text-lg-left table-label">
+									조회구분
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" checked="checked" />
+										<label class="form-check-label">
+											전체
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1899" />
+										<label class="form-check-label">
+											입금
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_2394" />
+										<label class="form-check-label">
+											출금
+										</label>
+									</div>
+									<div class="form-check form-check-inline radio">
+										<input class="form-check-input" type="radio" name="radioSetOne" value="option1" id="input_1476" />
+										<label class="form-check-label">
+											무통장(미기장)
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 table-title-col-none">
+								<label class="text-lg-left table-label label-style">
+									<br>
+								</label>
+							</div>
+							<div class="col table-content-col">
+								<div class="form-group">
+									<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">상세조회</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="space">
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회일시: 2021년 10월 16일 17시 57분 50초
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col table-title-col-yellow-bg" style="border-color:white;padding-left:20px;">
+									<h6 class="text-lg-left search-title" style="font-size:15px;">
+										6건의 조회 결과가 있습니다.<br>
+									</h6>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col">
+									<label class="text-lg-left table-label">
+										계좌번호<br>
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										086-24-0263-910
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col">
+									<label class="text-lg-left table-label">
+										예금주명
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										대한변리사회
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col">
+									<label class="text-lg-left table-label">
+										예금종류
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										저축예금
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2 table-title-col-none">
+									<label class="text-lg-left table-label label-style">
+										잔액
+									</label>
+								</div>
+								<div class="col table-content-col" style="font-weight:bold;">
+									<p class="table-par">
+										6,470,000 원
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-lg-right">
+							조회기간: 2021-10-12 ~ 2021-10-16
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+
+
+								<table>
+								<tr>
+									<th class="th-sm">순번</th>
+									<th>거래일시</th>
+									<th>거래구분</th>
+									<th>출금금액</th>
+									<th>입금금액</th>
+									<th>잔액</th>
+									<th>거래기록</th>
+									<th>거래점</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2021-10-16 12:25:42</td>
+									<td>전자금융</td>
+									<td>10,000</td>
+									<td>0</td>
+									<td>6,470,000</td>
+									<td>김금지</td>
+									<td>신한은행</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>2021-10-15 14:19:32</td>
+									<td>전자금융</td>
+									<td>10,000</td>
+									<td>0</td>
+									<td>6,480,000</td>
+									<td>김금지</td>
+									<td>신한은행</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>2021-10-14 20:11:04</td>
+									<td>전자금융</td>
+									<td>0</td>
+									<td>4,500,000</td>
+									<td>6,490,000</td>
+									<td>백문수</td>
+									<td>우리은행</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>2021-10-13 21:19:12</td>
+									<td>전자금융</td>
+									<td>10,000</td>
+									<td>0</td>
+									<td>1,990,000</td>
+									<td>김금지</td>
+									<td>신한은행</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>2021-10-12 11:59:09</td>
+									<td>인터넷</td>
+									<td>110,000</td>
+									<td>0</td>
+									<td>2,000,000</td>
+									<td>민숙현</td>
+									<td>국민은행</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>2021-10-12 10:11:51</td>
+									<td>전자금융</td>
+									<td>0</td>
+									<td>20,000</td>
+									<td>2,110,000</td>
+									<td>하영태</td>
+									<td>중소기업</td>
+								</tr>
+								</table>
+								
+							</div>
+							<div class="row">
+								<div class="col table-content-col bloc-margin-top">
+									<div class="form-group">
+										<a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">즉시이체</a><a href="#" class="btn btn-d btn-lg bt-yellow-bottom" data-toggle="modal" data-target="#register">전계좌조회</a><a href="#" class="btn btn-d btn-lg bt-gray-bottom" data-toggle="modal" data-target="#register">인쇄 및 엑셀저장</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<%-include('./bottom.ejs')%>
+
+<script>
+$('#navigator').html('/ 금융업무 / 입출금 거래내역');
+</script>
+
+</body>
+</html>

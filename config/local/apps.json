@@ -1,0 +1,188 @@
+{
+  "cfgName": "apps",
+  "cfgMemo": "전체 앱 설정",
+  "project": {
+    "proName": "KB_MOBILE_ID_PROJECT",
+    "proMemo": "KB_모바일_학생증_프로젝트",
+    "company": "KB"
+  },
+  "mach": {
+    "1.AP_SERVER": {
+      "machName": "1.AP_SERVER",
+      "machMemo": "KB gbranch gate - DMZ 공개망 물리서버",
+      "admin": "박경구, 010-5152-8888",
+      "machDiv": "dmz",
+      "machDomain": "10.17.101.131",
+      "machIpOut": "10.17.101.131",
+      "machIpIn": "10.17.101.131",
+      "machSender": "10.LOGR",
+      "cpuN": 16
+    },
+    "2.WAS_SERVER": {
+      "machName": "2.WAS_SERVER",
+      "machMemo": "KB gbranch bizs - 내부 어플리케이션 물리서버",
+      "admin": "박경구, 010-5152-8888",
+      "machDiv": "was",
+      "machDomain": "10.17.101.131",
+      "machIpOut": "10.17.101.131",
+      "machIpIn": "10.17.101.131",
+      "machSender": "08.BIZ4",
+      "cpuN": 1
+    }
+  },
+  "gate": {
+    "name": "00.GATE",
+    "appMemo": "노드브레이커 게이트웨이 서버",
+    "script": "/home/bfsadm/gbranch/GATE/GATE/00.GATE.js",
+    "admin": "박경구, 010-5152-8888",
+    "appDiv": "gate",
+    "machName": "1.AP_SERVER",
+    "appPort": 1950,
+    "limitCnt": 1000,
+    "cluster": 1
+  },
+  "bizs": {    
+    "KFK120B440": {
+      "name": "04.BIZ_KFK120B440",
+      "appMemo": "비지니스 서버 (KFK120B440)",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK120B440.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "biz",
+      "machName": "2.WAS_SERVER",
+      "appPort": 1205,
+      "limitCnt": 1,
+      "cluster": 1,
+      "method": "KFK120B440",
+      "methodMemo": "리브고객정보_조회",
+      "host": {
+        "methodCom": "KFK120B440",
+        "ip": "10.17.101.131",
+        "domain": "10.17.101.131",
+        "path": "/",
+        "port": 41164,
+        "proto": "soc",
+        "method": "SOC"
+      }
+    },
+    "KFK124DG40": {
+      "name": "05.BIZ_KFK124DG40",
+      "appMemo": "비지니스 서버 (KFK124DG40)",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK124DG40.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "biz",
+      "machName": "2.WAS_SERVER",
+      "appPort": 1206,
+      "limitCnt": 1,
+      "cluster": 1,
+      "method": "KFK124DG40",
+      "methodMemo": "KB스타뱅킹가입내용조회",
+      "host": {
+        "methodCom": "KFK124DG40",
+        "ip": "10.17.101.131",
+        "domain": "10.17.101.131",
+        "path": "/",
+        "port": 41164,
+        "proto": "soc",
+        "method": "SOC"
+      }
+    },
+	"KFK124CF40": {
+      "name": "06.BIZ_KFK124CF40",
+      "appMemo": "비지니스 서버 (KFK124CF40)",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KFK124CF40.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "biz",
+      "machName": "2.WAS_SERVER",
+      "appPort": 1207,
+      "limitCnt": 1,
+      "cluster": 1,
+      "method": "KFK124CF40",
+      "methodMemo": "고객정보번호조회",
+      "host": {
+        "methodCom": "KFK124CF40",
+        "ip": "10.17.101.131",
+        "domain": "10.17.101.131",
+        "path": "/",
+        "port": 41164,
+        "proto": "soc",
+        "method": "SOC"
+      }
+    },
+	"KAA04K0C41": {
+      "name": "07.BIZ_KAA04K0C41",
+      "appMemo": "비지니스 서버 (KAA04K0C41)",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_KAA04K0C41.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "biz",
+      "machName": "2.WAS_SERVER",
+      "appPort": 1208,
+      "limitCnt": 1,
+      "cluster": 1,
+      "method": "KAA04K0C41",
+      "methodMemo": "개인고객카드정보조회",
+      "host": {
+        "methodCom": "KAA04K0C41",
+        "ip": "10.17.101.131",
+        "domain": "10.17.101.131",
+        "path": "/",
+        "port": 41164,
+        "proto": "soc",
+        "method": "SOC"
+      }
+    },
+	"BFA72C32SC": {
+      "name": "08.BIZ_BFA72C32SC",
+      "appMemo": "비지니스 서버 (BFA72C32SC)",
+      "script": "/home/bfsadm/gbranch/BIZS/BIZS/RUN_BFA72C32SC.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "biz",
+      "machName": "2.WAS_SERVER",
+      "appPort": 1209,
+      "limitCnt": 1,
+      "cluster": 1,
+      "method": "BFA72C32SC",
+      "methodMemo": "KB인증서정보역거래조회",
+      "host": {
+        "methodCom": "BFA72C32SC",
+        "ip": "10.17.101.131",
+        "domain": "10.17.101.131",
+        "path": "/",
+        "port": 41164,
+        "proto": "soc",
+        "method": "SOC"
+      }
+    }
+  },
+  "ctrl": {
+    "03.ADMN": {
+      "name": "03.ADMN",
+      "appMemo": "노드브레이커 어드민 서버",
+      "script": "/home/bfsadm/gbranch/GATE/ADMN/03.ADMN.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "admn",
+      "machName": "1.AP_SERVER",
+      "appPort": 1900,
+      "cluster": 1
+    },
+    "01.DATA": {
+      "name": "01.DATA",
+      "appMemo": "노드브레이커 데이터 서버",
+      "script": "/home/bfsadm/gbranch/GATE/DATA/04.DATA.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "data",
+      "machName": "1.AP_SERVER",
+      "appPort": 1800,
+      "cluster": 1
+    },
+    "02.LOGR": {
+      "name": "02.LOGR",
+      "appMemo": "노드브레이커 로그관리 서버",
+      "script": "/home/bfsadm/gbranch/GATE/GATE/10.LOGR.js",
+      "admin": "박경구, 010-5152-8888",
+      "appDiv": "logr",
+      "machName": "1.AP_SERVER",
+      "appPort": null,
+      "cluster": 1
+    }
+  }
+}

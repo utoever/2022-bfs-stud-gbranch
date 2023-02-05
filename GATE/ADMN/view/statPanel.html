@@ -1,0 +1,748 @@
+<%-include('./top.ejs')%>
+
+      <div class="am-content">
+        <div class="main-content">
+
+
+          <div class="row">
+
+            <div class="col-lg-3" id="">
+              <div class="boxshadow">
+
+                <div class="card card-full-dark" style="margin:0;">
+                  <div class="card-header">
+                    <div class="tools dropdown">
+                      <!-- <a href="/control/company"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">정보</button></a> -->
+                    </div>
+                    <span class="title"><span class="icon s7-keypad"></span> <strong>Client</strong></span>
+                  </div>
+                </div>
+
+                <div id="clientCoList">
+                </div>
+
+                <div class="card card-full-dark">
+                  <div class="card-body">
+                    <p style="float:right;">최근 1시간</p>
+                    <p style="margin:0;"><span id="sendingSumHour" style="color:yellow;">0</span> 접근</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="col-lg-1 smHideBlock" style="padding:0;padding-top:185px;opacity:0.7;text-align:center;">
+              <div style="position:relative;width:130px;margin:auto;">
+                <div id="cltGteDot_0" class="cltGteContact" style="position:absolute;background-color:#aaa;width:20px;height:20px;border-radius:50%;top:1px;left:0;z-index:1;"></div>
+                <div id="cltGteDot_1" class="cltGteContact" style="position:absolute;background-color:#aaa;width:20px;height:20px;border-radius:50%;top:1px;left:113px;z-index:2;"></div>
+              </div>
+              <img src="/assets/img/blank.png" style="background:url('/assets/img/lines_cltGte.png') no-repeat;width:111px;height:4px;border:0;opacity:0.5;">
+            </div>
+
+
+            <div class="col-lg-3">
+              <div class="boxshadow">
+
+                <div class="card card-full-dark" style="margin:0;">
+                  <div class="card-header">
+                    <div class="tools dropdown">
+                      <a href="/stat/server"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">정보</button></a>
+                      <a href="/stat/condition"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">상태</button></a>
+                    </div>
+                    <span class="title"><span class="icon s7-keypad"></span> <strong>Gateway</strong></span>
+                  </div>
+                </div>
+
+                <div id="graph_GATE_con" class="widget widget-fullwidth line-chart" style="margin-bottom:0;border-bottom:1px solid #ccc;">
+                  <div class="chart-container">
+                    <div class="counter">
+                      <div class="desc" style="margin-top:15px;">
+                        <strong id="gatewayContactN" style="font-size:25px;color:#333;"></strong>
+                        <br>접속량
+                      </div>
+                    </div>
+                    <div id="graph_GATE" style="height:200px;"></div>
+                  </div>
+                </div>
+
+                <div id="" class="card card-dark" style="margin:0;">
+                  <div class="card-body">
+                    <p style="border-bottom:1px solid #ccc;padding:5px 0 10px 0;">
+                      <strong id="gteProName" style="font-size:1.5em;"></strong><br><span id="gteProMemo"></span>
+                    </p>
+                    <p style="border-bottom:1px solid #ccc;padding:5px 0 10px 0;">
+                      <span id="gteOutIp" style="font-size:1.5em;"></span> <br>ip:port <!-- (out) -->
+                      <!-- <span id="gteInIp" style="font-size:1.5em;"></span> ip:port (in)<br> -->
+                    </p>
+                    <p style="border-bottom:1px solid #ccc;padding:5px 0 10px 0;">
+                      <span id="gteDomain" style="font-size:1.5em;"></span><br>domain:port
+                    </p>
+                    <p id="gteDetail" style="margin-bottom:0;padding:5px 0 0 0;">
+                      <span id="gteBizN" style="font-size:1.5em;"></span><br>business method
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card card-full-dark">
+                  <div class="card-body" style="padding-bottom:10px;">
+                    <a href="/method/log" style="float:right;"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">로그</button></a>
+                    <p style="margin:0;">
+                      <span id="logCountStr" style=""></span>
+                      <span id="logDiskSizeStr" style=""></span>
+                    </p>
+                  </div>
+                  <div class="card-body" style="border:1px solid #777;">
+                    <p style="float:right;">최근 1시간</p>
+                    <p style="margin:0;">
+                      접속 :&nbsp; <span id="contactSumHour" style="color:yellow;">0</span> <span style="color:gray;"> (외부접근)</span><br>
+                      차단 :&nbsp; <span id="blockedSumHour" style="color:orange;">0</span> <span style="color:gray;"> (유량초과)</span><br>
+                      <!-- 거부 :&nbsp; <span id="strangeSumHour" style="color:#ff66ff;">0</span> <span style="color:gray;"> (인증실패)</span><br> -->
+                      연결 :&nbsp; <span id="connectSumHour" style="color:#00ff00;">0</span> <span style="color:gray;"> (중계성공)</span><br>
+                      <span id="strangeSumHourStr"></span>
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="gteBizLines" class="col-lg-1 smHideBlock" style="padding:0;padding-top:185px;opacity:0.7;text-align:center;">
+              <div id="gteBizDots" style="position:relative;width:130px;margin:auto;">
+                <div style="position:absolute;background-color:red;width:25px;height:25px;border-radius:50%;top:0;z-index:1;"></div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-4">
+              <div class="boxshadow">
+
+                <div class="card card-full-dark" style="margin:0;">
+                  <div class="card-header">
+                    <span style="float:right;"><strong id="bizN" style="">0</strong> methods</span>
+                    <span class="title"><span class="icon s7-keypad"></span> <strong>Business</strong></span>
+                  </div>
+                </div>
+
+                <div class="widget widget-fullwidth line-chart" style="margin-bottom:0;border-bottom:1px solid #ccc;">
+                  <div class="chart-container">
+                    <div class="counter">
+                      <div class="desc" style="margin-top:15px;">
+                        <strong id="contactSumBizTotal" style="font-size:25px;color:#333;"></strong>
+                        <br>접속량
+                      </div>
+                    </div>
+                    <div id="graph_BIZS" style="height:235px;"></div>
+                  </div>
+                </div>
+
+                <div id="bizList">
+                </div>
+
+                <div class="card card-full-dark">
+                  <div class="card-body">
+                    <p style="float:right;">최근 1시간</p>
+                    <p style="margin:0;">
+                    접속 : <span id="contactSumHourBiz" style="color:yellow;">0</span><br>
+                    차단 : <span id="blockedSumHourBiz" style="color:orange;">0</span><br>
+                    응답 : <span id="connectSumHourBiz" style="color:#00ff00;">0</span><br>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+        </div>
+        <!-- <br><pre id="debug"></pre> -->
+
+      </div>
+
+<%-include('./down.ejs')%>
+
+<script src="/assets/lib/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.pie.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.time.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/curvedLines.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-flot/plugins/jquery.flot.tooltip.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/assets/lib/skycons/skycons.js" type="text/javascript"></script>
+<script src="/assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="/assets/lib/countup/countUp.min.js" type="text/javascript"></script>
+<script src="/assets/data/app-graphs.js" type="text/javascript"></script>
+    <!-- <script src="/assets/js/app-pages-profile.js" type="text/javascript"></script> -->
+
+<script type="text/javascript">
+menuActive({
+  src:'<%=src%>',
+  dir:'<%=dir%>'
+});
+
+//////////////////////////////////////
+let GQ={}; try{GQ=JSON.parse('<%-JSON.stringify(GQ).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let cfg={}; try{cfg=JSON.parse('<%-JSON.stringify(cfg).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let apps={}; try{apps=JSON.parse('<%-JSON.stringify(apps).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+let coList={}; try{coList=JSON.parse('<%-JSON.stringify(coList).replace(/\'/gi,'\\\'').replace(/\"/gi,'\\\"')%>');}catch{}
+//pr(sess,'sess');pr(GQ,'GQ');pr(cfg,'cfg');pr(apps,'apps');pr(coList,'coList');pr(cfg.appsAll,'appsAll');
+
+//////////////////////////////////////
+const cleintView=(clt)=>{
+  if(clt){
+    let clientHTML=`
+                <div class="card card-dark" style="margin:5px 0 0 0;border-bottom:solid 1px #ccc;">
+                  <div class="card-body">
+                    <p style="border-bottom:1px solid #ccc;padding:5px 0 10px 0;">
+                      <a href="/control/company?userId=${clt.userId}"><button class="btn btn-space btn-alt4 btn-rounded btn-xs" style="float:right;">정보</button></a>
+                      <strong style="font-size:1.5em;">${clt.coName}</strong><br>
+                      <strong>${clt.userId}</strong>
+                    </p>
+                    <p style="border-bottom:1px solid #ccc;padding:5px 0 10px 0;">
+                      <span style="font-size:1.5em;">${clt.coAuthIP}</span><br>
+                      url : ${clt.coDomainSSL}<br>
+                      <!-- <span class="ip_${clt.coAuthIP.replace(/\./g,'_')}" style="font-size:1.3em;color:orange;">0</span> 전송 -->
+                    </p>
+                    <p style="margin-bottom:0;padding:5px 0 0 0;">
+                      기관담당자 : ${clt.userName}<br>
+                      기관연락처 : ${clt.coTel}<br>
+                      기관인증일 : ${clt.coCertDateCre.substr(0,10)}<br>
+                      인증종료일 : ${clt.coCertDateEnd.substr(0,10)}
+                    </p>
+                  </div>
+                </div>
+    `;
+    $('#clientCoList').append(clientHTML);
+  }
+}
+const clientList=(coList)=>{
+  let cltN=0;
+  $('#clientCoList').html('');
+  if(Array.isArray(coList)) for(let i in coList){
+    let clt=coList[i];
+    if(clt.coAuthIP && clt.coCertStat=='Y' && clt.coAuthStat=='Y'){
+      cltN++;
+      cleintView(clt);
+    }
+    if(cltN==1) $('#clientCoList .card:nth-child(1)').css('margin-top','0');
+  }
+}
+
+//////////////////////////////////////
+const gateView=(cfgApps)=>{
+  let gte=cfgApps.gate;
+  let pro=cfgApps.project;
+  let info=apps[gte.name];
+  //pr(pro,'pro');pr(gte,'gte');pr(info,'info');
+
+  $('#gteProName').text(pro.proName);
+  $('#gteProMemo').text(pro.proMemo);
+  $('#gteOutIp').text(info.machIpOut+':'+gte.appPort);
+  $('#gteInIp').text(info.machIpIn+':'+gte.appPort);
+  $('#gteDomain').text(info.machDomain+':'+gte.appPort);
+
+  $('#gteDetail').html(
+  //'<span>'+info.machMemo+'</span><br>'
+  '물리서버명 : <span>'+info.machName+'</span><br>'
+  +'서버명 : <span>'+info.name+'</span><br>'
+  +'담당자 : <span">'+info.admin+'</span><br>'
+  +'<span>'+info.appMemo+'</span><br>'
+  +'<span>'+info.script+'</span><br>'
+  );
+
+  //let bizN=Object.keys(cfgApps.bizs).length;
+  //$('#gteBizN').text(bizN);
+}
+
+//////////////////////////////////////
+const bizView=(biz)=>{
+  //pr(biz);
+  if(biz){
+    let bizHTML=`
+              <div class="card card-full-info" style="margin-bottom:5px;">
+                <div class="card-body">
+                  <p style="padding:5px 0 0 0;margin:5px 0 0 0;overflow:hidden;white-space:nowrap;">
+                    <span style="font-size:1.5em;"><strong>${biz.method}</strong> | ${biz.methodMemo}</span><br>
+                    <a href="/stat/condition?appName=${biz.name}" style="float:right;"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">상태</button></a>
+                    <a href="/stat/server?appName=${biz.name}" style="float:right;"><button class="btn btn-space btn-alt4 btn-rounded btn-xs">정보</button></a>
+                    <strong id="contactSumBiz_${biz.name.replace(/\./g,'_')}" style="font-size:1.3em;color:black;">0</strong>
+                    <span style="color:black;">접속 &nbsp; [${biz.machIpOut}:${biz.appPort}
+                    <span class="icon s7-play"></span> ${biz.host.ip}:${biz.host.port}]</span>
+                  </p>
+                </div>
+              </div>
+    `;
+    $('#bizList').append(bizHTML);
+  }
+}
+
+let cltGteContactDotAct;
+let bizContactDotAct;
+let bizMths={};
+const bizList=(bizs)=>{
+  let bizN=Object.keys(bizs).length;
+  $('#bizN').text(bizN);
+  $('#gteBizLines').html(
+    '<div id="gteBizDots" style="position:relative;width:130px;margin:auto;">'
+    +'<div id="gteBizDot_0" class="cltGteContact" style="position:absolute;background-color:#aaa;'
+    +'width:20px;height:20px;border-radius:50%;top:2px;z-index:1;"></div></div>'
+    +'<img src="/assets/img/blank.png" style="background:url(\'/assets/img/lines_gteLeft.png\') '
+    +'0 10px no-repeat;width:111px;height:66px;border:0;opacity:0.5;">'
+  );
+  for(let i=1;i<=bizN;i++){
+    $('#gteBizDots').prepend(
+      '<div id="gteBizDot_'+i+'" style="position:absolute;background-color:#aaa;'
+      +'width:20px;height:20px;border-radius:50%;top:'+(i*100+53)+'px;left:113px;z-index:'+(i+1)+';"></div>'
+    );
+    $('#gteBizLines').append(
+      '<br><img src="/assets/img/blank.png" style="background:url(\'/assets/img/lines_bizRight.png\') '
+      +'right bottom no-repeat;width:111px;height:100px;border:0;opacity:0.5;">'
+    );
+  }
+  $('#bizList').html('');
+  //pr(bizs);
+  let bizNth=0;
+  if(typeof bizs==='object') for(let method in bizs){
+    let biz=bizs[method];
+    //biz.run=cfg.apps.bizs[biz.method];
+    bizView(biz);
+    bizNth++;
+    bizMths[biz.name]=bizNth;
+  }
+
+  cltGteContactDotAct=()=>{
+    $('.cltGteContact').css('background-color','red');
+    setTimeout(()=>{
+      $('.cltGteContact').css('background-color','#aaa');
+    },190);
+  }
+
+  bizContactDotAct=(mthN)=>{
+    $('#gteBizDot_'+mthN).css('background-color','red');
+    setTimeout(()=>{
+      $('#gteBizDot_'+mthN).css('background-color','#aaa');
+    },190);
+  }
+}
+
+//////////////////////////////////////
+clientList(coList);
+gateView(cfg.apps);
+bizList(cfg.apps.bizs);
+//pr(bizMths);
+
+
+
+
+/*setInterval(()=>{
+  cltGteContactDotAct();
+  bizContactDotAct(3);
+},1000);*/
+
+
+
+//////////////////////////////////////
+const ws=new WebSocket(dataUrl);
+let onFlag=true;
+let runN=0;
+//let gteContactN=0;
+
+//////////////////////////////////////
+let optsGr=[{
+  showLabels: true,
+  label: "1",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "2",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "3",
+  labelPlacement: "below"
+},{
+  showLabels: true,
+  label: "4",
+  labelPlacement: "below"
+}];
+let clrsGr=[
+  '#bbb',
+  'rgb(249,200,200)',
+  'rgb(239,98,98)',
+  '#777'
+];
+const makeBizGr=(datas,optsGr,clrsGr)=>{
+  gr.live(
+    'graph_BIZS',
+    datas,
+    optsGr,
+    clrsGr
+  );
+  //console.log(datas);
+  /*$('#debug').text(
+    datas[0].length+' : '+JSON.stringify(datas[0])+'\n'+
+    datas[1].length+' : '+JSON.stringify(datas[1])+'\n'+
+    datas[2].length+' : '+JSON.stringify(datas[2])
+  );*/
+}
+
+//////////////////////////////////////
+let makeGteGr=(datas)=>{
+  gr.live(
+    'graph_GATE',
+    [datas],
+    [{}],
+    ['#99cccc']
+  );
+}
+
+//////////////////////////////////////
+const combArys=(arys,cmd='sum')=>{//다중배열을 한 행으로 합산한다. map/reduce와 같다.
+  let ret=[];
+  for(let i in arys){//행
+    if(i==0) ret=arys[i];//첫번째 열은 직접 복사한다.
+    else for(let n in arys[i]){//두번째 이후 열은 합산한다.
+      ret[n]+=Number(arys[i][n]);
+    }
+  }
+  if(cmd=='avr'){
+    for(let m in ret){//열
+      ret[m]=Math.round((ret[m]/arys.length)*10)/10;
+    }
+  }
+  //ret=arys;
+  return ret;
+}
+
+/////////
+const combStatis=(cms,chs)=>{//클러스터를 통해 분산처리된 통계를 합산한다.
+  //분당자료
+  let retm=cms[0];
+  let contactm=[];
+  let blockedm=[];
+  let heapMemm=[];
+  let heapPerm=[];
+  let useMemm=[];
+
+  for(let i in cms){
+    let css=cms[i];
+    if(Array.isArray(css.blocked) && css.blocked.length){
+      blockedm.push(css.blocked);
+    }
+    if(Array.isArray(css.contact) && css.contact.length){
+      contactm.push(css.contact);
+    }
+    if(Array.isArray(css.heapMem) && css.heapMem.length){
+      heapMemm.push(css.heapMem);
+    }
+    if(Array.isArray(css.heapPer) && css.heapPer.length){
+      heapPerm.push(css.heapPer);
+    }
+    if(Array.isArray(css.useMem) && css.useMem.length){
+      useMemm.push(css.useMem);
+    }
+  }
+  retm.blocked=combArys(blockedm);
+  retm.contact=combArys(contactm);
+  retm.heapMem=combArys(heapMemm,'avr');
+  retm.heapPer=combArys(heapPerm,'avr');
+  retm.useMem=combArys(useMemm,'avr');
+  
+  ////////////////
+  //시간자료
+  let reth=chs[0];
+  let blockedh=[];
+  let contacth=[];
+  let heapMemh=[];
+  let heapPerh=[];
+  let useMemh=[];
+
+  for(let i in chs){
+    let css=chs[i];
+    if(Array.isArray(css.blocked.data) && css.blocked.data.length){
+      blockedh.push(css.blocked.data);
+    }
+    if(Array.isArray(css.contact.data) && css.contact.data.length){
+      contacth.push(css.contact.data);
+    }
+    if(Array.isArray(css.heapMem.data) && css.heapMem.data.length){
+      heapMemh.push(css.heapMem.data);
+    }
+    if(Array.isArray(css.heapPer.data) && css.heapPer.data.length){
+      heapPerh.push(css.heapPer.data);
+    }
+    if(Array.isArray(css.useMem.data) && css.useMem.data.length){
+      useMemh.push(css.useMem.data);
+    }
+  }
+  reth.blocked=combArys(blockedh);
+  reth.contact=combArys(contacth);
+  reth.heapMem=combArys(heapMemh,'avr');
+  reth.heapPer=combArys(heapPerh,'avr');
+  reth.useMem=combArys(useMemh,'avr');
+
+  return {m:retm,h:reth};
+}
+
+/////////
+const mergStatis=appDts=>{
+  let ret=appDts;
+  let mainPid=Object.keys(appDts.statis)[0];//첫번째 값은 마스터이므로, 2번째 부터 실제 코어이다. 여기에 나머지 값을 계산해서 반환한다.
+  ret.cpuUsed=1;//클러스터를 적용하지 않았을 경우
+
+  if(Object.keys(appDts.statis).length>1){//클러스터를 적용하면 코어수+1(마스터)의 결과가 나온다. 즉 pid가 2,3,4,5개...로 2개인 경우는 없다.//어차피 값은 비어있으므로 전체를 합산하면 된다.
+    ret.cpuUsed=ret.cpuN;
+
+    let cms=[],chs=[];
+    for(let pid in appDts.statis){
+      cms.push(appDts.statis[pid].lastMin);//분당자료
+      chs.push(appDts.statis[pid].lastHour);//시간당자료
+    }
+    let {m,h}=combStatis(cms,chs);//합산한다.
+    //pr(m);
+    //pr(h);
+
+    ret.statis={
+      lastMin:{
+        blocked:m.blocked,
+        contact:m.contact,
+        heapMem:m.heapMem,
+        heapPer:m.heapPer,
+        useMem:m.useMem,
+        strange:{},
+        clients:{}
+      },
+      lastHour:{
+        blocked:{val:arySum(h.blocked),data:h.blocked},
+        contact:{val:arySum(h.contact),data:h.contact},
+        heapMem:{val:aryAvr(h.heapMem),data:h.heapMem},
+        heapPer:{val:aryAvr(h.heapPer),data:h.heapPer},
+        useMem:{val:aryAvr(h.useMem),data:h.useMem},
+        strange:{},
+        clients:{}
+      }
+    };
+  }
+  else{
+    ret.statis=appDts.statis[mainPid];
+  }
+  return ret;
+};
+
+//////////////////////////////////////
+ws.onopen=()=>{
+  ws.send(JSON.stringify({
+    cmd:'appSearchAll'
+  }));
+  ws.onmessage=(rs)=>{
+
+    if(rs.isTrusted){
+      let rData={};
+      onFlag=true;
+      try{
+        rData=JSON.parse(rs.data);
+      }catch{}
+
+      if(Object.keys(rData.appDataAll).length){
+        let bzDatas=[];
+        let bzContactN=0;
+        let bzCnt=Object.keys(cfg.apps.bizs).length;
+        let bzN=0;
+        let contactSumHourBiz=0;
+        let blockedSumHourBiz=0;
+
+        //pr(rData.appDataAll);
+
+        for(let appName in rData.appDataAll){
+
+          if(cfg.appsAll[appName].appDiv=='logr'){
+            //pr(rData.appDataAll[appName]);
+            let logDiskSize=rData.appDataAll[appName].osData.logDiskSize;
+            if(logDiskSize){
+              let logSizes=logDiskSize.split(' ');
+              let logSize=logSizes[0];
+              $('#logDiskSizeStr').html('로그 : '+logSize+' <span style="color:gray;"> (파일용량)</span><br>').show();
+            }
+            let logCnt=rData.appDataAll[appName].osData.logCount;
+            if(logCnt){
+              let logCnts=logCnt.split(' ');
+              let logCount=logCnts[0];
+              $('#logCountStr').html('로그 : '+logCount+' <span style="color:gray;"> (파일갯수)</span><br>').show();
+            }
+          }
+
+          else if(cfg.appsAll[appName].appDiv=='biz'||cfg.appsAll[appName].appDiv=='gate'){//게이트웨이와 비지니스서버만을 다룬다.
+
+            let appDts=rData.appDataAll[appName];
+            let appData={};
+            //pr(appDts);
+
+            try{appData=mergStatis(appDts);}catch{}//pid값에 따라 분산되어 전달되는 값을 하나로 합산한다.
+            let statis=appData.statis;//하나로 합산된 정보이며, pid값은 이후로 무시된다.
+            let data=statis.lastMin.contact;
+
+            //pr(appData);
+            //pr(cfg.appsAll[appName].appDiv,statis);
+
+            let datas=[];
+            for(let n in data){
+              datas.push([Number(n)+1,data[n]]);
+            }
+
+            let intrudeFlag=false;
+            if(statis.lastMin.blocked[statis.lastMin.blocked.length-1]) intrudeFlag=true;
+            if(Object.keys(statis.lastMin.strange).length){
+              for(let ip in statis.lastMin.strange){
+                if(statis.lastMin.strange[ip][statis.lastMin.blocked.length-1]) intrudeFlag=true;
+              }
+            }
+            //pr(datas);
+
+            if(Array.isArray(data) && appName==cfg.apps.gate.name){//전달되는 정보중 게이트웨이만 따로 선택한다.
+
+              //$('#debug').html(pre(appData));
+              makeGteGr(datas);
+
+              if(intrudeFlag){
+                $('#graph_GATE_con').css('background','red');
+                setTimeout(()=>{$('#graph_GATE_con').css('background','white');},100);
+              }
+
+              let contactSumHour=statis.lastHour.contact.val;
+              $('#contactSumHour').text(nf(contactSumHour));
+
+              let sendingSumHour=contactSumHour;
+              $('#sendingSumHour').text(nf(sendingSumHour));
+
+              let blockedSumHour=0;
+              try{blockedSumHour=statis.lastHour.blocked.val;}catch{}
+              $('#blockedSumHour').text(nf(blockedSumHour));
+
+
+              let contactN=data[data.length-1];//마지막 접속
+
+              $('#gatewayContactN').hide().text(nf(contactN)).fadeIn();
+              if(contactN>5) contactN=5;
+              if(contactN) for(let i=1;i<=contactN;i++){
+                setTimeout(()=>{
+                  cltGteContactDotAct();
+                },190*i);
+              }
+
+              let strange={};
+              let strangeSumHour=0;
+              let strangeStr='<br><br>';
+              try{strange=statis.lastHour.strange;}catch{}
+              if(Object.keys(strange).length){
+                for(let ip in strange){
+                  let strSum=strange[ip].val;
+                  strangeSumHour+=strSum;
+                  strangeStr+='<span style="color:orange;">'+ip+'</span> 무단접근 <span style="color:#ff66ff;">'+nf(strSum)+'</span>건<br>';
+                }
+                $('#strangeSumHour').text(nf(strangeSumHour));
+                $('#strangeSumHourStr').html(strangeStr);
+              }
+
+              let connectSumHour=0;
+
+              /*
+              let clients={};
+              try{clients=statis.lastHour.clients;}catch{}
+              if(Object.keys(clients).length) for(let ip in clients){
+                let cltSum=clients[ip].val;
+                connectSumHour+=cltSum;
+                $('.ip_'+ip.replace(/\./g,'_')).text(nf(cltSum));
+              }*/
+              connectSumHour=contactSumHour-blockedSumHour;
+
+              $('#connectSumHour').text(nf(connectSumHour));
+              //$('#connectSumHourBiz').text(nf(connectSumHour));
+
+            }
+            else if(Array.isArray(data)){//나머지 비지니스서버 전체
+
+              //$('#debug').html(pre(appData));
+              let contactN=data[data.length-1];//마지막 접속
+              bzContactN+=contactN;
+              bzN++;
+
+              if(intrudeFlag){
+                $('#contactSumBiz_'+appName.replace(/\./g,'_')).parent().parent().css('background','red');
+                setTimeout(()=>{$('#contactSumBiz_'+appName.replace(/\./g,'_')).parent().parent().css('background','transparent');},100);
+                //pr(1);
+              }
+
+              try{
+                bzDatas[Number(bizMths[appName])-1]=datas;
+                optsGr[Number(bizMths[appName])-1].label=cfg.appNmToMth[appName]+' : '+nf(contactN);
+              }catch{}
+
+              $('#contactSumBiz_'+appName.replace(/\./g,'_')).hide().text(nf(contactN)).fadeIn();//개별메소드
+
+              //if(appName=="05.BIZ1_httpPOST") pr(statis.lastMin.blocked);
+
+              contactSumHourBiz+=Number(statis.lastHour.contact.val);
+              blockedSumHourBiz+=Number(statis.lastHour.blocked.val);
+
+              if(bzN==bzCnt){//마지막 메소드라면
+                let connectSumHourBiz=0;
+                connectSumHourBiz=contactSumHourBiz-blockedSumHourBiz;
+
+                $('#contactSumBizTotal').hide().text(nf(bzContactN)).fadeIn();//상단비즈합계
+                $('#contactSumHourBiz').text(nf(contactSumHourBiz));//하단접속합계
+                $('#blockedSumHourBiz').text(nf(blockedSumHourBiz));//하단차단합계
+                $('#connectSumHourBiz').text(nf(connectSumHourBiz));//하단차단합계
+                //pr(contactSumHourBiz);
+                //pr(blockedSumHourBiz);
+              }
+
+              setTimeout(()=>{
+                if(contactN>5) contactN=5;
+                if(contactN) for(let i=1;i<=contactN;i++){
+                  setTimeout(()=>{
+                    bizContactDotAct(bizMths[appName]);
+                  },190*i);
+                }
+              },220*Number(rdMaker(1,5)));
+            }
+
+          }
+        }
+        makeBizGr(bzDatas,optsGr,clrsGr);
+      }
+
+    }
+    else onFlag=false;
+  }
+}
+
+//////////////////////////////////////
+ws.onerror=()=>{
+  console.log('error');
+  onFlag=false;
+}
+ws.onclose=()=>{
+  console.log('close');
+  onFlag=false;
+}
+
+setInterval(()=>{
+  runN++;
+  if(runN>=6*60) window.location.reload();
+  if(!onFlag) window.location.reload();
+  onFlag=false;
+},1000*10);
+
+
+
+
+
+//$(document).ready(function(){
+  //- initialize the javascript
+  App.init();
+  //App.pageProfile();
+//});
+</script>
+</body>
+</html>
